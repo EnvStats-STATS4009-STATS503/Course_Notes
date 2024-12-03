@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+  - index.qmd
+  - about.qmd
+website:
+  title: Introduction to Spatial Ecology
+  favicon: UofG_Coat_of_Arms.png
+  navbar:
+    logo: UofG.png
+    left:
+    - href: index.qmd
+      text: Home
+    - about.qmd
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css:
+    - styles.css
+    - include/webex.css
+    toc: true
+    include-after-body: include/webex.js
+editor: visual
