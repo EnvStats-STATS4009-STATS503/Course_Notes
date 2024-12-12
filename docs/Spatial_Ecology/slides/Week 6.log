@@ -1,0 +1,4211 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.21)  3 DEC 2024 20:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"./Week 6.tex"
+(Week 6.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamer.cls
+Document Class: beamer 2024/01/06 v3.71 A class for typesetting presentations
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasemodes
+.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count185
+)
+\beamer@tempbox=\box51
+\beamer@tempcount=\count186
+\c@beamerpauses=\count187
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasedecod
+e.sty
+\beamer@slideinframe=\count188
+\beamer@minimum=\count189
+\beamer@decode@box=\box52
+)
+\beamer@commentbox=\box53
+\beamer@modecount=\count190
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\headdp=\dimen140
+\footheight=\dimen141
+\sidebarheight=\dimen142
+\beamer@tempdim=\dimen143
+\beamer@finalheight=\dimen144
+\beamer@animht=\dimen145
+\beamer@animdp=\dimen146
+\beamer@animwd=\dimen147
+\beamer@leftmargin=\dimen148
+\beamer@rightmargin=\dimen149
+\beamer@leftsidebar=\dimen150
+\beamer@rightsidebar=\dimen151
+\beamer@boxsize=\dimen152
+\beamer@vboxoffset=\dimen153
+\beamer@descdefault=\dimen154
+\beamer@descriptionwidth=\dimen155
+\beamer@lastskip=\skip48
+\beamer@areabox=\box54
+\beamer@animcurrent=\box55
+\beamer@animshowbox=\box56
+\beamer@sectionbox=\box57
+\beamer@logobox=\box58
+\beamer@linebox=\box59
+\beamer@sectioncount=\count191
+\beamer@subsubsectionmax=\count192
+\beamer@subsectionmax=\count193
+\beamer@sectionmax=\count194
+\beamer@totalheads=\count195
+\beamer@headcounter=\count196
+\beamer@partstartpage=\count197
+\beamer@sectionstartpage=\count198
+\beamer@subsectionstartpage=\count199
+\beamer@animationtempa=\count266
+\beamer@animationtempb=\count267
+\beamer@xpos=\count268
+\beamer@ypos=\count269
+\beamer@ypos@offset=\count270
+\beamer@showpartnumber=\count271
+\beamer@currentsubsection=\count272
+\beamer@coveringdepth=\count273
+\beamer@sectionadjust=\count274
+\beamer@toclastsection=\count275
+\beamer@tocsectionnumber=\count276
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseoptio
+ns.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+))
+\beamer@paperwidth=\skip49
+\beamer@paperheight=\skip50
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count277
+\Gm@cntv=\count278
+\c@Gm@tempcnt=\count279
+\Gm@bindingoffset=\dimen156
+\Gm@wd@mp=\dimen157
+\Gm@odd@mp=\dimen158
+\Gm@even@mp=\dimen159
+\Gm@layoutwidth=\dimen160
+\Gm@layoutheight=\dimen161
+\Gm@layouthoffset=\dimen162
+\Gm@layoutvoffset=\dimen163
+\Gm@dimlist=\toks17
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)
+) (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.s
+ty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfuti
+l-common.tex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen164
+\pgfutil@tempdimb=\dimen165
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfuti
+l-latex.def
+\pgfutil@abb=\box60
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs
+.code.tex
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex
+)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.
+sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkey
+s.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkey
+slibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks21
+)))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.cod
+e.tex
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil
+.code.tex
+\pgf@x=\dimen166
+\pgf@xa=\dimen167
+\pgf@xb=\dimen168
+\pgf@xc=\dimen169
+\pgf@y=\dimen170
+\pgf@ya=\dimen171
+\pgf@yb=\dimen172
+\pgf@yc=\dimen173
+\c@pgf@counta=\count280
+\c@pgf@countb=\count281
+\c@pgf@countc=\count282
+\c@pgf@countd=\count283
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathpars
+er.code.tex
+\pgfmath@dimen=\dimen174
+\pgfmath@count=\count284
+\pgfmath@box=\box61
+\pgfmath@toks=\toks22
+\pgfmath@stack@operand=\toks23
+\pgfmath@stack@operation=\toks24
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.basic.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.trigonometric.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.random.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.comparison.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.base.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.round.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.misc.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunc
+tions.integerarithmetics.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc
+.code.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloa
+t.code.tex
+\c@pgfmathroundto@lastzeros=\count285
+)))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore
+.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
+cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
+f
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen175
+\Gin@req@width=\dimen176
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys
+.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfs
+ys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+\pgf@x=\dimen177
+\pgf@y=\dimen178
+\pgf@xa=\dimen179
+\pgf@ya=\dimen180
+\pgf@xb=\dimen181
+\pgf@yb=\dimen182
+\pgf@xc=\dimen183
+\pgf@yc=\dimen184
+\pgf@xd=\dimen185
+\pgf@yd=\dimen186
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count286
+\c@pgf@countb=\count287
+\c@pgf@countc=\count288
+\c@pgf@countd=\count289
+\t@pgf@toka=\toks25
+\t@pgf@tokb=\toks26
+\t@pgf@tokc=\toks27
+\pgf@sys@id@count=\count290
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.
+cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfs
+ys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfs
+ys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfs
+yssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count291
+\pgfsyssoftpath@bigbuffer@items=\count292
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfs
+ysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+re.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code
+.tex)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+repoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen187
+\pgf@picmaxx=\dimen188
+\pgf@picminy=\dimen189
+\pgf@picmaxy=\dimen190
+\pgf@pathminx=\dimen191
+\pgf@pathmaxx=\dimen192
+\pgf@pathminy=\dimen193
+\pgf@pathmaxy=\dimen194
+\pgf@xx=\dimen195
+\pgf@xy=\dimen196
+\pgf@yx=\dimen197
+\pgf@yy=\dimen198
+\pgf@zx=\dimen199
+\pgf@zy=\dimen256
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+repathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen257
+\pgf@path@lasty=\dimen258
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+repathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen259
+\pgf@shorten@start@additional=\dimen260
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+rescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box62
+\pgf@hbox=\box63
+\pgf@layerbox@main=\box64
+\pgf@picture@serial@count=\count293
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+regraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen261
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+retransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen262
+\pgf@pt@y=\dimen263
+\pgf@pt@temp=\dimen264
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+requick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+reobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+repathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+rearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen265
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+reshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen266
+\pgf@sys@shading@range@num=\count294
+\pgf@shadingcount=\count295
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+reimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+reexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box65
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+relayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+retransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+repatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfco
+rerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\xxcolor.
+sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count296
+\XC@countmixins=\count297
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+) (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.st
+y
+Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmd
+s.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.
+sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.st
+y
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefin
+ekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.
+sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacr
+o.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\getti
+tlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.st
+y
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count298
+)
+\@linkdim=\dimen267
+\Hy@linkcounter=\count299
+\Hy@pagecounter=\count300
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.st
+y
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count301
+ (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4060.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4060.
+Package hyperref Info: Option `implicit' set `false' on input line 4060.
+Package hyperref Info: Hyper figures OFF on input line 4177.
+Package hyperref Info: Link nesting OFF on input line 4182.
+Package hyperref Info: Hyper index ON on input line 4185.
+Package hyperref Info: Plain pages OFF on input line 4192.
+Package hyperref Info: Backreferencing OFF on input line 4197.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4425.
+\c@Hy@tempcnt=\count302
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen268
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcal
+c.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count303
+\Field@Width=\dimen269
+\Fld@charsize=\dimen270
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+\Hy@abspage=\count304
+
+
+Package hyperref Message: Stopped early.
+
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfi
+lecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\unique
+counter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaserequi
+res.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasecompa
+tibility.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasefont.
+sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks28
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\sansmat
+haccent.sty
+Package: sansmathaccent 2020/01/31
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile.s
+ty
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile-h
+ook.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlogo.st
+y
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetrans
+lator.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator.
+sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasemisc.
+sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetwosc
+reens.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseoverl
+ay.sty
+\beamer@argscount=\count307
+\beamer@lastskipcover=\skip51
+\beamer@trivlistdepth=\count308
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetitle
+.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasesecti
+on.sty
+\c@lecture=\count309
+\c@part=\count310
+\c@section=\count311
+\c@subsection=\count312
+\c@subsubsection=\count313
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseframe
+.sty
+\beamer@framebox=\box66
+\beamer@frametitlebox=\box67
+\beamer@zoombox=\box68
+\beamer@zoomcount=\count314
+\beamer@zoomframecount=\count315
+\beamer@frametextheight=\dimen271
+\c@subsectionslide=\count316
+\beamer@frametopskip=\skip52
+\beamer@framebottomskip=\skip53
+\beamer@frametopskipautobreak=\skip54
+\beamer@framebottomskipautobreak=\skip55
+\beamer@envbody=\toks29
+\framewidth=\dimen272
+\c@framenumber=\count317
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseverba
+tim.sty
+\beamer@verbatimfileout=\write4
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseframe
+size.sty
+\beamer@splitbox=\box69
+\beamer@autobreakcount=\count318
+\beamer@autobreaklastheight=\dimen273
+\beamer@frametitletoks=\toks30
+\beamer@framesubtitletoks=\toks31
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseframe
+components.sty
+\beamer@footins=\box70
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasecolor
+.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasenotes
+.sty
+\beamer@frameboxcopy=\box71
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetoc.s
+ty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetempl
+ates.sty
+\beamer@sbttoks=\toks32
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseauxte
+mplates.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaseboxes
+.sty
+\bmb@box=\box72
+\bmb@colorbox=\box73
+\bmb@boxwidth=\dimen274
+\bmb@boxheight=\dimen275
+\bmb@prevheight=\dimen276
+\bmb@temp=\dimen277
+\bmb@dima=\dimen278
+\bmb@dimb=\dimen279
+\bmb@prevheight=\dimen280
+)
+\beamer@blockheadheight=\dimen281
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbaselocal
+structure.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/tools\enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks33
+)
+\beamer@bibiconwidth=\skip56
+\c@figure=\count319
+\c@table=\count320
+\abovecaptionskip=\skip57
+\belowcaptionskip=\skip58
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasenavig
+ation.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasenavig
+ationsymbols.tex)
+\beamer@section@min@dim=\dimen282
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetheor
+ems.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks34
+\ex@=\dimen283
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen284
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count321
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count322
+\leftroot@=\count323
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count324
+\DOTSCASE@=\count325
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box74
+\strutbox@=\box75
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen285
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count326
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count327
+\dotsspace@=\muskip17
+\c@parentequation=\count328
+\dspbrk@lvl=\count329
+\tag@help=\toks35
+\row@=\count330
+\column@=\count331
+\maxfields@=\count332
+\andhelp@=\toks36
+\eqnshift@=\dimen286
+\alignsep@=\dimen287
+\tagshift@=\dimen288
+\tagwidth@=\dimen289
+\totwidth@=\dimen290
+\lineht@=\dimen291
+\@envbody=\toks37
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks38
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks39
+\thm@bodyfont=\toks40
+\thm@headfont=\toks41
+\thm@notefont=\toks42
+\thm@headpunct=\toks43
+\thm@preskip=\skip62
+\thm@postskip=\skip63
+\thm@headsep=\skip64
+\dth@everypar=\toks44
+)
+\c@theorem=\count333
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerbasetheme
+s.sty))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerthemedefa
+ult.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerfonttheme
+default.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthem
+edefault.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnerthem
+edefault.sty
+\beamer@dima=\dimen292
+\beamer@dimb=\dimen293
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerouterthem
+edefault.sty))) (beamerthemeGlasgow3.sty
+Package: beamerthemeGlasgow3 
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerthemeRoch
+ester.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerouterthem
+esidebar.sty
+\beamer@sidebarwidth=\dimen294
+\beamer@headheight=\dimen295
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnerthem
+erectangles.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthem
+ewhale.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthem
+eorchid.sty))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodul
+eshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box76
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodul
+eplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfc
+omp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen296
+\pgf@nodesepend=\dimen297
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfc
+omp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthem
+estructure.sty))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerfonttheme
+serif.sty)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\wasysym.sty
+Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
+\symwasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks45
+\inpenc@posthook=\toks46
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfa
+rrows.sty
+Package: pgfarrows 2023-01-15 v3.1.10 (3.1.10)
+
+
+Package pgfarrows Warning: This package is obsolete. pgf.sty will load arrow ma
+nagement automatically on input line 17.
+
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfn
+odes.sty
+Package: pgfnodes 2023-01-15 v3.1.10 (3.1.10)
+
+
+Package pgfnodes Warning: This package is obsolete. pgf.sty will load node mana
+gement automatically on input line 17.
+
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfa
+utomata.sty
+Package: pgfautomata 2023-01-15 v3.1.10 (3.1.10)
+
+
+Package pgfautomata Warning: This package is obsolete. on input line 17.
+
+\pgf@stateradius=\dimen298
+\pgf@mooreradius=\dimen299
+\pgf@doublethickness=\dimen300
+\pgf@statebackoff=\dimen301
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfh
+eaps.sty
+Package: pgfheaps 2023-01-15 v3.1.10 (3.1.10)
+
+
+Package pgfheaps Warning: This package is obsolete. on input line 16.
+
+\pgf@heapx=\dimen302
+\pgf@heapy=\dimen303
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfs
+hade.sty
+Package: pgfshade 2023-01-15 v3.1.10 (3.1.10)
+
+
+Package pgfshade Warning: This package is obsolete. pgf.sty will load shade man
+agement automatically on input line 17.
+
+) (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks47
+\verbatim@line=\toks48
+\verbatim@in@stream=\read3
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\dsfont.st
+y
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+) (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/mfpic\mfpic.sty
+Package: mfpic 2012/12/03 v1.10. Macros for drawing with Metafont/MetaPost.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/mfpic\mfpic.tex
+\mfp@out=\write5
+\mfp@graph=\read4
+\mfp@count=\count334
+\mfp@linetype=\count335
+\mfp@sequence=\count336
+\mfp@toks=\toks49
+\mfp@verbtex=\toks50
+\mfp@fdc=\count337
+\@wholegraph=\box77
+\@textbox=\box78
+\@alltlabels=\box79
+\@backtext=\box80
+\@tlabelstop=\fontdimen 23\mfp@dummy 
+\@tlabelsbot=\fontdimen 24\mfp@dummy 
+\@tlabelsleft=\fontdimen 25\mfp@dummy 
+\@graphright=\fontdimen 26\mfp@dummy 
+\@graphleft=\fontdimen 27\mfp@dummy 
+\@graphtop=\fontdimen 28\mfp@dummy 
+\@graphbot=\fontdimen 29\mfp@dummy 
+\tb@raise=\fontdimen 30\mfp@dummy 
+\tb@moveright=\fontdimen 31\mfp@dummy 
+\tb@totalht=\fontdimen 32\mfp@dummy 
+\tlabel@hadj=\fontdimen 33\mfp@dummy 
+\tlabel@vadj=\fontdimen 34\mfp@dummy 
+\tlabel@sep=\fontdimen 35\mfp@dummy 
+\tlpath@sep=\fontdimen 36\mfp@dummy 
+\mfpicunit=\fontdimen 37\mfp@dummy 
+\@mfpicunit=\fontdimen 38\mfp@dummy 
+\pointsize=\fontdimen 39\mfp@dummy 
+\shadespace=\fontdimen 40\mfp@dummy 
+\polkadotspace=\fontdimen 41\mfp@dummy 
+\hatchspace=\fontdimen 42\mfp@dummy 
+\headlen=\fontdimen 43\mfp@dummy 
+\axisheadlen=\fontdimen 44\mfp@dummy 
+\sideheadlen=\fontdimen 45\mfp@dummy 
+\hashlen=\fontdimen 46\mfp@dummy 
+\dashlen=\fontdimen 47\mfp@dummy 
+\dashspace=\fontdimen 48\mfp@dummy 
+\dotsize=\fontdimen 49\mfp@dummy 
+\griddotsize=\fontdimen 50\mfp@dummy 
+\dotspace=\fontdimen 51\mfp@dummy 
+\symbolspace=\fontdimen 52\mfp@dummy 
+\mfp@scratch=\dimen304
+\mfpframesep=\dimen305
+\mfpframethickness=\dimen306
+\mfpicheight=\dimen307
+\mfpicwidth=\dimen308
+\mfpiccaptionskip=\skip65
+\tl@vpos=\count338
+\tl@hpos=\count339
+\mfp@commentchar=\count340
+))
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/yfonts\yfonts.sty
+Package: yfonts 2019/04/04 v1.4 (WaS&NP)
+Now handling font encoding LY ...
+... no UTF-8 mapping file for font encoding LY
+Now handling font encoding LYG ...
+... no UTF-8 mapping file for font encoding LYG
+LaTeX Info: Composite with undeclared \" in encoding LYG on input line 58.
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/lettrine\lettrine.sty
+File: lettrine.sty 2024-01-20 v2.60 (Daniel Flipo)
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xfp\xfp.sty
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2023-02-22 L3 programming layer (loader) 
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
+ftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count341
+\l__pdf_internal_box=\box81
+))
+Package: xfp 2023-01-16 L3 Floating point unit
+)
+\c@DefaultLines=\count342
+\c@DefaultDepth=\count343
+\DefaultFindent=\dimen309
+\DefaultNindent=\dimen310
+\DefaultSlope=\dimen311
+\DiscardVskip=\dimen312
+\L@lettrine=\box82
+\L@lbox=\box83
+\L@tbox=\box84
+\c@L@lines=\count344
+\c@L@depth=\count345
+\L@Pindent=\dimen313
+\L@Findent=\dimen314
+\L@Nindent=\dimen315
+\L@lraise=\dimen316
+\L@first=\dimen317
+\L@next=\dimen318
+\L@slope=\dimen319
+\L@height=\dimen320
+\L@novskip=\dimen321
+\L@ruleht=\dimen322
+\L@target@ht=\dimen323
+\L@target@dp=\dimen324
+\L@target@tht=\dimen325
+\LettrineWidth=\dimen326
+\LettrineHeight=\dimen327
+\LettrineDepth=\dimen328
+
+Loading lettrine.cfg
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/lettrine\lettrine.cfg)
+\Llist@everypar=\toks51
+) (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/media9\media9.sty
+Package: media9 2024/09/16 v1.29 acrobat-9/X compatible media
+\g_mix_pkgresizeflag_int=\count346
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/media9\pdfbase.sty
+Package: pdfbase 2024/09/16 v0.59 driver independent access to low-level PDF fe
+atures
+\g_pbs_page_int=\count347
+\g_pbs_oc_int=\count348
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/ocgx2\ocgbase.sty
+Package: ocgbase 2024/09/15 v0.24 support package for ocgx2.sty
+)
+\l_mix_poster_box=\box85
+\g_mix_wd_dim=\dimen329
+\g_mix_ht_dim=\dimen330
+\g_mix_dp_dim=\dimen331
+\g_mix_rmcnt_int=\count349
+\l_mix_viewcnt_int=\count350
+\g@mix@page@int=\count351
+\g_mix_resizeflag_int=\count352
+\l_mix_lineno_int=\count353
+\l_mix_pbtn_box=\box86
+\g_mix_mbtncnt_int=\count354
+\mix@btn@dim=\dimen332
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/beamer\multimedia.sty
+Package: multimedia 2012/05/02 ver 0.02
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+\mm@movie=\count355
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/changepage\changepage.
+sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count356
+\cp@tempcnt=\count357
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+0.
+ (C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) (Week 6.aux)
+\openout1 = `"Week 6.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LY/yfrak/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for LYG/ygoth/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=307.28987pt
+* \textheight=244.6939pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=12.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
+kii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count358
+\scratchdimen=\dimen333
+\scratchbox=\box87
+\nofMPsegments=\count359
+\nofMParguments=\count360
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count361
+\MPscratchDim=\dimen334
+\MPnumerator=\count362
+\makeMPintoPDFobject=\count363
+\everyMPtoPDFconversion=\toks53
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
+base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
+cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 70.
+ (Week 6.out) (Week 6.out)
+\@outlinefile=\write6
+\openout6 = `"Week 6.out"'.
+
+\symnumbers=\mathgroup7
+\sympureletters=\mathgroup8
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ptm/m/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/b/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/b/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/phv/m/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/phv/m/n on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 70.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/pcr/m/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/pcr/m/n on input line 70.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/ptm/m/n --> OT1/ptm/b/n on input line 70.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/ptm/m/it --> OT1/ptm/b/it on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/b/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/ptm/b/n --> OT1/ptm/b/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/phv/m/n --> OT1/phv/b/n on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/ptm/m/it --> OT1/ptm/b/it on input line 70.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/pcr/m/n --> OT1/pcr/b/n on input line 70.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
+theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+) (Week 6.nav)
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 7
+0.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+<figures//UoG_keyline.pdf, id=25, 155.58125pt x 49.18375pt>
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 70.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 80.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//Menti-W6-1.png, id=26, 1003.75pt x 1003.75pt>
+File: figures//Menti-W6-1.png Graphic file (type png)
+<use figures//Menti-W6-1.png>
+Package pdftex.def Info: figures//Menti-W6-1.png  used on input line 80.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 8
+0.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 80
+.
+
+(C:\Users\jb538u\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+Overfull \vbox (11.13322pt too high) detected at line 80
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 80.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.80 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.80 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.80 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1{C:/Users/jb538u/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+ <./figures//UoG_keyline.pdf> <./figures//Menti-W6-1.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 93.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 93.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.93 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.93 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.93 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 95.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 95.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.95 \section{Introduction to Spatial Statistics}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.95 \section{Introduction to Spatial Statistics}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.95 \section{Introduction to Spatial Statistics}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 104.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//Menti-W6-1.png Graphic file (type png)
+<use figures//Menti-W6-1.png>
+Package pdftex.def Info: figures//Menti-W6-1.png  used on input line 104.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+
+Overfull \vbox (11.13322pt too high) detected at line 104
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 104.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.104 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.104 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.104 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[4
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 117.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 117.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.117 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.117 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.117 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 130.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 130.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.130 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.130 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.130 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[6
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 157.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//GlasgowMap.png, id=100, 520.44438pt x 403.5075pt>
+File: figures//GlasgowMap.png Graphic file (type png)
+<use figures//GlasgowMap.png>
+Package pdftex.def Info: figures//GlasgowMap.png  used on input line 157.
+(pdftex.def)             Requested size: 153.64493pt x 119.11987pt.
+<figures//GlasgowMap2.png, id=101, 519.44063pt x 404.51125pt>
+File: figures//GlasgowMap2.png Graphic file (type png)
+<use figures//GlasgowMap2.png>
+Package pdftex.def Info: figures//GlasgowMap2.png  used on input line 157.
+(pdftex.def)             Requested size: 153.64493pt x 119.64456pt.
+
+Overfull \vbox (6.62582pt too high) detected at line 157
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 157.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.157 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.157 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.157 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7
+
+ <./figures//GlasgowMap.png> <./figures//GlasgowMap2.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 177.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 177.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.177 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.177 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.177 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[8
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 191.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 191.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.191 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.191 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.191 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[9
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 216.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//GlasgowMap.png Graphic file (type png)
+<use figures//GlasgowMap.png>
+Package pdftex.def Info: figures//GlasgowMap.png  used on input line 216.
+(pdftex.def)             Requested size: 153.64493pt x 119.11987pt.
+<figures//MallorcaBeaches.png, id=131, 575.14874pt x 407.5225pt>
+File: figures//MallorcaBeaches.png Graphic file (type png)
+<use figures//MallorcaBeaches.png>
+Package pdftex.def Info: figures//MallorcaBeaches.png  used on input line 216.
+(pdftex.def)             Requested size: 153.64493pt x 108.8635pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 216.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.216 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.216 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.216 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[10
+
+ <./figures//MallorcaBeaches.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 239.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//Flowers.png, id=143, 350.2686pt x 233.673pt>
+File: figures//Flowers.png Graphic file (type png)
+<use figures//Flowers.png>
+Package pdftex.def Info: figures//Flowers.png  used on input line 239.
+(pdftex.def)             Requested size: 153.64493pt x 102.4991pt.
+<figures//Fires.png, id=144, 317.0244pt x 229.8186pt>
+File: figures//Fires.png Graphic file (type png)
+<use figures//Fires.png>
+Package pdftex.def Info: figures//Fires.png  used on input line 239.
+(pdftex.def)             Requested size: 153.64493pt x 111.38123pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 239.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.239 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.239 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.239 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[11
+
+ <./figures//Flowers.png> <./figures//Fires.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 262.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//EnglandPollution.png, id=155, 347.8596pt x 391.2216pt>
+File: figures//EnglandPollution.png Graphic file (type png)
+<use figures//EnglandPollution.png>
+Package pdftex.def Info: figures//EnglandPollution.png  used on input line 262.
+
+(pdftex.def)             Requested size: 107.55098pt x 120.95508pt.
+<figures//GlasgowResp.pdf, id=156, 844.15375pt x 597.23125pt>
+File: figures//GlasgowResp.pdf Graphic file (type pdf)
+<use figures//GlasgowResp.pdf>
+Package pdftex.def Info: figures//GlasgowResp.pdf  used on input line 262.
+(pdftex.def)             Requested size: 153.64493pt x 108.69989pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 262.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.262 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.262 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.262 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[12
+
+ <./figures//EnglandPollution.png> <./figures//GlasgowResp.pdf>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 265.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 265.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.265 ...tion{Introduction to Geostatistical Data}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.265 ...tion{Introduction to Geostatistical Data}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.265 ...tion{Introduction to Geostatistical Data}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[13
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 278.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 278.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.278 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.278 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.278 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[14
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 292.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 292.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 292.
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 292.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.292 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.292 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.292 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[15
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 304.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 304.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.304 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.304 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.304 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[16
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 321.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 321.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.321 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.321 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.321 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[17
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 349.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//TrentNetwork.png, id=229, 241.8636pt x 222.5916pt>
+File: figures//TrentNetwork.png Graphic file (type png)
+<use figures//TrentNetwork.png>
+Package pdftex.def Info: figures//TrentNetwork.png  used on input line 349.
+(pdftex.def)             Requested size: 98.335pt x 90.49893pt.
+<figures//WaterSampling.png, id=230, 232.7094pt x 154.176pt>
+File: figures//WaterSampling.png Graphic file (type png)
+<use figures//WaterSampling.png>
+Package pdftex.def Info: figures//WaterSampling.png  used on input line 349.
+(pdftex.def)             Requested size: 98.335pt x 65.15105pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 349.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.349 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.349 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.349 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[18
+
+ <./figures//TrentNetwork.png> <./figures//WaterSampling.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 363.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//TrentData.png, id=241, 350.2686pt x 321.8424pt>
+File: figures//TrentData.png Graphic file (type png)
+<use figures//TrentData.png>
+Package pdftex.def Info: figures//TrentData.png  used on input line 363.
+(pdftex.def)             Requested size: 153.64493pt x 141.17401pt.
+
+Overfull \vbox (5.80296pt too high) detected at line 363
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 363.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.363 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.363 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.363 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[19
+
+ <./figures//TrentData.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 373.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//Menti-W6-1.png Graphic file (type png)
+<use figures//Menti-W6-1.png>
+Package pdftex.def Info: figures//Menti-W6-1.png  used on input line 373.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+
+Overfull \vbox (8.16673pt too high) detected at line 373
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 373.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.373 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.373 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.373 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[20
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 386.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//TrentData2.png, id=261, 350.2686pt x 321.8424pt>
+File: figures//TrentData2.png Graphic file (type png)
+<use figures//TrentData2.png>
+Package pdftex.def Info: figures//TrentData2.png  used on input line 386.
+(pdftex.def)             Requested size: 153.64493pt x 141.17401pt.
+
+Overfull \vbox (5.68045pt too high) detected at line 386
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 386.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.386 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.386 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.386 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[21
+
+ <./figures//TrentData2.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 400.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 400.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.400 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.400 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.400 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[22
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 412.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 412.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.412 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.412 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.412 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[23
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 424.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 424.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.424 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.424 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.424 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[24
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 427.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 427.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.427 \section{Variograms}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.427 \section{Variograms}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.427 \section{Variograms}
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[25
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 440.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 440.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.440 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.440 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.440 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[26
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 451.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 451.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.451 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.451 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.451 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[27
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 466.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 466.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.466 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.466 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.466 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[28
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 484.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 484.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.484 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.484 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.484 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[29
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 496.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 496.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.496 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.496 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.496 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[30
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 505.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//Menti-W6-2.png, id=360, 1003.75pt x 1003.75pt>
+File: figures//Menti-W6-2.png Graphic file (type png)
+<use figures//Menti-W6-2.png>
+Package pdftex.def Info: figures//Menti-W6-2.png  used on input line 505.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+
+Overfull \vbox (11.13322pt too high) detected at line 505
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 505.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.505 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.505 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.505 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[31
+
+ <./figures//Menti-W6-2.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 524.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 524.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.524 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.524 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.524 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[32
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 536.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 536.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.536 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.536 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.536 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[33
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 550.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 550.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.550 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.550 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.550 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[34
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 563.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 563.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.563 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.563 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.563 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[35
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 590.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//Variogram.png, id=405, 344.487pt x 308.8338pt>
+File: figures//Variogram.png Graphic file (type png)
+<use figures//Variogram.png>
+Package pdftex.def Info: figures//Variogram.png  used on input line 590.
+(pdftex.def)             Requested size: 138.2795pt x 123.96486pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 590.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.590 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.590 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.590 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[36
+
+ <./figures//Variogram.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 606.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 606.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.606 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.606 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.606 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[37
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 631.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseSamples.png, id=424, 264.99pt x 264.99pt>
+File: figures//MeuseSamples.png Graphic file (type png)
+<use figures//MeuseSamples.png>
+Package pdftex.def Info: figures//MeuseSamples.png  used on input line 631.
+(pdftex.def)             Requested size: 138.2795pt x 138.28079pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 631.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.631 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.631 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.631 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[38
+
+ <./figures//MeuseSamples.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 641.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseRaw.png, id=434, 466.3824pt x 392.1852pt>
+File: figures//MeuseRaw.png Graphic file (type png)
+<use figures//MeuseRaw.png>
+Package pdftex.def Info: figures//MeuseRaw.png  used on input line 641.
+(pdftex.def)             Requested size: 215.10196pt x 180.88013pt.
+
+Overfull \vbox (10.39055pt too high) detected at line 641
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 641.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.641 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.641 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.641 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[39
+
+ <./figures//MeuseRaw.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 650.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//Menti-W6-2.png Graphic file (type png)
+<use figures//Menti-W6-2.png>
+Package pdftex.def Info: figures//Menti-W6-2.png  used on input line 650.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+
+Overfull \vbox (8.16673pt too high) detected at line 650
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 650.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.650 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.650 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.650 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[40
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 660.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseLog.png, id=453, 443.256pt x 374.3586pt>
+File: figures//MeuseLog.png Graphic file (type png)
+<use figures//MeuseLog.png>
+Package pdftex.def Info: figures//MeuseLog.png  used on input line 660.
+(pdftex.def)             Requested size: 215.10196pt x 181.66652pt.
+
+Overfull \vbox (11.37857pt too high) detected at line 660
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 660.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.660 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.660 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.660 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[41
+
+ <./figures//MeuseLog.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 672.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseExample.jpg, id=463, 1177.39874pt x 734.745pt>
+File: figures//MeuseExample.jpg Graphic file (type jpg)
+<use figures//MeuseExample.jpg>
+Package pdftex.def Info: figures//MeuseExample.jpg  used on input line 672.
+(pdftex.def)             Requested size: 307.28987pt x 191.75792pt.
+
+Overfull \vbox (16.00578pt too high) detected at line 672
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 672.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.672 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.672 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.672 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[42
+
+ <./figures//MeuseExample.jpg>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 687.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 687.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.687 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.687 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.687 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[43
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 701.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseVariogram.png, id=482, 362.3136pt x 361.35pt>
+File: figures//MeuseVariogram.png Graphic file (type png)
+<use figures//MeuseVariogram.png>
+Package pdftex.def Info: figures//MeuseVariogram.png  used on input line 701.
+(pdftex.def)             Requested size: 184.3758pt x 183.88356pt.
+
+Overfull \vbox (22.63142pt too high) detected at line 701
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 701.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.701 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.701 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.701 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[44
+
+ <./figures//MeuseVariogram.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 713.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 713.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.713 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.713 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.713 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[45
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 735.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseBinned.jpg, id=503, 704.6325pt x 631.35875pt>
+File: figures//MeuseBinned.jpg Graphic file (type jpg)
+<use figures//MeuseBinned.jpg>
+Package pdftex.def Info: figures//MeuseBinned.jpg  used on input line 735.
+(pdftex.def)             Requested size: 144.4266pt x 129.40048pt.
+<figures//MeuseEmpirical.png, id=504, 377.7312pt x 287.1528pt>
+File: figures//MeuseEmpirical.png Graphic file (type png)
+<use figures//MeuseEmpirical.png>
+Package pdftex.def Info: figures//MeuseEmpirical.png  used on input line 735.
+(pdftex.def)             Requested size: 162.86325pt x 123.81067pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 735.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.735 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.735 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.735 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[46
+
+ <./figures//MeuseBinned.jpg> <./figures//MeuseEmpirical.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 753.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 753.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.753 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.753 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.753 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[47
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 766.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 766.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.766 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.766 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.766 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[48
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 773.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//VariogramModels.jpg, id=530, 1052.93375pt x 780.9175pt>
+File: figures//VariogramModels.jpg Graphic file (type jpg)
+<use figures//VariogramModels.jpg>
+Package pdftex.def Info: figures//VariogramModels.jpg  used on input line 773.
+(pdftex.def)             Requested size: 307.28987pt x 227.90208pt.
+
+Overfull \vbox (14.36151pt too high) detected at line 773
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 773.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.773 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.773 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.773 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[49
+
+ <./figures//VariogramModels.jpg>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 781.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//VariogramFormulae.jpg, id=540, 1195.46625pt x 705.63625pt>
+File: figures//VariogramFormulae.jpg Graphic file (type jpg)
+<use figures//VariogramFormulae.jpg>
+Package pdftex.def Info: figures//VariogramFormulae.jpg  used on input line 781
+.
+(pdftex.def)             Requested size: 307.28987pt x 181.38304pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 781.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.781 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.781 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.781 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[50
+
+ <./figures//VariogramFormulae.jpg>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 797.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 797.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.797 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.797 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.797 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[51
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 811.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeuseModel.png, id=557, 431.211pt x 261.6174pt>
+File: figures//MeuseModel.png Graphic file (type png)
+<use figures//MeuseModel.png>
+Package pdftex.def Info: figures//MeuseModel.png  used on input line 811.
+(pdftex.def)             Requested size: 261.19826pt x 158.47661pt.
+
+Overfull \vbox (20.05865pt too high) detected at line 811
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 811.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.811 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.811 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.811 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[52
+
+ <./figures//MeuseModel.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 825.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 825.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.825 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.825 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.825 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[53
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 839.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 839.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.839 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.839 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.839 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[54
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 851.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 851.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.851 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.851 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.851 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[55
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 865.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 865.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.865 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.865 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.865 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[56
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 889.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+<figures//MeusePoints.png, id=600, 343.0416pt x 342.078pt>
+File: figures//MeusePoints.png Graphic file (type png)
+<use figures//MeusePoints.png>
+Package pdftex.def Info: figures//MeusePoints.png  used on input line 889.
+(pdftex.def)             Requested size: 153.64493pt x 153.21335pt.
+<figures//MeuseSurface.png, id=601, 376.2858pt x 358.941pt>
+File: figures//MeuseSurface.png Graphic file (type png)
+<use figures//MeuseSurface.png>
+Package pdftex.def Info: figures//MeuseSurface.png  used on input line 889.
+(pdftex.def)             Requested size: 153.64493pt x 146.5588pt.
+
+Overfull \vbox (21.49472pt too high) detected at line 889
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 889.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.889 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.889 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.889 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[57
+
+ <./figures//MeusePoints.png> <./figures//MeuseSurface.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 913.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//MeuseSurface.png Graphic file (type png)
+<use figures//MeuseSurface.png>
+Package pdftex.def Info: figures//MeuseSurface.png  used on input line 913.
+(pdftex.def)             Requested size: 153.64493pt x 146.5588pt.
+<figures//MeuseErrors.png, id=612, 343.0416pt x 327.1422pt>
+File: figures//MeuseErrors.png Graphic file (type png)
+<use figures//MeuseErrors.png>
+Package pdftex.def Info: figures//MeuseErrors.png  used on input line 913.
+(pdftex.def)             Requested size: 153.64493pt x 146.52376pt.
+
+Overfull \vbox (15.25414pt too high) detected at line 913
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 913.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.913 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.913 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.913 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[58
+
+ <./figures//MeuseErrors.png>]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 926.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 926.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.926 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.926 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.926 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[59
+
+]
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 935.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+File: figures//Menti-W6-2.png Graphic file (type png)
+<use figures//Menti-W6-2.png>
+Package pdftex.def Info: figures//Menti-W6-2.png  used on input line 935.
+(pdftex.def)             Requested size: 220.82568pt x 220.82568pt.
+
+Overfull \vbox (10.9316pt too high) detected at line 935
+ []
+
+File: figures//UoG_keyline.pdf Graphic file (type pdf)
+<use figures//UoG_keyline.pdf>
+Package pdftex.def Info: figures//UoG_keyline.pdf  used on input line 935.
+(pdftex.def)             Requested size: 54.62708pt x 17.26935pt.
+! Undefined control sequence.
+<argument> ...0}{1}{}{}{\l_tmpa_box }\tl_const:Ne 
+                                                  \g_pbs_blank_xform_tl {\pb...
+l.935 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...}\tl_const:Ne \g_pbs_blank_xform_tl 
+                                                  {\pbs_pdflastxform: }
+l.935 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...AP <</N <</On \g_pbs_blank_xform_tl 
+                                                  >>>>/AS/On/T (pbs@ARFix@\i...
+l.935 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[60
+
+]
+\tf@nav=\write7
+\openout7 = `"Week 6.nav"'.
+
+\tf@toc=\write8
+\openout8 = `"Week 6.toc"'.
+
+\tf@snm=\write9
+\openout9 = `"Week 6.snm"'.
+
+ [61] (Week 6.aux)
+
+LaTeX Warning: Temporary extra page added at the end. Rerun to get it removed.
+
+Package rerunfilecheck Info: File `"Week 6".out' has not changed.
+(rerunfilecheck)             Checksum: 8C483054E31A610AFF9517866E567430;542.
+ ) 
+Here is how much of TeX's memory you used:
+ 26317 strings out of 476334
+ 527228 string characters out of 5787499
+ 1860382 words of memory out of 5000000
+ 46004 multiletter control sequences out of 15000+600000
+ 560371 words of font info for 136 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 128i,17n,122p,385b,571s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C
+:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmb
+x10.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmex10.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jb538u/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/jb538u/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/jb538u/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jb5
+38u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/urw/courier/ucrr8a.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fonts/
+type1/urw/helvetic/uhvr8a.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/fo
+nts/type1/urw/times/utmb8a.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX/f
+onts/type1/urw/times/utmbi8a.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTeX
+/fonts/type1/urw/times/utmr8a.pfb><C:/Users/jb538u/AppData/Local/Programs/MiKTe
+X/fonts/type1/urw/times/utmri8a.pfb>
+Output written on "Week 6.pdf" (61 pages, 7149539 bytes).
+PDF statistics:
+ 744 PDF objects out of 1000 (max. 8388607)
+ 124 named destinations out of 1000 (max. 500000)
+ 679 words of extra memory for PDF output out of 10000 (max. 10000000)
+

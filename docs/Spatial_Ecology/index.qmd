@@ -1,11 +1,557 @@
 ---
-title: "Spatial_Ecology"
+title: ""
+bibliography: references.bib
+editor_options: 
+  chunk_output_type: console
 ---
 
-This is a Quarto website.
+# The Importance of Space in Ecology and Conservation
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The term **Ecology** was first coined by the naturalist Ernest Haeckel in 1866, defining it as the scientific study of the relationships between organisms and their environment. A more contemporary definition describes ecology as:
+
+*"The scientific study of the distribution and abundance of organisms and the interactions that determine distribution and abundance"* [@begon2021ecology]*.*
+
+Statistical ecology builds upon this foundation by integrating mathematical models with associated measures of probabilistic uncertainty to study ecological systems [@Gilbert2024]. Space is inherent to all ecological processes, influencing dynamics such as migration, dispersal, and species interactions. **Spatial ecology** aims to understand how these processes shape species distributions and dynamics across space. Its focus on the direct and indirect effects of space on biodiversity and ecosystem functioning has given rise to multiple subdisciplines within the life sciences, including landscape ecology, epidemiology, and animal movement, etc (@fig-1).
+
+![Spatial subdisciplines derived from ecological disciplines using a spatial ecology framework (taken from [@fletcher2018spatial].](spat_ecol.png){#fig-1 fig-align="center" width="325"}
+
+To fully understand the relationship between space and ecological patterns and processes, the integration of statistical models is essential. These models not only help explain spatial dynamics but also provide the necessary framework to address key aspects of conservation. This includes mapping biodiversity and ecosystem services, providing insight into mitigating the impacts of environmental change, supporting effective prioritization of conservation areas, and establishing the foundation for developing tools and models that guide conservation effortssuch as the *global goal for halting biodiversity loss* proposed by the Nature Positive initiative (@fig-global)
+
+![A measurable global goal for nature. Source: [@locke2021nature]](slides/figures/global%20goal.png){#fig-global fig-align="center" width="541"}
+
+The emergence of modeling frameworks for spatial ecology has been facilitated by the rise of new technologies and data collection systems like aerial photographs, GPS tracking, satellite imagery, and biologging devices.
+
+[![GPS tags for survey and monitoring waterbirds movement](slides/figures/gps-tracking.jpg){fig-align="center" width="279"}](https://www.abpmer.co.uk/)
+
+Furthermore, incorporating space into statistical modeling approaches has driven the formulation of novel ecological questions and the development of new analytical methods to address them.
+
+However, before jumping into modelling complex ecological processes we need to quantify the spatial patterns of such processes.
+
+# Quantifying Spatial Patterns in Ecological Data
+
+## Spatial scales
+
+*Scales* describe the spatial and temporal dimensions at which an ecological process occurs. Many ecological patterns and processes occur at different spatial and temporal scales and thus, understanding and quantifying these scales is essential to provide an accurate intrepretation of the ecological processes we aimed to study.
+
+The spatial scale is often described by the *grain* (a.k.a. *spatial* *resolution*) and the *extent*. The former refersto the finest spatial unit of measurement for a given process, whereas the later refer to the total length or area of the study. The ratio between these two measurements is knows as *Scope*.
+
+There is typically a trade-off between the grain and the extent, mainly due to practicality. For example, it can be costly to work at large extents while collecting data at fine grain sizes. But also, some of the processes occurring at these finer scales become simply noise when we look at systems at larger extents.
+
+In spatial ecology, the scale at which an ecological process occur can have a major impact on the interpretation of our analysis. For example, @fig-scales_isopods shows the locations of isopods burrows in the northern Negev Desert, Israel. If we look at the complete data set we can see a strong aggregation pattern. However, when focusing on two subsets with smaller extents, the observed patterns shift, ranging from random to aggregated.
+
+![Isopod burrow data with n=2015 individual burrows in a study eare with an extent of 75 600 m$^2$. Inset maps show two subsets with reduced extent of 6.4 m$^2$ each. Source: [@dungan2002]](slides/figures/isopods.png){#fig-scales_isopods fig-align="center" width="436"}
+
+The spatial scale of analysis is crucial in ecological and environmental studies, as it can significantly influence the patterns we observe and the conclusions we draw. For example, changing the grain of the study (while holding the extent constant) can introduce bias and uncertainty in the observed ecological patterns. This is because aggregated data can have different properties than the sample data from which they were derived, i.e. the assumption that a relationships exists one level of aggregation does not necesarilly hold at another level of aggregation, particularly in situations where data are aggregated into irregular sampling units (modifiable areal unit problem -MAUP). This is illustrated in figure @fig-ecol_fall, where two variables (v1 and v2) recorded on uniform point level show little correlation. As we aggregate the values on a larger grain size, we get a slight increase in the slope and $R^2$ values. Now if we aggregate the same point data using the non-homogeneous aggregation scheme now v1 and v2 become highly correlated.
+
+![Plots of variables v1 and v2 for each individual in the survey and summarized using a uniform and non-uniform aggregation scheme](slides/figures/ecol_fall.png){#fig-ecol_fall fig-align="center" width="463"}
+
+Thus, if we the data we had at hand came from the non-uniform aggregation scheme, it would be wrong to assume that a correlation also exists on an individual-level data. In ecology this is knows as *ecological fallacy,* which arises when incorrect inferences about individual sample units are made based on aggregated data.
+
+For example, aggregating species abundance (counts) data at a national scale might obscure local hotspots of biodiversity observed at finer scales. Results depend on how the areas are divided, even if the total number of zones remains constant. Different arrangements of the same spatial units can lead to different conclusions. When individual-level data is grouped, the variability within units is lost, which can mask finer-scale patterns or exaggerate certain trends.As consequence, conservation strategies should consider the spatial scale for effective conservation decisions.
+
+## Multiscale modelling
+
+Considering the significant influence of scale on ecological patterns and the conservation challenges it imposes, how can spatial scale be effectively integrated into study design?
+
+Multiscale modeling has become a popular approach to evaluate environmental conditions across various scales by modifying the grain or extent to identify which scale best explains a given ecological pattern. A common approach involves analysing multiple extents, such as buffers around habitat patches, to assess their influence on the ecological process of interest. The goal is to interpret the covariate effects at different levels in an organizational hierarchy.
+
+![Illustration of spatial multiscale scenario where the (a) extend and/or (b) grain of two environmental conditions varied. Source: [@fletcher2018spatial]](slides/figures/multiscale_ex.png){#fig-multi fig-align="center" width="378"}
+
+### Case Study: Measuring the **scale effect of land cover on the distribution of** *Plestiodon fasciatus*
+
+In this example we will use the National Land Cover Database (NLCD) and the presence/absence records of *Plestiodon fasciatus* (a.k.a. five-lined skink), a common lizard sampled with drift-fence arrays in managed forests in the Southeast USA.
+
+The NLCD is a land cover data with a grain of $30 \times 30~m$ that classifies land cover into 20 categories. For this example we will only look at forest land-cover data represented by landscape types 41, 42 and 43 (deciduous, evergreen and mixed forests respectively) (@fig-multiscale_CS).
+
+*P. fasciatus* lizards were sampled with drift-fences at 78 sites. At each site, two drift fences were set up along two $200 \times 10~ m$ transects within forest patches (equivalent to 4 ha), with one transect located along the edge and a second located in the interior of the sites. Drift fences were opened for 3 days each month, April to July, 2013--2015. The presence/absence data of *P. fasciatus* is shown in @fig-multiscale_CS.
 
 ```{r}
-1 + 1
+#| echo: false
+#| message: false
+#| fig-width: 5
+#| fig-align: center
+#| fig-height: 5
+#| label: fig-multiscale_CS
+#| fig-cap: "NLCD landscape categories and sites were the presence or absence of the five-lined skink was recorded".
+
+library(terra)
+library(tidyterra)
+library(sf)
+library(scico)
+library(viridis)
+library(cowplot)
+library(webexercises)
+library(dplyr)
+library(tidyr)
+library(tidymodels)
+# raster
+nlcd_terr = rast("nlcd_landsat.tif")
+
+# species records
+
+reptiles <- sf::st_read("reptiledata", crs  = crs(nlcd_terr))
+reptiles_presabs = read.csv("reptiles_flsk.csv")
+reptiles <- merge(reptiles,reptiles_presabs,by="site")
+
+
+p1 <- ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr,alpha=0.85)+
+  scale_fill_viridis_d(name="Landscape type")+
+  geom_sf(data=reptiles,aes(color=factor(pres)),size=1.5)+
+  scale_color_manual(name="Status",values=c("black","tomato"),labels=c("Absence","Presence")) 
+
+
+ggdraw(p1)+
+  draw_image( "lizard.png", scale = 0.5,vjust = 0.2,hjust = 0.2)
+  
+
+```
+
+In R, we can inspect different aspects of the raster data (i.e. the landsat data). For example, the extent, resolution (grain size) and number of cells can be computed using the `terra` package as follows:
+
+```{r}
+#| message: false
+#| warning: false 
+library(terra)
+
+# read the raster
+nlcd_terr = rast("nlcd_raster.tif")
+
+ext(nlcd_terr) # extent
+res(nlcd_terr) # grain size
+ncell(nlcd_terr) # number of cells
+```
+
+::: callout-tip
+## {{bi question-octagon color = #6dc83c}} Question
+
+Why might we want to change the grain of the landcover data in this example?
+
+`r hide("see answer")`
+
+A primary reason is to translate the map to a resolution of data being collected in the ﬁeld that we are using for making inferences. In this example the resolution of the data being collected is 40,000 m$^2$ (since there are two transects of 2 ha each) and the raster resolution is 900 m$^2$ (see data description). Thus, if we wish to make predictions of species--environment relationships, we may want our map grain to reﬂect the sampling grain. Consequently, we would want the map to have an approximate 200 x 200 m grain. We can do this in R as follows:
+
+```{r}
+#| eval: false
+#| code-fold: false
+forest200 <- terra::aggregate(nlcd_terr, fact = 7, fun = modal, na.rm=T)
+
+```
+
+Note that the aggregation factor is the ratio of the target resolution (200 m) and the current one (30 m) which is $\approx 7$ . Since we are working with a categorical raster we use the modal argument to determine the most common category within the group of cells that are being combined into a single one.
+:::
+
+Since we are only interested in measuring the scale effects of forest land-cover data on the distribution of *P. fasciatus*, we can reclassify the nlcd layer into a binary forest/non-forest layer by pooling together land-cover categories 41,42 and 43, i.e., our new categorical landscape variable for the forest type on the $i$th cell is computed as:
+
+$$
+\text{Forest}_i = \begin{cases} 1 & \text{if land-cover type } \in 41,42,43  \\ 0 & \text{otherwise}
+\end{cases}
+$$
+
+::: panel-tabset
+# Reclassified nlcd landsat data
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 4
+#| fig-height: 4
+#| fig-align: center
+#| fig-cap: "Binary NCLD raster where yellow indicates forest landscape types."
+
+
+nlcd_terr_f = nlcd_terr
+values(nlcd_terr_f) <- ifelse(values(nlcd_terr_f)  %in% 41:43,"forest","other")
+forest200 <- terra::aggregate(nlcd_terr_f, fact = 7, fun = modal, na.rm=T)
+
+
+p <- as.polygons(nlcd_terr_f)
+
+p_sf = p %>% st_as_sf()
+
+st_write(p_sf, "forest.shp")
+
+forest_types = levels(nlcd_terr_f)[[1]] %>%
+  mutate( nlcd2011SE = case_when(
+  nlcd2011SE %in% 41:43 ~ 1,
+  .default = 0
+))
+
+levels(nlcd_terr_f) <- forest_types
+
+ggplot()+ tidyterra:::geom_spatraster(data=nlcd_terr_f)+
+  scale_fill_viridis(name="Landscape type") +
+  theme(legend.position = "none")
+```
+
+# R-Code
+
+```{r}
+#| code-fold: show
+#| eval: false
+
+library(dplyr)
+nlcd_terr_f = nlcd_terr
+
+forest_types = levels(nlcd_terr)[[1]] %>%
+  mutate( nlcd2011SE = case_when(
+  nlcd2011SE %in% 41:43 ~ 1,
+  .default = 0
+))
+
+levels(nlcd_terr) <- forest_types
+
+```
+:::
+
+We can now take the coordinates of sample locations and calculate the % of coverage of forest landscape type surrounding each point by looking at different extents. To do so, we can create buffer of different sizes centered at each observed location. @fig-buffer_ex demonstrates the workflow we are following to determine the % of forest coverage for two different buffer sizes.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-height: 5
+#| fig-width: 10
+#| fig-cap: " Illustration of determining the amount of habitat surrounding a point. For a given study extent (A), the habitat of interest is isolated (B). Two buffers of 1 km and 5km are placed surrounding a point (C) and the number of cells (pixels) that contain the habitat is summed and multiplied by the area of each cell"
+#| label: fig-buffer_ex
+
+nlcd_terr_c = crop( nlcd_terr, extent( 841279.4, 851279.4, 916444.95, 926444.95))
+nlcd_terr_cf = crop( nlcd_terr_f, extent( 841279.4, 851279.4, 916444.95, 926444.95))
+
+buffer_site_5km = sf::st_buffer(reptiles,5000)
+buffer_site_1km = sf::st_buffer(reptiles,1000)
+
+p1 = ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr_c,alpha=0.7)+
+  scale_fill_viridis_d()+
+  geom_sf(data=reptiles[1,],size=5,color="black",fill="tomato",shape=22)+
+  theme(legend.position = "none")
+
+p2 = ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr_cf)+
+   scale_fill_viridis()+
+   geom_sf(data=reptiles[1,],size=5,color="black",fill="tomato",shape=22)+
+  theme(legend.position = "none")
+
+p3 = ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr_cf)+
+   scale_fill_viridis(guide = "none")+
+   geom_sf(data= buffer_site_5km[1,],alpha=0.25,aes(color="5 km"),fill="pink")+
+  geom_sf(data= buffer_site_1km[1,],alpha=0.25,aes(color="1 km"),fill="skyblue")+
+   geom_sf(data=reptiles[1,],size=5,color="black",fill="tomato",shape=22)+
+  scale_color_manual(name="Buffer size",values=c("darkred","darkblue"))+
+  theme(legend.position = "none")
+
+cowplot::plot_grid(p1,p2,p3,ncol = 3,labels = "AUTO") 
+  
+```
+
+In R, we can use the `st_buffer` function from the `sf` package to calculate the buffers of different sizes centered at each observed data point. To achieve this we first need to create an `sf` spatial object (sf stands for simple feature) that will hold information about our data as well as the spatial information such as coordinates and CRS.
+
+```{r}
+#| eval: false
+#| code-fold: show
+
+# read the data
+reptiles <- read.csv("reptiles_study.csv")
+
+
+# create an sf object with appropiate CRS
+reptiles <- reptiles %>% 
+  st_as_sf(coords = c("coords_x1","coords_x2"),
+           crs  = crs(nlcd_terr))
+
+# Create 1km and 5 km buffers
+buffer_site_1km = sf::st_buffer(reptiles,1000)
+buffer_site_5km = sf::st_buffer(reptiles,5000)
+
+
+```
+
+We can now extract the values of each raster cell within a buffer using the `extract` function from the `terra` library. This function will receive (1) a raster layer and (2) a `sf` object (the buffer we crated in this case). Then we can `summarise` the information within each buffer. Since our binary raster contains only 0s and 1s, we can simply take the mean value per buffer. We can use the `summarise` function from the `dpylr` library to compute the mean for each buffer, note that each buffer unique identifier is contained in the `ID` column created after calling the `extract` function:
+
+```{r}
+#| eval: false
+#| code-fold: show
+
+library(dplyr)
+
+f1km = buffer_site_1km %>%
+  extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_5km=mean(nlcd2011SE),.by= ID) 
+
+f5km = buffer_site_5km %>%
+  extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_5km=mean(nlcd2011SE),.by= ID)
+
+```
+
+The above code shows calculations for 1 km and 5km , but we also ran this for 500m , 2km , 3km , and 4 km buffers (@fig-scatter_forest). It is not surprising that similar scales tends to be highly correlated given the nested structure of the buffers (larger buffer size include area considered at smaller buffer sizes).
+
+```{r}
+#| echo: false
+#| eval: false
+
+
+buffer_site_500m = sf::st_buffer(reptiles,500)
+buffer_site_1km = sf::st_buffer(reptiles,1000)
+buffer_site_2km = sf::st_buffer(reptiles,2000)
+buffer_site_3km = sf::st_buffer(reptiles,3000)
+buffer_site_4km = sf::st_buffer(reptiles,4000)
+buffer_site_5km = sf::st_buffer(reptiles,5000)
+
+f500m = buffer_site_500m %>%
+  terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_500m=mean(nlcd2011SE),.by= ID) 
+
+f1km = buffer_site_1km %>%
+   terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_1km=mean(nlcd2011SE),.by= ID) 
+
+f2km = buffer_site_2km %>%
+   terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_2km=mean(nlcd2011SE),.by= ID) 
+
+f3km = buffer_site_3km %>%
+   terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_3km=mean(nlcd2011SE),.by= ID)
+
+f4km = buffer_site_4km %>%
+  terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_4km=mean(nlcd2011SE),.by= ID)
+
+f5km = buffer_site_5km %>%
+   terra::extract(nlcd_terr_f,.) %>%
+  summarise(forest_cov_5km=mean(nlcd2011SE),.by= ID)
+
+library(tidyverse)
+
+buffer_data = list(f500m,f1km,f2km,f3km,f4km,f5km) %>% reduce(full_join,by="ID") %>%
+  mutate(pres=reptiles$pres,
+         x = st_coordinates(reptiles)[,1],
+         y = st_coordinates(reptiles)[,2]) 
+
+write.csv(buffer_data,file = "buffer_data.csv",row.names = F)
+
+```
+
+![Forest cover surrounding sampling locations, calculated at different scales](forest_cov.png){#fig-scatter_forest fig-align="center"}
+
+```{r}
+#| echo: false
+#| eval: false
+buffer_data <- read.csv("buffer_data.csv",h=T)
+
+library(GGally)
+
+bplot = buffer_data %>% 
+  rename_with(~str_remove(., 'forest_cov_')) %>%
+ggpairs(columns = 2:7, 
+        upper  = list(continuous = "blank"),
+        diag = list(continuous = "blankDiag"),
+        switch = 'both',
+        progress = F
+)+ labs(x="Forest cover surrounding sample location (%)",y="Forest cover surrounding sample location (%)")
+
+
+inset=   ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr_cf,alpha=0.65)+
+    scale_fill_distiller(type = "seq",direction = 1,
+                        palette = "Greys",guide = "none")+
+  geom_sf(data= buffer_site_5km[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data= buffer_site_4km[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data= buffer_site_3km[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data= buffer_site_2km[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data= buffer_site_1km[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data= buffer_site_500m[1,],alpha=0.05,linewidth=1)+
+  geom_sf(data=reptiles[1,],size=5,color="black",fill="tomato",shape=22)
+
+
+
+```
+
+Now we can conduct a **Buffer analysis** to relate these differences in grain and extent and try to identify the scale effect of forest cover on species occurrence. Since our response is a binary outcome of whether *P. fasciatus* is present or not we can use a Generalised Linear Model (GLM) framework, namely a logistic regression of the form:
+
+```{=tex}
+\begin{align}
+y_i &\sim \mathrm{Bernoulli}(p_i) \nonumber \\
+\log \left(\frac{p_i}{1 - p_i} \right) &= \alpha+\beta \times \text{forest}_i, \nonumber
+\end{align}
+```
+where $p_i$ is the probability of presence of a species at location $i$, $\alpha$ is the intercept (baseline probability of presence) and $\beta$ is the coefﬁcient for the relationship of forest cover surrounding locations. Recall that the log-likelihood of a logistic regression model is given by:
+
+$$
+L(\theta|x) = \sum_i y_i \log(p_i) + (1-y_i
+)\log(1-p_i)$$
+
+We ﬁt this model to the data and contrast different models based on measurements of forest cover at different grains and local extents (buffer sizes). We can then identify the spatial scale that provide the best goodness of fit metric, or the one that explain must of the variance or the one that shows the best predictive performance.
+
+Generalized linear models, like logistic regression R with the `glm` function. For instance, a logistic calculated at the 1 km scale can be ﬁt as:
+
+```{r}
+#| code-fold: show
+glm(pres~f1km$forest_cov_1km ,family="binomial",data=reptiles)
+
+```
+
+The left hand side of @fig-buffer_results shows the log-likelihoods based on ﬁtting different models to the data of each individual buffer. On the rights hand side of @fig-buffer_results, the parameter estimates for the effect of forest cover on the probability of *P. fasciatus* occurrence using different sized buffers. In this case, we ﬁnd that, based on the log-likelihoods of the models, forest cover within 5 km is most supported by the data
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-width: 5
+#| fig-height: 7
+#| fig-align: center
+#| fig-cap: "Scale of effect of forest cover on the occurrence of the ﬁve-lined skink based on a buffer analysis"
+#| label: fig-buffer_results
+
+
+library(patchwork)
+
+pres.500km<-glm(pres~forest_cov_500m ,family="binomial",data=buffer_data)
+pres.1km<-glm(pres~forest_cov_1km ,family="binomial",data=buffer_data)
+pres.2km<-glm(pres~forest_cov_2km  ,family="binomial",data=buffer_data)
+pres.3km<-glm(pres~forest_cov_3km  ,family="binomial",data=buffer_data)
+pres.4km<-glm(pres~forest_cov_4km ,family="binomial",data=buffer_data)
+pres.5km<-glm(pres~forest_cov_5km  ,family="binomial",data=buffer_data)
+
+library(sjPlot)
+
+p2 <- plot_models(pres.500km, 
+            pres.1km, 
+            pres.2km,
+            pres.3km,
+            pres.4km,
+            pres.5km,
+            show.values = TRUE,
+            transform = NULL)+
+  scico::scale_color_scico_d(palette = "roma")+theme(legend.position = "none")+labs(y=expression(beta))
+
+df_lokLik <- data.frame(
+rbind(
+glance(pres.500km)[3],
+glance(pres.1km)[3],
+glance(pres.2km)[3],
+glance(pres.3km)[3],
+glance(pres.4km)[3],
+glance(pres.5km)[3]),
+FC = 1:6)
+
+p1= ggplot(df_lokLik,aes(y=logLik,x= FC)) + geom_line()+
+  geom_point() +
+ scale_x_continuous(breaks = 1:6,
+    labels = c("500m","1km","2km","3km","4km","5km"))+
+  labs(x="Forest cover scale",y="Log-Likelihood")
+
+p1+p2
+
+```
+
+This might lead, as we will see shortly, issues with identifying relevant spatial scales for species responses.
+
+The *scale effect* can be considered as the scale at which most variability is explained.
+
+```{r}
+
+
+forest_types = levels(nlcd_terr)[[1]] %>%
+  mutate( nlcd2011SE = case_when(
+  nlcd2011SE %in% 41:43 ~ 1,
+  .default = 0
+))
+
+levels(nlcd_terr) <- forest_types
+
+
+reptiles <- sf::st_read("reptiledata", crs  = crs(nlcd_terr))
+reptiles_presabs = read.csv("reptiles_flsk.csv")
+reptiles <- merge(reptiles,reptiles_presabs,by="site")
+
+
+buffer_site_500m = sf::st_buffer(reptiles,500)
+buffer_site_1km = sf::st_buffer(reptiles,1000)
+buffer_site_2km = sf::st_buffer(reptiles,2000)
+buffer_site_3km = sf::st_buffer(reptiles,3000)
+buffer_site_4km = sf::st_buffer(reptiles,4000)
+buffer_site_5km = sf::st_buffer(reptiles,5000)
+
+
+f500m = buffer_site_500m %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_500m=mean(nlcd2011SE),.by= ID) 
+
+f1km = buffer_site_1km %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_5km=mean(nlcd2011SE),.by= ID) 
+
+f2km = buffer_site_2km %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_2km=mean(nlcd2011SE),.by= ID) 
+
+f3km = buffer_site_3km %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_3km=mean(nlcd2011SE),.by= ID)
+
+f4km = buffer_site_4km %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_4km=mean(nlcd2011SE),.by= ID)
+
+f5km = buffer_site_5km %>%
+  extract(nlcd_terr,.) %>%
+  summarise(forest_cov_5km=mean(nlcd2011SE),.by= ID)
+
+
+sample_lsm(nlcd_terr, y = reptiles[1:2,], size = 5000, 
+           level = "landscape",)
+
+forest200 <- terra::aggregate(nlcd_terr, fact = 7, fun = modal, na.rm=T)
+
+
+tst = extract(nlcd_terr,buffer_site_5km)  
+tst$nlcd2011SE %>% mean(.,na.rm=T)
+
+nlcd_terr_c = crop( nlcd_terr, extent( 841279.4, 851279.4, 916444.95, 926444.95))
+
+ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr_c)+
+    geom_sf(data= buffer_site_5km[1,],alpha=0.05,color="red")+
+  geom_sf(data= buffer_site_1km[1,],alpha=0.05,color="purple")+
+  geom_sf(data=reptiles[1,])
+
+ggplot()+
+  tidyterra::geom_spatraster(data=nlcd_terr)+
+  geom_sf(data= buffer_site_5km,alpha=0.05,color="red")+
+  geom_sf(data= buffer_site_1km,alpha=0.05,color="purple")+
+  geom_sf(data=reptiles)
+
+
+
+
+tst = extract(nlcd_terr,buffer_site_5km[1,]) 
+tst$nlcd2011SE %>% mean(.,na.rm=T)
+tst %>% summarise(cov= mean(nlcd2011SE),.by= ID)
+
+e = extract(nlcd_terr,buffer_site_5km, fun="mean")
+
+extract(nlcd_terr,buffer_site_5km[1,], fun=ncell) 
+
+
+
+extract(nlcd_terr,buffer_site_5km[1,])[,2]%>%mean()
+
+sf::st_area(buffer_site_5km)
+
+
+extract_lsm(nlcd_terr, y =  reptiles[1,], what = "lsm_p_area")
+
+circle_shdi = sample_lsm(nlcd_terr,
+                         reptiles[1,],
+                         size = 5000,
+                         what = "lsm_l_shdi",
+                         shape = "circle") 
+
+
+
 ```

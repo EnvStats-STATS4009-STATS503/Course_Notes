@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to Spatial Ecology - Spatial_Ecology</title>
+<title>Introduction to Spatial Ecology -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
 }
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
 }
-</style>
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -104,6 +90,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="include/webex.css">
@@ -131,11 +146,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Notes</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Further reading</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -150,42 +165,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-importance-of-space-in-ecology-and-conservation" id="toc-the-importance-of-space-in-ecology-and-conservation" class="nav-link active" data-scroll-target="#the-importance-of-space-in-ecology-and-conservation">The Importance of Space in Ecology and Conservation</a></li>
+  <li><a href="#quantifying-spatial-patterns-in-ecological-data" id="toc-quantifying-spatial-patterns-in-ecological-data" class="nav-link" data-scroll-target="#quantifying-spatial-patterns-in-ecological-data">Quantifying Spatial Patterns in Ecological Data</a>
+  <ul class="collapse">
+  <li><a href="#spatial-scales" id="toc-spatial-scales" class="nav-link" data-scroll-target="#spatial-scales">Spatial scales</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Spatial_Ecology</h1>
+
+
+
+<section id="the-importance-of-space-in-ecology-and-conservation" class="level1">
+<h1>The Importance of Space in Ecology and Conservation</h1>
+<p>The term <strong>Ecology</strong> was first coined by the naturalist Ernest Haeckel in 1866, defining it as the scientific study of the relationships between organisms and their environment. A more contemporary definition describes ecology as:</p>
+<p><em>“The scientific study of the distribution and abundance of organisms and the interactions that determine distribution and abundance”</em> <span class="citation" data-cites="begon2021ecology">(<a href="#ref-begon2021ecology" role="doc-biblioref">Begon and Townsend 2021</a>)</span><em>.</em></p>
+<p>Statistical ecology builds upon this foundation by integrating mathematical models with associated measures of probabilistic uncertainty to study ecological systems <span class="citation" data-cites="Gilbert2024">(<a href="#ref-Gilbert2024" role="doc-biblioref">Gilbert et al. 2024</a>)</span>. Space is inherent to all ecological processes, influencing dynamics such as migration, dispersal, and species interactions. <strong>Spatial ecology</strong> aims to understand how these processes shape species distributions and dynamics across space. Its focus on the direct and indirect effects of space on biodiversity and ecosystem functioning has given rise to multiple subdisciplines within the life sciences, including landscape ecology, epidemiology, and animal movement, etc (<a href="#fig-1" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="spat_ecol.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="325">
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Spatial subdisciplines derived from ecological disciplines using a spatial ecology framework (taken from <span class="citation" data-cites="fletcher2018spatial">(<a href="#ref-fletcher2018spatial" role="doc-biblioref">Fletcher and Fortin 2018</a>)</span>.
+</figcaption>
+</figure>
 </div>
+<p>To fully understand the relationship between space and ecological patterns and processes, the integration of statistical models is essential. These models not only help explain spatial dynamics but also provide the necessary framework to address key aspects of conservation. This includes mapping biodiversity and ecosystem services, providing insight into mitigating the impacts of environmental change, supporting effective prioritization of conservation areas, and establishing the foundation for developing tools and models that guide conservation effortssuch as the <em>global goal for halting biodiversity loss</em> proposed by the Nature Positive initiative (<a href="#fig-global" class="quarto-xref">Figure&nbsp;2</a>)</p>
+<div id="fig-global" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-global-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="slides/figures/global goal.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="541">
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A measurable global goal for nature. Source: <span class="citation" data-cites="locke2021nature">(<a href="#ref-locke2021nature" role="doc-biblioref">Locke et al. 2021</a>)</span>
+</figcaption>
+</figure>
+</div>
+<p>The emergence of modeling frameworks for spatial ecology has been facilitated by the rise of new technologies and data collection systems like aerial photographs, GPS tracking, satellite imagery, and biologging devices.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.abpmer.co.uk/"><img src="slides/figures/gps-tracking.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="279" alt="GPS tags for survey and monitoring waterbirds movement"></a></p>
+</figure>
+</div>
+<figcaption>GPS tags for survey and monitoring waterbirds movement</figcaption>
+</figure>
+</div>
+<p>Furthermore, incorporating space into statistical modeling approaches has driven the formulation of novel ecological questions and the development of new analytical methods to address them.</p>
+<p>However, before jumping into modelling complex ecological processes we need to quantify the spatial patterns of such processes.</p>
+</section>
+<section id="quantifying-spatial-patterns-in-ecological-data" class="level1">
+<h1>Quantifying Spatial Patterns in Ecological Data</h1>
+<section id="spatial-scales" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-scales">Spatial scales</h2>
+<p><em>Scales</em> describe the spatial and temporal dimensions at which an ecological process occurs. Many ecological patterns and processes occur at different spatial and temporal scales and thus, understanding and quantifying these scales is essential to provide an accurate intrepretation of the ecological processes we aimed to study.</p>
+<p>The spatial scale is often described by the <em>grain</em> (a.k.a. <em>spatial</em> <em>resolution</em>) and the <em>extent</em>. The former refersto the finest spatial unit of measurement for a given process, whereas the later refer to the total length or area of the study. The ratio between these two measurements is knows as <em>Scope</em>.</p>
+<p>There is typically a trade-off between the grain and the extent, mainly due to practicality. For example, it can be costly to work at large extents while collecting data at fine grain sizes. But also, some of the processes occurring at these finer scales become simply noise when we look at systems at larger extents.</p>
+<p>In spatial ecology, the scale at which an ecological process occur can have a major impact on the interpretation of our analysis. For example, <a href="#fig-scales_isopods" class="quarto-xref">Figure&nbsp;3</a> shows the locations of isopods burrows in the northern Negev Desert, Israel. If we look at the complete data set we can see a strong aggregation pattern. However, when focusing on two subsets with smaller extents, the observed patterns shift, ranging from random to aggregated.</p>
+<div id="fig-scales_isopods" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scales_isopods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="slides/figures/isopods.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="436">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scales_isopods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Isopod burrow data with n=2015 individual burrows in a study eare with an extent of 75 600 m<span class="math inline">\(^2\)</span>. Inset maps show two subsets with reduced extent of 6.4 m<span class="math inline">\(^2\)</span> each. Source: <span class="citation" data-cites="dungan2002">(<a href="#ref-dungan2002" role="doc-biblioref">Dungan et al. 2002</a>)</span>
+</figcaption>
+</figure>
+</div>
+<p>The spatial scale of analysis is crucial in ecological and environmental studies, as it can significantly influence the patterns we observe and the conclusions we draw. For example, changing the grain of the study (while holding the extent constant) can introduce bias and uncertainty in the observed ecological patterns. This is because aggregated data can have different properties than the sample data from which they were derived, i.e.&nbsp;the assumption that a relationships exists one level of aggregation does not necesarilly hold at another level of aggregation, particularly in situations where data are aggregated into irregular sampling units (modifiable areal unit problem -MAUP). This is illustrated in figure <a href="#fig-ecol_fall" class="quarto-xref">Figure&nbsp;4</a>, where two variables (v1 and v2) recorded on uniform point level show little correlation. As we aggregate the values on a larger grain size, we get a slight increase in the slope and <span class="math inline">\(R^2\)</span> values. Now if we aggregate the same point data using the non-homogeneous aggregation scheme now v1 and v2 become highly correlated.</p>
+<div id="fig-ecol_fall" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ecol_fall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="slides/figures/ecol_fall.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="463">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecol_fall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Plots of variables v1 and v2 for each individual in the survey and summarized using a uniform and non-uniform aggregation scheme
+</figcaption>
+</figure>
+</div>
+<p>Thus, if we the data we had at hand came from the non-uniform aggregation scheme, it would be wrong to assume that a correlation also exists on an individual-level data. In ecology this is knows as <em>ecological fallacy,</em> which arises when incorrect inferences about individual sample units are made based on aggregated data.</p>
+<p>For example, aggregating species abundance (counts) data at a national scale might obscure local hotspots of biodiversity observed at finer scales. Results depend on how the areas are divided, even if the total number of zones remains constant. Different arrangements of the same spatial units can lead to different conclusions. When individual-level data is grouped, the variability within units is lost, which can mask finer-scale patterns or exaggerate certain trends.As consequence, conservation strategies should consider the spatial scale for effective conservation decisions.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-begon2021ecology" class="csl-entry" role="listitem">
+Begon, Michael, and Colin R Townsend. 2021. <em>Ecology: From Individuals to Ecosystems</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-dungan2002" class="csl-entry" role="listitem">
+Dungan, J. L., J. N. Perry, M. R. T. Dale, P. Legendre, S. Citron-Pousty, M.-J. Fortin, A. Jakomulska, M. Miriti, and M. S. Rosenberg. 2002. <span>“A Balanced View of Scale in Spatial Statistical Analysis.”</span> <em>Ecography</em> 25 (5): 626–40. <a href="https://doi.org/10.1034/j.1600-0587.2002.250510.x">https://doi.org/10.1034/j.1600-0587.2002.250510.x</a>.
+</div>
+<div id="ref-fletcher2018spatial" class="csl-entry" role="listitem">
+Fletcher, Robert, and M Fortin. 2018. <em>Spatial Ecology and Conservation Modeling</em>. Springer.
+</div>
+<div id="ref-Gilbert2024" class="csl-entry" role="listitem">
+Gilbert, Neil A., Bruna R. Amaral, Olivia M. Smith, Peter J. Williams, Sydney Ceyzyk, Samuel Ayebare, Kayla L. Davis, Wendy Leuenberger, Jeffrey W. Doser, and Elise F. Zipkin. 2024. <span>“A Century of Statistical <span><em>Ecology</em></span>.”</span> <em>Ecology</em> 105 (6). <a href="https://doi.org/10.1002/ecy.4283">https://doi.org/10.1002/ecy.4283</a>.
+</div>
+<div id="ref-locke2021nature" class="csl-entry" role="listitem">
+Locke, Harvey, Johan Rockström, Peter Bakker, Manish Bapna, Mark Gough, Jodi Hilty, Marco Lambertini, et al. 2021. <span>“A Nature-Positive World: The Global Goal for Nature.”</span>
+</div>
+</div></section></div></main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */

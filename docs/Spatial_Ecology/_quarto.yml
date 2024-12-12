@@ -11,8 +11,9 @@ website:
     logo: UofG.png
     left:
     - href: index.qmd
-      text: Home
-    - about.qmd
+      text: Notes
+    - href: about.qmd
+      text: Further reading
 format:
   html:
     theme:

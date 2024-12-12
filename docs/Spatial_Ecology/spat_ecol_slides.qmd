@@ -1,0 +1,53 @@
+---
+title: "Spatial Ecology and Conservation Modelling"
+subtitle: "Week 7: Introduction to Spatial Ecology"
+embed-resources: true
+title-slide-attributes: 
+  data-background-image: ./slides/figures/uog_cloistures2.jpg
+format: 
+   metropolis-beamer-revealjs:
+    logo:  UofG.png
+    theme: custom.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+slide-number: true
+header-logo: UofG.png
+author:
+  - name: Jafet Belmont
+    email: jafet.BelmontOsuna@glasgow.ac.uk
+    affiliations: School of Mathematics and Statistics
+---
+
+# The Importance of Space in Ecology and Conservation {background-color="black" background-image="./slides/figures/river.png"}
+
+*"Ecology is the scientific study of the distribution and abundance of organisms and the interactions that determine distribution and abundance"*
+
+------------------------------------------------------------------------
+
+## What Is Spatial Ecology?
+
+![](slides/figures/mentimeter/mentimeter1_qr_code.png){fig-align="center" width="595"}
+
+::: r-stack
+<https://www.menti.com/almws5t7q59w>
+:::
+
+## What Is Spatial Ecology?
+
+::: incremental
+-   Space is inherent to all ecological processes, influencing dynamics such as migration, dispersal, and species interactions.
+
+-   **Spatial ecology** aims to understand the relationship between space and ecological patterns and processes
+
+-   Spatial ecology spans multiple subdisciplines within the life sciences.
+
+    ![Spatial subdisciplines derived from ecological disciplines using a spatial ecology framework (taken from Fletcher & Fortin, 2018).](spat_ecol.png){fig-align="center" width="471"}
+:::
+
+## Why is it relevant for conservation?
+
+-   Understanding how ecological processes are influenced by different environmental attributes across sapace is essential to halt the loss of biodiversity.
+
+-   This includes mapping biodiversity and ecosystem services, providing insight into mitigating the impacts of environmental change, supporting effective prioritization of conservation areas, and establishing the foundation for developing tools and models that guide conservation efforts.
+
+![A measurable global goal for nature. Source: Locke et al.(2021)](slides/figures/global%20goal.png){fig-align="center"}
