@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -62,6 +96,7 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/quarto-contrib/bootstrap-icons-1.11.1/all.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -148,10 +183,6 @@ window.Quarto = {
     <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">Notes</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Further reading</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -172,7 +203,32 @@ window.Quarto = {
   <li><a href="#the-importance-of-space-in-ecology-and-conservation" id="toc-the-importance-of-space-in-ecology-and-conservation" class="nav-link active" data-scroll-target="#the-importance-of-space-in-ecology-and-conservation">The Importance of Space in Ecology and Conservation</a></li>
   <li><a href="#quantifying-spatial-patterns-in-ecological-data" id="toc-quantifying-spatial-patterns-in-ecological-data" class="nav-link" data-scroll-target="#quantifying-spatial-patterns-in-ecological-data">Quantifying Spatial Patterns in Ecological Data</a>
   <ul class="collapse">
-  <li><a href="#spatial-scales" id="toc-spatial-scales" class="nav-link" data-scroll-target="#spatial-scales">Spatial scales</a></li>
+  <li><a href="#sec-scales" id="toc-sec-scales" class="nav-link" data-scroll-target="#sec-scales">Spatial scales</a></li>
+  <li><a href="#multiscale-modelling-spatial-influence-of-landscape" id="toc-multiscale-modelling-spatial-influence-of-landscape" class="nav-link" data-scroll-target="#multiscale-modelling-spatial-influence-of-landscape">Multiscale modelling: Spatial Influence of Landscape</a>
+  <ul class="collapse">
+  <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study">Case Study</a></li>
+  <li><a href="#threshold-methods" id="toc-threshold-methods" class="nav-link" data-scroll-target="#threshold-methods">Threshold methods</a></li>
+  <li><a href="#distance-weighted-methods" id="toc-distance-weighted-methods" class="nav-link" data-scroll-target="#distance-weighted-methods">Distance-weighted methods</a></li>
+  <li><a href="#r-packages-for-measuring-landscape-scale-effect" id="toc-r-packages-for-measuring-landscape-scale-effect" class="nav-link" data-scroll-target="#r-packages-for-measuring-landscape-scale-effect">R packages for measuring landscape scale effect</a></li>
+  <li><a href="#types-of-spatial-data" id="toc-types-of-spatial-data" class="nav-link" data-scroll-target="#types-of-spatial-data">Types of spatial data</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#spatial-analysis-of-geostatistical-data" id="toc-spatial-analysis-of-geostatistical-data" class="nav-link" data-scroll-target="#spatial-analysis-of-geostatistical-data">Spatial Analysis of Geostatistical Data</a>
+  <ul class="collapse">
+  <li><a href="#example-river-nitrogen" id="toc-example-river-nitrogen" class="nav-link" data-scroll-target="#example-river-nitrogen">Example: River nitrogen</a></li>
+  <li><a href="#spatial-autocorrelation" id="toc-spatial-autocorrelation" class="nav-link" data-scroll-target="#spatial-autocorrelation">Spatial autocorrelation</a>
+  <ul class="collapse">
+  <li><a href="#gaussian-random-field" id="toc-gaussian-random-field" class="nav-link" data-scroll-target="#gaussian-random-field"><strong>Gaussian random field</strong></a></li>
+  <li><a href="#stationary-and-isotropy" id="toc-stationary-and-isotropy" class="nav-link" data-scroll-target="#stationary-and-isotropy">Stationary and isotropy</a></li>
+  </ul></li>
+  <li><a href="#variograms" id="toc-variograms" class="nav-link" data-scroll-target="#variograms">Variograms</a></li>
+  <li><a href="#case-study-monitoring-rainfall-in-brazil" id="toc-case-study-monitoring-rainfall-in-brazil" class="nav-link" data-scroll-target="#case-study-monitoring-rainfall-in-brazil">Case study: Monitoring Rainfall in Brazil</a></li>
+  <li><a href="#spatial-predictions-kriging" id="toc-spatial-predictions-kriging" class="nav-link" data-scroll-target="#spatial-predictions-kriging">Spatial Predictions: Kriging</a></li>
+  </ul></li>
+  <li><a href="#areal-processes" id="toc-areal-processes" class="nav-link" data-scroll-target="#areal-processes">Areal processes</a>
+  <ul class="collapse">
+  <li><a href="#spatial-dependence-in-ecological-models" id="toc-spatial-dependence-in-ecological-models" class="nav-link" data-scroll-target="#spatial-dependence-in-ecological-models">Spatial Dependence in Ecological Models</a></li>
+  <li><a href="#morans-i" id="toc-morans-i" class="nav-link" data-scroll-target="#morans-i">Moran’s I</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -198,7 +254,7 @@ Figure&nbsp;1: Spatial subdisciplines derived from ecological disciplines using 
 </figcaption>
 </figure>
 </div>
-<p>To fully understand the relationship between space and ecological patterns and processes, the integration of statistical models is essential. These models not only help explain spatial dynamics but also provide the necessary framework to address key aspects of conservation. This includes mapping biodiversity and ecosystem services, providing insight into mitigating the impacts of environmental change, supporting effective prioritization of conservation areas, and establishing the foundation for developing tools and models that guide conservation effortssuch as the <em>global goal for halting biodiversity loss</em> proposed by the Nature Positive initiative (<a href="#fig-global" class="quarto-xref">Figure&nbsp;2</a>)</p>
+<p>To fully understand the relationship between space and ecological patterns and processes, the integration of statistical models is essential. These models not only help explain spatial dynamics but also provide the necessary framework to address key aspects of conservation. This includes mapping biodiversity and ecosystem services, providing insight into mitigating the impacts of environmental change, supporting effective prioritization of conservation areas, and establishing the foundation for developing tools and models that guide conservation efforts such as the <em>global goal for halting biodiversity loss</em> proposed by the Nature Positive initiative (<a href="#fig-global" class="quarto-xref">Figure&nbsp;2</a>)</p>
 <div id="fig-global" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -209,7 +265,7 @@ Figure&nbsp;2: A measurable global goal for nature. Source: <span class="citatio
 </figcaption>
 </figure>
 </div>
-<p>The emergence of modeling frameworks for spatial ecology has been facilitated by the rise of new technologies and data collection systems like aerial photographs, GPS tracking, satellite imagery, and biologging devices.</p>
+<p>Spatial data are data which have any form of geographical information attached to them. The emergence of modelling frameworks for spatial ecology has been facilitated by the rise of new technologies and data collection systems like aerial photographs, GPS tracking, satellite imagery, and biologging devices.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -220,13 +276,19 @@ Figure&nbsp;2: A measurable global goal for nature. Source: <span class="citatio
 <figcaption>GPS tags for survey and monitoring waterbirds movement</figcaption>
 </figure>
 </div>
-<p>Furthermore, incorporating space into statistical modeling approaches has driven the formulation of novel ecological questions and the development of new analytical methods to address them.</p>
-<p>However, before jumping into modelling complex ecological processes we need to quantify the spatial patterns of such processes.</p>
+<p>Most of environmental variables and ecological processes of interest will vary over space to some degree and we will typically use this spatial information to help us understand the relationship between our data points. Furthermore, incorporating space into statistical modelling approaches has driven the formulation of novel ecological questions and the development of new analytical methods to address them.</p>
+<p>The overall goal of any piece of spatial analysis is to understand the spatial patterns in our data. This could involve:</p>
+<ul>
+<li><p>Estimating differences in mean, variance or some other summary statistic over space.</p></li>
+<li><p>Predicting the value at some unobserved location.</p></li>
+<li><p>Identifying <em>hotspot</em> with high (or low) value compared to the rest of the region.</p></li>
+</ul>
+<p>However, before jumping into modelling complex spatial ecological processes we need to quantify the spatial patterns of such processes.</p>
 </section>
 <section id="quantifying-spatial-patterns-in-ecological-data" class="level1">
 <h1>Quantifying Spatial Patterns in Ecological Data</h1>
-<section id="spatial-scales" class="level2">
-<h2 class="anchored" data-anchor-id="spatial-scales">Spatial scales</h2>
+<section id="sec-scales" class="level2">
+<h2 class="anchored" data-anchor-id="sec-scales">Spatial scales</h2>
 <p><em>Scales</em> describe the spatial and temporal dimensions at which an ecological process occurs. Many ecological patterns and processes occur at different spatial and temporal scales and thus, understanding and quantifying these scales is essential to provide an accurate intrepretation of the ecological processes we aimed to study.</p>
 <p>The spatial scale is often described by the <em>grain</em> (a.k.a. <em>spatial</em> <em>resolution</em>) and the <em>extent</em>. The former refersto the finest spatial unit of measurement for a given process, whereas the later refer to the total length or area of the study. The ratio between these two measurements is knows as <em>Scope</em>.</p>
 <p>There is typically a trade-off between the grain and the extent, mainly due to practicality. For example, it can be costly to work at large extents while collecting data at fine grain sizes. But also, some of the processes occurring at these finer scales become simply noise when we look at systems at larger extents.</p>
@@ -237,7 +299,7 @@ Figure&nbsp;2: A measurable global goal for nature. Source: <span class="citatio
 <img src="slides/figures/isopods.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="436">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scales_isopods-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Isopod burrow data with n=2015 individual burrows in a study eare with an extent of 75 600 m<span class="math inline">\(^2\)</span>. Inset maps show two subsets with reduced extent of 6.4 m<span class="math inline">\(^2\)</span> each. Source: <span class="citation" data-cites="dungan2002">(<a href="#ref-dungan2002" role="doc-biblioref">Dungan et al. 2002</a>)</span>
+Figure&nbsp;3: Isopod burrow data with n=2015 individual burrows in a study area with an extent of 75 600 m<span class="math inline">\(^2\)</span>. Inset maps show two subsets with reduced extent of 6.4 m<span class="math inline">\(^2\)</span> each. Source: <span class="citation" data-cites="dungan2002">(<a href="#ref-dungan2002" role="doc-biblioref">Dungan et al. 2002</a>)</span>
 </figcaption>
 </figure>
 </div>
@@ -252,8 +314,939 @@ Figure&nbsp;4: Plots of variables v1 and v2 for each individual in the survey an
 </figcaption>
 </figure>
 </div>
-<p>Thus, if we the data we had at hand came from the non-uniform aggregation scheme, it would be wrong to assume that a correlation also exists on an individual-level data. In ecology this is knows as <em>ecological fallacy,</em> which arises when incorrect inferences about individual sample units are made based on aggregated data.</p>
-<p>For example, aggregating species abundance (counts) data at a national scale might obscure local hotspots of biodiversity observed at finer scales. Results depend on how the areas are divided, even if the total number of zones remains constant. Different arrangements of the same spatial units can lead to different conclusions. When individual-level data is grouped, the variability within units is lost, which can mask finer-scale patterns or exaggerate certain trends.As consequence, conservation strategies should consider the spatial scale for effective conservation decisions.</p>
+<p>Thus, if the data we had at hand came from the non-uniform aggregation scheme, it would be wrong to assume that a correlation also exists on an individual-level data. In ecology this is knows as <em>ecological fallacy,</em> which arises when incorrect inferences about individual sample units are made based on aggregated data.</p>
+<p>For example, aggregating species abundance (counts) data at a national scale might obscure local hotspots of biodiversity observed at finer scales. Results depend on how the areas are divided, even if the total number of zones remains constant. Different arrangements of the same spatial units can lead to different conclusions. When individual-level data is grouped, the variability within units is lost, which can mask finer-scale patterns or exaggerate certain trends. As consequence, conservation strategies should consider the spatial scale for effective conservation decisions.</p>
+</section>
+<section id="multiscale-modelling-spatial-influence-of-landscape" class="level2">
+<h2 class="anchored" data-anchor-id="multiscale-modelling-spatial-influence-of-landscape">Multiscale modelling: Spatial Influence of Landscape</h2>
+<p>Considering the significant influence of scale on ecological patterns and the conservation challenges it imposes, how can the spatial scale be effectively integrated into a study design?</p>
+<p>Landscape studies often explore the impact of surrounding landscapes on abiotic or biotic responses (e.g., water quality, species abundance) at specific locations selected for their differing landscape features, such as levels of agricultural intensity. A key challenge in these studies is to identify the spatial scale at which these landscape factors affect the response variable.</p>
+<p>Multiscale modeling has become a popular approach to evaluate environmental conditions across various scales by modifying the grain or extent to identify which scale best explains the ecological responses of interest.</p>
+<p>Researchers traditionally determine the spatial extent based on known biological traits of the study organism, e.g.&nbsp;based on the organisms dispersal range. However, very often the relevant scale is unclear. Thus, researchers often analyze landscape variables across multiple spatial extents to identify the scale that best fits the data. The goal is to interpret the landscape effects at different levels in an organizational hierarchy and assess their influence on the ecological process of interest</p>
+<div id="fig-multi" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="slides/figures/multiscale_ex.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="378">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Illustration of spatial multiscale scenario where the (a) extend and/or (b) grain of two environmental conditions varied. Source: <span class="citation" data-cites="fletcher2018spatial">(<a href="#ref-fletcher2018spatial" role="doc-biblioref">Fletcher and Fortin 2018</a>)</span>
+</figcaption>
+</figure>
+</div>
+<p>The two most commonly used methods for estimating landscape effects are <em>threshold</em> and <em>distance-weighted</em> methods. <strong>Threshold methods</strong> compare landscape variables across multiple buffer sizes centred at specifc habitat patches, and then select the scale that best fits the data. On the other hand, <strong>distance-weighted</strong> approaches assign continuous weights to landscape variables, giving greater importance to areas closer to the study sites and less to those farther away. To better understand how these two approaches work, lets look at the following example.</p>
+<section id="case-study" class="level3">
+<h3 class="anchored" data-anchor-id="case-study">Case Study</h3>
+<section id="measuring-the-scale-effect-of-land-cover-on-the-distribution-of-plestiodon-fasciatus" class="level4">
+<h4 class="anchored" data-anchor-id="measuring-the-scale-effect-of-land-cover-on-the-distribution-of-plestiodon-fasciatus"><strong>Measuring the scale effect of land cover on the distribution of Plestiodon fasciatus</strong></h4>
+<p>In this example we will use the National Land Cover Database (NLCD) and the presence/absence records of <em>Plestiodon fasciatus</em> (a.k.a. five-lined skink), a common lizard sampled with drift-fence arrays in managed forests in the Southeast USA.</p>
+<p>The NLCD is a land cover data with a grain of <span class="math inline">\(30 \times 30~m\)</span> that classifies land cover into 20 categories. For this example we will only look at forest land-cover data represented by landscape types 41, 42 and 43 (deciduous, evergreen and mixed forests respectively) (<a href="#fig-multiscale_CS" class="quarto-xref">Figure&nbsp;6</a>).</p>
+<p><em>P. fasciatus</em> lizards were sampled with drift-fences at 78 sites. At each site, two drift fences were set up along two <span class="math inline">\(200 \times 10~ m\)</span> transects within forest patches (equivalent to 4 ha), with one transect located along the edge and a second located in the interior of the sites. Drift fences were opened for 3 days each month, April to July, 2013-2015. The presence/absence data of <em>P. fasciatus</em> is shown in <a href="#fig-multiscale_CS" class="quarto-xref">Figure&nbsp;6</a>.</p>
+<div id="fig-multiscale_CS" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-multiscale_CS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="case_study1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="510">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-multiscale_CS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: NLCD landscape categories and sites were the presence or absence of the five-lined skink was recorded.
+</figcaption>
+</figure>
+</div>
+<p>In R, we can inspect different aspects of the raster data (i.e.&nbsp;the landsat data). For example, the extent, resolution (grain size) and number of cells can be computed using the <code>terra</code> package as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read the raster</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nlcd_terr <span class="ot">=</span> <span class="fu">rast</span>(<span class="st">"nlcd_raster.tif"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(nlcd_terr) <span class="co"># extent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>SpatExtent : 802605, 1383585, 776925, 1020825 (xmin, xmax, ymin, ymax)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">res</span>(nlcd_terr) <span class="co"># grain size</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30 30</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncell</span>(nlcd_terr) <span class="co"># number of cells</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 157445580</code></pre>
+</div>
+</div>
+<p>Since we are only interested in measuring the scale effects of forest land-cover data on the distribution of <em>P. fasciatus</em>, we can reclassify the nlcd layer into a binary forest/non-forest layer by pooling together land-cover categories 41,42 and 43, i.e., our new landscape variable for the forest type on the <span class="math inline">\(i\)</span>th cell is computed as:</p>
+<p><span class="math display">\[
+\text{Forest}_i = \begin{cases} 1 &amp; \text{if land-cover type } \in 41,42,43  \\ 0 &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Reclassified nlcd landsat data</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R-Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Binary NCLD raster where yellow indicates forest landscape type.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nlcd_terr_f <span class="ot">=</span> nlcd_terr</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>forest_types <span class="ot">=</span> <span class="fu">levels</span>(nlcd_terr_f)[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="at">nlcd2011SE =</span> <span class="fu">case_when</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  nlcd2011SE <span class="sc">%in%</span> <span class="dv">41</span><span class="sc">:</span><span class="dv">43</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">.default =</span> <span class="dv">0</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(nlcd_terr_f) <span class="ot">&lt;-</span> forest_types</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="threshold-methods" class="level3">
+<h3 class="anchored" data-anchor-id="threshold-methods">Threshold methods</h3>
+<p>Now lets see how the multibuffer threshold method can be used to estimate the scale effect of forest coverage on the distribution of <em>P. fasciatus</em>. This approach takes the coordinates of sample locations and calculate the % of coverage of forest landscape type surrounding each point by looking at different extents (buffers). To do so, we need create buffer of different sizes centered at each observed location. <a href="#fig-buffer_ex" class="quarto-xref">Figure&nbsp;7</a> demonstrates the workflow we are following to determine the % of forest coverage for two different buffer sizes.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-buffer_ex" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-buffer_ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-buffer_ex-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-buffer_ex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Illustration of determining the amount of habitat surrounding a point. For a given study extent (A), the habitat of interest is isolated (B). Two buffers of 1 km and 5km are placed surrounding a point (C) and the number of cells (pixels) that contain the habitat is summed and multiplied by the area of each cell
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In R, there are several packages that can be used to compute this (e.g.&nbsp;the <code>bufferforsiland</code> function from the <code>siland</code> package; see <code>?siland::bufferforsiland</code> for more details). However, in this session we will use the <code>sf</code> and <code>terra</code> packages, two of the most popular libraries for manipulating spatial data in R. We will use the <code>st_buffer</code> function from the <code>sf</code> package to calculate the buffers of different sizes centered at each observed data point. To achieve this we first need to create an <code>sf</code> spatial object (sf stands for simple feature) that will hold information about the coordinates of the sampling locations as well as the spatial information such as the CRS.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read the data</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>reptiles <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"reptiles_study.csv"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create an sf object with appropiate CRS</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>reptiles <span class="ot">&lt;-</span> reptiles <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"coords_x1"</span>,<span class="st">"coords_x2"</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs  =</span> <span class="fu">crs</span>(nlcd_terr))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 1km and 5 km buffers</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>buffer_site_1km <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(reptiles,<span class="dv">1000</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>buffer_site_5km <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_buffer</span>(reptiles,<span class="dv">5000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We can now extract the values of each raster cell within a buffer using the <code>extract</code> function from the <code>terra</code> library. This function will receive (1) a raster layer and (2) a <code>sf</code> object (the buffer we crated in this case). Then we can <code>summarise</code> the information within each buffer. Since our binary raster contains only 0s and 1s, we can simply take the mean value per buffer. We can use the <code>summarise</code> function from the <code>dpylr</code> library to compute the mean for each buffer, note that each buffer unique identifier is contained in the <code>ID</code> column created after calling the <code>extract</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>f1km <span class="ot">=</span> buffer_site_1km <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">extract</span>(nlcd_terr_f,.) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">forest_cov_5km=</span><span class="fu">mean</span>(nlcd2011SE),<span class="at">.by=</span> ID) </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>f5km <span class="ot">=</span> buffer_site_5km <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">extract</span>(nlcd_terr_f,.) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">forest_cov_5km=</span><span class="fu">mean</span>(nlcd2011SE),<span class="at">.by=</span> ID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The above code shows calculations for 1 km and 5km , but we also ran this for 500m, 2km , 3km , and 4 km buffers (<a href="#fig-scatter_forest" class="quarto-xref">Figure&nbsp;8</a>). It is not surprising that similar scales tends to be highly correlated given the nested structure of the buffers (larger buffer size include area considered at smaller buffer sizes).</p>
+<div id="fig-scatter_forest" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatter_forest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="forest_cov.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatter_forest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Forest cover surrounding sampling locations, calculated at different scales
+</figcaption>
+</figure>
+</div>
+<p>Now we can conduct a <strong>Buffer analysis</strong> to relate these differences in grain and extent and try to identify the scale effect of forest cover on species occurrence. Since our response is a binary outcome of whether <em>P. fasciatus</em> is present or not at each sampling location, we can use a Generalised Linear Model (GLM) framework, namely a logistic regression of the form:</p>
+<span class="math display">\[\begin{align}
+y_i &amp;\sim \mathrm{Bernoulli}(\theta_i) \nonumber \\
+\log \left(\frac{\theta_i}{1 - \theta_i} \right) &amp;= \alpha+ \sum_{k\in K} \beta_k \times p_{i,\delta_k}^k, \nonumber
+\end{align}\]</span>
+<p>where <span class="math inline">\(\theta_i\)</span> is the probability of presence of a species at location <span class="math inline">\(i\)</span>, <span class="math inline">\(\alpha\)</span> is the intercept (baseline probability of presence), <span class="math inline">\(p_{i,\delta_k}^k\)</span> denotes the percentage of the landscape variable <span class="math inline">\(k\)</span> in a buffer of radius <span class="math inline">\(\delta_k\)</span> centered at each site and <span class="math inline">\(\beta_k\)</span> is the effect of landscape variable <span class="math inline">\(k\)</span> (i.e., the coefﬁcient associated with the effect of the forest cover surrounding locations). Recall that the log-likelihood of a logistic regression model is given by:</p>
+<p><span class="math display">\[
+L(\Theta|x) = \sum_i y_i \log(\theta_i) + (1-y_i
+)\log(1-\theta_i)
+\]</span></p>
+<p>We fit this model to the data and contrast different models based on measurements of forest cover at different grains and local extents (buffer sizes). We can then identify the spatial scale that provide the best goodness of fit metric, the one that explain must of the variance or the one that shows the best predictive performance.</p>
+<p>Generalized linear models, like logistic regression, can be fitted in R with the <code>glm</code> function. For instance, a logistic regression calculated at the 1 km scale can be ﬁtted as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(pres<span class="sc">~</span>f1km<span class="sc">$</span>forest_cov_5km ,<span class="at">family=</span><span class="st">"binomial"</span>,<span class="at">data=</span>reptiles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  glm(formula = pres ~ f1km$forest_cov_5km, family = "binomial", 
+    data = reptiles)
+
+Coefficients:
+        (Intercept)  f1km$forest_cov_5km  
+             -5.756                7.156  
+
+Degrees of Freedom: 77 Total (i.e. Null);  76 Residual
+Null Deviance:      86.61 
+Residual Deviance: 67.64    AIC: 71.64</code></pre>
+</div>
+</div>
+<p>The left hand side of <a href="#fig-buffer_results" class="quarto-xref">Figure&nbsp;9</a> shows the log-likelihoods based on ﬁtting different models to the data of each individual buffer. On the right hand side of <a href="#fig-buffer_results" class="quarto-xref">Figure&nbsp;9</a>, the parameter estimates for the effect of forest cover on the probability of <em>P. fasciatus</em> occurrence using different sized buffers. In this case, we ﬁnd that the log-likelihood of the models suggests that the 2 km is most supported by the data.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-buffer_results" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-buffer_results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-buffer_results-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-buffer_results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Scale of effect of forest cover on the occurrence of the ﬁve-lined skink based on a buffer analysis
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The threshold method presented above, allows to compare multiple spatial scales instead of relying on a priori knowledge to determine the scale that best suits the data. However, this method has a number of limitations. First, we still need to make a priori decisions about maximum and minimum buffer sizes and the number of buffers to evaluate. The larger the number of buffers to evaluate, the more models we need to fit, which increases the risk of overfitting or false positives (i.e.&nbsp;leading to inflated Type 1 errors), potentially requiring us to lower our confidence level for individual results. This means, that fitting many models increases the chances of finding a spatial scale that appears significant by chance.</p>
+<p>Of course, we could try to include the multiple spatial scales we are evaluating into a single mutliple regression modelling framework. However, the high degree of spatial autocorrelation between buffers (<a href="#fig-scatter_forest" class="quarto-xref">Figure&nbsp;8</a>) may causes similar effect sizes across scales, making it challenging to accurately determine the true scale of the effect.</p>
+<p>Lastly, threshold methods assume an uniform effect of the landscape features within a buffer, i.e.&nbsp;the habitat elements within the buffer have the same influence on the response variable regardless of their distance from the measurement location. This assumption rarely holds in the nature, as landscape elements farther from the response measurement location are expected to have less influence than those closer to it. Furthermore, we would expect that in nature the influence of landscape elements should decrease gradually with distance, rather than dropping abruptly at the buffer’s edge. To address these limitations, a number of so called <em>distance-weighted</em> methods have been proposed.</p>
+</section>
+<section id="distance-weighted-methods" class="level3">
+<h3 class="anchored" data-anchor-id="distance-weighted-methods">Distance-weighted methods</h3>
+<p><em>Distance-weighted</em> methods assign continuous weights to landscape variables, giving greater importance to areas nearer to the study sites and less to those farther away. These methods summarise landscape variables by calculating a weighted average, where the weights <span class="math inline">\(w\)</span> are determined using a known kernel function a.k.a. Spatial Influence Function (SIF). These SIFs are defined by the distance between the sample location <span class="math inline">\(i\)</span> and the surrounding location <span class="math inline">\(j\)</span> (typically the center of the raster cells surrounding <span class="math inline">\(i\)</span>) . In our example we could use the same glm framework to formulate this distance-weight method as follows:</p>
+<span class="math display">\[\begin{align}
+y_i &amp;\sim \mathrm{Bernoulli}(\theta_i) \nonumber \\
+\log \left(\frac{\theta_i}{1 - \theta_i} \right) &amp;= \alpha+ \sum_{k\in K} \beta_k s_k(z^k(\mathbf{x}_i,\sigma)) , \nonumber \\
+s_k(z^k(\mathbf{x}_i,\sigma)) &amp; = \sum_{i\neq j} z^k(\mathbf{x}_j)w(\mathbf{x}_i,\mathbf{x}_j,\sigma)
+\end{align}\]</span>
+<p>Notice that this is the same expression for the logistic regression we had before, with the only difference being that the percentage of the <span class="math inline">\(k\)</span>th landscape variable has been replace by the SIF <span class="math inline">\(s_k(z^k(\mathbf{x}_i,\sigma))\)</span>, i.e.&nbsp;the weighted average of the original landscape variable <span class="math inline">\(z^k\)</span> with weights <span class="math inline">\(w(\cdot)\)</span> . Such weights are evaluated at spatial locations <span class="math inline">\(\mathbf{x}_i\)</span> and <span class="math inline">\(\mathbf{x}_j\)</span> and are defined by <span class="math inline">\(\sigma\)</span>, the scale parameter describing how rapidly the effects of the landscape variables decline with the Euclidean distance<span class="math inline">\(||\mathbf{x}_i - \mathbf{x}_j||\)</span> between locations <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. Usually an exponential or a Gaussian kernel are assumed for the shape of <span class="math inline">\(w(\cdot)\)</span>. In the Gaussian case, the weights are given by</p>
+<p><span class="math display">\[
+w(\mathbf{x}_i,\mathbf{x}_j,\sigma) = \dfrac{\mathrm{exp(-||\mathbf{x}_i-\mathbf{x}_j||^2/2\sigma^2)}}{\sum_{i\neq j} \mathrm{exp}(-||\mathbf{x}_i-\mathbf{x}_j||^2/2\sigma^2)}
+\]</span></p>
+<p>Notice that smaller <span class="math inline">\(\sigma\)</span> values indicate that nearby locations have a larger weight, whereas large <span class="math inline">\(\sigma\)</span> place large weights on distant values of the covariate of interest. <a href="#fig-scale-illus" class="quarto-xref">Figure&nbsp;10</a> shows the comparison between threshold and distance-weighted methods for an hypothetical sampling location</p>
+<div id="fig-scale-illus" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scale-illus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="scale_effect2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="506">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scale-illus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: An illustration comparing buffer and kernel approaches for estimating the scale of effect. (a) A sampling location surrounded by forest cover. (b) The spatial weighting patterns for circular buffers and kernels relative to the sampling location. (c) The relative weights assigned based on distance from the sampling location for circular buffers and kernels, demonstrating kernels with both small and large sigma values.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-question-octagon " style="color: #6dc83c;" role="img" aria-hidden="true"></i> Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why might we want to change the grain of the landcover data in this example?</p>
+<div class="webex-solution">
+<button>
+See solution
+</button>
+<p>A primary reason is to translate the map to a resolution of data being collected in the ﬁeld that we are using for making inferences. In this example the resolution of the data being collected is 40,000 m<span class="math inline">\(^2\)</span> (since there are two transects of 2 ha each) and the raster resolution is 900 m<span class="math inline">\(^2\)</span> (see data description). Thus, if we wish to make predictions of species–environment relationships, we may want our map grain to reﬂect the sampling grain. Consequently, we would want the map to have an approximate 200 x 200 m grain. We can do this in R as follows:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>forest200 <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">aggregate</span>(nlcd_terr, <span class="at">fact =</span> <span class="dv">7</span>, <span class="at">fun =</span> <span class="st">"modal"</span>, <span class="at">na.rm=</span>T)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a binary raster as we did before</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>forest_types <span class="ot">=</span> <span class="fu">levels</span>(forest200)[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>( <span class="at">nlcd2011SE =</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">case_when</span>( nlcd2011SE <span class="sc">%in%</span> <span class="dv">41</span><span class="sc">:</span><span class="dv">43</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">.default =</span> <span class="dv">0</span> ))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(forest200) <span class="ot">&lt;-</span> forest_types</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the aggregation factor is the ratio of the target resolution (200 m) and the current one (30 m) which is <span class="math inline">\(\approx 7\)</span> . Since we are working with a categorical raster we use the modal argument to determine the most common category within the group of cells that are being combined into a single one.</p>
+</div>
+</div>
+</div>
+<p>To implement this distance-weighted method in R, we can specify the negative log-likelihood function including the Gaussian SIF we would like to optimize:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>nll.kernel <span class="ot">&lt;-</span> <span class="cf">function</span>(par, D, cov, y) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> sig <span class="ot">&lt;-</span> <span class="fu">exp</span>(par[<span class="dv">1</span>]) <span class="co">#ensures sig &gt; 0</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a> alpha <span class="ot">&lt;-</span> par[<span class="dv">2</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a> beta <span class="ot">&lt;-</span> par[<span class="dv">3</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a> cov.w <span class="ot">&lt;-</span> <span class="fu">apply</span>(D, <span class="dv">1</span>, <span class="cf">function</span>(x) {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a> w0 <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> sig<span class="sc">^</span><span class="dv">2</span>)) <span class="co">#Gaussian kernel</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a> w0[w0<span class="sc">==</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># for truncated data</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a> w <span class="ot">&lt;-</span> w0<span class="sc">/</span><span class="fu">sum</span>(w0) <span class="co">#kernel weights; sums to 1</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">sum</span>(cov <span class="sc">*</span> w) <span class="co">#weighted average of raster</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a> })</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a> ltheta <span class="ot">&lt;-</span> alpha <span class="sc">+</span> beta <span class="sc">*</span>cov.w <span class="co">#linear predictor</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a> theta <span class="ot">&lt;-</span> <span class="fu">plogis</span>(ltheta) <span class="co">#back-transform</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a> loglike <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(y<span class="sc">*</span><span class="fu">log</span>(theta) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>y)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>theta)) <span class="co">#nll</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a> <span class="fu">return</span>(loglike)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Here, the <code>nll.kernel</code> function will return the negative log-likelihood of the logistic regression above because the optimization method we will use will minimize the log-likelihood rather than maximize it. The weighting function will compute the Gaussian kernel-weighted covariate <code>cov.w</code> based on a <span class="math inline">\(N\times R\)</span> matrix <span class="math inline">\(D\)</span> containing the distance between each of the <span class="math inline">\(N\)</span> sampling locations and the centroid of each <span class="math inline">\(R\)</span> surrounding raster cells. Notice the number of raster cells <span class="math inline">\(R\)</span> can be very large, slowing down our computations. Thus, we can generate a spare matrix by truncating the distance calculation to a maximum distance <span class="math inline">\(D_{max}\)</span> ( <span class="math inline">\(w(\mathbf{x}_i,\mathbf{x}_j,\sigma) = 1 ~\forall~ i=j\)</span> ; see <code>w0[w0==1] &lt;- 0</code> in the code above). This means that we we subset the forest data to include only the raster data within 10 km of at least one survey location. The new sparse matrix <span class="math inline">\(S\)</span> is defined as:</p>
+<p><span class="math display">\[
+S_{ij} = \begin{cases}
+D_{ij} &amp; \text{if}~~||\mathbf{x}_i-\mathbf{x}_j|| &lt; D_{max} \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p>In practice we determine <span class="math inline">\(D_{max}\)</span>, the maximum distance used to evaluate the influence of pixel on each observation, based on empirical knowledge of the process we are interested. It is often recommended to set the maximum distance value to a value that is greater than three times the greatest SIF. In this exercise we will set this distance to be 10 km based on the buffer analysis we just conducted. In R, we can use the <code>rdist()</code> function from the <code>fields</code> library to compute the Euclidean distance between a matrix of the locations of our points and the centroid of each raster cell. Then, we truncate the calculated distances based on <span class="math inline">\(D_{max} =10\)</span> and save it as a sparse matrix using the <code>Matrix</code> function (to speed computations we further remove columns with all 0s since they represent cells that are <span class="math inline">\(&gt;10\)</span> km apart from all survey locations):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fields)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">rdist</span>(<span class="fu">st_coordinates</span>(reptiles),<span class="fu">crds</span>(forest200))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>D<span class="sc">/</span><span class="dv">1000</span> <span class="co">#in km</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>D[D <span class="sc">&gt;</span> <span class="dv">10</span>] <span class="ot">&lt;-</span><span class="dv">0</span> <span class="co">#truncate to only consider max dist</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>D <span class="ot">&lt;-</span><span class="fu">Matrix</span>(D, <span class="at">sparse =</span> <span class="cn">TRUE</span>) <span class="co"># for storage</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># remove columns with all zeros</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>cov.subset <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colSums</span>(D)<span class="sc">!=</span><span class="dv">0</span>, <span class="at">arr.ind =</span> T)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>D<span class="ot">&lt;-</span>D[,cov.subset]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now can run our optimization algorithm using the <code>optim()</code> function to fit the kernel-based logistic regression as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract numeric values for forest coverage</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>forest_cov <span class="ot">=</span> terra<span class="sc">::</span><span class="fu">extract</span>(forest200,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">crds</span>(forest200)[cov.subset,])<span class="sc">$</span>nlcd2011SE <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run optimization algorithm</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>lr.kernel <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">fn =</span> nll.kernel, <span class="at">hessian =</span> T,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">par =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="sc">-</span><span class="dv">6</span>,<span class="dv">8</span>), </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">D =</span> D, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">cov =</span> forest_cov ,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> reptiles<span class="sc">$</span>pres)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>lr.kernel<span class="sc">$</span>par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  8.799711 -5.583552  7.889875</code></pre>
+</div>
+</div>
+<p>We initialize the <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> parameters with starting values that are loosely based on estimates from the buffer analysis. According to this analysis, the value of <span class="math inline">\(\mathrm{exp}(\sigma) =\)</span> 8.8, and the effect of the covariate on occurrence is <span class="math inline">\(\beta= 7.88\)</span>. It’s important to note that in the buffer analysis, we used percent forest cover as a covariate, whereas here, we are using <code>cov.w</code>, which represents a weighted proportion of forest coverage.</p>
+<p>The optimal kernel shown in <a href="#fig-bestkernell" class="quarto-xref">Figure&nbsp;11</a> A shows that most of the weight should occur for sample locations <span class="math inline">\(&lt;2\)</span> km from the survey points. Thus it is not surprising that there the estimated <code>cov.w</code> is highly correlated with the proportion of forest in the 2 km buffer (<a href="#fig-bestkernell" class="quarto-xref">Figure&nbsp;11</a> B)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-bestkernell" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bestkernell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-bestkernell-1.png" class="img-fluid figure-img" width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bestkernell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: The kernel weight estimated from the data,and proportion of forest cover based on the optimal kernel weight and the best-fitting buffer considered
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-packages-for-measuring-landscape-scale-effect" class="level3">
+<h3 class="anchored" data-anchor-id="r-packages-for-measuring-landscape-scale-effect">R packages for measuring landscape scale effect</h3>
+<p>In this course, we have demonstrated the principles of threshold and distance-weighting methods by hard-coding them manually ourselves. However, several R packages now facilitate these analyses and extend the methodologies covered.</p>
+<ul>
+<li><p><code>multilandr</code>: providing tools for delimiting landscapes and calculating landscape metrics across multiple spatial scales, with extra functionality for visualizing correlations and filtering landscapes <span class="citation" data-cites="huais2024">(<a href="#ref-huais2024" role="doc-biblioref">Huais 2024</a>)</span>.</p></li>
+<li><p><code>siland</code>: provides a user friendly interface to perform landscape analysis inlcuding threshold methods and distance-weights with either Gaussian or exponential weighting functions. It allows users to estimate the spatial influence of various landscape features including local variables on different ecological responses <span class="citation" data-cites="carpentier2021">(<a href="#ref-carpentier2021" role="doc-biblioref">Carpentier and Martin 2021</a>)</span>.</p></li>
+<li><p><code>scalescape</code>: Identifies distance-weighted effects of landscape on environmental responses works with different regression models and can account for possible spatial autocorrelation <span class="citation" data-cites="lowe2022">(<a href="#ref-lowe2022" role="doc-biblioref">Lowe et al. 2022</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="types-of-spatial-data" class="level3">
+<h3 class="anchored" data-anchor-id="types-of-spatial-data">Types of spatial data</h3>
+<p>Spatial patterns are omnipresent in both environmental and ecological data. In general, our environmental or ecological processes of interest can be described by three main categories of spatial data :</p>
+<ul>
+<li>Point processes.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Geostatistical data</p></li>
+<li><p>Areal (or lattice) data.</p></li>
+</ul>
+<p>In point processes we measure the locations where events occur (e.g.&nbsp;trees in a forest, earthquakes) and the coordinates of such occurrences are our data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10980_2021_1202_Fig1_HTML.png" class="img-fluid figure-img" width="421"></p>
+<figcaption>Occurrence records of four ungulate species in the Tibet (taken from <span class="citation" data-cites="liang2021">(<a href="#ref-liang2021" role="doc-biblioref">Liang et al. 2021</a>)</span>).</figcaption>
+</figure>
+</div>
+<p>In geostatistical data, measurements are taken at a set of fixed locations. (e.g.&nbsp;air monitoring stations to quantify pollution levels, or a quadrants strategically placed to monitor wildlife).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="srtmn-png.png" class="img-fluid figure-img" width="605"></p>
+<figcaption>Scotland river temperature monitoring network</figcaption>
+</figure>
+</div>
+<p>Finally, in areal data our measurements are summarised across a set of discrete, non-overlapping spatial units (e.g., delimited conservation regions, postcode areas, council regions).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="BCRtrends.jpg" class="img-fluid figure-img" width="442"></p>
+<figcaption>Map of bird conservation regions (BCRs) showing the proportion of bird species within each region showing a declining trend <span class="citation" data-cites="stanton2016">(<a href="#ref-stanton2016" role="doc-biblioref">Stanton et al. 2016</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="spatial-analysis-of-geostatistical-data" class="level1">
+<h1>Spatial Analysis of Geostatistical Data</h1>
+<p>Tobler’s first law of geography states that:</p>
+<p>“<em>Everything is related to everything else, but near things are more related than distant things</em>”</p>
+<p>Spatial patterns are fundamental in environmental and ecological data. In many ecological and environmental settings, measurements from fixed sampling units, aiming to quantify spatial variation and interpolate values at unobserved sites.</p>
+<p>Geostatistical data are the most common form of spatial data found in environmental setting. In these data we regularly take measurements of a spatially continuous ecological or process at a set of fixed locations. This could be data from transects (e.g, where the height of trees is recorded), samples taken across a region (e.g., water depth in a lake) or from monitoring stations as part of a network (e.g., air pollution). In each of these cases, our goal is to estimate the value of our variable across the entire space.</p>
+<p>Let <span class="math inline">\(D\)</span> be our two-dimensional region of interest. In principle, there are infinite locations within <span class="math inline">\(D\)</span>, each of which can be represented by mathematical coordinates (e.g., latitude and longitude). We then can identify any individual location as <span class="math inline">\(s_i = (x_i, y_i)\)</span>, where <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span> are their coordinates.</p>
+<p>We can treat our variable of interest as a random variable, <span class="math inline">\(Z\)</span> which can be observed at any location as <span class="math inline">\(Z(\mathbf{s}_i)\)</span>.</p>
+<p>Our geostatistical process can therefore be written as: <span class="math display">\[\{Z(\mathbf{s}); \mathbf{s} \in D\}\]</span></p>
+<p>In practice, our data are observed at a finite number of locations, <span class="math inline">\(m\)</span>, and can be denoted as:</p>
+<p><span class="math display">\[z = \{z(\mathbf{s}_1), \ldots z(\mathbf{s}_m) \}\]</span></p>
+<p>We have observed our data at <span class="math inline">\(m\)</span> locations, but often want to predict this process at a set of unknown locations. For example, what is the value of <span class="math inline">\(z(\mathbf{s}_0)\)</span>, where <span class="math inline">\(\mathbf{s}_0\)</span> is an unobserved site?</p>
+<p>There are two main steps in classical geostatistical analysis.</p>
+<ol type="1">
+<li><p>How do I produce a statistical model for the data?</p></li>
+<li><p>How do I use my model to estimate quantities of interest?</p></li>
+</ol>
+<p>The first part requires us to think about how our measured data points relate to each other - in other words, to understand spatial autocorrelation. The second part requires us to use that information to predict the value at unmeasured locations, and then to produce maps or summary statistics based on this.</p>
+<section id="example-river-nitrogen" class="level3">
+<h3 class="anchored" data-anchor-id="example-river-nitrogen">Example: River nitrogen</h3>
+<p>We are interested in nitrate levels in the River Trent. A set of locations in the river network are sampled. There are UK/EU directives for safe nitrate levels in water bodies such as rivers. Our goal is to answer a <strong>policy</strong> question - which areas breach 50mg/l limit? This requires us to estimate the levels at unmeasured locations.</p>
+<p>The plot below shows the average nitrate levels from 2003-2010 at each of our observed locations. Darker colours and larger plotting points correspond to higher levels of nitrate.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TrentData.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="404"></p>
+</figure>
+</div>
+<p>Visually, it appears that the highest levels are located in the north-east and far south of the region. However, we require a statistical model to measure this objectively.</p>
+</section>
+<section id="spatial-autocorrelation" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-autocorrelation">Spatial autocorrelation</h2>
+<p>Spatial statistics and geostatistics quantify spatial variance and correlation based on distance, aligning with Tobler’s law—nearby measurements tend to be more correlated, while this relationship weakens with distance. Spatial dependence can reveal ecological processes like species interactions and responses to environmental gradients. However, it also poses challenges for statistical analysis, as it violates the common assumption of independent data in traditional methods.</p>
+<p>Analyzing spatial dependence can offer insights into the biological processes shaping observed patterns, such as social behavior, resource distribution, or dispersal. While measuring spatial dependence alone may not provide definitive answers, it helps generate hypotheses and refine predictions. Additionally, spatial dependence can influence assessments of conservation threats and strategies.</p>
+<p>Spatial correlation is usually driven by some unmeasured confounding variable(s) - for example, air pollution is spatially correlated because nearby areas tend to experience similar traffic levels.</p>
+<p>It is important that we account for these correlations in our analysis - failing to do so will lead to poor inference. For a set of geostatistical data <span class="math inline">\(\mathbf{z} = \{ z(\mathbf{s}_1), \ldots, z(\mathbf{s}_m) \}\)</span>, we can consider the general model: <span class="math display">\[Z(\mathbf{s}_i) = \mu(\mathbf{s}_i) + e(\mathbf{s}_i)\]</span></p>
+<p>Here <span class="math inline">\(\mu(\mathbf{s}_i)\)</span> is a mean function which models trend and covariate effects. Then <span class="math inline">\(e(\mathbf{s}_i)\)</span> is the error process which accounts for any spatial correlation which exists after accounting for <span class="math inline">\(\mu(\mathbf{s}_i)\)</span>. Spatial statistics is therefore often focused on understanding the process for <span class="math inline">\(e(\mathbf{s}_i)\)</span>.</p>
+<p>We have observations at <span class="math inline">\(m\)</span> locations <span class="math display">\[\mathbf{z} = \{ z(\mathbf{s}_1), \ldots, z(\mathbf{s}_m) \}.\]</span></p>
+<p>We want to use these to obtain an estimate of <span class="math inline">\(Z(\mathbf{s}_0)\)</span> where <span class="math inline">\(\mathbf{s}_0\)</span> is an unobserved location. How do we model the spatial dependence between our observed sites <span class="math inline">\(\mathbf{s}_1, \ldots, \mathbf{s}_m\)</span>? What does this tell us about the dependence between our observed sites and our unobserved site <span class="math inline">\(\mathbf{s}_0\)</span>?</p>
+<p>Spatial dependence is commonly modelled by a function known as a <strong>variogram</strong>. The variogram is similar in many ways to the autocorrelation function used in time series modelling. In simple terms, it is a function which measures the difference in the spatial process between a pair of locations a fixed distance apart. In order to define the variogram, it is important to first understand some more features of a geostatistical process.</p>
+<section id="gaussian-random-field" class="level3">
+<h3 class="anchored" data-anchor-id="gaussian-random-field"><strong>Gaussian random field</strong></h3>
+<p>A Gaussian random field (GRF) <span class="math inline">\(\{Z(s) : s \in D \subset \mathbb{R}^2\}\)</span> is a collection of random variables where observations occur in a continuous domain, and where every finite collection of random variables has a multivariate normal distribution</p>
+<p>If we have a geostatistical process <span class="math inline">\(\{Z(\mathbf{s}); \mathbf{s} \in D\}\)</span>, then its mean can be expressed as <span class="math display">\[\mu_z(\mathbf{s}) = E[{Z(\mathbf{s})}] \mbox{ for all } \mathbf{s} \in D.\]</span></p>
+<p>Our process <span class="math inline">\(Z\)</span> is then said to be a GRF if our random variable at the set of observed locations is multivariate normal. In other words, <span class="math inline">\(Z\)</span> is Gaussian if <span class="math display">\[\{ Z(\mathbf{s_1}), \ldots, Z(\mathbf{s_m}) \} \sim \mbox{MVN}(\mu_z(\mathbf{s}), C_z(\mathbf{s})).\]</span></p>
+<p>Similarly, the covariance can be expressed as:</p>
+<span class="math display">\[\begin{align*}
+  C_z(\mathbf{s}, \mathbf{t}) =&amp; \mathrm{Cov}\{Z(\mathbf{s}), Z(\mathbf{t})\}\\
+  =&amp; E\left[(Z(\mathbf{s}) - \mu_z(\mathbf{s}))(Z(\mathbf{t}) - \mu_z(\mathbf{t}))\right]
+  \end{align*}\]</span>
+<p>Here, the covariance measures the strength of the linear dependence between <span class="math inline">\(Z(\mathbf{s})\)</span> and <span class="math inline">\(Z(\mathbf{t})\)</span>. As usual, we can compute the variance of <span class="math inline">\(Z(\mathbf{s})\)</span> as a special case of the covariance where <span class="math inline">\(\mathbf{s} = \mathbf{t}\)</span>.</p>
+</section>
+<section id="stationary-and-isotropy" class="level3">
+<h3 class="anchored" data-anchor-id="stationary-and-isotropy">Stationary and isotropy</h3>
+<p>Our geostatistical process can be described as <strong>weakly stationary</strong> if the following criteria are met:</p>
+<ol type="1">
+<li><p><span class="math inline">\(E[{Z(\mathbf{s})}] = \mu_z(\mathbf{s}) = \mu_z\)</span> - a finite constant which does not depend on <span class="math inline">\(\mathbf{s}\)</span>.</p></li>
+<li><p><span class="math inline">\(C_z(\mathbf{s}, \mathbf{s+h}) = C_z(\mathbf{h})\)</span> - a finite constant which can depend on <span class="math inline">\(\mathbf{h}\)</span> but not <span class="math inline">\(\mathbf{s}\)</span>.</p></li>
+</ol>
+<ul>
+<li><p>Condition 1 states that our mean function must be constant in space, with no overall spatial trend.</p></li>
+<li><p>Condition 2 states that for any two locations, their covariance depends only on how far apart they are (their <strong>spatial lag</strong>, <span class="math inline">\(h\)</span>), not their absolute position.</p></li>
+</ul>
+<p>A geostatistical process is said to be <strong>isotropic</strong> if the covariance function is <em>directionally invariant</em>. This means that the covariance between two points a distance <span class="math inline">\(h\)</span> apart is the same no matter which direction you travel in.</p>
+<p>Mathematically, this can be denoted by <span class="math display">\[C_z(\mathbf{h}) = C_z(||\mathbf{h}||).\]</span></p>
+<p>In this course, we will only look at Gaussian, weakly stationary and isotropic processes. This means that:</p>
+<ul>
+<li><p>Our random variables across our observed locations follow a multivariate Gaussian distribution. - The mean of this distribution is constant over space. -</p></li>
+<li><p>The covariance of this distribution is only a function of the lag, not the position or direction of the points.</p></li>
+</ul>
+<p>Other models do exist for more complex processes, but we will not explore these.</p>
+</section>
+</section>
+<section id="variograms" class="level2">
+<h2 class="anchored" data-anchor-id="variograms">Variograms</h2>
+<p>The function describing the dependence between values of our process <span class="math inline">\(Z\)</span> separated by different lags is known as the <strong>autocovariance function</strong>. This is similar to the autocorrelation function (ACF) used for temporal data.</p>
+<p>In geostatistical models, we can summarise the covariance structure of a spatial Gaussian random field with its <strong>variogram</strong> gram <span class="math inline">\(2\gamma(\cdot)\)</span> (or semivariogram <span class="math inline">\(\gamma(\cdot)\)</span>). The variogram measures the variance of the difference in the process at two spatial locations <span class="math inline">\(\mathbf{s}\)</span> and <span class="math inline">\(\mathbf{s+h}\)</span> and is defined as (under weakly stationary): <span class="math display">\[\mathrm{Var}[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})] = E[(Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h}))^2] = 2\gamma_z(\mathbf{h}).\]</span></p>
+<!--$$
+\mathrm{Var}[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})] =  E[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})^2] - \{E[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})]\}^2\\
+= E[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})^2] - \{E[Z(\mathbf{s})] - E[ Z(\mathbf{s} + \mathbf{h})]\}^2\\
+= E[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})^2] - \{\mu-\mu\}^2 =  E[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})^2] \\
+$$-->
+<p>Here, <span class="math inline">\(2\gamma_z(\mathbf{h})\)</span> is the variogram, but in practice we use the <strong>semi-variogram</strong>, <span class="math inline">\(\gamma_z(\mathbf{h})\)</span>. We use the semi-variogram because our points come in pairs, and the semi-variance is equivalent to the variance per point at a given lag.</p>
+<ul>
+<li><p>When the variance of the difference <span class="math inline">\(Z(\mathbf{s}) - Z(\mathbf{t})\)</span> is relatively small, then <span class="math inline">\(Z(\mathbf{s})\)</span> and <span class="math inline">\(Z(\mathbf{t})\)</span> are similar (spatially correlated).</p></li>
+<li><p>When the variance of the difference <span class="math inline">\(Z(\mathbf{s}) - Z(\mathbf{t})\)</span> is relatively large, then <span class="math inline">\(Z(\mathbf{s})\)</span> and <span class="math inline">\(Z(\mathbf{t})\)</span> are less similar (closer to independence).</p></li>
+</ul>
+<p>If our process is <em>weakly stationary</em> and <em>isotropic</em> we can show that <span class="math display">\[\gamma_z(\mathbf{h}) = \sigma^2_z - C_z(\mathbf{h}).\]</span></p>
+<p>Therefore, if we know the covariance function, we can calculate the (semi)-variogram.</p>
+<p>The plot below shows a typical variogram, with the variance increasing as the lag increases.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>The <strong>sill</strong> is the maximum variance as <span class="math inline">\(h \to \infty\)</span>.</p></li>
+<li><p>The <strong>nugget</strong> is the maximum variance as <span class="math inline">\(h \to 0\)</span>.</p></li>
+<li><p>The <strong>range</strong> is is the distance to the sill.</p></li>
+<li><p>Points further apart than the range are assumed to be uncorrelated.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="variog1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="263"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The variogram is a function of the underlying geostatistical process <span class="math inline">\(Z\)</span>. In practice, we only have access to <span class="math inline">\(m\)</span> realisations of this process, and therefore we have to estimate the variogram. This is known as the <em>empirical variogram</em>.</p>
+<p>We obtain this by computing the semi-variance for all possible pairs of observations: <span class="math inline">\(\gamma(\mathbf{s}, \mathbf{t}) = 0.5(Z(\mathbf{s}) - Z(\mathbf{t}))^2\)</span>.</p>
+</section>
+<section id="case-study-monitoring-rainfall-in-brazil" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-monitoring-rainfall-in-brazil">Case study: Monitoring Rainfall in Brazil</h2>
+<p>The data <code>parana</code> from the <code>geoR</code> Package contains the average rainfall over different years for the period May to June at 123 monitoring stations in Paraná state, Brazil.</p>
+<p>Our goal is to model the spatial correlation in the data so that we can predict rainfall levels at unsampled locations. Our data consist of location coordinates and rainfall levels.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Exploratory plots</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Rainfall values measured at 143 recording stations in Paraná state, Brazil withlow values being represented in blue and high values in red.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>A similar plot can be obtained using the <code>plot.geodata()</code> function from the <code>geoR</code> package. see <code>??plot.geodata</code> for more details.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geoR)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(parana)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>geoR<span class="sc">::</span><span class="fu">plot.geodata</span>(parana)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The first panel shows the sampling locations, where the measurements where taken. The second and third panels show rainfall values as a function of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> coordinates. These panels can help for visually interpreting whether there is potential anisotropy in the data (directionality or trend in <span class="math inline">\(Z(s)\)</span> as a function of x–y locations). If points appear more spread out in one direction than another, this suggests anisotropic spatial structure—meaning spatial dependence changes with direction. The fourth panel shows the distribution of our variable of interest.</p>
+<p>To illustrate how an empirical variogram is computed, consider the two highlighted locations below.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>We can first compute the distance between the two locations using the standard Euclidean distance formula as <span class="math display">\[h = \sqrt{(403-164.5)^2 + (475.1-83.6)^2} = 108.36\]</span></li>
+<li>Next, we compute the semi-variance between the points using their observed values as <span class="math display">\[\gamma(\mathbf{s}, \mathbf{t}) = 0.5(Z(\mathbf{s}) - Z(\mathbf{t}))^2 = 0.5(315.33 - 306.9) = 4.62\]</span></li>
+</ol>
+<p>We repeat this process for every possible pair of points, and plot <span class="math inline">\(h\)</span> against <span class="math inline">\(\gamma(\mathbf{s}, \mathbf{t})\)</span> for each. We can calculate the empirical variogram for the data using the <code>variog</code> function in the <code>geoR</code> package. This plot shows the semi-variances for each pair of points.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Empirical Variogram</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">R-Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Empirical variogram values corresponding to the rainfall data in Paraná state, Brazil.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">variog</span>(parana,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">option =</span> <span class="st">"cloud"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.dist =</span> <span class="dv">400</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Notice that we truncate the range of lag distances at which we consider spatial dependence (see <code>max.dist</code> in the R code above). Typically you would like set this value to approximately <span class="math inline">\(1/2\)</span> to <span class="math inline">\(2/3\)</span> of the total distance observed to ensure reliable estimates of spatial dependence. Beyond this, the number of point pairs available to estimate spatial dependence decreases (many points lack enough distant neighbors) leading to <strong>biased estimates</strong> of spatial dependence.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Directional variograms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The variograms assumed <em>isotropy</em> - no directionality in spatial dependence. We can subset our data based on direction (e.g., calculating four variograms for the <span class="math inline">\(0^\circ\)</span> , <span class="math inline">\(45^\circ\)</span> , <span class="math inline">\(90^\circ\)</span> , <span class="math inline">\(135^\circ\)</span> directions where <span class="math inline">\(0^\circ\)</span> cover the range from <span class="math inline">\(-22.5 to22.5 ^\circ\)</span>) to visually consider whether there might be evidence for anisotropy in spatial dependence using the <code>variog4</code>function in <code>geoR</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="direc_variogram.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="260"></p>
+</figure>
+</div>
+<p>A strong difference in the empirical directional variograms indicate that anisotropy might be occurring in the data. Typically only 4 directions are considered (with windows <span class="math inline">\(22.5^\circ\)</span>) since any larger values (e.g., between 180 and 360 ) will provide the same patterns because the semivariance formula is symmetric.</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a> emp4.geoR <span class="ot">&lt;-</span> <span class="fu">variog4</span>(<span class="at">coords =</span> <span class="fu">st_coordinates</span>(parana_sf),</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> parana_sf<span class="sc">$</span>value,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.dist =</span> <span class="dv">400</span>,<span class="at">messages =</span> F )</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">plot</span>(emp4.geoR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The directional variograms above as well as the exploratory plots show a strong trend in the rainfall values (particularly on the y-coordinates), suggesting anisotropy in the process of interest.</p>
+<p>Recall that we have assumed a constant mean <span class="math inline">\(\mu_z\)</span> for our model. When the underlying process has a spatially varying mean <span class="math inline">\(\mu_z(\mathbf{s})\)</span>, we could instead compute <span class="math inline">\(\gamma_z(\mathbf{h})\)</span> using the residuals <span class="math inline">\((Z(\mathbf{s}) - \hat{\mu}(\mathbf{s}))\)</span> instead of <span class="math inline">\(Z(s)\)</span> (for example by defining a first order polynomial for <span class="math inline">\(\hat{\mu}(s) = \hat{\beta}_0 + \hat{\beta_1}\mathbf{x} + \hat{\beta_2} \mathbf{y}\)</span> where <span class="math inline">\(\{\mathbf{x},\mathbf{y}\}\)</span> denote the spatial coordinates of our data).</p>
+<p>We can specify the <code>trend = "1st"</code> argument to define the mean as a first order polynomial on the coordinates (see <code>??trend.spatial</code> for more details). The exploratory plots and varyiogram for the”<em>de-trended</em>” model are shown below:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Exploratory plots and empirical variogram values corresponding to the resiudals of a linear model fitted to the rainfall data in Paraná state, Brazil.</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Exploratory plots and empirical variogram values corresponding to the resiudals of a linear model fitted to the rainfall data in Paraná state, Brazil.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><em>De-trending</em> the model seems to have improved the anisotrpy issue. To make the variogram easier to use and interpret, we divide the distances into a set of discrete bins, and compute the average semi-variance in each. We compute this binned empirical variogram as: <span class="math display">\[\gamma(\mathbf{h}) = \frac{1}{2N(h_k)}\sum_{(\mathbf{s},\mathbf{t}) \in N(h_k)}[z(\mathbf{s}) - z(\mathbf{t})]^2\]</span></p>
+<p>We then construct a plot of our empirical variogram and use this to estimate the covariance structure:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Averaged empirical variogram values corresponding to the rainfall data in Paraná state, Brazil.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Once we have computed an empirical variogram, we have to think about fitting a model to it. We only have estimates at a small number of lags, we would like a continuous model which explains the changes in dependence structure as <span class="math inline">\(h\)</span> increases.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Supplementary material
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can constuct null envelope based on permutations of the data values across the locations, i.e.&nbsp;envelopes built under the assumption of no spatial correlation. By overlapping these envelopes with the empirical variograms we can determine whether there is some spatial dependence in our data ,e.g.&nbsp;if our observed variograms falls outside of the envelopes constructed under spatial randomness.</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>parana.variot <span class="ot">&lt;-</span> <span class="fu">variog</span>(parana, <span class="at">trend =</span> <span class="st">"1st"</span>,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">max.dist =</span> <span class="dv">400</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">messages =</span> F)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>emp.env <span class="ot">&lt;-</span> <span class="fu">variog.mc.env</span>(parana,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">obj.var =</span> parana.variot,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">message=</span>F)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(parana.variot, <span class="at">envelope =</span> emp.env)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this example, we observe that the variogram only falls outside of the null envelope at distances <span class="math inline">\(&lt;100\)</span>m and also at distances between <span class="math inline">\(200\)</span>m and 300m.</p>
+</div>
+</div>
+<p>Our variogram model needs to have the following properties:</p>
+<ul>
+<li><p>Monotonically increasing</p></li>
+<li><p>A constant maximum (sill)</p></li>
+<li><p>A positive intercept (nugget)</p></li>
+</ul>
+<p>Several models exist which satisfy these criteria.</p>
+<p>According to Webster and Oliver (2007), choosing variogram models is one of the most controversial topics in geostatistics. We often choose the right model based on mathematical criteria such as least squares, maximum likelihood or AIC. One of the more popular approaches, proposed by Cressie (1985), is to use weighted least squares, where the weights are based on the number of observations within each ‘bin’. The outcome of this is that more weight is given to the lags which have been estimated with more data points, which are usually the shorter lags.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="VariogramModels.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="486"></p>
+</figure>
+</div>
+<p>The key features of our variogram are represented by the following model parameters:</p>
+<ul>
+<li><p><span class="math inline">\(\tau^2 &gt; 0\)</span> is the <strong>nugget</strong>.</p></li>
+<li><p><span class="math inline">\(\sigma^2 &gt; 0\)</span> is the <strong>partial sill</strong>.</p></li>
+<li><p><span class="math inline">\(\phi &gt; 0\)</span> is the <strong>range parameter</strong>.</p></li>
+</ul>
+<p>Note that <span class="math inline">\(\phi\)</span> is not the range itself, but rather a parameter which controls how quickly the covariance decays towards zero (or the variogram increases to the sill). A smaller value of <span class="math inline">\(\phi\)</span> means the covariance function decays to zero quickly, a larger value means it decays to zero more slowly.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="VariogramFormulae.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="522"></p>
+</figure>
+</div>
+<p>We can now fit a variogram model to the empirical variogram obtained from the Rainfall river example. The black solid line below shows an exponential variogram model (fitted using the <code>geoR</code> package).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>parana.variot <span class="ot">&lt;-</span> <span class="fu">variog</span>(parana,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">trend =</span> <span class="st">"1st"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">max.dist =</span> <span class="dv">400</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">messages =</span> F)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>mlexp <span class="ot">&lt;-</span> <span class="fu">likfit</span>(parana,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">trend =</span> <span class="st">"1st"</span>, </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">ini.cov.pars =</span> <span class="fu">c</span>(<span class="dv">900</span>, <span class="dv">150</span>), <span class="co">#initial values for Cov(Z(s),Z(s+h))</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">fix.nugget =</span> F, <span class="co"># wheter the nuggets is estimated or not</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">cov.model =</span> <span class="st">"exponential"</span>, <span class="co"># covariance function</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">messages =</span> F)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(parana.variot)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(mlexp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Fitted exponential variogra, model to the averaged empirical variogram values corresponding to the rainfall data in Paraná state, Brazil.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="spatial-predictions-kriging" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-predictions-kriging">Spatial Predictions: Kriging</h2>
+<p>Once we have estimated a variogram to account for our spatial autocorrelation, we can start to think about making predictions. Spatial prediction is the process of predicting the value of our variable of interest at an unobserved location <span class="math inline">\(\mathbf{s}_0\)</span>.</p>
+<p>As with any statistical prediction, we use what we know about our observed data, including their values, how far our unobserved location is from them, and our variogram. There are many methods for spatial prediction, including regression modelling, distance weighted interpolation and an approach known as <strong>kriging</strong>.</p>
+<p>Kriging is a spatial interpolation method named after its inventor D. G. Krige, who worked in the mining industry in South African in the 1950s. He used this approach to understand the spatial pattern of mineral resources. It is a relatively simple and theoretically appealing approach, and is therefore incredibly popular for geostatistical prediction. Kriging interpolates between previously observed locations in order to predict at new locations.</p>
+<p><em>Ordinary kriging</em> is a form of kriging which assumes that the overall mean and variance of the region is constant. Predictions at unsampled locations are made using a weighted average of the observations. <span class="math display">\[z^*(\mathbf{s}_0) = \sum_{i=1}^m \lambda_i z(\mathbf{s}_i)\]</span></p>
+<p>The weights <span class="math inline">\(\lambda_i\)</span> can be estimated in a number of different ways, and are commonly based on the variogram. The weights are therefore usually proportional to the distance between the observed and new locations. Kriging weights capture the spatial correlation in the data, prioritizing nearby and highly correlated points when making predictions. As a result, locations closer to the prediction site with strong spatial dependence receive higher weights, while distant or weakly correlated points contribute less.</p>
+<p>There are other types of kriging such as <em>universal kriging</em> and <em>block kriging</em> which are more appropriate for different structures of spatial data. Whichever method is used, we can obtain a set of predictions over a grid to allow us to plot a map of the predicted spatial surface for our variable of interest. There are multiple way to create the grid that covers the entire study area for spatial prediction (e.g, <code>expand.grid</code> or <code>pred_grid</code> from the <code>geoR</code> package).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>parana.gr <span class="ot">&lt;-</span> <span class="fu">pred_grid</span>(parana<span class="sc">$</span>borders, <span class="at">by =</span> <span class="dv">15</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>r.grd <span class="ot">=</span> <span class="fu">expand.grid</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">800</span>, <span class="at">l =</span> <span class="dv">200</span>),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">600</span>, <span class="at">l =</span> <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-krigin_grid" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-krigin_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-krigin_grid-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-krigin_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: geoR background sampling grid (15 x 15) for spatial interpolation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The surface map (<a href="#fig-kriging" class="quarto-xref">Figure&nbsp;13</a> left) is generated by using kriging to make predictions over a the grid. The map on the right (<a href="#fig-kriging" class="quarto-xref">Figure&nbsp;13</a> ) shows the uncertainties associated with our estimated surface. There is lower uncertainty in the areas with lots of observed data, and higher uncertainty as we move away from the observed data.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>kcExp <span class="ot">=</span> <span class="fu">krige.conv</span>(parana,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">loc =</span> r.grd,<span class="co"># prediction grid</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">krige =</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">krige.control</span>(</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type.krige =</span> <span class="st">"OK"</span>, <span class="co"># ordinary kriging</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">trend.d =</span> <span class="st">"1st"</span>, <span class="co"># trend at observed loc</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">trend.l =</span> <span class="st">"1st"</span>, <span class="co"># trend at prediction loc</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">obj.m =</span> mlexp) ,    <span class="co"># Exp mode</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">output =</span> <span class="fu">output.control</span>(<span class="at">message =</span> F)) </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) </span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(kcExp,<span class="at">val=</span>kcExp<span class="sc">$</span>predict,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">terrain.colors</span>(<span class="dv">21</span>), <span class="at">x.leg =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">750</span>),</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">y.leg =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">main=</span><span class="st">"kriging estimates"</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(kcExp,<span class="at">val=</span><span class="fu">sqrt</span>(kcExp<span class="sc">$</span>krige.var),</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">x.leg =</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">750</span>),</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">y.leg =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">main=</span><span class="st">"kriging std. errors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="fig-kriging" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kriging-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kriging" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-kriging-1" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-kriging-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-kriging-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-kriging" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kriging-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Predicted rainfall surface
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-kriging" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-kriging-2" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-kriging-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-kriging-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-kriging" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-kriging-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Std. error obtained with Kriging
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kriging-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: Krigin results on the raainfall case study
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="areal-processes" class="level1">
+<h1>Areal processes</h1>
+<section id="spatial-dependence-in-ecological-models" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-dependence-in-ecological-models">Spatial Dependence in Ecological Models</h2>
+<p>Inference and prediction are essential in ecology and conservation, but spatial dependency can complicate statistical analysis, limiting and potentialling leading to biased ecological interpretation of the observed patterns.</p>
+<p>Understanding how spatial biases impact our ecological analyses is crucial to address many ecological problem, ranging from species–environment relationships to invasive species spread. As a consequence, there has been growing focus on incorporating spatial dependence into ecological and conservation inference.</p>
+<p>Spatial dependence can arise for many reasons. It may result from <strong>endogenous processes</strong> inherent to the system (e.g., localized dispersal leading to organism clustering or social and grouping behaviors) or be the result of <strong>exogenous factors</strong> such as spatially dependent environmental gradients used by the organism of interest. Additionally, spatial dependence can stem from model <em>mis-specifications</em>, including the omission of key covariates or incorrect functional assumptions, such as failing to account for nonlinear relationships between predictors and responses.</p>
+<p>In ecology, spatial data often come from <strong>point samples</strong>, where spatial relationships are captured through <strong>x–y coordinates</strong> (point processes) or <strong>aerial (lattice) data</strong>, such as counties or watersheds, where spatial dependence is modeled using a <strong>neighborhood matrix</strong> (spatial weights matrix). Ecological models commonly incorporate these spatial structures to account for spatial dependence in the process of interest.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ecol_data.png" class="img-fluid figure-img" width="406"></p>
+<figcaption>Examples of aerial data used in spatial modeling. Aerial data can come from (a) polygon based information or can be generated (b) from point data using Voronoi tessellation. We can describe spatial dependence through the links among locations (right panel) with a spatial neighborhood (weights) matrix</figcaption>
+</figure>
+</div>
+<p>Ecological models can be classified based on the spatial structure they consider. For example, <em>spatial filtering</em> methods account for spatial patterns by incorporating functions of x–y coordinates. In this approach, space is treated as a predictor variable within a regression framework—typically a flexible model such as polynomial regression or a generalized additive model (GAM), where smooth terms for x–y coordinates help capture large-scale spatial dependence within a region. Another common approach is the use of autoregressive models, which are applied to areal (or lattice) data. In these models, spatial dependence is captured through a spatial neighborhood weights matrix. Before exploring these models further, let’s briefly define what areal data are.</p>
+<p><strong>Areal data</strong> are data which come from well defined <strong>geographical units</strong> such as postcode areas, health board or pixels on a satellite image. Many public health studies use data aggregated over groups rather than data on individuals - often this is for privacy reasons, but it may also be for convenience.</p>
+<p>As with the other types of spatial modelling, our goal is to observe and explain spatial variation in our data. Again, we are trying to understand and account for spatial dependence. Generally, we are aiming to produce a smoothed map which summarises the spatial patterns we observe in our data. This often leads to identifying spatial extremes and/or boundaries (step changes) in the spatial surface.</p>
+<p>Areal data are commonly used in public health settings. The image shows pollution in counties of England</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="EnglandPollution.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="287"></p>
+</figure>
+</div>
+<p>Areal data is also very common in ecological where samples are taken on a lattice or become the byproduct of some sort aggregated spatial point process (<strong>?@fig-frompoints2occ</strong>). For example, the map below shows the species richness (no. of different species) occur within a 10 km grid in Scotland.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="BC_richnessmap.png" class="img-fluid figure-img" width="376"></p>
+<figcaption>Species richness in Scotland in 2020 by the Butterfly conservation UKBMS</figcaption>
+</figure>
+</div>
+<p>An <strong>areal process</strong> (or lattice process) is a stochastic process defined on a set of regions that form a partition of our region of interest <span class="math inline">\(D\)</span>. Let <span class="math inline">\(B_1, \ldots B_m\)</span> be our set of <span class="math inline">\(m\)</span> distinct regions such that: <span class="math display">\[\bigcup\limits_{i=1}^m \hspace{1mm}B_i = D.\]</span></p>
+<p>Here we require that our regions are non-overlapping, with <span class="math display">\[B_i \cap B_j = \emptyset.\]</span>Then our areal process is simply the stochastic process <span class="math display">\[\{Z(B_i); i=1,\ldots,m\}.\]</span></p>
+<p>Many of the ideas that we explored for geostatistical data still apply here. We still believe that observations closer together in space are likely to have more in common. The main difference here is that we have a set of discrete spatial units rather than a continuous surface. This can lead us towards approaches similar to those used in time series, where we consider the spatial `closeness’ of our regions in terms of a <em>neighbourhood structure</em>.</p>
+<p>Each of our regions <span class="math inline">\(B_i\)</span> has a set of other nearby which can be considered <strong>neighbours</strong>. We might expect that areas have more in common with their neighbours. Therefore we can construct dependence structures based on the principle that neighbours are correlated and non-neighbours are uncorrelated. However, we need to come up with a sensible way of defining what a neighbour is in this context.</p>
+<p>There are many different ways to define a region’s neighbours. The most common ones fall into three main categories - those based on borders, and those based on distance. The methods based on <strong>common borders</strong> assume that regions which share a border on a map are neighbours (<a href="#fig-W_border" class="quarto-xref">Figure&nbsp;14</a>). Methods based on <strong>distance</strong> assume that regions which are within a certain distance of each other are neighbours (<a href="#fig-w_distance" class="quarto-xref">Figure&nbsp;15</a>).</p>
+<p>The common border approach is simple and easy to implement. However, it treats all borders the same, regardless of length, which can be unrealistic. Also means areas very close together are not neighbours if there is even a small gap between them.</p>
+<div id="fig-W_border" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-W_border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="USAborders.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="394">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-W_border-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Illustration of border-based neighbours.
+</figcaption>
+</figure>
+</div>
+<p>A distance-based approach may initially seem more sensible as a concept, but there are a number of challenges. What distance do you choose? How do you decide that? There is no easy answer. Where do you measure from? The value will be different depending on whether you use nearest border or central point.</p>
+<div id="fig-w_distance" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-w_distance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="USAdistance.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="398">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-w_distance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Illustration of distance-based neighbours.
+</figcaption>
+</figure>
+</div>
+<p>Once we have identified a set of neighbours using our chosen method, we can use this to account for correlation. We construct a <strong>neighbourhood matrix</strong> (or proximity matrix), which defines how each of our <span class="math inline">\(m\)</span> regions relate to each other. Let <span class="math inline">\(W\)</span> denote an <span class="math inline">\(m \times m\)</span> matrix where the <span class="math inline">\((i,j)\)</span>th entry, <span class="math inline">\(w_{ij}\)</span> denotes the proximity between regions <span class="math inline">\(B_i\)</span> and <span class="math inline">\(B_j\)</span>. The values of this matrix can be discrete (which regions are neighbours) or continuous (how far apart are the regions).</p>
+<p>By far the most common approach is to use a binary neighbourhood matrix, <span class="math inline">\(W\)</span>, denoted by</p>
+<p><span class="math display">\[
+w_{ij} = \begin{cases}
+1 &amp; \text{if areas } (B_i, B_j) \text{ are neighbours.}\\
+0 &amp; \text{otherwise.}
+\end{cases}
+\]</span></p>
+<p>Binary matrices are used for their simplicity. Fitting spatial models often requires us to invert <span class="math inline">\(W\)</span>, and this is less computationally intensive for sparse matrices.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Wmatrix.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="201"></p>
+</figure>
+</div>
+<p>Now that we have defined a measure of spatial proximity for areal data, we can use this to assess spatial dependence. Essentially, we can now ask the question of how similar a region is to its neighbours. We can consider <em>global</em> correlation, measured across the entire region, and also <em>local</em> correlation which allows for regional variation. In this course, we will focus on modelling global autocorrelation using <strong>Moran’s I</strong>.</p>
+</section>
+<section id="morans-i" class="level2">
+<h2 class="anchored" data-anchor-id="morans-i">Moran’s I</h2>
+<p>Moran’s <span class="math inline">\(I\)</span> is a measure of global spatial autocorrelation, and can be considered an extension of the Pearson correlation coefficient. For a set of data <span class="math inline">\(Z_1, \ldots, Z_m\)</span> measured on regions <span class="math inline">\(B_1, \ldots B_m\)</span>, with neighbourhood matrix <span class="math inline">\(W\)</span>, we can compute Moran’s I as:</p>
+<p><span class="math display">\[
+I = \frac{m}{\sum_{i=1}^m \sum_{j=1}^m w_{ij}}\frac{\sum_{i=1}^m \sum_{j=1}^m w_{ij} (Z_i - \bar{Z})(Z_j - \bar{Z})}{\sum_{i=1}^m (Z_i - \bar{Z})^2}
+\]</span></p>
+<p>This is basically a function of differences in values between neighbouring areas.</p>
+<p>Moran’s <span class="math inline">\(I\)</span> ranges between -1 and 1, and can be interpreted in a similar way to a standard correlation coefficient.</p>
+<ul>
+<li><p><span class="math inline">\(I=1\)</span> implies that we have <strong>perfect spatial correlation</strong>.</p></li>
+<li><p><span class="math inline">\(I=0\)</span> implies that we have <strong>complete spatial randomness</strong>.</p></li>
+<li><p><span class="math inline">\(I=-1\)</span> implies that we have <strong>perfect dispersion</strong> (negative correlation).</p></li>
+</ul>
+<p>Our observed <span class="math inline">\(I\)</span> is a point estimate, and we may also wish to assess whether it is significantly different from zero. We can test for a statistically significant spatial correlation using a permutation test, with hypotheses:</p>
+<p><span class="math display">\[
+\begin{align*}
+H_0&amp;: \text{ no spatial association } (I=0)\\
+H_1&amp;: \text{ some spatial association } (I \neq 0)
+\end{align*}
+\]</span></p>
+<p>We carry out <span class="math inline">\(k\)</span> random permutations of our data (reassign each data value to a random location) and compute a Moran’s <span class="math inline">\(I\)</span> for each permutation (<span class="math inline">\(I_{perm} = I_1, \ldots, I_k\)</span>). We reject the null hypothesis if our observed Moran’s I for our real data (<span class="math inline">\(I_{obs}\)</span>) could not have plausibly come from the distribution of <span class="math inline">\(I_{perm}\)</span>.</p>
+<p>The plots below show perfect dispersion, complete spatial randomness and high spatial correlation respectively.</p>
+<div id="fig-elephants" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-Moranneg" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-Moranneg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MoranNegative.png" class="img-fluid figure-img" data-ref-parent="fig-elephants" width="185">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Moranneg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) <span class="math inline">\(\hat{I} =1;\)</span> Std.Dev 0.095; pval <span class="math inline">\(&lt;\)</span> 0.05
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-Moranzero" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-Moranzero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MoranZero.png" class="img-fluid figure-img" data-ref-parent="fig-elephants" width="185">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Moranzero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) <span class="math inline">\(\hat{I} =0.001;\)</span> Std.Dev 0.095; pval <span class="math inline">\(=\)</span> 0.865
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-Moranpos" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-Moranpos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MoranPositive.png" class="img-fluid figure-img" data-ref-parent="fig-elephants" width="185">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Moranpos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) <span class="math inline">\(\hat{I} =865;\)</span> Std.Dev 0.095; pval <span class="math inline">\(&lt;\)</span> 0.05
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: Illustration of Moran’s I using simulated data.
+</figcaption>
+</figure>
+</div>
+<p>In the next sessions we will continue reviewing areal processes and how to account for spatial dependency in the context of species distribution models. We will also look into spatial point process and more advance methods that have been develop in ecology to address different observational processes determined by different data collection schemes.</p>
 
 
 
@@ -264,6 +1257,9 @@ Figure&nbsp;4: Plots of variables v1 and v2 for each individual in the survey an
 <div id="ref-begon2021ecology" class="csl-entry" role="listitem">
 Begon, Michael, and Colin R Townsend. 2021. <em>Ecology: From Individuals to Ecosystems</em>. John Wiley &amp; Sons.
 </div>
+<div id="ref-carpentier2021" class="csl-entry" role="listitem">
+Carpentier, Florence, and Olivier Martin. 2021. <span>“Siland a R Package for Estimating the Spatial Influence of Landscape.”</span> <em>Scientific Reports</em> 11 (1). <a href="https://doi.org/10.1038/s41598-021-86900-0">https://doi.org/10.1038/s41598-021-86900-0</a>.
+</div>
 <div id="ref-dungan2002" class="csl-entry" role="listitem">
 Dungan, J. L., J. N. Perry, M. R. T. Dale, P. Legendre, S. Citron-Pousty, M.-J. Fortin, A. Jakomulska, M. Miriti, and M. S. Rosenberg. 2002. <span>“A Balanced View of Scale in Spatial Statistical Analysis.”</span> <em>Ecography</em> 25 (5): 626–40. <a href="https://doi.org/10.1034/j.1600-0587.2002.250510.x">https://doi.org/10.1034/j.1600-0587.2002.250510.x</a>.
 </div>
@@ -273,8 +1269,20 @@ Fletcher, Robert, and M Fortin. 2018. <em>Spatial Ecology and Conservation Model
 <div id="ref-Gilbert2024" class="csl-entry" role="listitem">
 Gilbert, Neil A., Bruna R. Amaral, Olivia M. Smith, Peter J. Williams, Sydney Ceyzyk, Samuel Ayebare, Kayla L. Davis, Wendy Leuenberger, Jeffrey W. Doser, and Elise F. Zipkin. 2024. <span>“A Century of Statistical <span><em>Ecology</em></span>.”</span> <em>Ecology</em> 105 (6). <a href="https://doi.org/10.1002/ecy.4283">https://doi.org/10.1002/ecy.4283</a>.
 </div>
+<div id="ref-huais2024" class="csl-entry" role="listitem">
+Huais, Pablo Yair. 2024. <span>“Multilandr: An R Package for Multi-Scale Landscape Analysis.”</span> <em>Landscape Ecology</em> 39 (8). <a href="https://doi.org/10.1007/s10980-024-01930-z">https://doi.org/10.1007/s10980-024-01930-z</a>.
+</div>
+<div id="ref-liang2021" class="csl-entry" role="listitem">
+Liang, Jianchao, Zhifeng Ding, Zhigang Jiang, Xiaojun Yang, Rongbo Xiao, Paras Bikram Singh, Yiming Hu, Keji Guo, Zhixiang Zhang, and Huijian Hu. 2021. <span>“Climate Change, Habitat Connectivity, and Conservation Gaps: A Case Study of Four Ungulate Species Endemic to the Tibetan Plateau.”</span> <em>Landscape Ecology</em> 36 (4): 1071–87. <a href="https://doi.org/10.1007/s10980-021-01202-0">https://doi.org/10.1007/s10980-021-01202-0</a>.
+</div>
 <div id="ref-locke2021nature" class="csl-entry" role="listitem">
 Locke, Harvey, Johan Rockström, Peter Bakker, Manish Bapna, Mark Gough, Jodi Hilty, Marco Lambertini, et al. 2021. <span>“A Nature-Positive World: The Global Goal for Nature.”</span>
+</div>
+<div id="ref-lowe2022" class="csl-entry" role="listitem">
+Lowe, Erin B., Ben Iuliano, Claudio Gratton, and Anthony R. Ives. 2022. <span>“<span>‘</span>Scalescape<span>’</span>: An R Package for Estimating Distance-Weighted Landscape Effects on an Environmental Response.”</span> <em>Landscape Ecology</em> 37 (7): 1771–85. <a href="https://doi.org/10.1007/s10980-022-01437-5">https://doi.org/10.1007/s10980-022-01437-5</a>.
+</div>
+<div id="ref-stanton2016" class="csl-entry" role="listitem">
+Stanton, Jessica C., Brice X. Semmens, Patrick C. McKann, Tom Will, and Wayne E. Thogmartin. 2016. <span>“Flexible Risk Metrics for Identifying and Monitoring Conservation-Priority Species.”</span> <em>Ecological Indicators</em> 61 (February): 683–92. <a href="https://doi.org/10.1016/j.ecolind.2015.10.020">https://doi.org/10.1016/j.ecolind.2015.10.020</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script>
