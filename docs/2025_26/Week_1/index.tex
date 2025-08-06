@@ -242,7 +242,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, frame hidden, breakable, colback={codebgcolor}, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, enhanced, boxrule=0pt, breakable, colback={codebgcolor}]}{\end{tcolorbox}}\fi
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
@@ -269,13 +269,13 @@
 
 \pagestyle{mystyle}
 
-\textbf{Environmental Statistics} is an incredibly broad term covering
-any form of statistics applied to environmental issues. Key themes
-include climate change, environmental regulation (e.g.~water and air
-quality) and plant and animal habitats. This course focuses on this
-theme rather than a particular type of statistical methodology. We will
-look at a variety of statistical methods, some of which you will know,
-and some which will be new.
+\textbf{Environmental and Ecological Statistics} is an incredibly broad
+term covering any form of statistics applied to environmental and
+ecological issues. Key themes include climate change, environmental
+regulation (e.g.~water and air quality) and biodiversity monitoring.
+This course focuses on this theme rather than a particular type of
+statistical methodology. We will look at a variety of statistical
+methods, some of which you will know, and some which will be new.
 
 The environment is (sometimes literally) a burning issue in the 21st
 century. This brings increased focus and interest in statistics as a
@@ -283,7 +283,7 @@ subject, and how we are working to handle topics like climate change.
 Below, we see some examples of how climate change reporting can be
 presented.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={BBC News article on climate change}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={BBC News article on climate change}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colback=white]
 
 On 14th January 2020, BBC News published an article titled ``Climate
 change: Where we are in seven charts and what you can do to help''. You
@@ -293,7 +293,7 @@ can read this by clicking the link below:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Exercise 1}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 1}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
 
 Please read the BBC News article linked to above, and consider
 critically how the information is presented. Specifically, what are the
@@ -302,7 +302,7 @@ you think about climate change any differently?
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Channel 4 programme ``2022: The Year from Space''}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Channel 4 programme ``2022: The Year from Space''}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colback=white]
 
 The Channel 4 programme ``2022: The Year from Space'' was first
 broadcast in 2022 and contains some useful illustrations of
@@ -312,7 +312,7 @@ environment-related news stories.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Exercise 2}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 2}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
 
 Please watch the Channel 4 video from 38:41 to 44:00 minutes in. What
 type of data are being generated here? How might they be analysed? How
@@ -323,11 +323,11 @@ other stakeholders?
 
 \section{Where's the statistics?}\label{wheres-the-statistics}
 
-We are interested in measuring, sampling or monitoring environmental
-data, including variation and uncertainty. This includes detecting and
-modelling environmental trends, including trends in time and space,
-modelling and understanding extreme data. We also wish to evaluate
-environmental regulation and policy, and risk assessment.
+We are interested in measuring, sampling or monitoring environmental and
+ecological data, including variation and uncertainty. This includes
+detecting and modelling environmental trends, including trends in time
+and space, modelling and understanding extreme data. We also wish to
+evaluate environmental regulation and policy, and risk assessment.
 
 We want to understand changes in the environment, in either time, space
 or both. Are things getting better or worse? Where, when and by how
@@ -345,7 +345,7 @@ need to be able to explain our findings to the public and show them why
 our work is important. Below is an example of reporting of a winter
 storm in 2023, which makes use of plots to tell the story.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={The Courier article on Storm Babet}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-note-color-frame, colbacktitle=quarto-callout-note-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={The Courier article on Storm Babet}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colback=white]
 
 On 20th October 2023, The Courier published an article titled ``Storm
 Babet: Timeline of devastating rainfall in charts and maps''. This
@@ -357,14 +357,14 @@ below:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Exercise 3}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 3}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
 
 Please read the Courier article on Storm Babet linked to above and think
 about the way that the information is presented.
 
 \end{tcolorbox}
 
-Some examples of environmental statistics include:
+Some examples of environmental \& ecological statistics include:
 
 \begin{itemize}
 \tightlist
@@ -382,13 +382,13 @@ Some examples of environmental statistics include:
   years?
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Example: Air quality}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Example: Air quality}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-important-color!10!white, breakable, colback=white]
 
 We will illustrate this with an example relating to air quality.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=5.20833in,height=\textheight]{images/Shanghai.jpg}
+{\centering \includegraphics[width=3.67708in,height=\textheight]{images/Shanghai.jpg}
 
 }
 
@@ -419,7 +419,7 @@ Quality}.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=4.16667in,height=\textheight]{images/Monitor4.png}
+{\centering \includegraphics[width=2.875in,height=\textheight]{images/Monitor4.png}
 
 }
 
@@ -432,7 +432,7 @@ levels across Scotland.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=3.125in,height=\textheight]{images/Result-PM10.png}
+{\centering \includegraphics[width=2.8125in,height=\textheight]{images/Result-PM10.png}
 
 }
 
@@ -442,7 +442,7 @@ levels across Scotland.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Exercise 4}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 4}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
 
 The example above shows a map of estimated PM\(_{10}\) levels across
 Scotland. What information do we not have, which we would normally
@@ -502,9 +502,9 @@ representative of the population? How much uncertainty do we have? Are
 our models valid? Are the assumptions reasonable? Does the model make
 sensible predictions? How much uncertainty do we have in our results?
 These skills are particularly crucial in applied areas such as
-environmental statistics.
+environmental and ecological statistics.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Example: Arctic sea ice cover}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Example: Arctic sea ice cover}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-important-color!10!white, breakable, colback=white]
 
 Submarines have been used to measure Arctic sea ice. Over time, the ice
 has shrunk both in terms of thickness and extent. We may soon see
@@ -526,7 +526,7 @@ map} provides an illustration of the changes.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Exercise 5}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame, colbacktitle=quarto-callout-tip-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 5}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
 
 How might we quantify the trend in Arctic sea ice cover, and what
 problems might we encounter in aiming to do this?
@@ -553,18 +553,17 @@ complete information about the general patterns.
 \section{Understanding our data:
 trends}\label{understanding-our-data-trends}
 
-Much of the statistical analysis of environmental data will focus on
-identifying \textbf{trends}. The statistical definition of a trend is
-\emph{a long-term change in the mean level}. Trends aren't restricted to
-being linear, and we will also look at examples of non-linear trends,
-and changepoints.
+Much of the statistical analysis of environmental and ecological data
+will focus on identifying \textbf{trends}. The statistical definition of
+a trend is \emph{a long-term change in the mean level}. Trends aren't
+restricted to being linear, and we will also look at examples of
+non-linear trends, and changepoints.
 
 Trends generally tend to focus on the \textbf{mean} of the data.
 However, we may also be interested in observing other aspects of the
-statistical distribution. \textbf{Quantile regression} looks at the
-changes which are happening at other percentiles of our distribution.
-\textbf{Extreme value theory} looks specifically at the limits of our
-distribution, and focuses on rare (or extreme) events.
+statistical distribution. \textbf{Extreme value theory} looks
+specifically at the limits of our distribution, and focuses on rare (or
+extreme) events.
 
 We'll cover this more later in the course.
 
@@ -578,7 +577,7 @@ the impacts of existing policies. However, the environment will be one
 of many competing policy areas, and every government will prioritise it
 differently.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, coltitle=black, opacitybacktitle=0.6, breakable, toprule=.15mm, bottomtitle=1mm, title={Example of international cooperation and negotiations: COP}, colback=white, leftrule=.75mm, titlerule=0mm, toptitle=1mm, arc=.35mm, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-important-color-frame, colbacktitle=quarto-callout-important-color!10!white, left=2mm]
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-important-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Example of international cooperation and negotiations: COP}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-important-color!10!white, breakable, colback=white]
 
 \begin{figure}[H]
 
@@ -636,6 +635,31 @@ environmental quantities of interest. Government agencies often make
 these data available to researchers and/or the public. These data are
 used to assess compliance with legislation as well as to identify
 environmental trends and their potential impacts on society.
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-note-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Example of Natural Capital and Ecosystem Assessment (NCEA) programme}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-note-color!10!white, breakable, colback=white]
+
+The UK Government's Natural Capital and Ecosystem Assessment (NCEA)
+programme aims to provide a comprehensive understanding of the state of
+the natural environment to inform better decision-making for its
+protection and enhancement. By integrating data collection, mapping,
+standardized protocols, and detailed reporting, the NCEA seeks to halt
+biodiversity loss, support climate adaptation and mitigation, and ensure
+sustainable management of natural capital for future generations. This
+evidence-based approach helps identify environmental trends, risks, and
+opportunities to guide policy and conservation efforts.
+
+The brochure below provides an overview of some of the key resources
+produced by the NCEA.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, colframe=quarto-callout-tip-color-frame, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, titlerule=0mm, title={Exercise 6}, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, left=2mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, colback=white]
+
+Download the NCEA. brochure and read to three case studies and identify
+(1) the problem that is being address (2) the proposed solution and its
+(3) policy impact. Then, think about how would you present the data.
+
+\end{tcolorbox}
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}

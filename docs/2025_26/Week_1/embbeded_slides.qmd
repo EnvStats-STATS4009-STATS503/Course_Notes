@@ -1,0 +1,7 @@
+---
+title: "Slides"
+---
+
+<iframe class="slide-deck" src="slides/slides.html">
+
+</iframe>
