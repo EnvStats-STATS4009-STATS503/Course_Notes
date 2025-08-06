@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - embbeded_slides.qmd
+    - slides/slides.qmd
+website:
+  title: 'Environmental and Ecological Statistics'
+  favicon: UofG_Coat_of_Arms.png
+  navbar:
+    logo: UofG.png
+    left:
+    - href: index.qmd
+      text: Notes
+    - href: embbeded_slides.qmd
+      text: Slides
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css:
+    - styles.css
+    - include/webex.css
+    toc: true
+    include-after-body: include/webex.js
+editor: visual

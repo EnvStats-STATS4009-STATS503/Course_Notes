@@ -1,0 +1,568 @@
+---
+title: "Environmental and Ecological Statistics"
+embed-resources: true
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+format: 
+   metropolis-beamer-revealjs:
+    logo:  UofG.png
+    theme: custom.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+slide-number: true
+header-logo: UofG.png
+include-in-header: 
+  text: |
+    <style>
+      .custom-small table {
+        font-size: .8em
+      }
+      .custom-tiny table {
+        font-size: .6em
+      }
+    </style>
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+---
+
+## Welcome to Environmental and Ecological Statistics
+
+-   **Environmental & Ecological Statistics** is an incredibly broad term covering any form of statistics applied to environmental issues.
+
+-   Key themes include climate change, environmental regulation (eg water and air quality), biodiversity monitoring and ecosystem assessment.
+
+-   This course focuses on this theme rather than a particular type of statistical methodology.
+
+-   We will look at a variety of statistical methods, some of which you will know, and some which will be new.
+
+## The Course Structure {.smaller}
+
+::: custom-small
+```{=html}
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-if4e{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-ntwq{background-color:#003865;border-color:inherit;color:#ffffff;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-ffq4{background-color:#003865;border-color:inherit;color:#ffffff;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-abip{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-ffq4">Module</th>
+    <th class="tg-ntwq">Week</th>
+    <th class="tg-ffq4">Topic</th>
+    <th class="tg-ffq4">Activities</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-if4e" rowspan="3"><br><br><br>Environmental Monitoring &amp; Data processing<br><br><br></td>
+    <td class="tg-abip">1</td>
+    <td class="tg-btxf">Introduction to Environmental and Ecological Statistics</td>
+    <td class="tg-btxf"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">2</td>
+    <td class="tg-0pky">Monitoring and Data mining</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-abip">3</td>
+    <td class="tg-btxf">Sampling and Monitoring Networks</td>
+    <td class="tg-btxf">Lab 1 + Tutorial 1</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr" rowspan="3"><br><br><br>Measuring Environmental Change<br><br><br></td>
+    <td class="tg-c3ow">4</td>
+    <td class="tg-0pky">Assessing Change Over Time</td>
+    <td class="tg-0pky">Tutorial 2</td>
+  </tr>
+  <tr>
+    <td class="tg-abip">5</td>
+    <td class="tg-btxf">Temporal Correlation and Changepoints</td>
+    <td class="tg-btxf"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">6</td>
+    <td class="tg-0pky">Modelling Environmental Extremes</td>
+    <td class="tg-0pky">Lab 2 + Tutorial 3</td>
+  </tr>
+  <tr>
+    <td class="tg-if4e" rowspan="3"><br><br><br>Environmental and Ecological Spatial Statistics<br><br><br></td>
+    <td class="tg-abip">7</td>
+    <td class="tg-btxf">Risk assessment and </td>
+    <td class="tg-btxf">Tutorial 4</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">8</td>
+    <td class="tg-0pky">Geostatistical Data</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-abip">9</td>
+    <td class="tg-btxf">Point process model</td>
+    <td class="tg-btxf">Lab 3</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Special Lecture</td>
+    <td class="tg-c3ow">10</td>
+    <td class="tg-0pky">Complex observational processess</td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody></table>
+```
+:::
+
+## Timetable
+
+Lectures: 2 hours per week
+
+Tutorials: 1 hour fortnightly
+
+Practical: 2 hours three times throughout the semester
+
+## Assessments
+
+Assessment in this course includes continuous assessment and a final exam. The exam will take place in April/May.
+
+::: panel-tabset
+# Level (4-H) STATS4009
+
+-   Written Exam (75%) - Degree exam in the exam diet
+
+-   Group Report (25%) - Group project running throughout the semester resulting in a group report
+
+# Level (M) **STATS5031**
+
+-   Written Exam (65%) - Degree exam in the exam diet
+
+-   Group Report (25%) - Group project running throughout the semester resulting in a group report
+
+-   Set Exercise (10%) - Critical review of published research
+:::
+
+Students must submit at least 75% by weight of the components (including examinations) of the course's summative assessment. :::
+
+# Questions?
+
+##  {background-image="river.png"}
+
+::: {.blockquote style="color: #FFFFFF; background-color:rgb(38, 38, 38,0.8); font-size: 1.25em; padding: 20px; border-radius: 5px;"}
+> "*Every breath of air we take, every mouthful of food that we take, comes from the natural world. And if we damage the natural world, we damage ourselves.*"
+>
+> Sir. David Attenborough
+:::
+
+## Environmental and Ecological Statistics {.smaller}
+
+-   The environment is (sometimes literally) a burning issue in the 21st century.
+
+![](news.png){fig-align="center"}
+
+## Media Coverage {.smaller}
+
+This brings increased focus and interest in statistics as a subject, and how we are working to handle topics like climate change.
+
+-   <https://www.bbc.co.uk/news/science-environment-46384067>
+
+-   <https://www.channel4.com/programmes/2022-the-year-from-space/on-demand/74702-001> (**38:41**)
+
+{{< video https://www.youtube.com/watch?v=CC5WSpby01E&ab_channel=BBCWorldService  aspect-ratio="21x9" 
+>}}
+
+## BBC article graphs task
+
+-   Choose one of the graphs in the BBC article.
+
+-   Think about what the good and bad aspects (if any) are.
+
+-   Discuss with your neighbour(s) and find out what they thought
+    about their chosen graph.
+
+-   Add some of your thoughts to Mentimeter,
+
+    -   E.g. What graph you chose.
+
+    -    What is the graph\'s purpose?
+
+    -   Does it do a good job at serving this purpose?
+
+    -   What did you like/dislike about the graph?
+
+## Where's the statistics?
+
+::: incremental
+-   Measuring, sampling or monitoring environmental and ecological data, including variation and uncertainty.
+
+-   Ecosystem assessment, detecting and modelling trends, including trends in time and space.
+
+-   Modelling and understanding extreme data.
+
+-   Environmental regulation and policy, and risk assessment.
+:::
+
+## What are we looking for?
+
+We want to understand changes in the environment and species respond to these changes, in either time, space or both.
+
+::: incremental
+-   Are things getting better or worse? Where, when and by how much?
+-   What is going to happen next?
+-   Where do authorities need to take action, and how can we check if existing actions are working?
+-   Also consider complex relationships between environmental variables and species habitats.
+:::
+
+## Communicating and presenting data
+
+-   Our skills in presenting and communicating data are also crucial.
+
+-   We need to be able to explain our findings to the public and show them why our work is important.
+
+-   <https://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/>
+
+## Examples
+
+-   **Decision making:** Is it safe to eat fish from a particular river?
+-   **Prediction:** What is the distribution of the Barn Swallow? Can we predict its distribution in 2030?
+-   **Regulation:** Have emission control agreements reduced air pollutants?
+-   **Understanding:** How did sea levels change over the past 100 years?
+
+## Examples: Air pollution {.smaller auto-animate="true"}
+
+Only **one person in ten** lives in a city that complies with the World Health Organisation Air quality guidelines.
+
+![](Shanghai.jpg)
+
+## Examples: Air pollution {.smaller auto-animate="true"}
+
+Only **one person in ten** lives in a city that complies with the World Health Organisation Air quality guidelines.
+
+::: incremental
+-   The World Health Organisation estimates that 1 in 9 deaths worldwide are due to pollution.
+-   The total annual cost of air pollution to the UK economy could be as much as £54 billion.
+-   Fine particular matter was associated with an estimated 2,000 premature deaths and 22,500 lost life years in Scotland in 2010.
+-   The Cleaner Air for Scotland strategy seeks to reduce air pollution across Scotland.
+-   It aims to achieve the "ambitious vision for Scotland to have the best air quality in Europe"
+:::
+
+## Measuring Pollution {.smaller}
+
+-   99 air quality monitoring stations have been set up across Scotland to capture PM$_{2.5}$, PM$_{10}$, NO$_{2}$, NO$_{x}$, SO$_{2}$ and O$_{3}$.
+
+-   Live data available at \url{http://www.scottishairquality.scot/}
+
+::: {layout-ncol="2"}
+![](EdinburghStation.jpg)
+
+![](GlasgowStation.jpg)
+:::
+
+## Monitoring Station Map
+
+![](Monitor4.png){fig-align="center"}
+
+## Estimated PM 2.5 pollution across Scotland
+
+![](Result-PM10.png){fig-align="center" width="451"}
+
+## Wildlife monitoring {.smaller auto-animate="true"}
+
+Monitor wildlife populations to halt biodiversity loss according the to National Biodiversity Strategy and Action Plan (NBSAP).
+
+![](global_goal.jpg)
+
+## Wildlife monitoring {.smaller auto-animate="true"}
+
+Monitor wildlife populations to halt biodiversity loss according the to National Biodiversity Strategy and Action Plan (NBSAP).
+
+-   To halt biodiversity loss we first need to accurately map where species exist and why
+
+![](a.gif)
+
+## Water Quality
+
+::: columns
+::: {.column width="60%"}
+![](SDG_report_2023_infographics_Goal%206.jpg){width="417"}
+:::
+
+::: {.column width="40%"}
+Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and sustainable management of water and sanitation for all".* <https://sdgs.un.org/goals/goal6> (UN SDG 6 (clickable))
+:::
+:::
+
+## Water Quality
+
+::: columns
+::: {.column width="60%"}
+-   To inform government decision-making, we need to have appropriate data on water quality.
+-   We need to sample water quality across lakes and rivers. How do we do this with the resources available?
+-   Sampling strategies are required --- see the *Sampling*' section of the course
+:::
+
+::: {.column width="40%"}
+![](river_network.png)
+:::
+:::
+
+## Water Quality {.smaller}
+
+::: columns
+::: {.column width="60%"}
+![](env2549-fig-0005-m.jpg){width="553"}
+:::
+
+::: {.column width="40%"}
+-   Once we have the samples, how can we use the data to understand water quality patterns?
+
+-   Statistical modelling approaches are required, often **spatial** and **temporal**.
+
+-   We need to understand and report our **uncertainties**.
+:::
+:::
+
+## Quantification
+
+-   Understanding and measuring quantities is a fundamental part of all science, not just statistics.
+-   As scientists, we use data to understand the process which we are investigating.
+-   These data have two main sources of uncertainty or error:
+    -   **Inherent variability** of the process itself (the thing we are measuring is variable).
+    -   **Imprecise knowledge** of the process (our measurements may not be accurate).
+
+## Example: Climate change trends
+
+-   These plots illustrate the trends in several climate change measures.
+-   Both sources of variability will be present, but how much of each?
+
+::: {layout-ncol="2"}
+![](TempAndSea.png){width="422"}
+
+![](GreenhouseCO2.png){width="624"}
+:::
+
+## Asking questions
+
+-   A big part of our role as statisticians is to ask questions of both our data and our models.
+-   How were our data collected? Are they representative of the population? How much uncertainty do we have?
+-   Are our models valid? Are the assumptions reasonable? Does the model make sensible predictions? How much uncertainty do we have in our results?
+-   These skills are particularly crucial in applied areas such as environmental and ecological statistics.
+
+## Example: Arctic Ice {.smaller}
+
+::: columns
+::: {.column width="40%"}
+![](ArcticIceMap.png){width="341"}
+:::
+
+::: {.column width="60%"}
+-   Submarines have been used to measure Arctic sea ice.
+
+-   The ice has shrunk both in terms of thickness and extent. -
+
+-   We may soon see ice-free summers, which will have a devastating impact on sea life. -
+
+-   [Arctic sea ice article (clickable)](https://interactive.carbonbrief.org/when-will-the-arctic-see-its-first-ice-free-summer/)
+:::
+:::
+
+## Example: Arctic Ice {.smaller}
+
+::: columns
+::: {.column width="40%"}
+![](ArcticIceTimeSeries.png)
+:::
+
+::: {.column width="60%"}
+-   Sometimes, quantification is required.
+-   February 2016 sea ice extent was the lowest in the satellite record at 14.22 million square kilometres (5.48 million square miles).
+-   The linear rate of decline for February is now 3.0 percent per decade.
+:::
+:::
+
+## Understanding our data: trends
+
+-   Much of the statistical analysis of environmental and ecological data will focus on identifying **trends**.
+-   The statistical definition of a trend is a [long-term change in the mean level]{style="color:purple;"}.
+-   Trends aren't restricted to being linear - we will also look at examples of non-linear trends.
+
+## Understanding our data: trends
+
+-   Trends generally tend to focus on the **mean** of the data.
+-   However, we may also be interested in observing other aspects of the statistical distribution.
+-   **Extreme value theory** looks specifically at the limits of our distribution, and focuses on rare (or extreme) events.
+
+# Policy, legislation and monitoring
+
+## Policy
+
+-   A great deal of environmental statistical research is funded by governments and regulatory bodies.
+-   They need to know where the biggest challenges lie so that they can allocate their resources appropriately.
+-   Evidence-based policy relies on measuring changes and also evaluating the impacts of existing policies.
+-   However, the environment will be one of many competing policy areas, and every government will prioritise it differently.
+
+## Policy {.smaller}
+
+::: columns
+::: {.column width="40%"}
+-   Policies made in context of multinational agreements.
+-   Held annually, COP is the United Nations Climate Change Conference.
+-   Aim to limit global temperature rise and achieve net zero emissions.
+:::
+
+::: {.column width="60%"}
+![](COP28.jpg){width="346"}
+:::
+:::
+
+-   Key achievement of 2024's COP29: wealthier countries to pay US\$300 billion/year to less wealthy countries to finance climate change mitigation measures.
+-   [Report from UK's Climate Change Committee (clickable)](https://www.theccc.org.uk/publication/cop29-key-outcomes-and-next-steps-for-the-uk/)
+
+## Policy
+
+-   Environmental policy tends to use very specific language - *objectives, targets, guide values, standards, reductions relative to a baseline*
+
+-   Policy often prescribes monitoring quantities of interest over space and/or time.
+
+-   Quantities of interest will include *water, air and noise pollution, waste management, radioactive substances, biodiversity and animal and plant species*
+
+## Legislation
+
+-   Legislation is the legal framework used to implement policy.
+
+-   Most legislation focuses on setting targets or safe levels for the pollutants.
+
+-   A number of regulatory bodies exist specifically to monitor such things, e.g. [Scottish Environment Protection Agency (SEPA, Scotland)](https://beta.sepa.scot/about-sepa/who-we-are/), [the Environment Agency (EA, England)](https://www.gov.uk/government/organisations/environment-agency/about) and [the European Environment Agency (EEA, EU)](%7Bhttps://www.eea.europa.eu/en).
+
+## Routine Monitoring
+
+-   Monitoring requirements may be prescribed in policy.
+-   Much of our data come from routine monitoring of our environmental quantities of interest.
+-   Government agencies often make these data available to researchers and/or the public.
+-   These data are used to assess compliance with legislation as well as to identify environmental trends and their potential impacts on society.
+-   We have already seen monitoring data in the air pollution and water quality examples.
+
+## Evidence from routine monitoring
+
+-   Assessment of long-term changes in **natural conditions**.
+
+-   Assessment of long-term changes resulting from **anthropogenic activities**.
+
+-   Ascertaining the **magnitude** and **impacts** of accidental pollution.
+
+-   Assessing compliance with the **standards** and **objectives** of protected areas.
+
+-   Quantifying **reference conditions**.
+
+## Policy, legislation and monitoring {auto-animate="true"}
+
+::: columns
+::: {.column width="30%"}
+```{mermaid}
+flowchart TB
+  A(Policy) --> B(Legislation)
+  B --> C(Monitoring)
+  C --> D(Analysis)
+  D --> A
+```
+:::
+
+::: {.column width="70%"}
+-   Statistical analyses and reporting is important for ensuring compliance with legislation.
+-   Understanding trends, spatial and temporal patterns, and impacts is important for informing policy: \textit{``evidence-based policy making''}.
+    -   E.g. Evaluating effectiveness of current policy, e.g. measurement of change before/after implementation.
+:::
+:::
+
+## Policy, legislation and monitoring {auto-animate="true"}
+
+::: columns
+::: {.column width="30%"}
+```{mermaid}
+flowchart TB
+  A(Policy) --> B(Legislation)
+  B --> C(Monitoring)
+  C --> D(Analysis)
+  D --> A
+```
+:::
+
+::: {.column width="70%"}
+-   *Good policy needs a foundation in good science*'' [(Wallstr"om, 2005](https://www.eea.europa.eu/media/speeches/29-11-2005_2)
+-   Agencies can be *data rich and information poor*
+-   Other (often short-term) factors play a role in policy making (e.g. news coverage)
+-   So, **timely** findings of **practical relevance** are important.
+:::
+:::
+
+## Informing policy and legislation
+
+::: columns
+::: {.column width="40%"}
+![](ec_directive.png)
+:::
+
+::: {.column width="60%"}
+-   What defines "good'' status?
+-   How could we assess this using statistics?
+:::
+:::
+
+## The framework for environmental policy
+
+-   Environmental policy is set at various levels:
+    -   Internationally (Kyoto Convention, European Union)
+    -   Nationally, by politicians
+-   Environmental policy is implemented and monitored by regulators. In the UK this includes:
+-   National Environment Agencies,
+-   Government departments.\
+-   Other parties/stakeholders:
+    -   Industrialists (extra cost), economists, special interest groups and organisations (Greenpeace, WWF etc.), the public.
+
+## Summary points
+
+-   **Environmental and Ecological statistics** is a broad term covering many different techniques.
+
+-   It can involve:
+
+    -   Decision-making
+    -   Prediction
+    -   Regulation
+    -   Understanding
+
+-   We need to communicate and present data and statistics to e.g. the public, government and subject-matter experts.
+
+## Summary points
+
+-   To understand quantities, we need to understand the process.
+-   We need to quantify the uncertainty and error, which have multiple sources:
+    -   Inherent variability of the process.
+    -   Imprecise knowledge of the process.
+-   We must collaborate with subject-matter experts, to ensure that we understand e.g. how the data were collected, are our model's predictions sensible?
+
+## Summary points
+
+-   We need to understand the policy and legislative context:
+    -   International agreements $\rightarrow$ National-level policies $\rightarrow$ Legislation.
+    -   Legislation is the legal framework used to implement policy.
+    -   Regulatory bodies monitor compliance with legislation through collecting routine monitoring data.
+-   Our work can inform policy decisions through ensuring that representative data are collected, and that results are appropriately interpreted and understood.
+
+## References
+
+-   Piegorsch, W. W., & Bailer, A. J. (2005). *Analyzing environmental data*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/6wbh6zq0) ).
+
+-   Barnett, V. (2004). *Environmental statistics: Methods and applications*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/TbMBCTkV) ).
+
+-   Manly, B. F. J. (2001). *Statistics for environmental science and management*. Chapman & Hall/CRC. (No e-book available, but [a physical copy is available from the University Library](https://go.exlibris.link/Jcyj94mj) ).
