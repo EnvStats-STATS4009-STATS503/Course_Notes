@@ -1,0 +1,271 @@
+---
+title: "Additional Notes"
+format:
+  html:    
+    code-link: true
+    code-fold: true
+    code-tools:
+      source: false
+      toggle: true
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    number-sections: true
+  PrettyPDF-pdf:
+    keep-tex: true
+    number-sections: true
+    latex-auto-install: true
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(webexercises)
+library(shiny)
+library(shinylive)
+```
+
+In this section we recap some important statistical properties of our estimators (for further details please refer to the statistical inference course). 
+
+A population parameter $\theta$ represents a quantitative measurement of population values. Since $\theta$ is typically unknown, we need to estimate it by drawing samples from the population of interest. Our estimator, $\hat{\theta}$,is then computed based on the samples we have obtained. The question is then, how well does $\hat{\theta}$ do its job in estimating $\theta$? To evaluate this, we examine key statistical properties of estimators.
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 6
+#| fig-height: 5
+#| fig-align: center
+#| fig-cap: "Sampling from Normal Distribution. The black curve represent the true population distribution with mean represented by the black solid line. The colored point are two different samples with their corresponding sample mean shown in colured dashed lines."
+#| label: fig-sampling1
+
+library(ggplot2)
+library(dplyr)
+library(shiny)
+set.seed(123) # For reproducibility
+
+
+ggplot(data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1),
+                linewidth = 0.8, color = "black") +
+  # Fill under the curve
+  stat_function(fun = dnorm, args = list(mean = 0, sd = 1),
+                geom = "area", fill = "gray80", alpha = 0.3) +
+  # Population mean line
+  geom_vline(xintercept = 0, linewidth = 0.8, linetype = "solid") +
+  annotate("text", x = 0, y = 0.45, label = "theta", parse = TRUE,
+           vjust = 1.5, hjust = 1.2, size = 5)+
+  # Take 2 samples (n=10 each) for clearer visualization
+  lapply(1:2, function(i) {
+    s <- rnorm(10) # Smaller sample size
+    list(
+      geom_point(data = data.frame(x = s, y = 0), 
+                aes(x = x, y = 0, color = paste("Sample", i)),
+                position = position_jitter(height = 0.005, width = 0),
+                size = 3, alpha = 0.8),
+      geom_vline(xintercept = mean(s), 
+                color = c("orange", "#377EB8")[i],
+                linetype = "dashed", linewidth = 0.8),
+      annotate("text", x = mean(s), y = 0.45, 
+             label = c("theta[1]", "theta[2]")[i], parse = TRUE,
+             color =  c("orange", "#377EB8")[i], vjust = 1.5, hjust = -0.2, size = 5)
+    )
+  }) +
+  
+  # Cosmetic settings with serif font
+  scale_color_manual(values = c("orange", "#377EB8"), name = NULL) +
+  labs(title = "Sampling from Normal Distribution",
+       subtitle = "Black curve: True population (N(0,1))\nColored points: Sample observations\nDashed lines: Sample means",
+       x = "Value", y = "") +
+  scale_y_continuous(breaks = NULL) +
+  theme_minimal(base_family = "serif", base_size = 12) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line.x = element_line(color = "black"))
+```
+
+**Consistency**
+
+As we see in @fig-sampling1, there is some discrepancy between the sample means and the true population mean. Thus, it is expected that, as the sample size increases, our estimator $\hat{\theta}$ will get closer to the true value $\theta$. Thus an estimator $\hat{\theta}$ is said to be *consistent* if it converges to the true parameter $\theta$ as the sample size $n$ increases, i.e., $\hat{\theta} \rightarrow \theta$ as $n\to\infty$. E.g., let $\hat{\theta} = \bar{x} + \frac{1}{n}$ be a biased but consistent estimator of $\theta = 5$ ($\bar{x}$ represents the sample mean). @fig-sampling2 shows how as sample size increases, the estimator converges to the true parameter.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 4
+#| fig-height: 4
+#| fig-align: center
+#| fig-cap: " Demonstration of estimator consistency. The dashed red line indicates the true parameter value. The blue line tracks the mean estimate across increasing sample sizes, while the shaded region represents the 95% confidence interval. "
+#| label: fig-sampling2
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+set.seed(123)
+
+# Simulate data for a consistent estimator
+n_samples <- seq(10, 1000, by = 10)
+true_theta <- 5
+
+# Create a data frame with estimates that converge to true_theta
+sim_data <- data.frame(
+  n = rep(n_samples, each = 100),  # 100 replicates at each sample size
+  estimate = sapply(rep(n_samples, each = 100), function(n) {
+    mean(rnorm(n, mean = true_theta, sd = 10)) + 10/sqrt(n)  # Consistent but biased at small n
+  })
+)
+
+# Calculate mean and 95% interval at each sample size
+summary_data <- sim_data %>%
+  group_by(n) %>%
+  summarise(
+    mean_estimate = mean(estimate),
+    lower = quantile(estimate, 0.025),
+    upper = quantile(estimate, 0.975)
+  )
+
+# Create the plot
+ggplot(summary_data, aes(x = n)) +
+  geom_hline(yintercept = true_theta, linetype = "dashed", color = "red") +
+  geom_line(aes(y = mean_estimate), color = "blue") +
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.2, fill = "blue") +
+  labs(title = "",
+       x = "Sample Size (n)",
+       y = "Estimate",
+       caption = "Red dashed line: True parameter value\nBlue line: Mean estimate\nShaded area: 95% confidence interval") +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(0, 1000, by = 200)) +
+  coord_cartesian(ylim = c(true_theta - 2, true_theta + 4))
+
+```
+
+**Expected value**
+
+The expected value of an estimator is a weighted average of all possible estimates. Here, the weights are given by the probability of selecting a particular sample $s$, i.e., $p(s)$. Mathematically, this can be written as:
+
+$$
+\mathbb{E}(\hat{\theta})= \sum_{x\in\Omega} p(s)\hat{\theta(s)}
+$$
+
+Where $\Omega$ is the sample space, i.e. the number of possible samples. Furthermore, if all possible samples are equally likely then $p(s)=\frac{1}{\Omega}$ and the expected values becomes:
+
+$$
+\mathbb{E}(\hat{\theta}) = \dfrac{1}{\Omega} \sum_{s\in\Omega} \hat{\theta}(s).
+$$
+
+Note that the expected value is a function of both, the sampling design (due to $p(s)$) and the population being sampled (through the sample estimate $\hat{\theta}(s)$).
+
+::: {.callout-important icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 1
+
+Suppose we have a tiny population of three trees with the following diameters (cm) :
+
+| Tree | diameter (cm) |
+|------|---------------|
+| 1    | 9.1           |
+| 2    | 10.2          |
+| 3    | 17.2          |
+
+Now, we sample only **2 trees** and measure the diameter of each tree in the sample. It is clear from here that there are only $\Omega=3$ possible samples we could've taken:
+
+1.  $s_1 = \{\text{tree 1},\text{tree 2}\}$
+2.  $s_2 = \{\text{tree 1},\text{tree 3}\}$
+3.  $s_3 = \{\text{tree 2},\text{tree 3}\}$
+
+Imagine that samples are selected with an equal probability so that $p(s_1) = p(s_2) = p(s_3) = 1/3$.
+
+The true population mean diameter is $\mu_y = ( 9.1+10.2+ 17.2)/3 =12.17$.
+
+Suppose we chose the sample average $\bar{y}$ as our estimate of $\mu_y$. Then, the expected value of $\bar{y}$ is given by
+
+$$
+\begin{aligned}\mathbb{E}(\bar{y}) &= p(s_1) \left(\dfrac{9.1+10.2}{2}\right) +  p(s_2) \left(\dfrac{9.1+17.2}{2}\right) +  p(s_3) \left(\dfrac{10.2+17.2}{2}\right)\\&= \dfrac{1}{3}\left(\dfrac{19.3}{2} + \dfrac{26.3}{2} + \dfrac{27.4}{2} \right)\\&= 12.17 = \mu_y\end{aligned}
+$$
+
+What would have happened if our sampling design had unequal sampling probabilities given by $p(s_1) = 1/2$, $p(s_2) = 1/3$ and $p(s_3) = 1/6$? Calculate $\mathbb{E}(\hat{y})$ under this sampling scenario.
+
+`r hide("See Solution")`
+
+$$
+\begin{aligned}
+\mathbb{E}(\bar{y}) &= p(s_1) \left(\dfrac{9.1+10.2}{2}\right) +  p(s_2) \left(\dfrac{9.1+17.2}{2}\right) +  p(s_3) \left(\dfrac{10.2+17.2}{2}\right)\\
+&= \dfrac{1}{2}\left(\dfrac{19.3}{2} \right) + \frac{1}{3} \left(\dfrac{26.3}{2}\right) + \dfrac{1}{6}\left(\dfrac{27.4}{2} \right)\\
+&= \dfrac{19.3}{4}  + \dfrac{26.3}{6} + \dfrac{27.4}{12} \\
+&= 11.5 \neq \mu_y
+\end{aligned}
+$$
+
+`r unhide()`
+:::
+
+In practice, $\mathbb{E}(\hat{\theta})$ cannot be evaluated because we can not measure all the $N$ elements of our population of interest! (and if we could then $\theta$ could be evaluated directly on our population rather than obtaining a samples from it). However, understanding this concept is important for two other relevant quantities.
+
+**Bias**
+
+The bias of an estimator is the difference in magnitude between its expected value and the population parameter for which an estimated is desired:
+
+$$
+\textbf{Bias}(\hat{\theta}) = \mathbb{E}(\hat{\theta}) - \theta
+$$ 
+
+When $\mathbb{E}(\hat{\theta}) = \theta$ , $\hat{\theta}$ is said to be an *unbiased estimator* of $\theta$.
+
+Note that the bias is not a property of an individual estimate (e.g., $\hat{\theta}(s)$). E.g., we can see in @fig-sampling1 there are some discrepancies between the true population parameter $\theta$ and the sample estimates $\hat{\theta}(1)$ and $\hat{\theta}(2)$. Such discrepancies $\hat{\theta}(s) - \theta$ are known as *sampling errors*. This doesn't mean that an error has been made during the sampling, it just indicates that the value being estimated will differ from the true value because is being estimated from just a fraction of the elements of the population. Thus, one may wonder how much an estimate $\hat{\theta}$ from one sample will differ from that calculated from a different sample. In principle we would like this difference to be small because that will ensure that no matter which sample we take, the estimated value will be similar across samples.
+
+**Variance**
+
+The **variance** of an estimator or *sampling variance* is the average squared distance between individual estimates $\hat{\theta}(s)$ and their expected value $\mathbb{E}(\hat{\theta})$, i.e.,
+
+$$
+\text{Var}(\hat{\theta}) = \sum_{s\in \Omega} p(s) \left(\hat{\theta}(s)-\mathbb{E}(\hat{\theta})\right)^2 
+$$ 
+Notice how the variance of an estimator does not depend (unlike the bias) on the true parameter $\theta$
+
+::: {.callout-important icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 2
+
+Using the data from the previous task and assuming equal sampling probabilities, calculate $\text{Var}(\hat{y})$
+
+`r hide("See Solution")`
+
+$$
+\begin{aligned}
+\text{Var}(\bar{y}) &= p(s_1) \left(\dfrac{19.3}{2} - 12.17\right)^2 +  p(s_2) \left(\dfrac{26.3}{2} - 12.17\right)^2 +  p(s_3) \left(\dfrac{27.4}{2} - 12.17\right)^2\\
+&= \dfrac{1}{3}\left(  9.65 \right) =  3.22 
+\end{aligned}
+$$
+
+`r unhide()`
+:::
+
+**Precision**
+
+The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is and does not relate to the true value. To illustrate this, suppose we draw 20 random samples with equal probability from our population of interest . @fig-bias_prec shows 100 replicates/data sets of this experiment with 4 different estimators:
+
+-    $\hat{\theta}_{1}(s) =\frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean of the $s$th sample which is **unbiased** and **precise**
+
+-    $\hat{\theta}_{2}(s) = \text{arg min } (x_1,\ldots, x_{20})$ - the $s$th sample minimum value which is **biased** and **imprecise**.
+
+-    $\hat{\theta}_{3}(s)  = x_1$ - the first observation of the unordered sample which is **unbiased** and **imprecise.**
+
+-    $\hat{\theta}_{4}(s) =2 + \frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean + constant which is **biased** but **precise**.
+
+
+::: {.content-visible when-format="html"}
+
+![Illustration of bias and precision of an estimator. The red dashed line shows the true population parameter. the grey point shows the sample of the *j*-th data set, and the colored points indicate the estimates for each sample.](images/four_estimators.gif){#fig-bias_prec fig-align="center"}
+:::
+
+Imagine a dartboard where the bullseye represents the true population parameter ($\theta$). Each throw corresponds to a sample estimate ($\hat{\theta}(s)$). Precision refers to how tightly clustered the darts are - a precise estimator produces estimates that land close together, regardless of their position relative to the bullseye. Bias, on the other hand, is the systematic offset from the bullseye - even with perfect precision, a biased estimator would consistently miss the center in the same direction.
+
+![](images/bias_prec2.png){fig-align="center" width="413"}
+
+

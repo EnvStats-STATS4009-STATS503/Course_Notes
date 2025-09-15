@@ -1,0 +1,2013 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+% load packages
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+%% Set page size with a wider right margin
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm, bottom=20mm, right=50mm}
+
+%% Let's define some colours
+\definecolor{uniblue}{HTML}{003865}
+\definecolor{burgundy}{HTML}{7D2239}
+\definecolor{cobalt}{HTML}{005C8A}
+\definecolor{lavender}{HTML}{5B4D94}
+\definecolor{leaf}{HTML}{006630}
+\definecolor{moss}{HTML}{385A4F}
+\definecolor{pillarbox}{HTML}{B30C00}
+\definecolor{rust}{HTML}{9A3A06}
+\definecolor{sandstone}{HTML}{52473B}
+\definecolor{skyblue}{HTML}{005398}
+\definecolor{slate}{HTML}{4F5961}
+\definecolor{thistle}{HTML}{951272}
+
+%\definecolor{light}{HTML}{E6E6FA} % original from template - redefined below as uni blue at 10 percent:
+\colorlet{light}{uniblue!10}
+%\definecolor{highlight}{HTML}{800080} % original from template - redefined below as uni's skyblue:
+\colorlet{highlight}{skyblue}
+%\definecolor{dark}{HTML}{330033} % original from template - redefined below as uni blue at 100 percent:
+\colorlet{dark}{uniblue}
+
+%% Let's add the border on the right hand side 
+\AddToShipoutPicture{% 
+    \AtPageLowerLeft{% 
+        \put(\LenToUnit{\dimexpr\paperwidth-3cm},0){% 
+            \color{light}\rule{3cm}{\LenToUnit\paperheight}%
+          }%
+     }%
+     % logo
+    \AtPageLowerLeft{% start the bar at the bottom right of the page
+        \put(\LenToUnit{\dimexpr\paperwidth-2.25cm},27.2cm){% move it to the top right
+            \color{light}\includegraphics[width=2.25cm]{_extensions/nrennie/PrettyPDF/uni_logo_boxed.jpg}
+          }%
+     }%
+}
+
+%% Style the page number
+\fancypagestyle{mystyle}{
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\thepage}
+  \fancyfootoffset{3.5cm}
+}
+\setlength{\footskip}{20pt}
+
+%% style the chapter/section fonts
+\chapterfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\sectionfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\subsectionfont{\color{skyblue}\fontsize{14}{16.8}\selectfont}
+\titleformat{\subsection}
+  {\color{uniblue!90}\sffamily\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.8pt]}]
+\subsubsectionfont{\color{cobalt}}
+
+\renewcommand\thesection{\color{slate}\arabic{section}}
+  
+% left align title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  {\color{uniblue}\sffamily\huge\textbf{\@title}} \vspace{0.3cm} \newline
+  {\Large {\@subtitle}} \newline
+  \@author
+\end{flushleft}\egroup
+}
+\makeatother
+
+%% Use some custom fonts
+\setsansfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+
+\setmainfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}{}
+\makeatother
+\makeatletter
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
+\makeatother
+\makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, sharp corners, breakable, colback={codebgcolor}, frame hidden]}{\end{tcolorbox}}\fi
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Understanding our Data},
+  colorlinks=true,
+  linkcolor={highlight},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={highlight},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Understanding our Data}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\pagestyle{mystyle}
+
+\section{Overview}\label{overview}
+
+In this session, we will be looking at uncertainty and variability, and
+how we can measure these and incorporate them into our conclusions.
+Next, we will examine various environmental and ecological data sources,
+highlighting critical pre-processing steps such as handling censored
+data, outliers, and missing values.
+
+We often talk about uncertainty and error as though they are
+interchangeable, but this is not quite correct.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Error} is the difference between the measured value and the
+  `true value' of the thing being measured.
+\item
+  \textbf{Uncertainty} is a quantification of the variability of the
+  measurement result.
+\end{itemize}
+
+\subsection{Statistical distributions}\label{statistical-distributions}
+
+Practically speaking, we make use of common statistical distributions to
+account for uncertainty. These include both continuous and discrete
+distributions.
+
+\subsubsection{Continuous distributions}\label{continuous-distributions}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Normal}: perhaps the most commonly used distribution in
+  statistics. \(X \sim N(\mu, \sigma^2)\).
+\item
+  \emph{Exponential}: distribution of the time (\(\lambda\)) between
+  events. \(X \sim Exp(\lambda)\).
+\end{itemize}
+
+\subsubsection{Discrete distributions}\label{discrete-distributions}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Poisson}: distribution of the probability of observing a
+  specific count (\(\theta\)) within a particular time period.
+  \(X \sim Po(\theta)\).
+\item
+  \emph{Binomial}: distribution of the number of successes in \(n\)
+  independent trials where \(\theta\) is the probability of success.
+  \(X \sim Bi(n, \theta)\).
+\item
+  \emph{Negative binomial}: distribution of the number of trials until
+  the \(k\)th success is observed. \(X \sim NeBi(k, \theta)\).
+\end{itemize}
+
+\subsection{Observational Error}\label{observational-error}
+
+The observational \textbf{error} in a measurement is a single result,
+namely the difference between the measured and the true value. The error
+may include both a random and a systematic component.
+
+\textbf{Random error} is variation that is observed randomly over a set
+of repeat measurements. As you make more measurements, these errors tend
+to average out and your estimates will improve in accuracy.
+
+\textbf{Systematic error} is variation that remains constant over
+repeated measures. This is typically due to some feature of the
+measurement process. Making more measurements will not improve accuracy,
+since all new measurements will be affected in the same way. Systematic
+error can only be eliminated by identifying the cause of the error.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 1}, opacitybacktitle=0.6, rightrule=.15mm]
+
+For each of the examples below, consider whether the error is
+\textbf{random} or \textbf{systematic}.
+
+\begin{itemize}
+\item
+  A meter reads 0.01 even when measuring no sample.
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    random\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    systematic
+  \end{enumerate}
+\item
+  An old thermometer can only measure the temperature to the nearest 0.5
+  degrees. (e.g., 23.5 \(^\circ\)C becomes 23 \(^\circ\)C or 24
+  \(^\circ\)C)
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    random\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    systematic
+  \end{enumerate}
+\item
+  A poorly designed rainfall monitor often leaks water on windy days.
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    random\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    systematic
+  \end{enumerate}
+\item
+  You are asked to measure the volume of an ice cube in a warm
+  laboratory.
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    random\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    systematic
+  \end{enumerate}
+\item
+  To estimate the abundance of a fish species in a lake, scientists use
+  a net with a mesh size equal to the average fish length.
+  \texttt{mcq(c("random",\ answer="systematic"))}
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Quantifying uncertainty}\label{quantifying-uncertainty}
+
+\subsection{Standard uncertainty and expanded
+uncertainty}\label{standard-uncertainty-and-expanded-uncertainty}
+
+When presenting our results, it is important that we are clear the
+uncertainty associated with them. A common approach is to use a
+\textbf{standard uncertainty}, which is just the standard deviation,
+reported as:
+\[\text{estimated value } \pm \text{ standard uncertainty}\]
+
+The standard uncertainty (\(u(\bar{\mathbf{x}})\)) for a vector
+\(\mathbf{x}\) of length \(n\) is computed as follows:
+\[u(\bar{\mathbf{x}}) = \frac{sd(\mathbf{x})}{\sqrt{(n)}}\]
+
+More generally we can use an \textbf{expanded uncertainty}, which is
+obtained by multiplying the standard uncertainty by a factor \(k\). You
+have already seen this in statistics as the key building block of a
+confidence interval. The value of \(k\) is chosen based on the quantiles
+of a standard normal distribution, with a value of \(k=1.96\) (or
+\(k=2\)) giving a 95\% confidence interval. The 95\% CI for the mean of
+\(\mathbf{x}\) is given as
+\(\bar{\mathbf{x}} \pm 1.96 \times u(\bar{\mathbf{x}}).\)
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Bathing water quality}, opacitybacktitle=0.6, rightrule=.15mm]
+
+All bathing water sites in Scotland are classified by SEPA as
+``Excellent'', ``Good'', ``Sufficient'' or ``Poor'' in terms of how much
+fecal bacteria (from sewage) they contain. The minimum standard all
+beaches or bathing water must meet is ``Sufficient''. The sites are
+classified based on the 90th and 95th percentiles of samples taken over
+the four most recent bathing seasons.
+
+The figure below shows the data from some selected sites.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{images/BathingWater.png}
+
+}
+
+\caption{Boxplots of FS by year for 10 sites. The dashed horizontal
+lines represent ``excellent'' (green, lowest), ``good'' (blue, middle)
+and ``sufficient'' (red, highest) classification boundaries,
+respectively.}
+
+\end{figure}%
+
+The classification is based on a belief that the samples at each site
+follow a log-normal distribution. If this assumption does not hold, then
+our classifications would not be accurate. Therefore, it is crucial that
+we regularly assess this assumption to ensure the safety of our bathing
+water. We can use our standard plots to assess log-normality. In the
+figure below, the top plots are produced using the untransformed data
+and the bottom plots are produced after taking a logarithmic
+transformation of the data (FS).
+
+\includegraphics[width=5.20833in,height=\textheight]{images/WaterNormality1.png}
+\includegraphics[width=5.20833in,height=\textheight]{images/WaterNormality2.png}\\
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 2}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Can we assume that the samples at each site follow a log-normal
+distribution?
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    Yes\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    No
+  \end{enumerate}
+\end{itemize}
+
+Solution
+
+Yes, we can assume that the samples at each site follow a log-normal
+distribution. From the plots, there is no strong evidence to suggest we
+have breached our assumptions. Specifically, the histogram of
+log\(_{10}\)(FS) shows that the distribution is not far from a bell
+shape, and the points on the Normal Q-Q plot lie close to the line of
+equality.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Bathing water quality (continued)}, opacitybacktitle=0.6, rightrule=.15mm]
+
+In the following exercises, we will calculate the standard uncertainty
+and a 95\% confidence interval for the mean of log(FS).
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 3}, opacitybacktitle=0.6, rightrule=.15mm]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  We have 80 measurements of log(FS), with a mean of \textbf{3.861} and
+  a standard deviation of \textbf{1.427}. Use these to calculate the
+  standard uncertainty of the population mean log(FS) using our vector
+  \(\textbf{x}\).
+\end{enumerate}
+
+\emph{Answer (to 3 decimal places):} \_\_\_\_\_
+
+Solution
+
+\[u = \frac{sd(\mathbf{x})}{\sqrt{(n)}} = \frac{1.427}{\sqrt{80}} = 0.160\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Given the standard uncertainty that calculated in part (a), calculate
+  a 95\% confidence interval for the population mean of log(FS).
+\end{enumerate}
+
+\emph{Answer (to 3 decimal places):} (\_\_\_\_\_,\_\_\_\_\_)
+
+Solution
+
+A 95\% confidence interval for \(\bar{x}\) is:
+\[\bar{x} \pm 1.96 \times u = 3.861 \pm 1.96 \times 0.160 = (3.574, 4.175)\]
+
+\end{tcolorbox}
+
+\subsection{Uncertainty propagation}\label{uncertainty-propagation}
+
+For a measure \(Y\) that is a linear combination of \(n\) quantities
+\(X_1, ..., X_n\) (i.e.~\(Y = a_1X_1 + ... + a_nX_n\), with
+\(\textbf{a} =(a_1, ..., a_n)\) being a~row vector of coefficients), the
+\textbf{combined uncertainty} \(u(Y)\) is calculated as follows:
+
+\[
+\begin{aligned}
+\text{Var}(Y) 
+& = \text{Var}\left(\sum_{j=1}^n a_jX_j\right)\\
+&= \sum_{i=1}^ka_i^2 \text{Var}(X_i) + \sum_{i\neq j}a_ia_j \text{Cov}(X_i,X_j) \\
+&=\sum_i\sum_j a_ia_j\underbrace{\text{Cov}(X_i,X_j)}_{\rho_{ij}\sigma_i\sigma_j}\\
+&\Rightarrow\\
+u(Y) &= \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}\left(u(X_i)\times u(X_j) \times a_i \times a_j \times \rho_{ij}\right)}
+\end{aligned}
+\]
+
+where \(u(X_i) = \sigma_i\) and \(u(X_j) = \sigma_j\) are the standard
+uncertainties of \(X_i\) and \(X_j\), respectively, and \(\rho_{ij}\) is
+the correlation between \(X_i\) and \(X_j\).
+
+If \(X_1, ..., X_n\) are independent, this reduces to:
+
+\[u(Y) = \sqrt{\sum_{i=1}^{n}\left(u(X_i)^2 \times a_i^2\right)}\]
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 4}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Show that the combined uncertainty \(u(Y)\) for
+\(Y = a_0 + a_1X_1 + a_2X_2\) (\textbf{not} assuming that
+\(X_1, ..., X_n\) are independent) reduces to:
+
+\[u(Y) = \sqrt{a_1^2 u(X_1)^2 + a_2^2 u(X_2)^2 + 2 \rho_{12}u(X_1)u(X_2)a_1a_2}\]
+
+Solution
+
+We have:
+
+\[u(Y) = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}\left(u(X_i)\times u(X_j) \times a_i \times a_j \times \rho_{ij}\right)}\]
+
+where \(i = 1, 2\) and \(j = 1, 2\), i.e.
+
+\[u(Y) = \sqrt{u(X_1) u(X_1) a_1 a_1 \rho_{11} + u(X_1) u(X_2) a_1 a_2 \rho_{12} + u(X_2) u(X_1) a_2 a_1 \rho_{21} + u(X_2) u(X_2) a_2 a_2 \rho_{22}}\]
+\[\therefore u(Y) = \sqrt{u(X_1)^2 a_1^2 + 2 u(X_1) u(X_2) a_1 a_2 \rho_{12} + u(X_2)^2 a_2^2}\]
+
+since \(\rho_{11} = \rho_{22} = 1\) and \(\rho_{12} = \rho_{21}\).
+
+\end{tcolorbox}
+
+The \textbf{general uncertainty propagation formula} is as follows. The
+standard uncertainty of \(Y = f(X_1, ..., X_n)\) is:
+
+\[u(Y) = \sqrt{\sum_{i=1}^n f'(\mu_i)^2u(X_i)^2}\]
+
+where \(f'(\mu_i)\) is the partial derivative of \(Y\) with respect to
+\(X_i\) evaluated at its mean \(\mu_i\).
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 5}, opacitybacktitle=0.6, rightrule=.15mm]
+
+We wish to calculate the area \(A\) of a rectangle, with height \(h\)
+and width \(w\). (\(A = h \times w\).) Height and width are measured
+with uncertainty \(u(h)\) and \(u(w)\), respectively. Evaluate the
+uncertainty on the area \(A\).
+
+Solution
+
+\[u(A) = f ( h,w) = u(h \times w)\]
+
+\[\frac{df}{dh} = w \ \ \text{and} \ \ \frac{df}{dw} = h\]
+
+\[\therefore u(A) = \sqrt{w^2 u(h)^2 + h^2 u(w)^2}\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 6}, opacitybacktitle=0.6, rightrule=.15mm]
+
+The \textbf{Shannon index} (or Shannon-Wiener diversity index) is widley
+used in Ecology to quantify the diversity of a biological community by
+considering both species richness and evenness. It is calculated as:
+
+\[
+H = -\sum_{i=1}^S p_i \log (p_i)
+\]
+
+where \(p_i\) is the proportion of species \(i\) in the community
+computed as the ratio between the num. of individuals of a given species
+and total number of individual across all species.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Suppose that the proportion of each species is estimated with some
+  uncertainty \(u(p_i)\). Provide the general form for the uncertainty
+  propagation of these proportions on the calculation of \(H\).
+\item
+  Imagine you go to your garden an find out there are \(S=3\) different
+  species of arthropods living there. Then you go out one day and sample
+  \(N=100\) individuals and end up collecting \(n_1 = 50 \text{ ants}\),
+  \(n_2 = 30 \text{ beetles}\) and \(n_3 = 20 \text{ spiders}\).
+  Assuming that number of individuals of a given species follows
+  \(n_i \sim \text{Binomial}(N,\theta_i)\), and let
+  \(\hat{\theta_i} = \frac{n_i}{N} = p_i\) be the estimator of
+  \(\theta_i\) show that \(u(p_i)^2 = p_i(1-p_i)/N\) and then compute
+  the uncertainty propagation for the Shannon Index.
+\end{enumerate}
+
+Solution
+
+\[
+\begin{aligned}
+u(H) = \sqrt{\sum_i^S \left(\dfrac{\partial H}{\partial p_i} \right)^2u(p_i)^2}
+\end{aligned}
+\]
+
+where
+
+\[\dfrac{\partial H}{\partial p_i} = - (\log(p_i) +1)\]
+
+\[\therefore u(H) = \sqrt{\sum_i^S \left(-\log (p_i)-1 \right)^2u(p_i)^2}\]
+
+Assuming \(n_i \sim \text{Binomial}(100,p_i)\) for \(i = 1,2,3\) where
+\(p_1 = 50/100; p_2 = 0.3; p_3 = 20/100\). The partial derivatives are
+given by
+
+\[
+\begin{aligned}\frac{\partial H}{\partial p_1} &= -(\log 0.5 + 1) \approx -0.307 \\\frac{\partial H}{\partial p_2} &= -(\log 0.3 + 1) \approx 0.204 \\\frac{\partial H}{\partial p_3} &= -(\log 0.2 + 1) \approx 0.609\end{aligned}
+\]
+
+First, the variance of \(p_i\) (i.e., \(u(p_i)^2\)) is given by:
+
+\[
+\begin{aligned}
+\text{Var}(p_i) &= \text{Var}\left(\frac{n_i}{N}\right) \\
+&= \frac{1}{N^2}\text{Var}(n_i)\\
+&= \frac{N p_i(1 - p_i)}{N^2} = \dfrac{p_i(1-p_i)}{N}
+\end{aligned}
+\]
+
+Thus,
+
+\[
+\begin{aligned}
+u(p_1)^2 &= \frac{0.5 \times 0.5}{100} = 0.0025 \\
+u(p_2)^2 &= \frac{0.3 \times 0.7}{100} = 0.0021 \\
+u(p_3)^3 &= \frac{0.2 \times 0.8}{100} = 0.0016
+\end{aligned}
+\]
+
+Then, \[
+u(H)  = \sqrt{0.0025 \times (-0.307)^2 + 0.0021 \times (0.204)^2 + 0.0016 \times (0.609)^2} \approx 0.03
+\]
+
+\end{tcolorbox}
+
+\section{Data Sources}\label{data-sources}
+
+\subsection{Ecological and Environmental Data
+sources}\label{ecological-and-environmental-data-sources}
+
+Over the last decade, the information available for surveying and
+monitoring ecological and environmental resources has changed radically.
+The rise of new technologies, novel collection methods, and modern
+data-submission platforms have facilitated the access to large volumes
+of environmental and ecological data. For example,
+Figure~\ref{fig-nbn_records} show the increasing trend in the number of
+NBN trust biodiversity records that have become available over the past
+20 years.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=5.97917in,height=\textheight]{images/NBN_Trust_Growth.gif}
+
+}
+
+\caption{\label{fig-nbn_records}Number of biodiversity records publicly
+available from the NBN Trust'}
+
+\end{figure}%
+
+Today's ecological and environmental data landscape is overwhelmingly
+vast - far too extensive to cover comprehensively in one session!
+Instead, we'll focus on key data sources and digital technologies that
+are currently shaping policy decisions, enabling scientific
+breakthroughs, and driving innovation in research.
+
+\url{https://youtu.be/7MywGLpOBWs}
+
+\subsection{Institutional Monitoring
+Programmes}\label{institutional-monitoring-programmes}
+
+Institutional Monitoring programmes have long been a primary source of
+information for long-term environmental assessment, producing
+\textbf{structured datasets} essential for detecting ecological change
+and informing evidence-based policy.
+
+These initiatives rely \emph{field surveys} conducted on established
+\emph{monitoring networks} to track trends in species populations,
+habitat quality, and ecosystem processes - a topic we will explore in
+detail in the following session. Their strength lies in rigorous
+implementation of \emph{standardized sampling protocols}, which reduces
+the observational errors associated with data collection methods.
+However, these are typically constrained by other factors. For example,
+large-scale programmes are inherently resource-intensive to maintain and
+often limited in taxonomic scope (typically focusing on key species),
+spatial/geographic coverage, and temporal resolution. Some popular
+monitoring schemes are shown below:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3662}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6338}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Monitoring Scheme
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+United Kingdom Butterfly Monitoring Scheme
+(\href{https://ukbms.org/}{UKBMS}) & Protocolized sampling scheme run by
+butterfly conservation that has monitored changes in the abundance of
+butterflies throughout the United Kingdom since 1976. \\
+UK Environmental Change Network (\href{https://ecn.ac.uk/}{ECN}) & UK's
+long-term ecosystem monitoring and research programme that has produced
+a large collection of publicly available data sets including
+meteorological, biogeochemistry and biological data for different
+taxonomic groups (Rennie et al. 2020). \\
+National Hydrological Monitoring Programme
+(\href{https://nrfa.ceh.ac.uk/nhmp}{NHMP}) & The NHMP, particulalry the
+National River Flow Archive conveys a national scale management of
+hydrological data within the UK hosted by the UKCEH since 1982 collating
+hydrometric data from gauging station networks operated by multiple
+agencies. \\
+Natural Capital and Ecosystem Assessment
+(\href{https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about}{NCEA})
+& Long-term environmental monitoring of natural capital including data
+from freshwater Surveillance Networks, ecosystem condition \& soil
+health, forest inventory, estuary and coast surveillance, etc. \\
+Breeding Bird Survey (\href{https://www.bto.org/}{BBS}) & Main scheme
+for monitoring the population changes of the UK's common breeding birds.
+It covers all habitat types and monitors 110 common and widespread
+breeding birds using a randomised site selection. \\
+\end{longtable}
+
+\subsection{\texorpdfstring{\textbf{Citizen Science Programmes \&
+Platforms}}{Citizen Science Programmes \& Platforms}}\label{citizen-science-programmes-platforms}
+
+Citizen science (CS) monitoring involve public participation to collect
+large volumes of ecological \& environmental data at a low cost across
+broad spatiotemporal scales.
+
+Data submission platforms like iNaturalist and eBird have become an
+important groundwork for citizen scientist to submit records and
+generate vast, real-time datasets, enabling researchers to track species
+distributions, phenology, and ecosystem responses to environmental
+change in ways that were previously logistically and financially
+unfeasible.
+
+Despite this, the analysis of such data remains challenging as there is
+little o no design involved in the sampling protocols of most CS data
+recording schemes. A major issue with the lack of a standardized
+sampling protocol is that sampling efforts tend to be uneven over time
+and space and biased towards human activity centers, locations that are
+easy to access, or sites where species are more likely to be found such
+as protected area. If unaccounted for, such sources of bias can mislead
+Figure~\ref{fig-sampling_effort} (left) shows the sampling effort based
+on CS records submitted through the Pl@anet Net App in the French
+mediterranean region. If we compare the spatial effort against the
+elevation of the region we can clearly see that a \emph{sampling bias}
+towards lower elevation values. This would imply that small populations
+at lower elevation could be over-sampled and if we had worngly assumed
+sampling was evenly distributed, then species distributions at higher
+elevation would be under-estimated.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{images/sampling_eff_ex.png}
+
+}
+
+\caption{\label{fig-sampling_effort}Elevation versus sampling effort
+(obtained through the Pl@net Net App) in the French mediterranean region
+(Figure taken from Botella et al. (2020))}
+
+\end{figure}%
+
+Harnessing the power of CS data is not an easy task.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Advantages 😄👍
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Disadvantages 😔👎
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Extensive taxonomic, spatial and temporal coverage. & Under-reporting of
+rare and inconspicuous species. \\
+Eye-catching species that are easily identifiable by participants. &
+Varying recording skills and uneven sampling effort. \\
+\end{longtable}
+
+\subsection{Biological Collections}\label{biological-collections}
+
+Biological collections constitute probably the oldest form of historical
+data reservoirs. For over 300 years, naturalists have been collecting
+and preserving biological specimens, initially for personal curiosity
+and public display.~Today, their value has expanded far beyond their
+original purpose; they are now recognized as critical sources of
+information for addressing modern global challenges~like biodiversity
+loss and climate change. Now housed mostly in \textbf{museums} and
+\textbf{herbaria} throughout the world, these biological collections,
+and their associated systematic research, provided the basis for much
+biological research.
+
+For instance, the Natural History Museum in London safeguards a
+collection of over 80 million specimens, spanning 4.5 billion years of
+Earth's history to the present. This unparalleled archive, along with
+many others, is increasingly accessible through digital
+\href{https://data.nhm.ac.uk/?_gl=1*xkk*_ga*NDE2OTQ4MTI2LjE3NTU2MjI5ODY.*_ga_PYMKGK73C4*czE3NTU2MjI5ODYkbzEkZzEkdDE3NTU2MjI5OTQkajUyJGwwJGgw}{data
+portals}, enabling researchers worldwide to analyse historical trends
+and understand the distribution of biodiversity and geodiversity through
+time.
+
+Despite their immense value, biological collections data are subject to
+significant limitations and biases that need bo considered.
+
+\begin{itemize}
+\item
+  Most historic collection were obtained in an opportunistic manner
+  without following any particular sampling protocol (largely dependent
+  on the particular interests of the collector).
+\item
+  Often there is no information about the collection methods or effort
+  employed.
+\item
+  Limited in the geographic coverage and typically biased near centres
+  of human activity and along the roads or during specific seasons.
+\item
+  The information associated with each collection or specimen (e.g.,
+  species, sex, collection date, location, collector's name,
+  morphological measurements, habitat description) may vary widely which
+  limits the environmental context and ecological questions~that can be
+  addressed.
+\item
+  Strongly biased towards specific taxonomic groups, especially birds
+  and mammals
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 7}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Read the paper by Pyke and Ehrlich (2010) and discuss three scenarios
+where biological collections have been used tp address different
+environmental issues and ecological questions.
+
+\end{tcolorbox}
+
+\subsection{\texorpdfstring{\textbf{Data Repositories \&
+Portals}}{Data Repositories \& Portals}}\label{data-repositories-portals}
+
+Data repositories have become a major sources of information for modern
+environmental and ecological research, serving as centralized, curated
+platforms that aggregate, preserve, and disseminate vast quantities of
+data from diverse sources.~
+
+These digital archives - ranging from global biodiversity databases like
+the Global Biodiversity Information Facility (GBIF) to thematic
+collections such as the National Biodiversity Network (NBN) Atlas -
+standardize and harmonize heterogeneous datasets, enabling researchers
+to access, share, and reuse data across disciplines and geographic
+boundaries. Often, these repositories are integrated into
+comprehensive~\textbf{data portals} that host interactive visualisation
+tools, web-based applications, programming interfaces (APIs) and data
+catalogues, transforming static archives into dynamic platforms for
+exploration and discovery (see e.g.~UK-SCAPE
+\href{https://connect-apps.ceh.ac.uk/common_plant_change/?_gl=1*a9wt35*_ga*NDI3MDQzMjc2LjE3NTQ2NjE1MzE.*_ga_27CMQ4NHKV*czE3NTUyNzkxNjkkbzMkZzEkdDE3NTUyNzk2OTckajkkbDAkaDA}{plant
+diversity trends} and
+\href{https://connect-apps.ceh.ac.uk/targeting_revisits_grasshoppers/?_gl=1*1513pqk*_ga*NDI3MDQzMjc2LjE3NTQ2NjE1MzE.*_ga_27CMQ4NHKV*czE3NTUyNzkxNjkkbzMkZzEkdDE3NTUyNzk2OTckajkkbDAkaDA.}{Grasshoppers
+and Allied Species Recording Scheme}).
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 8}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Select two or three of the following data repositories. For each,
+examine some of the available datasets and list the types of uncertainty
+or error that might affect the data quality and reliability.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3889}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6111}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Data Repository
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\href{https://www.movebank.org/cms/movebank-main}{Move Bank} & Movebank
+is a global, open-data repository and research platform that specializes
+in managing, sharing, and analyzing \textbf{animal tracking} and
+bio-logging data. \\
+Global Biodiversity Information Facility
+(\href{https://www.gbif.org/}{GBIF}) & GBIF is an international
+open-data infrastructure that provides free and universal access to over
+two billion \textbf{species occurrence records} from a vast network of
+museums, research institutions, and citizen science platforms
+worldwide. \\
+National Biodiversity Network (\href{https://nbnatlas.org/}{NBN}) & The
+NBN Atlas is the UK's largest repository of publicly available
+biodiversity data, aggregating and providing open access to millions of
+\textbf{species records} from a wide range of recording societies,
+conservation NGOs, and research institutions across the country. \\
+Biological Records Centre (\href{https://www.brc.ac.uk/}{BRC}) & The
+Biological Records Centre (BRC) is a national UK facility that supports
+and coordinates a network of volunteer recording schemes and societies
+to collect, manage, and disseminate high-quality data on terrestrial and
+freshwater \textbf{species distributions}. \\
+National River Flow Archive (\href{https://nrfa.ceh.ac.uk/}{NRFA}) & The
+National River Flow Archive (NRFA) is ta hydrometric data repository
+hosted by the CEH, curating and providing open access to river flow,
+groundwater level, and rainfall time-series from a national network of
+monitoring stations. \\
+\href{https://ukwrp.ceh.ac.uk/}{UK Lakes Portal} & The UK Lakes Portal
+is a comprehensive data hub that provides access to physical, chemical,
+and biological monitoring data for lakes and reservoirs across the
+United Kingdom \\
+World Ocean Database
+(\href{https://www.ncei.noaa.gov/products/world-ocean-database}{WOD}) &
+The World Ocean Database (WOD) is the world's largest publicly
+available, quality-controlled repository of uniformly formatted
+oceanographic profile and plankton data, spanning centuries of global
+marine observations. \\
+\href{https://ukwrp.ceh.ac.uk/?_gl=1*1r52k3b*_ga*NDI3MDQzMjc2LjE3NTQ2NjE1MzE.*_ga_27CMQ4NHKV*czE3NTU2MDk2NjgkbzUkZzEkdDE3NTU2MDk5MzIkajYwJGwwJGgw}{UK
+Water Resources Portal} & The UK Water Resources Portal is an
+interactive online platform that provides access to current and
+historical data on water availability, including river flows,
+groundwater levels, rainfall, and reservoir stocks. \\
+Water quality data archive
+(\href{https://environment.data.gov.uk/water-quality/view/landing}{WIMS})
+& The Water Quality Archive provides data on water quality measurements.
+Samples are taken at sampling points around England and can be from
+coastal or estuarine waters, rivers, lakes, ponds, canals or
+groundwaters. \\
+\href{https://environment.data.gov.uk/ecology/explorer/}{Ecology \& Fish
+Data Explorer} & This is an online data portal that provides access to
+ecological monitoring data for English rivers and lakes, including fish
+populations, invertebrate surveys, and plant communities. \\
+Knowledge Network for Biocomplexity
+(\href{https://knb.ecoinformatics.org/}{KNB}) & The Knowledge Network
+for Biocomplexity (KNB) is an open-source data repository that enables
+the discovery, management, sharing, and synthesis of complex,
+heterogeneous ecological and environmental datasets. \\
+\end{longtable}
+
+\end{tcolorbox}
+
+\subsection{\texorpdfstring{\textbf{Processed information
+products}}{Processed information products}}\label{processed-information-products}
+
+Processed information products~transform raw measurements into refined,
+analysis-ready resources tailored for decision-makers and researchers.
+Unlike primary data repositories, these products undergo rigorous
+calibration, integration, and modelling to generate authoritative maps,
+indicators, and synthesized datasets.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: WorldClim}, opacitybacktitle=0.6, rightrule=.15mm]
+
+\href{https://www.worldclim.org/}{WorldClim} is a widely used set of
+global, high-resolution climate surfaces (raster maps) that provide
+interpolated estimates of historical and future projections (using
+global climate models
+\href{https://wcrp-cmip.org/cmip-phases/cmip6/}{CMIP} ) of temperature,
+precipitation, and other bioclimatic variables. The historical data
+layers are generated by applying advanced spatial interpolation
+algorithms to an extensive global network of weather station records,
+creating continuous, gap-free rasters. These surfaces serve as the
+foundational data for species distribution modeling, ecological
+forecasting, and a vast range of other environmental research
+applications.
+
+\begin{center}
+\includegraphics[width=4.6875in,height=\textheight]{images/worldclim.jpeg}
+\end{center}
+
+\end{tcolorbox}
+
+Nowadays, it is common that contemporary data products are synthesized
+based on a combination of multiple data sources, including field
+surveys, citizen science and advanced \textbf{remote sensing} data from
+satellite and aerial platforms.
+
+\subsubsection{Remote sensing}\label{remote-sensing}
+
+Remote sensing refer the process of obtaining information of an object
+from a distance, typically from aircraft or satellites. Recent advances
+in bioinformatics, GIS technologies and remote sensing techniques have
+changed radically how we monitor the Earth's environment at multiple
+spatial and temporal scales. These technologies enables the systematic,
+non-invasive, and often near-real-time collection of data across vast
+and inaccessible regions. The resulting data are then calibrated,
+classified, and modeled using specialized algorithms to generate diverse
+information products, such as land cover classifications, vegetation
+indices, and digital elevation models.
+
+While remote sensing-based products enable the quantification of
+ecological and environmental parameters across extensive geographic
+scales, they are often subject to substantial uncertainties. These
+include systematic errors from sensor calibration, spatial and temporal
+resolution constraints, and generally lower accuracy compared to direct
+\emph{in-situ} field measurements. Consequently, remote sensing data are
+often validated using data collected~\emph{in-situ} to assess and ensure
+their accuracy.~
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Digital Elevation Models}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Digital Elevation Models (DEMs) are digital representations of the
+earth's topographic surface. DEMs providing a continuous and
+quantitative model of terrain morphology and are typically stored as a
+raster grid where each cell (pixel) contains an elevation value. The
+accuracy of DEMs is determined primarily by the resolution of the model
+(the size of the area represented by each individual grid cell). For
+example, the
+
+Shuttle RaDAR Topography Mission (SRTM), aquired by NASA using a
+Synthetic Aperture Radar (SAR) instrument, provide elevation data for
+any country and is available from the \texttt{geodata} R package.
+
+\begin{center}
+\includegraphics[width=2.72917in,height=\textheight]{images/dem.jpeg}
+\end{center}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Land Cover Maps}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Land cover maps describe the physical material on the Earth's surface.
+They are created by applying automated algorithms to satellite or aerial
+imagery to identify features such as grassland, woodland, rivers \&
+lakes or man-made structures such as roads and buildings.
+
+For example, UK CEH has produced a series of
+\href{https://www.ceh.ac.uk/data/ukceh-land-cover-maps}{Land Cover Maps}
+which are a series of spatially continuous, raster-based classification
+products, derived from the automated analysis of Earth observation data
+(primarily from the Sentinel-2 satellite constellation), which provide
+consistent, national-scale representations of surface vegetation and
+land use classes.
+
+\begin{center}
+\includegraphics[width=2.84375in,height=\textheight]{images/LCM 2020 10m.png}
+\end{center}
+
+Other widely used global products include MODIS Land Cover, which offers
+a long-term, coarse-resolution record of global change since 2001,
+and~ESA WorldCover, which provides a high-resolution (10m) global
+snapshot designed for detailed thematic mapping (the later is available
+on the \texttt{geodata} R package).
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: NDVI Vegetation Index}, opacitybacktitle=0.6, rightrule=.15mm]
+
+Vegetation indeces derived from remote sensing utilize spectral data
+from satellite or aerial sensors to quantify and monitor plant health,
+structure, and function across landscapes. These indeces are founded on
+the principle that vegetation absorbs red light (around 660 nm) for
+photosynthesis while highly reflecting near-infrared (NIR) light (around
+800 nm) due to its internal leaf structure.
+
+This contrast is captured by the Normalized Difference Vegetation Index
+(NDVI), which is calculated as
+
+\[
+NDVI = \dfrac{(NIR- Red)}{(NIR - Red)}
+\]
+
+The resulting value, which ranges from -1 to +1, provides a standardized
+measure of greenness; values close to +1 indicate dense, healthy
+vegetation, values near 0 represent bare soil, and negative values
+typically correspond to water. By translating raw spectral data into
+this simple yet robust index, remote sensing enables the tracking of
+phenological cycles, the assessment of drought stress, and the
+estimation of primary productivity on a global scale.
+
+\begin{center}
+\includegraphics[width=3.85417in,height=\textheight]{images/ndvi.png}
+\end{center}
+
+\end{tcolorbox}
+
+\subsection{\texorpdfstring{\textbf{Research-Generated
+Data}}{Research-Generated Data}}\label{research-generated-data}
+
+Research-generated data repositories, such as
+\href{https://datadryad.org/about}{Dryad} and
+\href{https://zenodo.org/}{Zenodo}, are cornerstone platforms in the
+modern scientific workflow, explicitly designed to uphold the principles
+of transparency, reproducibility, and open data access. Unlike passive
+archives, these repositories require researchers to actively deposit the
+precise datasets, code, and scripts used to generate the results
+published in peer-reviewed journals. By assigning persistent digital
+object identifiers (DOIs) to these materials, they create a permanent,
+citable record that allows other scientists to independently verify,
+replicate, and build upon published findings. This process is
+fundamental to detecting errors, reducing redundancy, and accelerating
+scientific discovery, effectively transforming a single study's output
+into a reusable resource for the entire research community and
+safeguarding the integrity of the scientific record.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 9}, opacitybacktitle=0.6, rightrule=.15mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Choose a Repository:} Select either
+  \href{https://datadryad.org/about}{Dryad} or
+  \href{https://zenodo.org/}{Zenodo}.
+\item
+  \textbf{Find a Dataset:} Browse or search for a dataset related to a
+  topic in environmental science or ecology that interests you (e.g.,
+  ``pollination,'' ``microplastics,'' ``forest fragmentation,''
+  ``climate change adaptation'').
+\item
+  \textbf{Select and Record:} Choose one specific dataset and note down:
+
+  \begin{itemize}
+  \item
+    The full citation for the dataset (including its DOI).
+  \item
+    The title of the associated publication (if provided).
+  \end{itemize}
+\end{enumerate}
+
+How did you find this dataset? Was the search intuitive? Is the dataset
+openly available? Could you download the files without restrictions?
+
+\end{tcolorbox}
+
+\section{Data Preprocessing}\label{data-preprocessing}
+
+Environmental and Ecological systems are inherently complex due to the
+large number of interrelated biological, physical, and social
+components. This complexity arises stochastic processes that operate
+across vastly different spatial and temporal scales. Adding to this
+complexity, analyzing these systems~becomes~a challenging task due to
+the heterogeneity of available data and the different sources of
+uncertainty that impact the quality of the data. Data collection methods
+vary widely and spatial and temporal sampling schemes may be too sparse
+to fully capture overall system behavior. Consequently, we often have to
+deal with issues such as outliers, missing values, and highly uncertain
+information.
+
+Fortunately, many of these data quality issues can be addressed. This is
+typically done through a rigorous data \emph{pre-processing} phase
+before formal analysis, and through statistical models that explicitly
+account for the observational process of how the data was collected.
+
+Data pre-processing is crucial stage in any sort of ecological or
+environmental data analysis and it includes data cleaning, outlier
+detection, missing value treatment, handling censored data,
+transformation, and the creation of new derived variables. The goal is
+to create a robust, consistent dataset ready for analysis while
+carefully documenting all changes to preserve the integrity of the
+original information.
+
+\subsection{Censored Data}\label{censored-data}
+
+\textbf{Censored data} are data where we are restricted in our knowledge
+about them in some way or other. Often this will be because we only know
+that the data value lies below a certain minimum value (or above a
+certain maximum). For example, if we had scales which only weighed up to
+10kg, we would not know the exact weight of any object greater than
+10kg.
+
+For environmental data, it is more common to have data which are
+censored at some minimum value. This is because many pieces of measuring
+equipment will have an analytical \textbf{limit of detection}. A limit
+of detection is \emph{the lowest concentration that can be distinguished
+with reasonable confidence from a blank} (a hypothetical sample with a
+value of zero). The limit of detection is often denoted \(c_L\).
+
+Censoring has a huge impact on how we interpret our data. The two plots
+below show the same data, but the right panel is `censored' with two
+different limits of detection (some with an LOD of 0.5, others with an
+LOD of 1.5).
+
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+\includegraphics[width=3.64583in,height=\textheight]{images/ConcUncensored.png}\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+\includegraphics[width=3.64583in,height=\textheight]{images/ConcCensored.png}\end{minipage}%
+
+\end{figure}%
+
+Censored observations are not completely without information. We still
+know they are equal to or more extreme than the limit. For an LOD, we
+might therefore report the data point as either ``not detected'' or
+`\(< c_L\)'. Removing them from our study would not be sensible, since
+this would lead to us \emph{overestimating} the mean and probably also
+\emph{underestimating} the variance. We therefore need to find a way to
+incorporate these censored data points into our analysis.
+
+We can't simply use the minimum value of the LOD. This would ignore the
+fact that the values are often \emph{below} this. In the plot below, the
+LOD reduces after every 100 observations (e.g.~because of better quality
+equipment), and this leads to an artificial trend.
+
+\begin{center}
+\includegraphics[width=4.25in,height=\textheight]{images/TSM1.png}
+\end{center}
+
+\hfill\break
+
+\subsubsection{Simple Substitution}\label{simple-substitution}
+
+The simplest approach for dealing with LODs is via \textbf{simple
+substitution}. This involves taking the LOD value and multiplying it by
+a fixed constant, e.g.~by replacing all \(<c_L\) values with \(0.5c_L\).
+
+This approach is fairly popular because it is simple and easy to
+implement. However, it only works if there is a small proportion of
+censored data (maximum 10--15\%). If there is a higher proportion, it
+tends to overestimate the mean.\\
+
+\subsubsection{Distribution-based
+approaches}\label{distribution-based-approaches}
+
+It is generally preferable to use a more statistics-based approach which
+accounts for the data distribution. The basic idea is that we estimate
+the statistical distribution of the data in a way that takes into
+account the censoring. We can then use this estimated distribution to
+simulate values for our censored points.
+
+Commonly used distribution-based approaches are \textbf{Maximum
+Likelihood}, \textbf{Kaplan-Meier}, and \textbf{Regression on Order
+Statistics}.
+
+\paragraph{Maximum Likelihood}\label{maximum-likelihood}
+
+The maximum likelihood approach is a \emph{parametric} approach. It
+requires us to specify a statistical \textbf{distribution} which is a
+close fit to the data. We then identify the \textbf{parameters} of this
+distribution that maximize the likelihood of obtaining a dataset like
+ours.
+
+This ML approach has to take into account the likelihood of obtaining:
+
+\begin{itemize}
+\tightlist
+\item
+  the observed values in our dataset
+\item
+  the correct proportion of data being censored, i.e.~the proportion
+  falling below our detection limit(s)
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=5.39583in,height=\textheight]{images/MLEcensoring.png}
+\end{center}
+
+\textbf{Advantages}
+
+\begin{itemize}
+\tightlist
+\item
+  Able to handle multiple limits of detection.
+\item
+  Good for estimating summary statistics with a suitably large sample
+  size.
+\item
+  MLE explicitly accounts for the underlying distribution of the data
+  (if known).
+\end{itemize}
+
+\textbf{Disadvantages}
+
+\begin{itemize}
+\tightlist
+\item
+  More applicable to larger datasets (n \textgreater{} 50).
+\item
+  Reliant on specifying the correct distribution, otherwise estimates
+  can be incorrect.
+\item
+  Transforming data to fit a distribution can potentially cause biased
+  estimators.
+\end{itemize}
+
+\paragraph{Kaplan-Meier Approach}\label{kaplan-meier-approach}
+
+The Kaplan-Meier approach is a \emph{nonparametric} approach. I.e., it
+doesn't require a distributional assumption. It's often used in survival
+analysis for estimating summary statistics for right-censored data.
+However, it can be applied to left-censored data by `flipping' the data
+and subtracting from a fixed constant.
+
+In survival analysis, Kaplan-Meier estimates the probability that an
+observation will survive past a certain time. In our `flipped' context,
+it gives the probability that an observation will fall below the limit
+of detection.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Cadmium in fish}, opacitybacktitle=0.6, rightrule=.15mm]
+
+We can illustrate this using an example of cadmium levels in fish.
+Cadmium is a heavy metal identified as having potential health risks. We
+observe cadmium levels in fish livers in two different regions of the
+Rocky Mountains.
+
+Due to variation in data collection, there are four different LODs (0.2,
+0.3, 0.4 and 0.6 \(\mu\)g per litre).
+
+\begin{center}
+\includegraphics[width=1.66667in,height=\textheight]{images/CadmiumData.png}
+\end{center}
+
+Plotting the data shows the potential impact of censoring. The left
+panel shows all the data (plotting censored values as equal to the LOD),
+while the right panel excludes those which have been censored.
+
+\begin{center}
+\includegraphics[width=3.95833in,height=\textheight]{images/CadmiumBoxplot.png}
+\end{center}
+
+We can use the NADA (Nondetects and Data Analysis) package in R. The
+\texttt{cenfit} function applies the Kaplan-Meier method. This package
+automatically `flips' the data, since it is designed for environmental
+data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{blinky }\OtherTok{\textless{}{-}} \FunctionTok{cenfit}\NormalTok{(obs, censored, groups)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           n  n.cen  median    mean      sd
+groups=1   9      3     0.4   0.589   0.352
+groups=2  10      1     3.0  10.540  25.069
+\end{verbatim}
+
+There are clear differences between the locations in terms of both
+median and standard deviation.
+
+The \texttt{cendiff} function tests for significant differences between
+the groups. This uses a chi-squared hypothesis test:
+
+\begin{itemize}
+\tightlist
+\item
+  H0: Median cadmium levels are the same in Region 1 and Region 2
+\item
+  H1: Median cadmium levels are different in Region 1 and Region 2
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cendiff}\NormalTok{(obs, censored, groups)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                N  Observed Expected (O-E)^2/E (O-E)^2/V
+groups=1        9      2.84     6.13      1.76      7.02
+groups=2        10     6.84     3.55      3.05      7.02
+
+Chisq=7 on 1 degrees of freedom, p= 0.00808 
+\end{verbatim}
+
+We can also plot the empirical cumulative distribution function (ECDF),
+taking into account the LODs. Note that this works in the opposite
+direction from regular survival plots due to the `flipping' of the data.
+
+\begin{center}
+\includegraphics[width=3.80208in,height=\textheight]{images/CadmiumECDF.png}
+\end{center}
+
+\end{tcolorbox}
+
+\textbf{Advantages}
+
+\begin{itemize}
+\tightlist
+\item
+  Nonparametric, so no need to assume underlying distribution.
+\item
+  Can easily account for multiple LODs.
+\item
+  Works for large numbers of censored datapoints (\(>\) 50\%).
+\end{itemize}
+
+\textbf{Disadvantages}
+
+\begin{itemize}
+\tightlist
+\item
+  Quite simplistic --- identical to simple substitution if we only have
+  one LOD.
+\item
+  Less reliable for values near and below the LOD.
+\item
+  The mean tends to be overestimated --- need to rely on median.
+\end{itemize}
+
+\paragraph{Regression on Order Statistics
+(ROS)}\label{regression-on-order-statistics-ros}
+
+Regression on Order Statistics is a \emph{semi-parametric} approach.
+I.e., it combines elements of parametric and nonparametric models. It
+follows a two-step approach:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Plot the uncensored values on a probability plot (QQ plot) and use
+  linear regression to approximate the parameters of the underlying data
+  distribution.
+\item
+  Use this fitted distribution to impute estimates for the censored
+  values.
+\end{enumerate}
+
+There is an assumption that the censored measures are normally (or
+lognormally) distributed.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Bathing water quality (continued)}, opacitybacktitle=0.6, rightrule=.15mm]
+
+The plot shows the uncensored points and their probability plot
+regression model. The \texttt{NADA} package in R uses lognormal as
+default. The plot suggests this is sensible. We then use this fitted
+model to estimate the values of the censored observations based on their
+normal quantiles.
+
+\begin{center}
+\includegraphics[width=3.10417in,height=\textheight]{images/ROSQQ.png}
+\end{center}
+
+We can compare our ROS approach to simple substitution for the bathing
+water example used earlier. The left panel (ROS) shows no trend present,
+the right panel (simple) has an artificial trend.
+
+\begin{figure}[H]
+
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/ROSEstimates.png}\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+\includegraphics{images/TSM1.png}\end{minipage}%
+
+\end{figure}%
+
+\end{tcolorbox}
+
+\textbf{Advantages}
+
+\begin{itemize}
+\tightlist
+\item
+  Can be applied to a wide variety of environmental datasets.
+\item
+  Works with multiple LODs, but still not too simplistic with a single
+  LOD.
+\item
+  Can be used with up to 80\% censored datapoints.
+\end{itemize}
+
+\textbf{Disadvantages}
+
+\begin{itemize}
+\tightlist
+\item
+  Semiparametric approach --- requires a distributional model to be
+  assumed.
+\item
+  Specifically requires normality (or lognormality) for estimation of
+  parameters.
+\item
+  Two-stage model introduces extra source of variability.
+\end{itemize}
+
+\subsection{Outliers}\label{outliers}
+
+An outlier is an extreme or unusual observation in our dataset. These
+will often (but not always) have a large influence on the outcomes of
+our analysis. We have to find ways to identify and deal with outliers.
+
+There are two main categories of outlier: (1) genuine but extreme
+values, and (2) data errors. If we have a genuinely extreme value, we
+should try to accommodate these in our analysis. Not doing so would mean
+that we are ignoring a real feature of our data. There are robust
+modelling techniques that allow us to incorporate outliers. On the other
+hand, if we have an outlier due to data error, we can either try to
+correct it (where possible) or remove it, since this does not reflect a
+real observation.
+
+\subsubsection{Identifying outliers}\label{identifying-outliers}
+
+An outlier is an observation that does not follow the general trend of
+the rest of the data. It is often helpful to plot your data, since
+outliers are sometimes very obvious in boxplots or scatterplots or even
+maps! E.g., Figure~\ref{fig-movebank} shows an Elk's animal track with
+two unusual observations. To assess whether these are errors from the
+tracking device or genuine unusual movement patterns (e.g., escaping a
+predator), we could compute the velocity between points. This is done
+using the time stamp and the step length (the straight-line distance
+traveled). We can then assess how likely it is for the animal to have
+moved at that calculated speed.
+
+\begin{figure}
+
+\centering{
+
+\href{https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map}{\includegraphics[width=3.54167in,height=\textheight]{images/outlier_animal.png}}
+
+}
+
+\caption{\label{fig-movebank}Elk tracking data in southwestern Alberta.
+The Blue line indicates the tracking for one individual with blue and
+red crosses showing the start and end point of the track respectively.}
+
+\end{figure}%
+
+Graphical techniques are a commonly used for detecting outliers, but
+sometimes identifying outliers visually is not straightforward and can
+become difficult with larger data sets. This has led to the development
+of a variety of outlier detection techniques. There are also several
+statistical approaches that can be applied to identify datapoints that
+are significantly different from the rest. These include (but are not
+limited to) \emph{tests of discordancy}, \emph{Chauvenet's criterion},
+\emph{Grubb's test} and \emph{Dixon's test}.
+
+\paragraph{Test of discordancy}\label{test-of-discordancy}
+
+This is a hypothesis test, where the null hypothesis is that each
+datapoint comes from a given data distribution F. We look at the maximum
+(or minimum) value of our sample, \(x_{(n)}\) and test whether it is a
+reasonable sample from F. If the maximum (or minimum) value could
+reasonably come from this distribution, we have no outliers. If the
+maximum (or minimum) value is an outlier, we check the second highest
+(or lowest) and so on.
+
+\paragraph{Chauvenet's criterion}\label{chauvenets-criterion}
+
+This test assumes that our data are from a Normal distribution. For our
+dataset of size \(n\), we calculate the mean (\(\mu\)) and standard
+deviation (\(\sigma\)). We then use the Normal probability density
+function to estimate the probability (\(p\)) of obtaining a value as
+extreme our more extreme than or suspected outlier. If
+\(p \times n < 0.5\), then our value is considered to be an outlier.
+
+\paragraph{Grubbs' test}\label{grubbs-test}
+
+Again, this test assumes that our data are from an N(\(\mu, \sigma^2\))
+distribution. The Grubbs' test statistic is the largest absolute
+deviation from this mean in terms of units of the standard deviation:
+\[G = \frac{\max\limits_{i=1,\ldots,n} |y_i - \mu|}{\sigma}.\] This is
+compared to the \(t(N-2)\) distribution to obtain a p-value. If we
+identify an outlier, we repeat the process for the next most extreme
+value.
+
+\paragraph{Dixon's test}\label{dixons-test}
+
+Rather than looking at the dataset as a whole, Dixon's test compares the
+outlier to the next most extreme value. Let the \emph{gap} be the
+distance between our suspected outlier and the closest value, and the
+\emph{range} be the full range of the dataset. Then we compare
+\(Q = \frac{\mbox{gap}}{\mbox{range}}\) to a specifically designed
+reference table.
+
+This test is only suitable if there is a single distinct suspected
+outlier. If there were two similar outliers, then the gap would not be
+large.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Effectiveness of mosquito sprays}, opacitybacktitle=0.6, rightrule=.15mm]
+
+The example dataset below shows the effectiveness of several mosquito
+sprays.
+
+\begin{center}
+\includegraphics[width=4.95833in,height=\textheight]{images/InsectSpray.png}
+\end{center}
+
+The \texttt{outliers} package in R contains functions for Grubbs' and
+Dixon's tests. Here we apply the Grubbs' test to the insect spray data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grubbs.test}\NormalTok{(InsectSprays}\SpecialCharTok{$}\NormalTok{count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Grubbs test for one outlier
+
+data:  InsectSprays$count
+G = 2.29062, U = 0.92506, p-value = 0.719
+alternative hypothesis: highest value 26 is an outlier
+\end{verbatim}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 10}, opacitybacktitle=0.6, rightrule=.15mm]
+
+What conclusion can we draw from the results of the above test?
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    There is no statistically significant evidence that the point with
+    the highest value is an outlier\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    There is statistically significant evidence that the point with the
+    highest value is an outlier
+  \end{enumerate}
+\end{itemize}
+
+Solution
+
+Since the p-value for the Grubbs' test is greater than 0.05, we can
+conclude that there is no statistically significant evidence that the
+point with the highest value is an outlier.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-important-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Example: Effectiveness of mosquito sprays (continued)}, opacitybacktitle=0.6, rightrule=.15mm]
+
+We can also apply the Grubbs' test to the data for just one spray type
+(spray C).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grubbs.test}\NormalTok{(InsectSprays}\SpecialCharTok{$}\NormalTok{count[InsectSprays}\SpecialCharTok{$}\NormalTok{spray}\SpecialCharTok{==}\StringTok{"C"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+G = 2.48917, U = 0.38553, p-value = 0.0153
+alternative hypothesis: highest value 7 is an outlier
+\end{verbatim}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 11}, opacitybacktitle=0.6, rightrule=.15mm]
+
+What conclusion can we draw from the results of the above test?
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \tightlist
+  \item
+    There is no statistically significant evidence that the point with
+    the highest value is an outlier\\
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\Alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    There is statistically significant evidence that the point with the
+    highest value is an outlier
+  \end{enumerate}
+\end{itemize}
+
+Solution
+
+Since the p-value for the Grubbs' test is less than 0.05, we can
+conclude that there is statistically significant evidence that the point
+with the highest value is an outlier.
+
+This is unsurprising from the plot, as since the point is drawn as a
+circle above the upper whisker of the boxplot, we see that R has
+identified this point as being more than 1.5 times the interquartile
+range above the upper quartile. Note, however, that this does not
+necessarily mean that this point is an outlier, so that a test was still
+required.
+
+\end{tcolorbox}
+
+\subsubsection{Dealing with outliers}\label{dealing-with-outliers}
+
+We generally do not want to discard outliers. Sometimes, we can fit a
+model with and without them to assess their impact on the results.
+Additionally, we can use robust alternatives to summary statistics, for
+example median instead of mean, and median absolute deviation (MAD)
+instead of standard deviation.
+
+The median absolute deviation is defined as:
+\[\mbox{MAD} = \mbox{median}|y_i - \tilde{y}|\] where \(\tilde{y}\) is
+the median of our dataset. In other words, we find all the distances
+between our points and the median, and then take the median of those
+distances.
+
+\subsection{Missing Data}\label{missing-data}
+
+Environmental data are very prone to missing values. There is a whole
+discipline of statistics related to this, and we will just touch on the
+topic.
+
+Data can be missing for any number of reasons. Adverse weather (e.g.,
+rainfall, snow, drought or wind) can affect measuring equipment or
+prevent access to the location. We can have missing data due to the
+failure of scientific equipment or samples being lost or damaged.
+Monitoring networks also often change in size over time, with data
+considered ``missing'' at a certain site before that site was introduced
+or after it was removed.
+
+\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, breakable, bottomrule=.15mm, colback=white, colframe=quarto-callout-tip-color-frame, coltitle=black, opacityback=0, toprule=.15mm, left=2mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, titlerule=0mm, toptitle=1mm, title={Exercise 12}, opacitybacktitle=0.6, rightrule=.15mm]
+
+What causes of missing data do each of the three examples in the images
+below illustrate? Are these data missing at random?
+
+\begin{center}
+\includegraphics[width=4.67708in,height=\textheight]{images/MissingData.png}
+\end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  Top image: MERIS data over Ireland.
+
+  Solution
+
+  Cloud cover means that the satellite cannot observe the lakes, oceans
+  or land. These data are not missing at random, since cloud cover is
+  likely to change over the seasons.
+\item
+  Middle images: MODIS data over the Aral Sea, for two timepoints.
+
+  Solution
+
+  The Aral Sea has decreased in size over the years, due to human
+  impacts. Suppose that we wish to measure chlorophyll levels in a
+  certain location in the lake. The changing size of the lake means that
+  some locations that had data in previous years will have missing data
+  (since there is no water present at that location) in more recent
+  years. The data are therefore not missing at random.
+\item
+  Bottom image: MODIS data over Lake Superior.
+
+  Solution
+
+  Ice cover means that the satellite cannot observe the lake water.
+  These data are not missing at random, since ice cover occurs during
+  the coldest times of the year. This may be problematic, if it occurs
+  during peaks or troughs of patterns of the variable that we wish to
+  measure (e.g., chlorophyll may reach its lowest values at the same
+  time that ice cover appears and prevents the satellite from recording
+  measurements).
+\end{itemize}
+
+\end{tcolorbox}
+
+The technique we use to deal with missing data depends on the type of
+missingness. If there are a handful of datapoints missing at random, we
+can essentially ignore this and carry out our analysis as usual.
+However, if they are missing in some sort of systematic way (e.g., a
+whole month missing due to bad weather), we may instead look at some
+form of \textbf{imputation}.
+
+\subsubsection{Imputation}\label{imputation}
+
+Imputation is a process which involves predicting the missing values via
+some form of statistical method. There are two main forms of imputation:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Single imputation} involves generating one value in place of
+  each missing value.
+\item
+  \textbf{Multiple imputation} involves generating several values in
+  place of each missing value.
+\end{itemize}
+
+Single imputation has the advantage of being simpler, allowing for a
+straightforward analysis once the missing values have been estimated.
+Multiple imputation does a better job of accounting for the uncertainty
+of the imputation process, but it makes the final analysis more complex.
+
+Our approach for generating the imputed value will vary depending on the
+context. In the simplest case, we may replace missing values with the
+overall mean --- usually only if we have very limited information. More
+commonly, we may use neighbouring values, or some form of seasonal mean.
+These will usually work reasonably well as long as we do not have too
+many missing data. A more complex approach is to fit a more general
+statistical model, perhaps taking account of other variables and/or
+using random components.
+
+To handle missing data, models that incorporate it should be chosen over
+simply ignoring the missing values. If the missing data can be predicted
+based on the observed data, imputation models can effectively estimate
+them.
+
+\subsection*{References}\label{references}
+\addcontentsline{toc}{subsection}{References}
+
+\begin{itemize}
+\item
+  For more details on \textbf{uncertainties and their propagation}:
+
+  Kirkup, L., \& Frenkel, B. (2006). \emph{An introduction to
+  uncertainty in measurement using the GUM (guide to the expression of
+  uncertainty in measurement)}. Cambridge University Press.
+  \href{https://go.exlibris.link/HnNPJjFZ}{Available from the University
+  Library here}.
+\item
+  For more details on \textbf{censored data}:
+
+  Helsel, D. R. (2012). \emph{Statistics for censored environmental data
+  using Minitab and R} (2nd ed.). Wiley.
+  \href{https://go.exlibris.link/nSYV0zLq}{Available from the University
+  Library here}.
+\end{itemize}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-botella2020}
+Botella, Christophe, Alexis Joly, Pascal Monestiez, Pierre Bonnet, and
+François Munoz. 2020. {``Bias in Presence-Only Niche Models Related to
+Sampling Effort and Species Niches: Lessons for Background Point
+Selection.''} Edited by Mirko Di Febbraro. \emph{PLOS ONE} 15 (5):
+e0232078. \url{https://doi.org/10.1371/journal.pone.0232078}.
+
+\bibitem[\citeproctext]{ref-pyke2010}
+Pyke, Graham H., and Paul R. Ehrlich. 2010. {``Biological Collections
+and Ecological/Environmental Research: A Review, Some Observations and a
+Look to the Future.''} \emph{Biological Reviews} 85 (2): 247--66.
+\url{https://doi.org/10.1111/j.1469-185x.2009.00098.x}.
+
+\bibitem[\citeproctext]{ref-rennie2020}
+Rennie, Susannah, Chris Andrews, Sarah Atkinson, Deborah Beaumont, Sue
+Benham, Vic Bowmaker, Jan Dick, et al. 2020. {``The UK Environmental
+Change Network Datasets {\textendash} Integrated and Co-Located Data for
+Long-Term Environmental Research (1993{\textendash}2015).''} \emph{Earth
+System Science Data} 12 (1): 87--107.
+\url{https://doi.org/10.5194/essd-12-87-2020}.
+
+\end{CSLReferences}
+
+
+
+\end{document}
