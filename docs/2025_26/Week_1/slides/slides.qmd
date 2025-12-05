@@ -7,8 +7,6 @@ format:
    metropolis-beamer-revealjs:
     logo:  UofG.png
     theme: custom.scss
-    header-includes: |
-      <script src="custom.js" type="application/javascript"></script>
 slide-number: true
 header-logo: UofG.png
 include-in-header: 

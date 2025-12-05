@@ -1,0 +1,506 @@
+---
+title: "Understanding our Data"
+embed-resources: true
+format:
+  revealjs:
+    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_1/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
+    margin: 0
+    logo:  UofG.png
+    theme: uofg_theme.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+  data-background-color: "#FFFFFF"
+slide-number: true
+include-in-header: 
+  text: |
+    <style>
+      .custom-small table {
+        font-size: .8em
+      }
+      .custom-tiny table {
+        font-size: .6em
+      }
+    </style>
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+execute: 
+  eval: true
+  echo: true
+  allow-html: true
+  freeze: auto
+---
+
+## Understanding our Data
+
+-   Last week we introduced some of the key motivations behind Environmental Statistics.
+
+-   The course will cover a number of statistical ideas around the general theme of environmental data.
+
+-   This week we will be looking at uncertainty and variability, and how we can measure these and incorporate them into our conclusions.
+
+-   We will then look at a number of important features of environmental data --- censoring, outliers and missing data.
+
+# Uncertainty and Variability
+
+## Uncertainty and Error {.smaller}
+
+-   We often talk about uncertainty and error as though they are interchangeable, but this is not quite correct.
+
+-   **Error** is the difference between the measured value and the "*true value*" of the thing being measured.
+
+-   **Uncertainty** is a quantification of the variability of the measurement result.
+
+-   Practically speaking, we make use of common statistical distributions to account for uncertainty.
+
+![](figures/system_vsranerr.png){fig-align="center" width="693"}
+
+## Recap: Continuous Distributions {.smaller background-color="#FFFFFF"}
+
+::::::::: panel-tabset
+## Normal density
+
+::::: columns
+::: {.column width="40%"}
+A continuous random variable $X$ follows a normal distribution with mean $\mu$ and standard deviation $\sigma$ if its probability density function (pdf) is:
+
+$$
+        f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+$$
+
+We denote this as:
+
+$$
+        X \sim \mathcal{N}(\mu, \sigma^2), ~\text{where} ~ -\infty < X < +\infty
+$$
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(ggplot2)
+set.seed(123)
+
+data <- data.frame(x = rnorm(1000, mean = 200, sd = 10))
+
+p <- ggplot(data, aes(x = x)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 30, 
+                 fill = "lightblue", color = "black", alpha = 0.7) +
+  stat_function(fun = dnorm, args = list(mean = 200, sd = 10),
+                color = "navy", linewidth = 1) +
+  labs(x = "Temperature", y = "Density") +
+  theme_minimal(base_size = 14) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+p
+```
+:::
+:::::
+
+*Why can't we just use normal distributions for all environmental data?*
+
+## log-Normal density
+
+A random variable $X$ follows a log-normal distribution if $\ln(X)$ follows a normal distribution,i.e.
+
+$$
+        Y = \ln(X) \sim \mathcal{N}(\mu, \sigma^2) \quad  \text{where}~ Y\in (0, +\infty)
+$$
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 4
+#| fig-width: 8
+#| fig-align: center
+library(ggplot2)
+library(patchwork)
+set.seed(123)
+conc <- exp(rnorm(200, mean = 2, sd = 0.7))
+# Minimal plot 1
+ggplot(data.frame(x = conc), aes(x = x)) +
+  geom_histogram(aes(y = ..density..), bins = 25, 
+                 fill = "skyblue", alpha = 0.6) +
+  labs(x = "Concentration", y = "Density") +
+  theme_minimal(base_size = 11) +
+
+# Minimal plot 2
+ggplot(data.frame(x = log(conc)), aes(x = x)) +
+  geom_histogram(aes(y = ..density..), bins = 25, 
+                 fill = "lightgreen", alpha = 0.6) +
+  stat_function(fun = dnorm, args = list(mean = 2, sd = 0.7),
+                color = "darkgreen", size = 1) +
+  labs( x = "ln(Concentration)", y = "Density") +
+  theme_minimal(base_size = 11)
+
+```
+
+## Exponential
+
+::::: columns
+::: {.column width="40%"}
+A random variable $X$ follows an exponential distribution with rate parameter $\lambda >0$ if its probability density function (pdf) is:
+
+$$
+f(x; \lambda) = 
+\begin{cases} 
+\lambda e^{-\lambda x} & \text{for } x \geq 0 \\ 
+0 & \text{for } x < 0 
+\end{cases}
+$$
+
+$\lambda$ describes the rate of events, i.e., the no. of events per unit time/distance
+
+-   Higher $\lambda$ = more frequent events
+-   Mean waiting time: $E[X] = \frac{1}{\lambda}$ (e.g., $\lambda = 0.2$ rainfall events/hour $\rightarrow$ Mean time between events = 5 hours)
+-   Variance: $Var(X) = \frac{1}{\lambda^2}$
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+df <- data.frame(
+  x = seq(0, 8, length.out = 200)
+)
+df$y1 <- dexp(df$x, rate = 0.5)  # mean = 2
+df$y2 <- dexp(df$x, rate = 1)    # mean = 1
+df$y3 <- dexp(df$x, rate = 2)    # mean = 0.5
+
+# Plot
+p <- ggplot(df, aes(x = x)) +
+  geom_line(aes(y = y1, color = "λ = 0.5"), size = 1.5) +
+  geom_line(aes(y = y2, color = "λ = 1"), size = 1.5) +
+  geom_line(aes(y = y3, color = "λ = 2"), size = 1.5) +
+  labs(
+    x = "x (time/distance)",
+    y = "f(x; λ)",
+    color = "Rate (λ)"
+  ) +
+  scale_color_manual(values = c(
+    "λ = 0.5" = "steelblue",
+    "λ = 1" = "darkorange", 
+    "λ = 2" = "forestgreen"
+  )) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = c(0.85, 0.85),
+    legend.background = element_rect(fill = "white", color = "gray")
+  ) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0))
+
+p
+```
+:::
+:::::
+:::::::::
+
+## Recap: Discrete Distributions {.smaller background-color="#FFFFFF"}
+
+:::::::::::: panel-tabset
+## Poisson density
+
+::::: columns
+::: {.column width="50%"}
+A discrete random variable $X$ follows a Poisson distribution with rate parameter $\lambda > 0$ if its probability mass function (PMF) is:
+
+$$
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, ~ k = 0, 1, \dots
+$$
+
+We denote this as $X \sim Po(\lambda)$ where $\lambda$ describes:
+
+-   Expected number of events in a fixed interval
+-   Mean events per unit time/area/volume
+-   Example: $\lambda = 3.2$ means 3.2 events expected on average
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Create Poisson PMF for two lambda values
+k <- 0:10
+df <- data.frame(
+  k = rep(k, 2),
+  lambda = rep(c(2, 5), each = length(k)),
+  prob = c(dpois(k, lambda = 2), dpois(k, lambda = 5))
+)
+df$lambda_label <- paste0("λ = ", df$lambda)
+
+# Plot
+p <- ggplot(df, aes(x = k, y = prob, fill = lambda_label)) +
+  geom_col(width = 0.6, alpha = 0.8, color = "black") +
+  facet_wrap(~ lambda_label, ncol = 2, scales = "free_y") +
+  scale_fill_manual(values = c("λ = 2" = "steelblue", "λ = 5" = "darkorange")) +
+  labs(    x = "Number of events (k)",
+    y = "Probability P(X = k)"
+  ) +
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    legend.position = "none",
+    strip.text = element_text(face = "bold", size = 14),
+    panel.spacing = unit(2, "lines")
+  ) +
+  scale_x_continuous(breaks = 0:10) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+
+p
+```
+:::
+:::::
+
+## Binomial density
+
+::::: columns
+::: {.column width="55%"}
+A discrete random variable $X$ follows a binomial distribution with parameters $n$ and $p$ if:
+
+$$
+P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, 2, \dots, n
+$$
+
+We denote this as $X \sim Bi(n, p)$ where:
+
+-   $n$ = number of independent trials
+
+-   $p$ = probability of success in each trial
+
+-   $k$ = number of successes observed
+
+**Survival studies:** $n$ animals, each with survival probability $p$
+
+**Detection/non-detection:** $n$ surveys, probability $p$ of detecting species
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 5.5
+#| fig-width: 4
+
+# Plot 1: Animal survival study
+n1 <- 12  # 12 animals tracked
+p1 <- 0.7 # 70% survival probability per animal
+
+df1 <- data.frame(
+  survivors = 0:n1,
+  probability = dbinom(0:n1, size = n1, prob = p1)
+)
+
+p1_plot <- ggplot(df1, aes(x = survivors, y = probability)) +
+  geom_col(fill = "steelblue", width = 0.7, alpha = 0.8, color = "black") +
+  geom_vline(xintercept = n1 * p1, color = "red", linetype = "dashed", linewidth = 1) +
+  annotate("text", x = n1 * p1 - 3.5, y = max(df1$probability) * 0.9,
+           label = paste("Expected:", n1 * p1, "survivors"),
+           color = "red", hjust = 0, size = 3.5) +
+  labs(
+    subtitle = paste("n =", n1, "animals, p =", p1, "survival probability"),
+    x = "Number of surviving animals",
+    y = "Probability"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  ) +
+  scale_x_continuous(breaks = 0:n1) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+
+# Plot 2: Species detection surveys
+n2 <- 8   # 8 surveys
+p2 <- 0.3 # 30% detection probability per survey
+
+df2 <- data.frame(
+  detections = 0:n2,
+  probability = dbinom(0:n2, size = n2, prob = p2)
+)
+
+p2_plot <- ggplot(df2, aes(x = detections, y = probability)) +
+  geom_col(fill = "darkorange", width = 0.7, alpha = 0.8, color = "black") +
+  geom_vline(xintercept = n2 * p2, color = "red", linetype = "dashed", linewidth = 1) +
+  annotate("text", x = n2 * p2 + 0.5, y = max(df2$probability) * 0.9,
+           label = paste("Expected:", n2 * p2, "detections"),
+           color = "red", hjust = 0, size = 3.5) +
+  labs(
+    subtitle = paste("n =", n2, "surveys, p =", p2, "detection probability"),
+    x = "Number of surveys with detection",
+    y = "Probability"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  ) +
+  scale_x_continuous(breaks = 0:n2) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+
+# Display side by side
+p1_plot + p2_plot + plot_layout(ncol = 1)
+```
+:::
+:::::
+
+## Negative-Binomial density
+
+::::: columns
+::: {.column width="55%"}
+A discrete random variable $X$ follows a negative binomial distribution with parameters $r$ and $p$ if:
+
+$$
+P(X = k) = \binom{k + r - 1}{k} (1-p)^r p^k, ~ k = 0, 1, \dots
+$$
+
+The distribution of the number of trials until the $r$th success is denoted by $X\sim \mathrm{NegBi}(r,p)$ Where
+
+-   $r$ = number of failures
+-   $p$ = probability of success on each trial
+-   $k$ = number of successes
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# Load MASS for negative binomial functions
+library(MASS)
+
+# Simple negative binomial plot
+k <- 0:20
+mu <- 5  # Mean count
+theta <- 2  # Dispersion parameter
+
+df <- data.frame(
+  count = k,
+  probability = dnbinom(k, size = theta, mu = mu)
+)
+
+ggplot(df, aes(x = count, y = probability)) +
+  geom_col(fill = "steelblue", width = 0.7, alpha = 0.8, color = "black") +
+  geom_vline(xintercept = mu, color = "red", linetype = "dashed", linewidth = 1) +
+  labs(
+    x = "Number of counts (k)",
+    y = "Probability P(X = k)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5)
+  ) +
+  scale_x_continuous(breaks = seq(0, 20, by = 2)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+```
+:::
+:::::
+::::::::::::
+
+## Example: Bathing Water Quality
+
+-   All bathing water sites in Scotland are classified [**by SEPA**](https://bathingwaters.sepa.scot/) as "Excellent", "Good", "Sufficient" or "Poor" in terms of how much faecal bacteria (from sewage) they contain.
+
+-   The minimum standard all beaches or bathing water must meet is "Sufficient".
+
+-   The sites are classified based on the 90th and 95th percentiles of samples taken over the four most recent bathing seasons.
+
+::: notes
+Note: SEPA = Scottish Environment Protection Agency The classification uses percentiles because water quality can be highly variable - we care about the worst-case scenarios (90th/95th percentiles), not just average conditions.
+:::
+
+## Example: Bathing Water Quality
+
+![Green is [excellent]{style="color:green;"} , [blue]{style="color:blue;"} is good, red is [sufficient]{style="color:red;"}](figures/BathingWater.png){fig-align="center"}
+
+## Example: bathing water quality
+
+-   The classification system assumes that bacterial concentrations at each site follow a **log-normal distribution**.
+
+-   If this assumption does **not** hold, the classifications would **not be accurate**.
+
+-   Therefore, it is **crucial** that we regularly assess this assumption to ensure the safety of our bathing water.
+
+## Example: bathing water quality
+
+::::: columns
+::: {.column width="60%"}
+![](figures/WaterNormality1.png){fig-align="center"}
+
+![](figures/WaterNormality2.png){fig-align="center"}
+:::
+
+::: {.column width="40%"}
+-   We can use our standard residual plots to assess log-normality.
+
+-   The top plots show the standard residuals and the bottom plots show the residuals for the log-transformed data.
+
+-   There is **no strong** evidence to suggest we have breached our assumptions.
+:::
+:::::
+
+
+## Error in Environmental Measurements
+
+**Error** in a measurement is the difference between the measured value and the true value.
+
+- Error may include both **random** and **systematic** components.
+
+**Random error**: Variation observed randomly over repeat measurements.  
+→ With more measurements, these errors average out (improves accuracy).
+
+
+
+## Systematic Error
+
+**Systematic error**: Variation that remains constant over repeated measures.
+
+- Typically due to some feature of the measurement process.
+- Making more measurements **will not improve accuracy** (all affected equally).
+- Can only be eliminated by identifying and correcting the cause.
+
+
+## Error Identification Exercise
+
+For each example, identify whether the error is **random** or **systematic**:
+
+1. **A meter reads 0.01 even when measuring no sample.**  
+   → *Hint: Constant offset regardless of measurement...*
+
+2. **An old thermometer can only measure to the nearest 0.5 degrees.**  
+   → *Hint: Precision limitation...*
+
+3. **A poorly designed rainfall monitor often leaks water on windy days.**  
+   → *Hint: Specific condition causing consistent bias...*
+
+4. **To estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length**  
+   → *Hint: Only fishes up to a given size can be caught *
+
+**Discuss with a neighbor!**
+
+---
+
+## Answers & Discussion
+
+1. **Systematic** - Constant offset (bias)
+2. **Random** - Precision limitation (rounding error varies)
+3. **Systematic** - Consistent bias under specific conditions
+4. **Systematic** - All measurements affected by melting
+
+**Key takeaway**: Random errors can be reduced by averaging; systematic errors require calibration, better instruments, or method changes.
+
+

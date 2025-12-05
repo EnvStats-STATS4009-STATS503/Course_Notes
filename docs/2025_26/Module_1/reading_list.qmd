@@ -1,0 +1,30 @@
+---
+title: "Reading list"
+format:
+  html:    
+    fontsize: "12"
+    mainfont: serif
+    code-link: true
+    code-fold: true
+    code-tools:
+      source: false
+      toggle: true
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    number-sections: true
+  pdf:
+    number-sections: true
+embed-resources: true
+execute: 
+  freeze: auto
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+-   Barnett, V. (2004). *Environmental statistics: Methods and applications*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/TbMBCTkV).)
+-   Helsel, D. R. (2012). *Statistics for censored environmental data using Minitab and R* (2nd ed.). Wiley. [Available from the University Library here](https://go.exlibris.link/nSYV0zLq).
+-   Kirkup, L., & Frenkel, B. (2006). *An introduction to uncertainty in measurement using the GUM (guide to the expression of uncertainty in measurement)*. Cambridge University Press. [Available from the University Library here](https://go.exlibris.link/HnNPJjFZ).
+-   Manly, B. F. J. (2001). *Statistics for environmental science and management*. Chapman & Hall/CRC. (No e-book available, but [a physical copy is available from the University Library](https://go.exlibris.link/Jcyj94mj).)
+-   Piegorsch, W. W., & Bailer, A. J. (2005). *Analyzing environmental data*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/6wbh6zq0).)

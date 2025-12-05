@@ -30,10 +30,9 @@ library(shiny)
 library(shinylive)
 ```
 
-In this section we recap some important statistical properties of our estimators (for further details please refer to the statistical inference course). 
+In this section we recap some important statistical properties of our estimators (for further details please refer to the statistical inference course).
 
 A population parameter $\theta$ represents a quantitative measurement of population values. Since $\theta$ is typically unknown, we need to estimate it by drawing samples from the population of interest. Our estimator, $\hat{\theta}$,is then computed based on the samples we have obtained. The question is then, how well does $\hat{\theta}$ do its job in estimating $\theta$? To evaluate this, we examine key statistical properties of estimators.
-
 
 ```{r}
 #| echo: false
@@ -214,7 +213,7 @@ The bias of an estimator is the difference in magnitude between its expected val
 
 $$
 \textbf{Bias}(\hat{\theta}) = \mathbb{E}(\hat{\theta}) - \theta
-$$ 
+$$
 
 When $\mathbb{E}(\hat{\theta}) = \theta$ , $\hat{\theta}$ is said to be an *unbiased estimator* of $\theta$.
 
@@ -226,8 +225,7 @@ The **variance** of an estimator or *sampling variance* is the average squared d
 
 $$
 \text{Var}(\hat{\theta}) = \sum_{s\in \Omega} p(s) \left(\hat{\theta}(s)-\mathbb{E}(\hat{\theta})\right)^2 
-$$ 
-Notice how the variance of an estimator does not depend (unlike the bias) on the true parameter $\theta$
+$$ Notice how the variance of an estimator does not depend (unlike the bias) on the true parameter $\theta$
 
 ::: {.callout-important icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 2
@@ -250,22 +248,18 @@ $$
 
 The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is and does not relate to the true value. To illustrate this, suppose we draw 20 random samples with equal probability from our population of interest . @fig-bias_prec shows 100 replicates/data sets of this experiment with 4 different estimators:
 
--    $\hat{\theta}_{1}(s) =\frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean of the $s$th sample which is **unbiased** and **precise**
+-   $\hat{\theta}_{1}(s) =\frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean of the $s$th sample which is **unbiased** and **precise**
 
--    $\hat{\theta}_{2}(s) = \text{arg min } (x_1,\ldots, x_{20})$ - the $s$th sample minimum value which is **biased** and **imprecise**.
+-   $\hat{\theta}_{2}(s) = \text{arg min } (x_1,\ldots, x_{20})$ - the $s$th sample minimum value which is **biased** and **imprecise**.
 
--    $\hat{\theta}_{3}(s)  = x_1$ - the first observation of the unordered sample which is **unbiased** and **imprecise.**
+-   $\hat{\theta}_{3}(s)  = x_1$ - the first observation of the unordered sample which is **unbiased** and **imprecise.**
 
--    $\hat{\theta}_{4}(s) =2 + \frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean + constant which is **biased** but **precise**.
-
+-   $\hat{\theta}_{4}(s) =2 + \frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean + constant which is **biased** but **precise**.
 
 ::: {.content-visible when-format="html"}
-
 ![Illustration of bias and precision of an estimator. The red dashed line shows the true population parameter. the grey point shows the sample of the *j*-th data set, and the colored points indicate the estimates for each sample.](images/four_estimators.gif){#fig-bias_prec fig-align="center"}
 :::
 
 Imagine a dartboard where the bullseye represents the true population parameter ($\theta$). Each throw corresponds to a sample estimate ($\hat{\theta}(s)$). Precision refers to how tightly clustered the darts are - a precise estimator produces estimates that land close together, regardless of their position relative to the bullseye. Bias, on the other hand, is the systematic offset from the bullseye - even with perfect precision, a biased estimator would consistently miss the center in the same direction.
 
 ![](images/bias_prec2.png){fig-align="center" width="413"}
-
-

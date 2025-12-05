@@ -1,0 +1,35 @@
+{
+  "index.qmd": {
+    "index.html": "e0146726",
+    "index.tex": "b4eec01c"
+  },
+  "notes/notes_1.qmd": {
+    "notes_1.html": "65c7a8a0",
+    "notes_1.tex": "be8e641c"
+  },
+  "reading_list.qmd": {
+    "reading_list.html": "ae32a38b",
+    "reading_list.tex": "6e1d01a2"
+  },
+  "supplementary/supl_1.qmd": {
+    "supl_1.html": "5c36d0cb",
+    "supl_1.tex": "187df0aa"
+  },
+  "notes/notes_2.qmd": {
+    "notes_2.html": "4f4feae4",
+    "notes_2.tex": "2c34ab9b"
+  },
+  "slides/slides_1.qmd": {
+    "slides_1.html": "167c303f"
+  },
+  "notes/notes_3.qmd": {
+    "notes_3.html": "1f1bf6dc",
+    "notes_3.tex": "aea0db87"
+  },
+  "slides/slides_2.qmd": {
+    "slides_2.html": "4a02a7bc"
+  },
+  "slides/slides_3.qmd": {
+    "slides_3.html": "53234f04"
+  }
+}

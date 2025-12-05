@@ -1,0 +1,134 @@
+/*-- scss:defaults --*/
+
+/* ===============================
+   Theme defaults
+   =============================== */
+
+/* Colors */
+$uog-blue:       #003366;
+$uog-light-blue: #0066CC;
+$uog-gold:       #FFCC00;
+$uog-white:      #FFFFFF;
+$uog-light-gray: #F2F2F2;
+
+
+$primary-color: $uog-blue !default;
+$body-bg: #f1f1f1 !default;
+$link-color: #3b759e !default;
+$link-color-hover: lighten($link-color, 30%) !default;
+$code-color: $uog-light-blue !default;
+
+/* Fonts */
+$font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+
+$presentation-font-size-root: 34px !default;
+
+/* Heading sizes */
+$presentation-h1-font-size: 2em !default;
+$presentation-h2-font-size: 1.3em !default;
+
+/* Alignment */
+$presentation-title-slide-text-align: left !default;
+$presentation-slide-text-align: left !default;
+
+
+/*-- scss:rules --*/
+
+.title {
+  font-size: 2em !important;
+}
+
+.subtitle {
+  font-size: 1.5em !important;
+}
+
+.quarto-title-author-name {
+  font-size: 1em;
+}
+
+ .institute,
+ .quarto-title-affiliation {
+  font-style: italic;
+  font-size: 0.5em !important;
+ }
+
+ .quarto-title-author-email {
+  font-style: italic;
+  font-size: 0.5em !important;
+ }
+
+.date {
+  font-size: 0.75em;
+}
+
+.reveal .quarto-title-authors {
+    padding-top: 20px;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+    border-top: 2px solid $uog-gold;
+}
+
+.reveal a {
+  color: $uog-light-blue !important;}
+
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: unset !important;
+  right: unset !important;
+  top: 5px;
+  left: 12px;
+  height: 100px !important;
+  width: 100x !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.slide-logo-max-size {
+    bottom: unset !important;
+    left: 12px;
+    height: 80px !important;
+    max-height: unset !important;
+    right: unset !important;
+    top: 5px;
+}
+
+section.slide h1 {
+  color: white !important;
+  background-color: #005C8A !important;
+  width: 200vw;
+  position: relative;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid $uog-gold !important;
+}
+
+
+section.slide h2 {
+  color: white !important;
+  background-color: #005C8A !important;
+  width: 200vw;
+  position: relative;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+
+// Change color of inline code ONLY when it appears inside h2 elements
+.reveal h2 code:not(pre code) {
+  color: $uog-gold !important;
+  font-weight: bold !important;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 14px !important;
+  left: 50px !important;
+  top: unset !important;
+  color: #777777 !important;
+}
+

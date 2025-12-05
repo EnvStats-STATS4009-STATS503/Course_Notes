@@ -1,0 +1,122 @@
+---
+title: "Module 1"
+subtitle: "Environmental Monitoring & Data Processing"
+author:
+  - name: Jafet Belmont
+    email: Jafet.Belmont@glasgow.ac.uk
+format: 
+  html: 
+    fontsize: "12"
+    mainfont: serif
+    number-sections: true
+  pdf:
+    number-sections: true
+---
+
+# Overview
+
+This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common imperfections—such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design. 
+
+# Course Structure
+
+This course provides an appreciation of the application of statistical methods and concepts to problems in *Environmental and Ecological Sciences*.
+
+The course consists of 3 modules divided into weeks - this is primarily to help you find the relevant material easily.
+
+| Module | Week | Topic |
+|:----------------------:|:----------------------:|:----------------------:|
+| Environmental Monitoring & Data processing | 1 | [Introduction to Environmental Statistics](notes/notes_1.qmd) |
+|  | 2 | [Understanding our Data](notes/notes_2.qmd) |
+|  | 3 | [Sampling and Monitoring Networks](notes/notes_3.qmd) |
+| Measuring Environmental Change | 4 | Assessing Change Over Time |
+|  | 5 | Temporal Correlation and Changepoints |
+|  | 6 | Modelling Environmental Extremes |
+| Spatial Ecology and Conservation Modelling | 7 | Introduction to Spatial Ecology |
+|  | 8 | Species Distribution Modelling |
+|  | 9 | Methods for Complex Ecological Data |
+
+## Lectures
+
+There will be two - 1 hr lectures per week
+
+-   **Tuesday 12** noon ([Wolfson Medical School:253 Seminar 1-Yudo](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=170&toId=1700253&toType=R))
+
+-   **Wednesday 9am** ([Maths and Stats:116 Lecture Theatre](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&toId=W230116&toType=R)).
+
+    ::: callout-note
+    *Lectures will be recorded if the room’s technology allows them to be.*
+    :::
+
+## Tutorials
+
+In addition, there will be **four** tutorials for this course. There are two tutorial groups - please check on MyCampus which one you are in.
+
+::: panel-tabset
+# Tutorial Group 1 - Monday 10am
+
+**Tutorial groups:**
+
+-   STATS 4009 - TU01 (23738)
+
+-   STATS 5031 - TU01 (24174)
+
+**Venue:**
+
+[Adam Smith: 281](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W22&toId=W220281&toType=R)
+
+**Tutorial dates:**
+
+1.  24-Jan-2026
+
+2.  09-Feb-2026
+
+3.  23-Feb-2026
+
+4.  09-Mar-2026
+
+# Tutorial Group 2- Wednesday 12 noon
+
+**Tutorial groups:**
+
+-   STATS 4009 - TU02 (23739)
+
+-   STATS 5031 - TU02 (24175)
+
+**Venue:**
+
+[Joseph Black Building:C407 Agricult](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=124&toId=124C407&toType=R)[m](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&toId=W230311B&toType=R)
+
+**Tutorial dates:**
+
+1.  28 -Jan-2026
+
+2.  11-Feb-2026
+
+3.  25-Feb-2026
+
+4.  11-Mar-2026
+:::
+
+::: callout-note
+*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.*
+:::
+
+## Labs
+
+There will be three labs taking place in [Boyd Orr Building:418 Lab](#0) from **15:00-17:00pm** on the following dates:
+
+1.  **Feb 27th**
+
+2.  **March 13th**
+
+3.  TBC
+
+# Assessments
+
+Assessment in this course includes continuous assessment and a final exam. The exam will take place in April/May.
+
+-   *Level H* students will have a **Group Report** worth 25% and a\
+    final exam worth 75%.
+
+-   *Level M* students will have a **Group Report** worth 25%, a\
+    **critique** worth 10% and a final exam worth 65%.

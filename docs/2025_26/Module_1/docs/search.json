@@ -1,0 +1,1178 @@
+[
+  {
+    "objectID": "slides/slides_3.html#overview",
+    "href": "slides/slides_3.html#overview",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Overview",
+    "text": "Overview\n\nYou will hopefully already be familiar with the concept of sampling, and why we do it.\nIn this course we will specifically look at examples used for environmental data.\nSome of this will be revision, but there may also be some new methods."
+  },
+  {
+    "objectID": "slides/slides_3.html#environmental-sampling",
+    "href": "slides/slides_3.html#environmental-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Environmental Sampling",
+    "text": "Environmental Sampling\n\nWe use samples in environmental & ecological data in situations where it is not possible to measure the entire population.\nIn environmental settings, this could be because:\n\nThe population is too large.\nSome or all of the population is difficult, expensive or even impossible to reach.\nThe samples may be destructive, i.e. taking the sample causes permanent damage to the object being measured.\n\nWe want to use the information we obtain on the sample in order to make inference on the population."
+  },
+  {
+    "objectID": "slides/slides_3.html#definitions",
+    "href": "slides/slides_3.html#definitions",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Definitions",
+    "text": "Definitions\n\n\n\n\n\nPopulation\n\n\nThe population is the set of all possible objects that could be sampled.\n\n\n\n\n\n\nSampling Units\n\n\nThe sampling units are the members of the population, i.e. the objects that could be sampled.\n\n\n\n\n\n\nSample\n\n\nThe sample is a collection of sampling units, i.e. a subset of the population."
+  },
+  {
+    "objectID": "slides/slides_3.html#designing-an-ecologicalenvironmental-study",
+    "href": "slides/slides_3.html#designing-an-ecologicalenvironmental-study",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Designing an ecological/environmental study",
+    "text": "Designing an ecological/environmental study\nWhen we design an environmental or an ecological study we should focud on these steps:\n\nDefine the study objectives.\nSummarize the environmental context.\nIdentify the target population.\nSelect an appropriate sampling design.\nImplement and summarize."
+  },
+  {
+    "objectID": "slides/slides_3.html#step-1-define-the-study-objectives",
+    "href": "slides/slides_3.html#step-1-define-the-study-objectives",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 1: Define the study objectives",
+    "text": "Step 1: Define the study objectives\nWe need to define clear and simple objectives for our study.\n\nThese will typically be properties of our data that we would like to measure\n\nCharacteristics of a variable, e.g. mean, median, variance.\nTemporal or spatial trends of a variable.\nFrequency of events, e.g. number of pollution events, species abundance or occurrence.\n\n\n\n\nExample:\nWhat is the spatial or temporal variability of water quality across a River Surveillance Network (RSN)?"
+  },
+  {
+    "objectID": "slides/slides_3.html#step-2-consider-the-context",
+    "href": "slides/slides_3.html#step-2-consider-the-context",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 2: Consider the context",
+    "text": "Step 2: Consider the context\n\nWe have to think about the context of the question we are asking.\nThis means understanding the nature of our data, which is essential to ensuring we have a representative sample.\nFor example, if we’re measuring a river, we need to know about the depth, width and current.\nIf we are sampling in a forest, we need to know about vegetation and wildlife."
+  },
+  {
+    "objectID": "slides/slides_3.html#step-3-identify-the-target-population",
+    "href": "slides/slides_3.html#step-3-identify-the-target-population",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 3: Identify the target population",
+    "text": "Step 3: Identify the target population\n\nThe population is the set of all possible objects that could be sampled.\n\nAll the fish in a lake.\nAll oak trees over 5m tall in a particular part of a forest.\nEvery river within a particular water network.\n\nsometimes the population is actually what we are trying to measure, e.g. “How many red squirrels live in the Cairngorms National Park?”\n\n\n\n\n\n\n\nExample: Water quality\n\n\nTarget population: RSN 1:250k with over 1.4 million reaches (a discrete segment of a river with relatively uniform characteristics) .\nCharacterise environmental conditions of the target population such as Water Quality Indicators, i.e., we need to define our response variable:\n\nMacroinvertebrates composition obtained from the RICT Model 44 network (1:50k scale and trimmed to match the RSN network). E.g., WHPT-ASPT (Walley Hawkes Paisley Trigg Average Score Per Taxon) is a biological metric used to evaluate the ecological health of rivers based on the presence and sensitivity of macroinvertebrate (e.g., insects, worms, snails) communities. \nOrthophosphate \\([\\text{PO}_4]^{3-}\\) concentrations (mg/L)"
+  },
+  {
+    "objectID": "slides/slides_3.html#step-4-select-a-sampling-design",
+    "href": "slides/slides_3.html#step-4-select-a-sampling-design",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 4: Select a sampling design",
+    "text": "Step 4: Select a sampling design\nThere are a number of sampling designs which are commonly used for environmental data:\n\nSimple random sampling.\nStratified random sampling.\nSystematic sampling.\nSpatial sampling.\n\nWe will discuss some of these in more detail during the course."
+  },
+  {
+    "objectID": "slides/slides_3.html#step-5-implement-and-summarise",
+    "href": "slides/slides_3.html#step-5-implement-and-summarise",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 5: Implement and summarise",
+    "text": "Step 5: Implement and summarise\n\nData collection - what information is being collected and how?\n\n Biological elements - Macrophytes, macroinvertebrates, diatoms.\n River habitat survey - Physical habitat essential for fish, macrophytes and invertebrate to live.\n Physico-chemical elements - Water quality elements like dissolved oxygen, orthrophosphate, nitrogen\n Toxic chemicals - Harmful (potentially banned) chemicals\n Invasive non-native species - Plants, animals, fungi, or organisms that have been introduced to a new area where they are not native.\n Physical properties - Temperature, width, slope, altitude, etc."
+  },
+  {
+    "objectID": "slides/slides_3.html#step-5-implement-and-summarise-1",
+    "href": "slides/slides_3.html#step-5-implement-and-summarise-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 5: Implement and summarise",
+    "text": "Step 5: Implement and summarise\n\nImplementation - Deploying the network and measuring the quantities of interest. Some practical challenges include:\n\n River is dry\n Route issues\n Site is overgrown, fenced or with barbed wire\n  Steep or high banks\n Land owner permission\n Safety issues."
+  },
+  {
+    "objectID": "slides/slides_3.html#step-5-implement-and-summarise-2",
+    "href": "slides/slides_3.html#step-5-implement-and-summarise-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 5: Implement and summarise",
+    "text": "Step 5: Implement and summarise\n\nOften statisticians will not actually carry out the sampling. We will rely on field experts in many cases.\nOnce we receive the data, it’s important to assess the data for censoring, outliers, missingness etc.\nWe can then fit an appropriate statistical model.\nFinally, we should report our results in clear language, including uncertainty where appropriate."
+  },
+  {
+    "objectID": "slides/slides_3.html#sampling-strategies",
+    "href": "slides/slides_3.html#sampling-strategies",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Sampling Strategies",
+    "text": "Sampling Strategies\n\n\n\nWe are interested in population parameter(s) \\(\\theta\\) .\nTypically, the value of \\(\\theta\\) is unknown and it is unfeasible to measure all \\(N\\) elements of the population."
+  },
+  {
+    "objectID": "slides/slides_3.html#sampling-strategies-1",
+    "href": "slides/slides_3.html#sampling-strategies-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Sampling Strategies",
+    "text": "Sampling Strategies\n\n\n\nWe are interested in population parameter(s) \\(\\theta\\) .\nTypically, the value of \\(\\theta\\) is unknown and it is unfeasible to measure all \\(N\\) elements of the population.\n\n\n\nWe select a representative sample and measure \\(n &lt; N\\) units to estimate it.\nThe question now, is how do we select such units?"
+  },
+  {
+    "objectID": "slides/slides_3.html#sampling-strategies-2",
+    "href": "slides/slides_3.html#sampling-strategies-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Sampling Strategies",
+    "text": "Sampling Strategies\n\n\n\nWe are interested in population parameter(s) \\(\\theta\\) .\nTypically, the value of \\(\\theta\\) is unknown and it is unfeasible to measure all \\(N\\) elements of the population.\nWe select a representative sample and measure \\(n &lt; N\\) units to estimate it.\nThe question now, is how do we select such units?\n\n\n\n\n\n\n\n\n\n\n\n\nA sampling strategy integrates both sample selection methods from a target population and estimation techniques to infer population attributes from sample measurements."
+  },
+  {
+    "objectID": "slides/slides_3.html#flash-re-cap-estimator-properties",
+    "href": "slides/slides_3.html#flash-re-cap-estimator-properties",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Flash Re-cap: Estimator properties",
+    "text": "Flash Re-cap: Estimator properties\n\n\n\nDef. Consistency\n\n\nAn estimator \\(\\hat{\\theta}\\) of \\(\\theta\\) is said to be consistent if for any \\(\\epsilon &gt;0\\)\n\\[\n\\lim_{n\\to\\infty} \\mathbb{P}(|\\hat{\\theta}-\\theta| &gt; \\epsilon) = 0\n\\]\n\n\n\n\n\n\nExpected value\n\n\nThe expected value of an estimator is a weighted average of all possible estimates.\n\\[\n\\mathbb{E}(\\hat{\\theta})= \\sum_{x\\in\\Omega} p(s)\\hat{\\theta}(s)\n\\]\nIt is a function of both, the sampling design (due to inclusion probabilities \\(p(s)\\)) and the population being sampled (through the sample estimate \\(\\hat{\\theta}(s)\\))"
+  },
+  {
+    "objectID": "slides/slides_3.html#flash-re-cap-estimator-properties-1",
+    "href": "slides/slides_3.html#flash-re-cap-estimator-properties-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Flash Re-cap: Estimator properties",
+    "text": "Flash Re-cap: Estimator properties\n\n\n\nBias\n\n\nThe difference in magnitude between its expected value and the population parameter\n\\[\n\\textbf{Bias}(\\hat{\\theta}) = \\mathbb{E}(\\hat{\\theta}) - \\theta\n\\]\n\n\n\n\n\n\nVariance\n\n\nAverage squared distance between individual estimates \\(\\hat{\\theta}(s)\\) and their expected value \\(\\mathbb{E}(\\hat{\\theta})\\)\n\\[\n\\text{Var}(\\hat{\\theta}) = \\sum_{s\\in \\Omega} p(s) \\left[\\hat{\\theta}(s)-\\mathbb{E}(\\hat{\\theta})\\right]^2\n\\]\n\n\n\n\n\n\nPrecision\n\n\nThe precision of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is"
+  },
+  {
+    "objectID": "slides/slides_3.html#flash-re-cap-estimator-properties-2",
+    "href": "slides/slides_3.html#flash-re-cap-estimator-properties-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Flash Re-cap: Estimator properties",
+    "text": "Flash Re-cap: Estimator properties"
+  },
+  {
+    "objectID": "slides/slides_3.html#simple-random-sampling",
+    "href": "slides/slides_3.html#simple-random-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Simple Random Sampling",
+    "text": "Simple Random Sampling\n\nAs the name suggests, this is the simplest form of sampling.\nEvery object in our population has an equal probability of being included in the sample.\nThis requires us to have a complete list of the population members, or a sampling frame covering the entire region.\nWe then generate a set of n random digits which identify the individuals or objects to be included in a study"
+  },
+  {
+    "objectID": "slides/slides_3.html#mean-and-variance",
+    "href": "slides/slides_3.html#mean-and-variance",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Mean and Variance",
+    "text": "Mean and Variance\n\nFor a sample of size \\(n\\), denoted \\(y_1, \\ldots, y_n\\), we can compute the sample mean as\n\n\\[\\bar{y} = \\frac{\\sum_{i=1}^n y_i}{n}.\\]\n\nWe can then compute the estimated population variance as\n\n\\[s^2 =\\frac{\\sum_{i=1}^n (y_i - \\bar{y})^2}{n-1}.\\] - As well as estimating the population mean and variance, we also have to think about the uncertainty surrounding these estimates.\n\nThis is what a confidence interval is typically representing."
+  },
+  {
+    "objectID": "slides/slides_3.html#sampling-variability",
+    "href": "slides/slides_3.html#sampling-variability",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Sampling Variability",
+    "text": "Sampling Variability\n\nOur sample of size \\(n\\) is just one of many possible samples of size \\(n\\) which we could have obtained from our population that has size \\(N\\)  (where \\(n &lt; N\\)).\nWe must take this into account when considering the uncertainty associated with our sample mean. This is known as sampling variability.\nWe can compute this as: \\[\\text{Var}(\\bar{y}) = \\frac{s^2}{n}\\left(1 - \\frac{n}{N}\\right).\\]\nHere, \\((1 - \\frac{n}{N})\\) is what is known as a finite population correction (FPC). This accounts for the proportion of the data which remains unknown."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-cobalt-60",
+    "href": "slides/slides_3.html#example-cobalt-60",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Cobalt-60",
+    "text": "Example: Cobalt-60\n\nCobalt-60 is a synthetic radioactive isotope of cobalt produced in nuclear reactors.\nWe may be interested in estimating how much of this is in the sediment of a river estuary.\nThis map is colour coded by different sediment types. How might we make use of this information when sampling?"
+  },
+  {
+    "objectID": "slides/slides_3.html#stratified-sampling",
+    "href": "slides/slides_3.html#stratified-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Stratified Sampling",
+    "text": "Stratified Sampling\n\nStratified sampling involves dividing the population into two or more groups (or strata) which have something in common.\nDivide the dataset of size \\(N\\) into \\(L\\) non-overlapping strata such that within-strata variability is less than between-strata variability.\nWe then ensure that each of our strata are represented in our sample, and take this into account"
+  },
+  {
+    "objectID": "slides/slides_3.html#proportional-allocation",
+    "href": "slides/slides_3.html#proportional-allocation",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Proportional allocation",
+    "text": "Proportional allocation\nWe then ensure that that each of these strata are represented proportionally within our sample (known as proportional allocation.\n\nSamples are still taken randomly within each stratum."
+  },
+  {
+    "objectID": "slides/slides_3.html#mean-and-variance-1",
+    "href": "slides/slides_3.html#mean-and-variance-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Mean and variance",
+    "text": "Mean and variance\n\nLet \\(N_1, \\ldots, N_L\\) be the populations of our \\(L\\) strata, and \\(n_1, \\ldots, n_L\\) be the number of samples taken from each.\nIt is straightforward to obtain sample means \\(y_1, \\ldots, y_L\\) and sample variances \\(s_1^2, \\ldots, s_L^2\\) for each stratum.\nThen we compute the overall sample mean as \\[\\bar{y} = \\frac{\\sum_{l=1}^L \\left( N_l \\ y_l \\right)}{N}.\\]\nWe can also compute the variance of the sample mean as\n\n\\[\\text{Var}\\bar{y} = \\sum_{l=1}^L \\left[ \\left(\\frac{N_l}{N}\\right)^2 \\frac{s_l^2}{n_l} \\left(1 - \\frac{n_l}{N_l} \\right) \\right].\\]"
+  },
+  {
+    "objectID": "slides/slides_3.html#systematic-sampling",
+    "href": "slides/slides_3.html#systematic-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Systematic Sampling",
+    "text": "Systematic Sampling\n\nSystematic sampling is a sampling method which makes use of a natural ordering that exists in data.\nWe wish to take a sample of size \\(n\\) from a population of size \\(N\\), which means every \\(k = \\frac{N}{n}\\) objects are sampled.\nFor systematic sampling, we select our first unit at random, then select every \\(k\\)th unit in a systematic way.\nFor example, if we have \\(N=50\\) and \\(n=5\\), then \\(k=10\\).\nIf our first unit is 2, our sample becomes units 2, 12, 22, 32, 42"
+  },
+  {
+    "objectID": "slides/slides_3.html#systematic-sampling-1",
+    "href": "slides/slides_3.html#systematic-sampling-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Systematic Sampling",
+    "text": "Systematic Sampling\n\n\n\n\n\n\n\nAdvantages 😁\nDisadvantages 😔\n\n\n\n\nConvenient and quick.\nMay not be representative.\n\n\nWell spaced across the study.\nSystematic patterns in the data can be overlooked.\n\n\nSort of random — every object has an equal chance of selection.\nExtremely deterministic — estimation of variance particularly difficult."
+  },
+  {
+    "objectID": "slides/slides_3.html#spatial-sampling",
+    "href": "slides/slides_3.html#spatial-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Spatial Sampling",
+    "text": "Spatial Sampling\n\nSpatial sampling is required when our data have an attribute that is spatially continuous.\nFor example, if we are measuring water quality in a lake, we may have a three-dimensional coordinate system of length, width and\nIn some cases, it is possible to measure at any one of these locations, simple random sampling or stratified sampling can be used.\nThere are many examples where it is not possible or convenient to do so, in which case some form of systematic sampling may be used."
+  },
+  {
+    "objectID": "slides/slides_3.html#transects",
+    "href": "slides/slides_3.html#transects",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Transects",
+    "text": "Transects\n\nSpatial sampling often uses a systematic sampling scheme based on transects.\nA transect is a straight line along which samples are taken.\nThe starting point, geographical orientation and number of samples are chosen as part of the sampling scheme.\nSamples will then be either taken at random points along the length of the line (continuous sampling) or systematically placed points (systematic sampling)."
+  },
+  {
+    "objectID": "slides/slides_3.html#transects-1",
+    "href": "slides/slides_3.html#transects-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Transects",
+    "text": "Transects\n\nSuppose we need to take samples of water quality on a lake.\nOur sampling scheme may use multiple transects simultaneously."
+  },
+  {
+    "objectID": "slides/slides_3.html#distance-sampling",
+    "href": "slides/slides_3.html#distance-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Distance sampling",
+    "text": "Distance sampling\n\n\n\nIs a popular method in ecology for estimating animal abundance.\nData are obtained by measuring the perpendicular distances from a transect line to detected individuals.\nThe probability of detection decreases with increasing distances via a parametric function."
+  },
+  {
+    "objectID": "slides/slides_3.html#quadrats",
+    "href": "slides/slides_3.html#quadrats",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Quadrats",
+    "text": "Quadrats\n\nIn some cases, we will instead be interested in trying to understand the frequency of a certain species across space.\nA quadrat is a tool used in ecology and other settings for this purpose.\nA series of squares (quadrats) of a fixed size are placed in the habitat of interest, and the species within the quadrats are counted.\nThe number of quadrats, and their positions and orientations are chosen as part of the sampling scheme."
+  },
+  {
+    "objectID": "slides/slides_3.html#quadrats-1",
+    "href": "slides/slides_3.html#quadrats-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Quadrats",
+    "text": "Quadrats\nThe quadrats shown below were used to study orangutan nests in a region of Borneo."
+  },
+  {
+    "objectID": "slides/slides_3.html#grid-sampling",
+    "href": "slides/slides_3.html#grid-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Grid Sampling",
+    "text": "Grid Sampling\n\nIt may often be useful to use a regular grid to make sampling convenient and efficient.\nThe grid is overlaid on the spatial region, and a fixed number of samples (usually one) is taken from each grid square.\nWe choose the size of the grid such that the number of squares relates to the number of samples we require.\nFor example, for a region of size 5km \\(\\times\\) 5km, choosing 1km \\(\\times\\) 1km grid squares would give us 25 squares in total."
+  },
+  {
+    "objectID": "slides/slides_3.html#types-of-grid-sampling",
+    "href": "slides/slides_3.html#types-of-grid-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Types of Grid Sampling",
+    "text": "Types of Grid Sampling\n\nAligned Grid: we take a sample from the same (randomly selected) coordinates within each square.\nCentrally Aligned Grid: we take a sample from the central coordinates of each square.\nUnaligned Grid: each grid square has a sample taken from different randomly selected coordinates.\nTriangular Grid: this is a modified version of the aligned grid where the points are fixed based on a triangular arrangement."
+  },
+  {
+    "objectID": "slides/slides_3.html#types-of-grid-sampling-1",
+    "href": "slides/slides_3.html#types-of-grid-sampling-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Types of Grid Sampling",
+    "text": "Types of Grid Sampling"
+  },
+  {
+    "objectID": "slides/slides_3.html#summary-of-grids",
+    "href": "slides/slides_3.html#summary-of-grids",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Summary of Grids",
+    "text": "Summary of Grids\n\nThe aligned and centrally aligned grids are convenient but may miss systematic patterns in the data.\nThe unaligned grid avoids this, and combines the advantages of simple random sampling and stratified sampling. However, it can be inefficient for collection.\nThe triangular grid can perform well in specific cases where the spatial correlation structures varies with direction."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-chlorophyll-a-in-lake-balaton",
+    "href": "slides/slides_3.html#example-chlorophyll-a-in-lake-balaton",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: chlorophyll-a in Lake Balaton",
+    "text": "Example: chlorophyll-a in Lake Balaton\n\nAim: Estimate the average level of chlorophyll-a in Lake Balaton, Hungary.\nLevels are heavily affected by differences in the levels of nutrients along the length of the lake (known as a “trophic gradient”)."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-chlorophyll-a-in-lake-balaton-1",
+    "href": "slides/slides_3.html#example-chlorophyll-a-in-lake-balaton-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: chlorophyll-a in Lake Balaton",
+    "text": "Example: chlorophyll-a in Lake Balaton\n\nThe population is all possible water samples from the lake, and our sampling units are individual water samples.\nStratified random sampling seems appropriate here due to heterogeneity in the lake.\nWe could design transects which cover most regions of the lake.\n\n\n\n\nHowever, there may be difficulty accessing all areas by boat.\nAlso potential issues with the boat itself disrupting the levels."
+  },
+  {
+    "objectID": "slides/slides_3.html#sample-size-1",
+    "href": "slides/slides_3.html#sample-size-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Sample size",
+    "text": "Sample size\n\nA crucial part of sampling is identifying the appropriate sample size for our study.\nIf the sample is too small, it will not be sufficiently representative of the population.\nIf the sample is too big, it will be expensive and time consuming to collect, which may defeat the purpose of using sampling in the first place."
+  },
+  {
+    "objectID": "slides/slides_3.html#power-andor-precision",
+    "href": "slides/slides_3.html#power-andor-precision",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Power and/or precision",
+    "text": "Power and/or precision\n\nIt is therefore important that we understand exactly what it is that we want from our sampling process.\nWe can think about it in terms of two key aspects, power and precision.\nPrecision: How accurately do I want (or need) to estimate the mean, median, variance etc?\nPower: How small a difference is it important to detect, and with what degree of certainty?"
+  },
+  {
+    "objectID": "slides/slides_3.html#using-confidence-intervals",
+    "href": "slides/slides_3.html#using-confidence-intervals",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Using confidence intervals",
+    "text": "Using confidence intervals\n\nThe general form of a 95% confidence interval for the population mean, \\(\\mu\\) is\n\n\\[\\bar{x} \\pm t_{1-\\alpha/2} \\sqrt{\\text{Var}(\\bar{x})}.\\]\n\nThe width of the interval is determined by the estimated standard error, \\(\\sqrt{\\text{Var}(\\bar{x})}\\), and we know the formula for this contains \\(n\\).\nTherefore, if we know how wide we need our interval to be (i.e. we know the required precision), we can calculate the \\(n\\) required to do that."
+  },
+  {
+    "objectID": "slides/slides_3.html#choosing-the-sample-size",
+    "href": "slides/slides_3.html#choosing-the-sample-size",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Choosing the sample size",
+    "text": "Choosing the sample size\n\nLet our maximum required standard error be denoted as \\(U\\). Then we need to compute: \\[\n\\begin{aligned}\n\\sqrt{\\text{Var}(\\bar{x)}} \\leq U \\\\\n\\frac{\\sqrt{s^2}}{\\sqrt{n}} \\leq U \\\\\n\\sqrt{n} \\geq \\frac{\\sqrt{s^2}}{U}\n\\end{aligned}\n\\]\nHere, \\(s^2\\) is the sample variance.\nCan anyone see a problem here?"
+  },
+  {
+    "objectID": "slides/slides_3.html#choosing-the-sample-size-auto-animate-true",
+    "href": "slides/slides_3.html#choosing-the-sample-size-auto-animate-true",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Choosing the sample size {auto-animate =true}",
+    "text": "Choosing the sample size {auto-animate =true}\n\nThis calculation requires us to use \\(s^2\\), the variance of our sample.\nBut we don’t have the sample yet. The whole point of this exercise is to determine the size of our sample.\nSo, what can we use instead?"
+  },
+  {
+    "objectID": "slides/slides_3.html#choosing-the-sample-size-auto-animate-true-1",
+    "href": "slides/slides_3.html#choosing-the-sample-size-auto-animate-true-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Choosing the sample size {auto-animate =true}",
+    "text": "Choosing the sample size {auto-animate =true}\n\nThis calculation requires us to use \\(s^2\\), the variance of our sample.\nBut we don’t have the sample yet. The whole point of this exercise is to determine the size of our sample.\nSo, what can we use instead?\nTypically, we will use knowledge from prior studies where available, or will commission a small pilot study."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-pcb-in-salmon",
+    "href": "slides/slides_3.html#example-pcb-in-salmon",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: PCB in salmon",
+    "text": "Example: PCB in salmon\n\nPolychlorinated biphenyl (PCB) is a carcinogenic pollutant often found in fish.\nWe wish to estimate the mean PCB level in the salmon in a fish farm, and require a precision level (estimated standard error) of \\(\\pm 0.1 \\mbox{mg/kg}^2\\).\nWe know from previous studies that the variation of PCB in salmon flesh is \\(3.19^2\\).\nHow large a sample do we need?"
+  },
+  {
+    "objectID": "slides/slides_3.html#example-pcb-in-salmon-1",
+    "href": "slides/slides_3.html#example-pcb-in-salmon-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: PCB in salmon",
+    "text": "Example: PCB in salmon\n\nWe can solve our prior equation as\n\n\\[n \\geq \\left(\\frac{s}{u} \\right)^2 = \\left(\\frac{3.19}{0.1} \\right)^2 = 1018.\\]\n\nWe have estimated we need a minimum sample size of 1018 to obtain the required precision.\nIn some cases this may be impractical, in which case we may have to settle for a lower precision."
+  },
+  {
+    "objectID": "slides/slides_3.html#stratified-sampling-1",
+    "href": "slides/slides_3.html#stratified-sampling-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Stratified sampling",
+    "text": "Stratified sampling\nFor stratified sampling, this process is much more complicated.\n\nAs well as considering the sample size, we also have to think about how to allocate our samples across the strata.\nA common approach is to specify a cost mode, where we take into account the different costs of sampling each stratum.\nThe aim is to minimise the estimated standard error for a given total cost."
+  },
+  {
+    "objectID": "slides/slides_3.html#cost-model",
+    "href": "slides/slides_3.html#cost-model",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Cost model",
+    "text": "Cost model\n\nLet \\(C\\) be the overall cost, let \\(c_0\\) be the fixed overhead costs of the survey and let \\(c_l\\) be the cost per sample in stratum \\(l\\).\nThen our cost model is \\[C = c_0 + \\sum_{l=1}^L c_l n_l.\\]\nTypically \\(C\\) is fixed, and the goal is to select the values of \\(n_l\\) which allow us to obtain the best possible estimate."
+  },
+  {
+    "objectID": "slides/slides_3.html#stratum-sample-sizes",
+    "href": "slides/slides_3.html#stratum-sample-sizes",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Stratum sample sizes",
+    "text": "Stratum sample sizes\n\nNow let \\(\\omega_l = N_l/N\\) be the proportion of the overall population which is found within stratum \\(l\\).\nAlso let \\(\\sigma_l\\) be the standard deviation for the population of stratum \\(l\\).\nWe can then compute the optimum number of samples in each stratum as\n\n\\[n_l = n \\ \\frac{\\omega_l \\sigma_l /\\sqrt{c_l}}{\\sum_{k=1}^L \\omega_k \\sigma_k  /\\sqrt{c_k}}\\]"
+  },
+  {
+    "objectID": "slides/slides_3.html#notes-on-stratum-sample-sizes",
+    "href": "slides/slides_3.html#notes-on-stratum-sample-sizes",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Notes on stratum sample sizes",
+    "text": "Notes on stratum sample sizes\n\nIf the costs are the same for all strata, the equation simplifies to what is known as the Neyman allocation\n\n\\[n_l = n \\ \\frac{\\omega_l \\sigma_l}{\\sum_{k=1}^L \\omega_k \\sigma_k}\\]\n\nWe often calculate \\(n\\) by a similar approach to that described for simple random sampling.\nIn practice, the population standard deviation \\(\\sigma_l\\) is often replaced by the sample standard deviation \\(s_l\\)."
+  },
+  {
+    "objectID": "slides/slides_3.html#summary",
+    "href": "slides/slides_3.html#summary",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Summary",
+    "text": "Summary\n\nWe now know how to determine the correct sample size to use to obtain estimates with the desired precision.\nThis requires some advance knowledge, e.g. the tolerable level of error, the cost of the experiment, and the expected standard deviation.\nHowever, bear in mind that we have not considered the possibility of missing data in our sample. Losing some data will impact precision.\nWe’ve also assumed that all data points are independent. This is not always true for time series or spatial data. We will address this later in the"
+  },
+  {
+    "objectID": "slides/slides_3.html#monitoring-networks-1",
+    "href": "slides/slides_3.html#monitoring-networks-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Monitoring Networks",
+    "text": "Monitoring Networks\nA monitoring network is a set of stations placed across a region of interest to gather information about one or more environmental resource.\n\n\n\nAim to detect trends and unexpected changes.\nStandard sampling is adequate in many cases.\nHowever, the advantage of networks is that they can change over time.\nNew sites can be added, different variables measured, technology improved."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-countryside-survey",
+    "href": "slides/slides_3.html#example-countryside-survey",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Countryside Survey",
+    "text": "Example: Countryside Survey\n\nThe Countryside Survey is a census of the natural resources of the UK’s countryside.\nThe first full survey was in 1978, and it was taken again at 6–10 year intervals until 2019.\nSince 2019, it has been funded as a “rolling” survey, measuring locations on 5-yearly cycles.\nThe goal is to map changes at various different scales, as well as to understand what is driving those changes."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-countryside-survey-1",
+    "href": "slides/slides_3.html#example-countryside-survey-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Countryside Survey",
+    "text": "Example: Countryside Survey\n\n\n\nStratified sampling of 1km grid squares from across the UK.\nStrata chosen based on Institute of Terrestrial Ecology (ITE) land classification and broad habitat.\nhttps://countrysidesurvey.org.uk/\nHow do we select the sites/resources to monitor?"
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\nGeneralised Randomised Tesselation Stratified\nIs a form of spatially balanced probability sampling scheme\n\nMethod for sampling an extensive environmental resource introduced by [@stevens2004]\nBuilds on random, systematic and stratified sampling procedures while ensuring spatial balance.\nUsed by USEPA and Marine Scotland to design monitoring networks"
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-1",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\n\n\n\nDefine the region/sampling frame of interest.\nIdentify the resources/sites to sample.\nDetermine the inclusion probability of each site/resource (e.g., trees, river breaches, lakes, SPAs etc.).\n\n\n\n\n\nExample: Lakes monitoring\n\n\n\nThere are \\(N= 16\\) main lakes and a sample of \\(n=4\\) is desired.\nAssuming equal sampling probabilities the inclusion probabilities for each lake re \\(n/N = 4/16 = 0.25\\)"
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-2",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\n\nA square bounding box is superimposed onto the sampling frame and is divided into four equally sized square cells (level 1 cells)."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-3",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-3",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\n\nA square bounding box is superimposed onto the sampling frame and is divided into four equally sized square cells (level 1 cells).\nEach cell is then randomly labelled/numbered, e.g.,\\(\\mathcal{A}_1\\equiv \\{a_1:a_1 - 0,1,2,3\\}\\)."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts",
+    "href": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tessellation Stratified (GRTS)",
+    "text": "Generalised Randomised Tessellation Stratified (GRTS)\n\nEach square is split into four more tessellations which are again randomly numbered while retaining the first-level label.\nThe set of level-two cells is denoted by \\(\\mathcal{A}_2 \\equiv \\{a_1a_2 : a_1 = 0,1,2,3; ~a_2 = 0,1,2,3\\}\\)."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts-1",
+    "href": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tessellation Stratified (GRTS)",
+    "text": "Generalised Randomised Tessellation Stratified (GRTS)\n\nContinue this hierarchical randomisation to the desired spatial scale such that \\(\\mathcal{A}_k \\equiv \\{a_1,\\ldots,a_k:a_1 = 0,1,2,3; \\ldots; a_k = 0,1,2,3\\}\\) until the sum of the inclusion probabilities of each element within a given square are less than one."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-4",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-4",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\n\nTransform the level \\(k\\) grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).\n\n\nThe length of each line-segment represents the inclusion probability for a given resources/site (inclusion probabilities should sum up to \\(n\\)).\n\n\nthe colored cells indicate site where small (blue) and large (red) lakes are present."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-5",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-5",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\n\nTransform the level \\(k\\) grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).\nUse systematic sampling along the line to select the resources to survey. E.g., draw \\(u_1 \\sim \\text{U}(0,1)\\) and select \\(s_1\\) as the first site to sample. The following next \\(j = 2,\\ldots,n\\) sites are selected according to \\(u_j = u_{j-1} +1\\)."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts-2",
+    "href": "slides/slides_3.html#generalised-randomised-tessellation-stratified-grts-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tessellation Stratified (GRTS)",
+    "text": "Generalised Randomised Tessellation Stratified (GRTS)\n\nTransform the level \\(k\\) grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).\nUse systematic sampling along the line to select the resources to survey. E.g., draw \\(u_1 \\sim \\text{U}(0,1)\\) and select \\(s_1\\) as the first site to sample. The following next \\(j = 2,\\ldots,n\\) sites are selected according to \\(u_j = u_{j-1} +1\\).\n\n\n\nThe approach can be modified to allow for unequal inclusion probabilities.\n\n\nE.g., Suppose we would like larger lakes to be twice as likely to be selected as small lakes.\nInstead of given all lakes the same unit length we can give large lakes twice the unit length of small lakes."
+  },
+  {
+    "objectID": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-6",
+    "href": "slides/slides_3.html#generalised-randomised-tesselation-stratified-grts-6",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Generalised Randomised Tesselation Stratified (GRTS)",
+    "text": "Generalised Randomised Tesselation Stratified (GRTS)\nIn addition to unequal inclusion probabilities we can also perform stratified sampling.\n\nInstead of sampling from the entire sampling frame simultaneously, we divide a sampling frame into distinct sets of sites and select samples from each stratum independently\nThe GRTS algorithm is applied to each strata to obtain stratum-specific samples.\nThe R-package spsurvey implements GRTS algorithm to select spatially balanced samples via the grts() function."
+  },
+  {
+    "objectID": "slides/slides_3.html#assessing-environmental-change",
+    "href": "slides/slides_3.html#assessing-environmental-change",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Assessing Environmental Change",
+    "text": "Assessing Environmental Change\n\nThe purpose of monitoring is to assess the changes in a particular variable over time.\nThis can typically be carried out using standard statistical techniques, taking into account the structure of the data.\nSometimes we are interested in whether a specific event has had an impact on the variable, e.g. the effect of new regulations on the air pollution level.\nTypically this involves assessing the levels before and after the event."
+  },
+  {
+    "objectID": "slides/slides_3.html#before-after-designs",
+    "href": "slides/slides_3.html#before-after-designs",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Before-After Designs",
+    "text": "Before-After Designs\n\nIt is generally very difficult to untangle the effects of a single event.\nEven if we identify a change in the mean or variance, how do we know that it is due to our event?\nMany environmental systems change naturally over time for any number of reasons.\nWe don’t have a statistical control. (We can’t turn back the clock and check what would have happened without the event.)"
+  },
+  {
+    "objectID": "slides/slides_3.html#variable-of-interest",
+    "href": "slides/slides_3.html#variable-of-interest",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Variable of interest",
+    "text": "Variable of interest\n\nHowever, this challenge is not unique to environmental data. (We face it regularly in statistics.)\nOften, we are only interested in the effect of one particular variable, but we have to account for other nuisance variables via regression or other techniques.\nWe can also sometimes account for other unmeasured variability through random effects.\nThe key is to acknowledge what you do and don’t know, and to account properly for uncertainty."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-before-after-single-site",
+    "href": "slides/slides_3.html#example-before-after-single-site",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Before-After Single Site",
+    "text": "Example: Before-After Single Site\n\nAssessing impact of intervention with data for one site. The site of interest is monitored before and after the time of the intervention.\n\n\n\nStatistical model\n\\[X_{ik} = \\mu + \\alpha_i + \\tau_{k(i)} + \\varepsilon_{ik}\\]\n\n\\(\\mu\\): overall mean\n\\(\\alpha_i\\): effect of period (before/after)\n\\(\\tau_{k(i)}\\): time within period\n\\(\\varepsilon_{ik}\\): errors."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-before-after-single-site-1",
+    "href": "slides/slides_3.html#example-before-after-single-site-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Before-After Single Site",
+    "text": "Example: Before-After Single Site\n\nAssessing impact of intervention with data for multiple sites.\nSelect \\(j = 1,\\ldots,M\\) sites in the impact area and sample before/after intervention.\n\n\n\nStatistical model\n\\[X_{ijk} = \\mu + \\alpha_i + \\tau_{jk(i)} + \\delta_j + \\varepsilon_{ijk}\\]\n\n\\(\\mu\\): overall mean\n\\(\\alpha_i\\): effect of period (before/after)\n\\(\\tau_{jk(i)}\\): time within period\n\\(\\delta_j\\): site random effect\n\\(\\varepsilon_{ijk}\\): errors.\n\n\n\n\n\n\n\n\n\nTreating the sites as subsamples allows the sites to be used to improve estimation of the effect’s magnitude."
+  },
+  {
+    "objectID": "slides/slides_3.html#example-before-after-control-impact-baci",
+    "href": "slides/slides_3.html#example-before-after-control-impact-baci",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Example: Before-After Control-Impact (BACI)",
+    "text": "Example: Before-After Control-Impact (BACI)\n\nOne or more potentially impacted sites, and one or more non-impacted sites, are sampled before and after the time of the intervention.\n\n\n\nStatistical model\n\\[X_{ij} = \\mu + \\alpha_i + \\beta_j + (\\alpha\\beta)_{ij} + \\varepsilon_{ij}\\]\n\n\\(\\mu\\): overall mean\n\\(\\alpha_i\\): effect of period (before/after)\n\\(\\beta_j\\): effect of location (control/impact)\n\\(\\varepsilon_{ik}\\): errors."
+  },
+  {
+    "objectID": "slides/slides_3.html#summary-points-1",
+    "href": "slides/slides_3.html#summary-points-1",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Summary points",
+    "text": "Summary points\n\nWe use information we obtain from a sample to make inference on the population.\nThere are five steps to designing a sampling experiment:\n\n\nDefine the study objectives.\nSummarise the environmental context.\nIdentify the target population.\nSelect an appropriate sampling design.\nImplement and summarise.\n\n\nTypes of sampling include:\nSimple Random Sampling\nStratified Sampling\nSystematic Sampling\nSpatial Sampling (including Transects, Distance Sampling, Quadrats & Grid Sampling )"
+  },
+  {
+    "objectID": "slides/slides_3.html#summary-points-2",
+    "href": "slides/slides_3.html#summary-points-2",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Summary points",
+    "text": "Summary points\n\nSample size depends on the intended power and precision.\nE.g., if we want to estimate a mean value \\(\\bar{x}\\), given a maximum required standard error \\(U\\) and sample variance \\(s^2\\), then sample size \\(n\\) must be such that:\n\\[\n\\sqrt{n} \\geq \\frac{\\sqrt{s^2}}{U}.\n\\]\nFor stratified sampling, the optimum number of samples in each stratum \\(l\\) is calculated as:\n\\[\nn_l = n \\ \\frac{\\omega_l \\sigma_l /\\sqrt{c_l}}{\\sum_{k=1}^L \\omega_k \\sigma_k  /\\sqrt{c_k}}\n\\]\nA monitoring network is a set of stations placed in a region of interest to gather information about one or more environmental variables.\nSampling methods such as GRTS can be used to identify the sites/resources to be monitored."
+  },
+  {
+    "objectID": "slides/slides_3.html#references",
+    "href": "slides/slides_3.html#references",
+    "title": "Sampling and Monitoring Networks",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "slides/slides_1.html#welcome-to-environmental-and-ecological-statistics",
+    "href": "slides/slides_1.html#welcome-to-environmental-and-ecological-statistics",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Welcome to Environmental and Ecological Statistics",
+    "text": "Welcome to Environmental and Ecological Statistics\n\nEnvironmental & Ecological Statistics is an incredibly broad term covering any form of statistics applied to environmental issues.\nKey themes include climate change, environmental regulation (eg water and air quality), biodiversity monitoring and ecosystem assessment.\nThis course focuses on this theme rather than a particular type of statistical methodology.\nWe will look at a variety of statistical methods, some of which you will know, and some which will be new."
+  },
+  {
+    "objectID": "slides/slides_1.html#the-course-structure",
+    "href": "slides/slides_1.html#the-course-structure",
+    "title": "Environmental and Ecological Statistics",
+    "section": "The Course Structure",
+    "text": "The Course Structure\n\n\n\n\n\n\n\n\n\n\n\n\nModule\nWeek\nTopic\nActivities\n\n\n\n\n\n\n\nEnvironmental Monitoring & Data processing\n\n\n\n1\nIntroduction to Environmental and Ecological Statistics\n\n\n\n2\nMonitoring and Data mining\n\n\n\n3\nSampling and Monitoring Networks\nLab 1 + Tutorial 1\n\n\n\n\n\nMeasuring Environmental Change\n\n\n\n4\nAssessing Change Over Time\nTutorial 2\n\n\n5\nTemporal Correlation and Changepoints\n\n\n\n6\nModelling Environmental Extremes\nLab 2 + Tutorial 3\n\n\n\n\n\nEnvironmental and Ecological Spatial Statistics\n\n\n\n7\nRisk assessment and\nTutorial 4\n\n\n8\nGeostatistical Data\n\n\n\n9\nPoint process model\nLab 3\n\n\nSpecial Lecture\n10\nComplex observational processess"
+  },
+  {
+    "objectID": "slides/slides_1.html#timetable",
+    "href": "slides/slides_1.html#timetable",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Timetable",
+    "text": "Timetable\nLectures: 2 hours per week\nTutorials: 1 hour fortnightly\nPractical: 2 hours three times throughout the semester"
+  },
+  {
+    "objectID": "slides/slides_1.html#assessments",
+    "href": "slides/slides_1.html#assessments",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Assessments",
+    "text": "Assessments\nAssessment in this course includes continuous assessment and a final exam. The exam will take place in April/May.\n\nLevel (4-H) STATS4009Level (M) STATS5031\n\n\n\nWritten Exam (75%) - Degree exam in the exam diet\nGroup Report (25%) - Group project running throughout the semester resulting in a group report\n\n\n\n\nWritten Exam (65%) - Degree exam in the exam diet\nGroup Report (25%) - Group project running throughout the semester resulting in a group report\nSet Exercise (10%) - Critical review of published research\n\n\n\n\nStudents must submit at least 75% by weight of the components (including examinations) of the course’s summative assessment. :::"
+  },
+  {
+    "objectID": "slides/slides_1.html#section",
+    "href": "slides/slides_1.html#section",
+    "title": "Environmental and Ecological Statistics",
+    "section": "",
+    "text": "“Every breath of air we take, every mouthful of food that we take, comes from the natural world. And if we damage the natural world, we damage ourselves.”\nSir. David Attenborough"
+  },
+  {
+    "objectID": "slides/slides_1.html#environmental-and-ecological-statistics",
+    "href": "slides/slides_1.html#environmental-and-ecological-statistics",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Environmental and Ecological Statistics",
+    "text": "Environmental and Ecological Statistics\n\nThe environment is (sometimes literally) a burning issue in the 21st century."
+  },
+  {
+    "objectID": "slides/slides_1.html#media-coverage",
+    "href": "slides/slides_1.html#media-coverage",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Media Coverage",
+    "text": "Media Coverage\nThis brings increased focus and interest in statistics as a subject, and how we are working to handle topics like climate change.\n\nhttps://www.bbc.co.uk/news/science-environment-46384067\nhttps://www.channel4.com/programmes/2022-the-year-from-space/on-demand/74702-001 (38:41)"
+  },
+  {
+    "objectID": "slides/slides_1.html#bbc-article-graphs-task",
+    "href": "slides/slides_1.html#bbc-article-graphs-task",
+    "title": "Environmental and Ecological Statistics",
+    "section": "BBC article graphs task",
+    "text": "BBC article graphs task\n\nChoose one of the graphs in the BBC article.\nThink about what the good and bad aspects (if any) are.\nDiscuss with your neighbour(s) and find out what they thought about their chosen graph.\nAdd some of your thoughts to Mentimeter,\n\nE.g. What graph you chose.\nWhat is the graph’s purpose?\nDoes it do a good job at serving this purpose?\nWhat did you like/dislike about the graph?"
+  },
+  {
+    "objectID": "slides/slides_1.html#wheres-the-statistics",
+    "href": "slides/slides_1.html#wheres-the-statistics",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Where’s the statistics?",
+    "text": "Where’s the statistics?\n\nMeasuring, sampling or monitoring environmental and ecological data, including variation and uncertainty.\nEcosystem assessment, detecting and modelling trends, including trends in time and space.\nModelling and understanding extreme data.\nEnvironmental regulation and policy, and risk assessment."
+  },
+  {
+    "objectID": "slides/slides_1.html#what-are-we-looking-for",
+    "href": "slides/slides_1.html#what-are-we-looking-for",
+    "title": "Environmental and Ecological Statistics",
+    "section": "What are we looking for?",
+    "text": "What are we looking for?\nWe want to understand changes in the environment and species respond to these changes, in either time, space or both.\n\nAre things getting better or worse? Where, when and by how much?\nWhat is going to happen next?\nWhere do authorities need to take action, and how can we check if existing actions are working?\nAlso consider complex relationships between environmental variables and species habitats."
+  },
+  {
+    "objectID": "slides/slides_1.html#communicating-and-presenting-data",
+    "href": "slides/slides_1.html#communicating-and-presenting-data",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Communicating and presenting data",
+    "text": "Communicating and presenting data\n\nOur skills in presenting and communicating data are also crucial.\nWe need to be able to explain our findings to the public and show them why our work is important.\nhttps://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/"
+  },
+  {
+    "objectID": "slides/slides_1.html#examples",
+    "href": "slides/slides_1.html#examples",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Examples",
+    "text": "Examples\n\nDecision making: Is it safe to eat fish from a particular river?\nPrediction: What is the distribution of the Barn Swallow? Can we predict its distribution in 2030?\nRegulation: Have emission control agreements reduced air pollutants?\nUnderstanding: How did sea levels change over the past 100 years?"
+  },
+  {
+    "objectID": "slides/slides_1.html#examples-air-pollution",
+    "href": "slides/slides_1.html#examples-air-pollution",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Examples: Air pollution",
+    "text": "Examples: Air pollution\nOnly one person in ten lives in a city that complies with the World Health Organisation Air quality guidelines."
+  },
+  {
+    "objectID": "slides/slides_1.html#examples-air-pollution-1",
+    "href": "slides/slides_1.html#examples-air-pollution-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Examples: Air pollution",
+    "text": "Examples: Air pollution\nOnly one person in ten lives in a city that complies with the World Health Organisation Air quality guidelines.\n\nThe World Health Organisation estimates that 1 in 9 deaths worldwide are due to pollution.\nThe total annual cost of air pollution to the UK economy could be as much as £54 billion.\nFine particular matter was associated with an estimated 2,000 premature deaths and 22,500 lost life years in Scotland in 2010.\nThe Cleaner Air for Scotland strategy seeks to reduce air pollution across Scotland.\nIt aims to achieve the “ambitious vision for Scotland to have the best air quality in Europe”"
+  },
+  {
+    "objectID": "slides/slides_1.html#measuring-pollution",
+    "href": "slides/slides_1.html#measuring-pollution",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Measuring Pollution",
+    "text": "Measuring Pollution\n\n99 air quality monitoring stations have been set up across Scotland to capture PM\\(_{2.5}\\), PM\\(_{10}\\), NO\\(_{2}\\), NO\\(_{x}\\), SO\\(_{2}\\) and O\\(_{3}\\).\nLive data available at"
+  },
+  {
+    "objectID": "slides/slides_1.html#monitoring-station-map",
+    "href": "slides/slides_1.html#monitoring-station-map",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Monitoring Station Map",
+    "text": "Monitoring Station Map"
+  },
+  {
+    "objectID": "slides/slides_1.html#estimated-pm-2.5-pollution-across-scotland",
+    "href": "slides/slides_1.html#estimated-pm-2.5-pollution-across-scotland",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Estimated PM 2.5 pollution across Scotland",
+    "text": "Estimated PM 2.5 pollution across Scotland"
+  },
+  {
+    "objectID": "slides/slides_1.html#wildlife-monitoring",
+    "href": "slides/slides_1.html#wildlife-monitoring",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Wildlife monitoring",
+    "text": "Wildlife monitoring\nMonitor wildlife populations to halt biodiversity loss according the to National Biodiversity Strategy and Action Plan (NBSAP)."
+  },
+  {
+    "objectID": "slides/slides_1.html#wildlife-monitoring-1",
+    "href": "slides/slides_1.html#wildlife-monitoring-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Wildlife monitoring",
+    "text": "Wildlife monitoring\nMonitor wildlife populations to halt biodiversity loss according the to National Biodiversity Strategy and Action Plan (NBSAP).\n\nTo halt biodiversity loss we first need to accurately map where species exist and why"
+  },
+  {
+    "objectID": "slides/slides_1.html#water-quality",
+    "href": "slides/slides_1.html#water-quality",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Water Quality",
+    "text": "Water Quality\n\n\n\n\nGoal 6 of the UN’s Sustainable Development Goals is “Ensure availability and sustainable management of water and sanitation for all”. https://sdgs.un.org/goals/goal6 (UN SDG 6 (clickable))"
+  },
+  {
+    "objectID": "slides/slides_1.html#water-quality-1",
+    "href": "slides/slides_1.html#water-quality-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Water Quality",
+    "text": "Water Quality\n\n\n\nTo inform government decision-making, we need to have appropriate data on water quality.\nWe need to sample water quality across lakes and rivers. How do we do this with the resources available?\nSampling strategies are required — see the Sampling’ section of the course"
+  },
+  {
+    "objectID": "slides/slides_1.html#water-quality-2",
+    "href": "slides/slides_1.html#water-quality-2",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Water Quality",
+    "text": "Water Quality\n\n\n\n\n\nOnce we have the samples, how can we use the data to understand water quality patterns?\nStatistical modelling approaches are required, often spatial and temporal.\nWe need to understand and report our uncertainties."
+  },
+  {
+    "objectID": "slides/slides_1.html#quantification",
+    "href": "slides/slides_1.html#quantification",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Quantification",
+    "text": "Quantification\n\nUnderstanding and measuring quantities is a fundamental part of all science, not just statistics.\nAs scientists, we use data to understand the process which we are investigating.\nThese data have two main sources of uncertainty or error:\n\nInherent variability of the process itself (the thing we are measuring is variable).\nImprecise knowledge of the process (our measurements may not be accurate)."
+  },
+  {
+    "objectID": "slides/slides_1.html#example-climate-change-trends",
+    "href": "slides/slides_1.html#example-climate-change-trends",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Example: Climate change trends",
+    "text": "Example: Climate change trends\n\nThese plots illustrate the trends in several climate change measures.\nBoth sources of variability will be present, but how much of each?"
+  },
+  {
+    "objectID": "slides/slides_1.html#asking-questions",
+    "href": "slides/slides_1.html#asking-questions",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Asking questions",
+    "text": "Asking questions\n\nA big part of our role as statisticians is to ask questions of both our data and our models.\nHow were our data collected? Are they representative of the population? How much uncertainty do we have?\nAre our models valid? Are the assumptions reasonable? Does the model make sensible predictions? How much uncertainty do we have in our results?\nThese skills are particularly crucial in applied areas such as environmental and ecological statistics."
+  },
+  {
+    "objectID": "slides/slides_1.html#example-arctic-ice",
+    "href": "slides/slides_1.html#example-arctic-ice",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Example: Arctic Ice",
+    "text": "Example: Arctic Ice\n\n\n\n\n\nSubmarines have been used to measure Arctic sea ice.\nThe ice has shrunk both in terms of thickness and extent. -\nWe may soon see ice-free summers, which will have a devastating impact on sea life. -\nArctic sea ice article (clickable)"
+  },
+  {
+    "objectID": "slides/slides_1.html#example-arctic-ice-1",
+    "href": "slides/slides_1.html#example-arctic-ice-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Example: Arctic Ice",
+    "text": "Example: Arctic Ice\n\n\n\n\n\nSometimes, quantification is required.\nFebruary 2016 sea ice extent was the lowest in the satellite record at 14.22 million square kilometres (5.48 million square miles).\nThe linear rate of decline for February is now 3.0 percent per decade."
+  },
+  {
+    "objectID": "slides/slides_1.html#understanding-our-data-trends",
+    "href": "slides/slides_1.html#understanding-our-data-trends",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Understanding our data: trends",
+    "text": "Understanding our data: trends\n\nMuch of the statistical analysis of environmental and ecological data will focus on identifying trends.\nThe statistical definition of a trend is a long-term change in the mean level.\nTrends aren’t restricted to being linear - we will also look at examples of non-linear trends."
+  },
+  {
+    "objectID": "slides/slides_1.html#understanding-our-data-trends-1",
+    "href": "slides/slides_1.html#understanding-our-data-trends-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Understanding our data: trends",
+    "text": "Understanding our data: trends\n\nTrends generally tend to focus on the mean of the data.\nHowever, we may also be interested in observing other aspects of the statistical distribution.\nExtreme value theory looks specifically at the limits of our distribution, and focuses on rare (or extreme) events."
+  },
+  {
+    "objectID": "slides/slides_1.html#policy",
+    "href": "slides/slides_1.html#policy",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Policy",
+    "text": "Policy\n\nA great deal of environmental statistical research is funded by governments and regulatory bodies.\nThey need to know where the biggest challenges lie so that they can allocate their resources appropriately.\nEvidence-based policy relies on measuring changes and also evaluating the impacts of existing policies.\nHowever, the environment will be one of many competing policy areas, and every government will prioritise it differently."
+  },
+  {
+    "objectID": "slides/slides_1.html#policy-1",
+    "href": "slides/slides_1.html#policy-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Policy",
+    "text": "Policy\n\n\n\nPolicies made in context of multinational agreements.\nHeld annually, COP is the United Nations Climate Change Conference.\nAim to limit global temperature rise and achieve net zero emissions.\n\n\n\n\n\nKey achievement of 2024’s COP29: wealthier countries to pay US$300 billion/year to less wealthy countries to finance climate change mitigation measures.\nReport from UK’s Climate Change Committee (clickable)"
+  },
+  {
+    "objectID": "slides/slides_1.html#policy-2",
+    "href": "slides/slides_1.html#policy-2",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Policy",
+    "text": "Policy\n\nEnvironmental policy tends to use very specific language - objectives, targets, guide values, standards, reductions relative to a baseline\nPolicy often prescribes monitoring quantities of interest over space and/or time.\nQuantities of interest will include water, air and noise pollution, waste management, radioactive substances, biodiversity and animal and plant species"
+  },
+  {
+    "objectID": "slides/slides_1.html#legislation",
+    "href": "slides/slides_1.html#legislation",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Legislation",
+    "text": "Legislation\n\nLegislation is the legal framework used to implement policy.\nMost legislation focuses on setting targets or safe levels for the pollutants.\nA number of regulatory bodies exist specifically to monitor such things, e.g. Scottish Environment Protection Agency (SEPA, Scotland), the Environment Agency (EA, England) and the European Environment Agency (EEA, EU)."
+  },
+  {
+    "objectID": "slides/slides_1.html#routine-monitoring",
+    "href": "slides/slides_1.html#routine-monitoring",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Routine Monitoring",
+    "text": "Routine Monitoring\n\nMonitoring requirements may be prescribed in policy.\nMuch of our data come from routine monitoring of our environmental quantities of interest.\nGovernment agencies often make these data available to researchers and/or the public.\nThese data are used to assess compliance with legislation as well as to identify environmental trends and their potential impacts on society.\nWe have already seen monitoring data in the air pollution and water quality examples."
+  },
+  {
+    "objectID": "slides/slides_1.html#evidence-from-routine-monitoring",
+    "href": "slides/slides_1.html#evidence-from-routine-monitoring",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Evidence from routine monitoring",
+    "text": "Evidence from routine monitoring\n\nAssessment of long-term changes in natural conditions.\nAssessment of long-term changes resulting from anthropogenic activities.\nAscertaining the magnitude and impacts of accidental pollution.\nAssessing compliance with the standards and objectives of protected areas.\nQuantifying reference conditions."
+  },
+  {
+    "objectID": "slides/slides_1.html#policy-legislation-and-monitoring-1",
+    "href": "slides/slides_1.html#policy-legislation-and-monitoring-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Policy, legislation and monitoring",
+    "text": "Policy, legislation and monitoring\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n\n\n\n\n\n\n\n\nStatistical analyses and reporting is important for ensuring compliance with legislation.\nUnderstanding trends, spatial and temporal patterns, and impacts is important for informing policy: .\n\nE.g. Evaluating effectiveness of current policy, e.g. measurement of change before/after implementation."
+  },
+  {
+    "objectID": "slides/slides_1.html#policy-legislation-and-monitoring-2",
+    "href": "slides/slides_1.html#policy-legislation-and-monitoring-2",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Policy, legislation and monitoring",
+    "text": "Policy, legislation and monitoring\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n\n\n\n\n\n\n\n\nGood policy needs a foundation in good science’’ (Wallstr”om, 2005\nAgencies can be data rich and information poor\nOther (often short-term) factors play a role in policy making (e.g. news coverage)\nSo, timely findings of practical relevance are important."
+  },
+  {
+    "objectID": "slides/slides_1.html#informing-policy-and-legislation",
+    "href": "slides/slides_1.html#informing-policy-and-legislation",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Informing policy and legislation",
+    "text": "Informing policy and legislation\n\n\n\n\n\nWhat defines “good’’ status?\nHow could we assess this using statistics?"
+  },
+  {
+    "objectID": "slides/slides_1.html#the-framework-for-environmental-policy",
+    "href": "slides/slides_1.html#the-framework-for-environmental-policy",
+    "title": "Environmental and Ecological Statistics",
+    "section": "The framework for environmental policy",
+    "text": "The framework for environmental policy\n\nEnvironmental policy is set at various levels:\n\nInternationally (Kyoto Convention, European Union)\nNationally, by politicians\n\nEnvironmental policy is implemented and monitored by regulators. In the UK this includes:\nNational Environment Agencies,\nGovernment departments.\n\nOther parties/stakeholders:\n\nIndustrialists (extra cost), economists, special interest groups and organisations (Greenpeace, WWF etc.), the public."
+  },
+  {
+    "objectID": "slides/slides_1.html#summary-points",
+    "href": "slides/slides_1.html#summary-points",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Summary points",
+    "text": "Summary points\n\nEnvironmental and Ecological statistics is a broad term covering many different techniques.\nIt can involve:\n\nDecision-making\nPrediction\nRegulation\nUnderstanding\n\nWe need to communicate and present data and statistics to e.g. the public, government and subject-matter experts."
+  },
+  {
+    "objectID": "slides/slides_1.html#summary-points-1",
+    "href": "slides/slides_1.html#summary-points-1",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Summary points",
+    "text": "Summary points\n\nTo understand quantities, we need to understand the process.\nWe need to quantify the uncertainty and error, which have multiple sources:\n\nInherent variability of the process.\nImprecise knowledge of the process.\n\nWe must collaborate with subject-matter experts, to ensure that we understand e.g. how the data were collected, are our model’s predictions sensible?"
+  },
+  {
+    "objectID": "slides/slides_1.html#summary-points-2",
+    "href": "slides/slides_1.html#summary-points-2",
+    "title": "Environmental and Ecological Statistics",
+    "section": "Summary points",
+    "text": "Summary points\n\nWe need to understand the policy and legislative context:\n\nInternational agreements \\(\\rightarrow\\) National-level policies \\(\\rightarrow\\) Legislation.\nLegislation is the legal framework used to implement policy.\nRegulatory bodies monitor compliance with legislation through collecting routine monitoring data.\n\nOur work can inform policy decisions through ensuring that representative data are collected, and that results are appropriately interpreted and understood."
+  },
+  {
+    "objectID": "slides/slides_1.html#references",
+    "href": "slides/slides_1.html#references",
+    "title": "Environmental and Ecological Statistics",
+    "section": "References",
+    "text": "References\n\nPiegorsch, W. W., & Bailer, A. J. (2005). Analyzing environmental data. Wiley. (Available from the University Library as an e-book here ).\nBarnett, V. (2004). Environmental statistics: Methods and applications. Wiley. (Available from the University Library as an e-book here ).\nManly, B. F. J. (2001). Statistics for environmental science and management. Chapman & Hall/CRC. (No e-book available, but a physical copy is available from the University Library )."
+  },
+  {
+    "objectID": "notes/notes_3.html",
+    "href": "notes/notes_3.html",
+    "title": "Sampling and Monitoring Networks",
+    "section": "",
+    "text": "This session will focus on how environmental and ecological data are obtained, specifically through sampling. Sampling is a fundamental concept in data analysis, especially in environmental data.\nWe use samples in environmental data in situations where it is not possible to measure the entire population. In environmental settings, this could be because:\n\nThe population is too large.\nSome or all of the population is difficult, expensive, or even impossible to reach.\nThe samples may be destructive, i.e., taking the sample causes permanent damage to the object being measured.\n\nWe want to use the information we obtain on the sample in order to make inference on the population."
+  },
+  {
+    "objectID": "notes/notes_3.html#step-1-define-the-study-objectives",
+    "href": "notes/notes_3.html#step-1-define-the-study-objectives",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 1 — Define the study objectives",
+    "text": "Step 1 — Define the study objectives\nWe need to define clear and simple objectives for our study. What is the key question or hypothesis?These will be driven by the properties of our data that we would like to measure:\n\nCharacteristics of a variable, e.g. mean, median, variance.\nTemporal or spatial trends of a variable.\nFrequency of events, e.g. number of pollution events, species abundance or occurrence.\n\n\n\n\n\n\n\nExample: water quality\n\n\n\nWhat is the spatial or temporal variability of water quality across a River Surveillance Network (RSN)?\n\n\nOS Open Rivers network represented in blue lines and the pink dots representing the Environment Agency monitoring stations."
+  },
+  {
+    "objectID": "notes/notes_3.html#step-2-consider-the-context",
+    "href": "notes/notes_3.html#step-2-consider-the-context",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 2 — Consider the context",
+    "text": "Step 2 — Consider the context\nWe have to think about the context of the question we are asking. This means understanding the nature of our data, which is essential to ensuring we have a representative sample.\nFor example, if we’re measuring a river, we need to know about the depth, width, and current. If we are sampling in a forest we need to know about vegetation and wildlife."
+  },
+  {
+    "objectID": "notes/notes_3.html#step-3-identify-the-target-population",
+    "href": "notes/notes_3.html#step-3-identify-the-target-population",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 3 — Identify the target population",
+    "text": "Step 3 — Identify the target population\nThe population is the set of all possible objects that could be sampled.\n\nAll the fish in a lake.\nAll oak trees over 5m tall in a particular part of a forest.\nEvery river within a particular water network.\n\nSometimes the population is actually what we are trying to measure, e.g. “How many red squirrels live in the Cairngorms National Park?”\n\n\n\n\n\n\nExample: Water quality\n\n\n\nTarget population: RSN 1:250k with over 1.4 million reaches (a discrete segment of a river with relatively uniform characteristics) .\nCharacterise environmental conditions of the target population such as Water Quality Indicators, i.e., we need to define our response variable:\n\nMacroinvertebrates composition obtained from the RICT Model 44 network (1:50k scale and trimmed to match the RSN network). E.g., WHPT-ASPT (Walley Hawkes Paisley Trigg Average Score Per Taxon) is a biological metric used to evaluate the ecological health of rivers based on the presence and sensitivity of macroinvertebrate (e.g., insects, worms, snails) communities. \nOrthophosphate \\([\\text{PO}_4]^{3-}\\) concentrations (mg/L)"
+  },
+  {
+    "objectID": "notes/notes_3.html#step-4-select-a-sampling-design",
+    "href": "notes/notes_3.html#step-4-select-a-sampling-design",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 4 — Select a sampling design",
+    "text": "Step 4 — Select a sampling design\nThere are a number of sampling designs which are commonly used for environmental data:\n\nSimple random sampling.\nStratified random sampling.\nSystematic sampling.\nSpatial sampling.\n\nWe will discuss some of these in more detail during the course."
+  },
+  {
+    "objectID": "notes/notes_3.html#step-5-implement-and-summarise",
+    "href": "notes/notes_3.html#step-5-implement-and-summarise",
+    "title": "Sampling and Monitoring Networks",
+    "section": "Step 5 — Implement and summarise",
+    "text": "Step 5 — Implement and summarise\n\nData collection - what information is being collected and how? E.g., biological elements, river habitat surveys, physico-chemical elements, toxic chemicals, invasive non-native species, physical properties, etc. What technical equipment or techniques are used to measure these elements?\nImplementation - deploying the network and measuring the quantities of interest. Be aware of practical challenges that might impact the subsequent analysis such as: accessibility contains to the selected sampling site, landowner permission, safety issues, unfavorable environmental conditions, etc.\n\nOften statisticians will not actually carry out the sampling, but will instead rely on field experts in many cases. Once we receive the data, it’s important to assess the data for censoring, outliers, missingness. We can then fit an appropriate statistical model. Finally, we should report our results in clear language, including uncertainty where appropriate.\nIn this session we will look at different sampling schemes commonly used in environmental and ecological monitoring. A sampling strategy integrates both sample selection methods from a target population and estimation techniques to infer population attributes from sample measurements.\nSuch attributes can be viewed as a quantitative combination of population values such as the mean Orthophosphate \\([\\text{PO}_4]^{3-}\\) concentration or the total number of macroinvertebrates in a river. Likewise, an estimator is a mathematical expression or a function of the sample that provide us with a estimate of the population parameter. For instance, let \\(\\theta\\) denote the population parameter of interest (e.g., the population mean), then \\(\\hat{\\theta}\\) represents its estimator (see [additional notes]{about.qmd} on estimator properties). Typically, the value of \\(\\theta\\) is unknown and it is unfeasible to measure all \\(N\\) elements of the population. Thus, we select and measure \\(n &lt; N\\) units to estimate \\(\\theta\\). The question now is how do we select such units?"
+  },
+  {
+    "objectID": "notes/notes_3.html#simple-random-sampling",
+    "href": "notes/notes_3.html#simple-random-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n3.1 Simple Random Sampling",
+    "text": "3.1 Simple Random Sampling\nAs the name suggests, this is the simplest form of sampling. Every object in our population has an equal probability of being included in the sample. This requires us to have a complete list of the population members, or a sampling frame covering the entire region. We then generate a set of \\(n\\) random digits which identify the individuals or objects to be included in a study.\nFor a sample of size \\(n\\), denoted \\(y_1, \\ldots, y_n\\), we can compute the sample mean as \\[\\bar{y} = \\frac{\\sum_{i=1}^n y_i}{n}.\\]\nWe can then compute the estimated population variance as \\[s^2 =\\frac{\\sum_{i=1}^n (y_i - \\bar{y})^2}{n-1}.\\]\nAs well as estimating the population mean and variance, we also have to think about the uncertainty surrounding these estimates. This is what a confidence interval is typically representing.\nOur sample of size \\(n\\) is just one of many possible samples of size \\(n\\) which we could have obtained. We must take this into account when considering the uncertainty associated with our sample mean. This is known as sampling variability. We can compute this as: \\[Var({\\bar{y}}) = \\frac{s^2}{n}\\left(1 - \\frac{n}{N}\\right).\\] Here, \\((1 - \\frac{n}{N})\\) is what is known as a finite population correction (FPC), which accounts for the proportion of the data that remains unknown.\n\n\n\n\n\n\n Task 1\n\n\n\nTo monitor patterns of weekly water consumption, a town conducted a SRS of \\(n=100\\) homes. The town records showed that there were \\(N=5392\\) residential dwellings with water meter in town. Water consumption was recorded in 100-gallon units. The sample average consumption was \\(\\bar{y} = 12.5\\) 100-gallons units per week and the sample variance was \\(s^2 = 1352\\) (100-gallon units)\\(^2\\). The local authority is interested in estimating the town’s total weekly residential water usage. An unbiased estimator of a population total under SRS was given by Horvitz-Thompson (1963) as:\n\\[\n\\hat{\\tau} = N\\bar{y}\n\\tag{1}\\]\nUsing HT estimator, calculate the town’s total weekly residential water consumption. Then. derive the variance of this estimator and compute the standard deviation (square-root of the variance) for the town’s totals.\n\n\nSee Solution\n\nUsing Equation 1, the estimated weekly residential water use town totals is \\(5392 \\times 12.5 = 67 400\\) 100-gallon units. Then, the variance and standard deviation of \\(\\hat{\\tau}\\) are :\n\\[\n\\begin{aligned}\nVar(\\hat{\\tau}) &= Var(N\\bar{y}) \\\\\n&= N^2 Var(\\bar{y}) \\\\\n&= N^2 \\times\\dfrac{s^2}{n} \\left(1- \\dfrac{n}{N}\\right)\\\\\n&= 5392^2 \\times \\frac{1352}{100} \\left(1- \\frac{100}{5392}\\right)\\\\\n&\\Rightarrow\\\\\n\\sqrt{Var(\\tau)} &=  5392 \\times \\sqrt{\\frac{1352}{100} \\left(1- \\frac{100}{5392}\\right)} \\\\\n&= 19,641~ \\text{ 100-gallon units.}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "notes/notes_3.html#stratified-sampling",
+    "href": "notes/notes_3.html#stratified-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n3.2 Stratified Sampling",
+    "text": "3.2 Stratified Sampling\n\n\n\n\n\n\n Example: Cobalt-60 in sediment\n\n\n\nCobalt-60 is a synthetic radioactive isotope of cobalt produced in nuclear reactors. We may be interested in estimating how much of this is in the sediment of a river estuary. This map is colour coded by different sediment types. How might we make use of this information when sampling?\n\n\n\n\n\n\nStratified sampling involves dividing the population into two or more groups (or strata) which have something in common. Divide the dataset of size \\(N\\) into \\(L\\) non-overlapping strata such that within-strata variability is less than between-strata variability. We then ensure that each of our strata are represented in our sample, and take this into account in our final estimates.\nWe ensure that each of these strata are represented proportionally within our sample (known as proportional allocation). Samples are still taken randomly within each stratum.\n\n\n\n\n\n\n Example: Cobalt-60 in sediment (continued)\n\n\n\nThe map below shows black dots at the sampling locations that were chosen using stratified sampling. There are 50 sampling locations in total, and we can see that these are found proportionally across the strata. E.g., there are very few sampling locations within the light yellow region, reflecting that region’s smaller area. Stratified sampling has ensured that we do, however, have at least some sampling locations within each strata.\n\n\n\n\n\n\nLet \\(N_1, \\ldots, N_L\\) be the populations of our \\(L\\) strata, and \\(n_1, \\ldots, n_L\\) be the number of samples taken from each. It is straightforward to obtain sample means \\(y_1, \\ldots, y_L\\) and sample variances \\(s_1^2, \\ldots, s_L^2\\) for each stratum.\nThen we compute the overall sample mean as \\[\\bar{y} = \\frac{\\sum_{l=1}^L \\left( N_l y_l \\right)}{N}.\\]\nWe can also compute the variance of the sample mean as \\[Var(\\bar{y}) = \\sum_{l=1}^L \\left[ \\left(\\frac{N_l}{N}\\right)^2 \\frac{s_l^2}{n_l} \\left(1 - \\frac{n_l}{N_l} \\right) \\right].\\]"
+  },
+  {
+    "objectID": "notes/notes_3.html#systematic-sampling",
+    "href": "notes/notes_3.html#systematic-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n3.3 Systematic Sampling",
+    "text": "3.3 Systematic Sampling\nSystematic sampling is a sampling method which makes use of a natural ordering that exists in data. We wish to take a sample of size \\(n\\) from a population of size \\(N\\), which means every \\(k = \\frac{N}{n}\\) objects are sampled. For systematic sampling, we select our first unit at random, then select every \\(k\\)th unit in a systematic way.\nFor example, if we have \\(N=50\\) and \\(n=5\\), then \\(k=10\\). If our first unit is 2, our sample becomes units 2, 12, 22, 32, 42.\nAdvantages\n\nConvenient and quick.\nWell spaced across the study.\nSort of random — every object has an equal chance of selection.\n\nDisadvantages\n\nMay not be representative.\nSystematic patterns in the data can be overlooked.\nExtremely deterministic — estimation of variance particularly difficult."
+  },
+  {
+    "objectID": "notes/notes_3.html#spatial-sampling",
+    "href": "notes/notes_3.html#spatial-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n3.4 Spatial Sampling",
+    "text": "3.4 Spatial Sampling\nSpatial sampling is required when our data have an attribute that is spatially continuous. For example, if we are measuring water quality in a lake, we may have a three-dimensional coordinate system of length, width and depth. In some cases, it is possible to measure at any one of these locations, and simple random sampling or stratified sampling can be used. There are many examples where it is not possible or convenient to do so, in which case some form of systematic sampling may be used.\nSpatial sampling often uses a systematic sampling scheme based on transects. A transect is a straight line along which samples are taken. The starting point, geographical orientation and number of samples are chosen as part of the sampling scheme. Samples will then be either taken at random points along the length of the line (continuous sampling) or systematically placed points (systematic sampling).\nSuppose we need to take samples of water quality on a lake. Our sampling scheme may use multiple transects simultaneously.\n\n\n\n\n\n3.4.1 Distance sampling\n\nIn ecology, distance sampling, is a widely used spatial sampling method for estimating animal abundance or population density by measuring the perpendicular distances from a transect line or point to detected individuals Figure 1 . The methods assumes that the probability of observing animals decreases with increasing distance from the observer according to a specific detection function. The distance data are modelled using this detection function to account for imperfect detection and estimate the proportion of missed individuals in the study area.\n\n\n\n\n\nFigure 1: Illustration of a distance sampling scheme. On the left, the true species distribution point pattern, the vertical transects (dashed lines) and detected individuals along each transect (blue points). On the right hand side, the distribution of the observed distances from each transect to each detected individual.\n\n\n\n3.4.2 Quadrats\n\nIn some cases, we will instead be interested in trying to understand the frequency of a certain species across space. A quadrat is a tool used in ecology and other settings for this purpose. A series of squares (quadrats) of a fixed size are placed in the habitat of interest, and the species within the quadrats are counted. The number of quadrats, and their positions and orientations are chosen as part of the sampling scheme.\n\n\n\n\n\n3.4.3 Grid Sampling\nIt may often be useful to use a regular grid to make sampling convenient and efficient. The grid is overlaid on the spatial region, and a fixed number of samples (usually one) is taken from each grids square. We choose the size of the grid such that the number of squares relates to the number of samples we require. For example, for a region of size 5km \\(\\times\\) 5km, choosing 1km \\(\\times\\) 1km grid squares would give us 25 squares in total.\nThere are a few different types of grid sampling.\n\n\nAligned Grid — we take a sample from the same (randomly selected) coordinates within each square.\n\nCentrally Aligned Grid — we take a sample from the central coordinates of each square.\n\nUnaligned Grid — each grid square has a sample taken from different randomly selected coordinates.\n\nTriangular Grid — this is a modified version of the aligned grid where the points are fixed based on a triangular arrangement.\n\n\n\n\n\nThe aligned and centrally aligned grids are convenient but may miss systematic patterns in the data. The unaligned grid avoids this, and combines the advantages of simple random sampling and stratified sampling. However, it can be inefficient for collection. The triangular grid can perform well in specific cases where the spatial correlation structures varies with direction.\n\n\n\n\n\n\n Exercise 1: Heights of trees\n\n\n\nAim: Estimate the average height of trees which are uniformly distributed within a 10 km\\(^2\\) forest.\n\n\n\n\n\nWhat is the population here?\n\n\n\nSolution\n\nThe population is all trees in the forest.\n\n\nWhat are the sampling units?\n\n\n\nSolution\n\nOur sampling units are individual trees.\n\n\nWhat type of sampling scheme would be appropriate here?\n\n\n\nSolution\n\nSimple random sampling would likely be appropriate here, since it allows us to cover the large area of the forest at low “cost” (time and financial). The trees are uniformly distributed across the forest, so no need for strata. You could argue for systematic sampling using a grid or quadrats, but this may make analysis more complex.\n\n\n\n\n\n\n\n\n\n Exercise 2: Chlorophyll-a in Lake Balaton\n\n\n\nAim: Estimate the average level of chlorophyll-a on Lake Balaton, Hungary. Levels are heavily affected by differences in the levels of nutrients along the length of the lake (known as a ‘trophic gradient’).\n\n\n\n\n\nWhat is the population here?\n\n\n\nSolution\n\nThe population is all possible water samples from the lake.\n\n\nWhat are the sampling units?\n\n\n\nSolution\n\nOur sampling units are individual water samples.\n\n\nWhat type of sampling scheme would be appropriate here?\n\n\n\nSolution\n\nStratified random sampling seems appropriate here due to heterogeneity in the lake. We could design transects which cover most regions of the lake. However, may be difficulty accessing all areas by boat. Also, there are potential issues with the boat itself disrupting the levels."
+  },
+  {
+    "objectID": "notes/notes_3.html#sample-size-in-stratified-sampling",
+    "href": "notes/notes_3.html#sample-size-in-stratified-sampling",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n4.1 Sample Size in Stratified sampling",
+    "text": "4.1 Sample Size in Stratified sampling\nFor stratified sampling, this process is much more complicated. As well as considering the sample size, we also have to think about how to allocate our samples across the strata. A common approach is to specify a cost model, where we take into account the different costs of sampling each stratum. The aim is to minimize the estimated standard error for a given total cost.\nLet \\(C\\) be the overall cost, let \\(c_0\\) be the fixed overhead costs of the survey and let \\(c_l\\) be the cost per sample in stratum \\(l\\). Then our cost model is \\[C = c_0 + \\sum_{l=1}^L c_l n_l\\]\nTypically \\(C\\) is fixed, and the goal is to select the values of \\(n_l\\) which allow us to obtain the best possible estimate.\nNow let \\(\\omega_l = N_l/N\\) be the proportion of the overall population which is found within stratum \\(l\\). Also let \\(\\sigma_l\\) be the standard deviation for the population of stratum \\(l\\).\nWe can then compute the optimum number of samples in each stratum as \\[n_l = n\\frac{\\omega_l \\sigma_l /\\sqrt{c_l}}{\\sum_{k=1}^L \\omega_k \\sigma_k  /\\sqrt{c_k}}\\]\nIf the costs are the same for all strata, the equation simplifies to what is known as the Neyman allocation \\[n_l = n\\frac{\\omega_l \\sigma_l}{\\sum_{k=1}^L \\omega_k \\sigma_k}\\]\nWe often calculate \\(n\\) by a similar approach as that described for simple random sampling. In practice, the population standard deviation \\(\\sigma_l\\) is often replaced by the sample standard deviation, \\(s_l\\).\nWe now know how to determine the correct sample size to use to obtain estimates with the desired precision. This requires some advance knowledge, e.g. the tolerable level of error, the cost of the experiment, or the expected standard deviation. However, bear in mind that we have not considered the possibility of missing data in our sample, and losing some data will impact precision. We have also assumed all data points are independent, but this is not always true for time series or spatial data. (We will address this later in the course.)"
+  },
+  {
+    "objectID": "notes/notes_3.html#generalised-randomised-tessellation-stratified",
+    "href": "notes/notes_3.html#generalised-randomised-tessellation-stratified",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n5.1 Generalised Randomised Tessellation Stratified",
+    "text": "5.1 Generalised Randomised Tessellation Stratified\nThe Generalised Randomised Tessellation Stratified (GRTS) is a form of spatially balanced probability sampling scheme introduced by Stevens and Olsen (2004). It has been widely used for monitoring extensive environmental resources by USEPA and Marine Scotland. It builds on random, systematic and stratified sampling procedures while ensuring spatial balance (where every replicate of the sample exhibits a spatial density pattern that resembles the spatial density pattern of the resource of interest). The GRTS algorithm can be implemented as follows:\n\nFirst one must determine the inclusion probability of each site/feature (e.g., trees, river breaches, lakes, etc.). For example, there are \\(N= 16\\) main lakes in the lake district and a sample of \\(n=4\\) is desired. Assuming equal sampling probabilities the inclusion probabilities are \\(n/N = 4/16 = 0.25\\) for each lake.\n\n\n\n\n\n\nA square bounding box is superimposed onto the sampling frame and is divided into four equally sized square cells (level 1 cells). Each cell is then randomly labelled/numbered, e.g.,\\(\\mathcal{A}_1\\equiv \\{a_1:a_1 - 0,1,2,3\\}\\).\n\n\n\n\n\n\nEach square is split into four more tessellations which are again randomly numbered while retaining the first-level label. The set of level-two cells is denoted by \\(\\mathcal{A}_2 \\equiv \\{a_1a_2 : a_1 = 0,1,2,3; ~a_2 = 0,1,2,3\\}\\).\n\n\n\n\n\n\nContinue this hierarchical randomisation to the desired spatial scale such that \\(\\mathcal{A}_k \\equiv \\{a_1,\\ldots,a_k:a_1 = 0,1,2,3; \\ldots; a_k = 0,1,2,3\\}\\) until the sum of the inclusion probabilities of each element within a given square are less than one.\n\n\n\n\n\n\nThe elements (e.g., lakes) in \\(\\mathcal{A}_k\\) are placed in hierachichal order by sorting out \\(\\mathcal{A}_k\\) by the level 1 cells from smallest to largest, then by the level-two cells from smallest to largest, and so on. This will transform the level \\(k\\) grid cell to a one-dimensional number line. The length of each line-segment represents the inclusion probability for a given site (or lake in this example). Thus, the line’s total length equals the sum of these inclusion probabilities (the sum should equal \\(n\\) since we do not allow the inclusion value within a cell to be greater than one). Here we have colored cells contianing larger lakes in red and small lakes in blue.\n\n\n\n\n\n\nThen, we can use systematic sampling along the line to select the lakes to survey. E.g., you can randomly draw \\(u_1\\) from an uniform [0,1] and place it on a line. Imagine we draw \\(u_1 = 0.53\\), then location of \\(u_1\\) on the line falls within some line segment that represents a site, which we denote \\(s_1\\) (in the example this is the lake in cell 010). We include this sites as our first site in the sample and then continue with the next \\(j\\) sites by setting \\(u_j = u_{j-1} +1\\) for \\(j = 2,\\ldots,n\\).\n\n\n\n\n\n\nSuppose we would like larger lakes to be twice as likely to be selected as small lakes. Thus, instead of given all lakes the same unit length we can give large lakes twice the unit length of small lakes.\n\n\n\n\n\nIn addition to unequal inclusion probabilities we can also perform stratified sampling. Thus, instead of sampling from the entire sampling frame simultaneously, we divide a sampling frame into distinct sets of sites and select samples from each stratum independently of other strata -we apply the GRTS algorithm to obtain stratum-specific sample sizes. The R-package spsurvey implements GRTS algorithm to select spatially balanced samples via the grts() function."
+  },
+  {
+    "objectID": "notes/notes_3.html#before-after-impact-approaches",
+    "href": "notes/notes_3.html#before-after-impact-approaches",
+    "title": "Sampling and Monitoring Networks",
+    "section": "\n5.2 Before-after-Impact approaches",
+    "text": "5.2 Before-after-Impact approaches\nThe purpose of monitoring is to assess the changes in a particular variable over time. This can typically be carried out using standard statistical techniques, taking into account the structure of the data. Sometimes we are interested in whether a specific event has had an impact on the variable, e.g., the effect of new regulations on the air pollution level. Typically this involves assessing the levels before and after the event.\nIt is generally very difficult to untangle the effects of a single event. Even if we identify a change in the mean or variance, how do we know that it is due to our event? Many environmental systems change naturally over time for any number of reasons. We do not have a statistical control, meaning that we can’t turn back the clock and check what would have happened without the event.\nHowever, this challenge is not unique to environmental data. We face it regularly in statistics. Often, we are only interested in the effect of one particular variable, but we have to account for other nuisance variables via regression or other techniques. We can also sometimes account for other unmeasured variability through random effects. The key is to acknowledge what you do and don’t know, and to account properly for uncertainty.\n\n\n\n\n\n\n Examples: Before-After Designs\n\n\n\n\nBefore-After Single Site\n\nOften, we wish to assess the impact of an intervention on a site, but we only have data for that site.\n\n\nLine graph of value by time, illustrating the impact of an intervention. The blue arrows represent the time “before” the intervation and the red arrows represent the time “after” the intervantion.\n\nWe can fit a statistical model, such as: \\[X_{ik} = \\mu + \\alpha_i + \\tau_{k(i)} + \\varepsilon_{ik}\\] with \\(\\mu\\) representing the overall mean, \\(\\alpha_i\\) the effect of period (before/after), \\(\\tau_{k(i)}\\) the time within period, and \\(\\varepsilon_{ik}\\) the errors.\nThis is not an ideal design, since we have no control to compare to.\n\nBefore-After Multiple Sites\n\nWe can sometimes improve upon the Before-After Single Site design, if we can collect data at multiple \\(j=1,\\ldots,M\\) sites that are likely to be impacted by the intervention. We can fit a statistical model, such as:\n\\[\nX_{ijk} = \\mu + \\alpha_i + \\tau_{jk(i)} + \\delta_j + \\varepsilon_{ijk},\n\\]\nwhere \\(\\mu\\) is the overall mean; \\(\\alpha_i\\) is the effect of period (before/after); \\(\\tau_{jk(i)}\\) represents the time within the ith period; \\(\\delta_j\\) is the site \\(j\\) random effect and \\(\\varepsilon_{ijk}\\) are the sampling errors.\n\n\nLine graph of value by time, illustrating the impact of an intervention. Each line connects the data points for a single site.\n\nTreating the sites as subsamples allows the sites to be used to improve estimation of the effect’s magnitude, compared to a single site design.\n\nBefore-After Control-Impact (BACI)\n\nBACI is a common design, where one or more potentially impacted sites, and one or more sites that are thought not vulnerable to impact, are sampled before and after the time of the intervention.\n\n\nLine graph of value by time, illustrating the impact of an intervention on the “impact” site. The two lines connect the data points for two sites (one impact site and one control site).\n\nWe can fit a statistical model, such as: \\[X_{ij} = \\mu + \\alpha_i + \\beta_j + (\\alpha\\beta)_{ij} + \\varepsilon_{ij}\\] with \\(\\mu\\) representing the overall mean, \\(\\alpha_i\\) the effect of period (before/after), \\(\\beta_j\\) the effect of location (control/impact), and \\(\\varepsilon_{ik}\\) the errors.\nHaving the control sites allows us to better assess whether any impacts are caused by the intervention."
+  },
+  {
+    "objectID": "notes/notes_1.html",
+    "href": "notes/notes_1.html",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "",
+    "text": "Environmental and Ecological Statistics is an incredibly broad term covering any form of statistics applied to environmental and ecological issues. Key themes include climate change, environmental regulation (e.g. water and air quality) and biodiversity monitoring. This course focuses on this theme rather than a particular type of statistical methodology. We will look at a variety of statistical methods, some of which you will know, and some which will be new.\nThe environment is (sometimes literally) a burning issue in the 21st century. This brings increased focus and interest in statistics as a subject, and how we are working to handle topics like climate change. Below, we see some examples of how climate change reporting can be presented."
+  },
+  {
+    "objectID": "notes/notes_1.html#wheres-the-statistics",
+    "href": "notes/notes_1.html#wheres-the-statistics",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "\n1 Where’s the statistics?",
+    "text": "1 Where’s the statistics?\nWe are interested in measuring, sampling or monitoring environmental and ecological data, including variation and uncertainty. This includes detecting and modelling environmental trends, including trends in time and space, modelling and understanding extreme data. We also wish to evaluate environmental regulation and policy, and risk assessment.\nWe want to understand changes in the environment, in either time, space or both. Are things getting better or worse? Where, when and by how much? What is going to happen next? Where do authorities need to take action, and how can we check if existing actions are working? Also, we should consider relationships between environmental variables (and other variables where necessary).\nIn general, there are no techniques that are unique to environmental statistics. However, the data used tend to be characterised by strong spatial and temporal elements, and often also high variability.\nOur skills in presenting and communicating data are also crucial. We need to be able to explain our findings to the public and show them why our work is important. Below is an example of reporting of a winter storm in 2023, which makes use of plots to tell the story.\n\n\n\n\n\n\n The Courier article on Storm Babet\n\n\n\nOn 20th October 2023, The Courier published an article titled “Storm Babet: Timeline of devastating rainfall in charts and maps”. This contains some interesting examples of the use of plots to tell a developing environmental story. You can read this by clicking the link below:\nhttps://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/\n\n\n\n\n\n\n\n\n Exercise 3\n\n\n\nPlease read the Courier article on Storm Babet linked to above and think about the way that the information is presented.\n\n\nSome examples of environmental & ecological statistics include:\n\n\nDecision making: Is it safe to eat fish from a particular river?\n\nPrediction: What is the trend in temperature? Can we predict its level in 2060?\n\nRegulation: Have emission control agreements reduced air pollutants?\n\nUnderstanding: How did sea levels change over the past 100 years?\n\n\n\n\n\n\n\n Example: Air quality\n\n\n\nWe will illustrate this with an example relating to air quality.\n\n\nPhoto of smog in Shanghai.\n\nOnly one person in ten lives in a city that complies with the World Health Organisation Air quality guidelines.\nFine particular matter was associated with an estimated 2,000 premature deaths and 22,500 lost life years in Scotland in 2010. There are 38 “Air Quality Management Areas” (AQMAs) which breach or are likely to breach legal limits. The Cleaner Air for Scotland strategy seeks to reduce air pollution across Scotland. It aims to achieve the “ambitious vision for Scotland to have the best air quality in Europe”.\nThere are 99 air quality monitoring stations in Scotland capturing PM\\(_{2.5}\\), PM\\(_{10}\\), NO\\(_2\\), NO\\(_\\text{X}\\), SO\\(_2\\) and O\\(_3\\).\n\nThe map below shows the placement of the monitors. Live data are available at Scottish Air Quality.\n\n\nMonitoring station map.\n\nThe data from these monitors can be used to estimate the pollution levels across Scotland.\n\n\nEstimated PM\\(_{10}\\) levels.\n\n\n\n\n\n\n\n\n\n Exercise 4\n\n\n\nThe example above shows a map of estimated PM\\(_{10}\\) levels across Scotland. What information do we not have, which we would normally expect to see here?\n\n\nSolution\n\nThe main thing missing here is the lack of uncertainty information. It seems that most of the monitoring stations are in the Central Belt of Scotland (where most of the pollution might be expected), so we’d expect to see lower uncertainty there than in areas further from a monitoring station.\nWe might also like to know more about the temporal aspects of the data. Is the prediction map for the same time that the data were collected, or do frequencies of collection vary across the monitoring stations?\nAlso, are these predictions just from the station data, or do we have other sources that are combined with these? (For at least some variables, we might have satellite data available that provide us with measurements across a fine spatial grid, which we can combine with monitoring station data through “data fusion”.) In any case, we’d like to know how these predictions are made.\nYou may have thought of some other ideas too. We can discuss these in the lectures."
+  },
+  {
+    "objectID": "notes/notes_1.html#quantification",
+    "href": "notes/notes_1.html#quantification",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "\n2 Quantification",
+    "text": "2 Quantification\nUnderstanding and measuring quantities is a fundamental part of all science, not just statistics. As scientists, we use data to understand the process which we are investigating. These data have two main sources of uncertainty or error:\n\n\nInherent variability of the process itself (the thing we are measuring is variable).\n\nImprecise knowledge of the process (our measurements may not be accurate).\n\nThe plots below illustrate the trends in several climate change measures. Both sources of variability will be present, but how much of each?\n\nA big part of our role as statisticians is to ask questions of both our data and our models. How were our data collected? Are they representative of the population? How much uncertainty do we have? Are our models valid? Are the assumptions reasonable? Does the model make sensible predictions? How much uncertainty do we have in our results? These skills are particularly crucial in applied areas such as environmental and ecological statistics.\n\n\n\n\n\n\n Example: Arctic sea ice cover\n\n\n\nSubmarines have been used to measure Arctic sea ice. Over time, the ice has shrunk both in terms of thickness and extent. We may soon see ice-free summers, which will have a devastating impact on sea life.\n\n\nArctic ice coverage in 1979 and 2003.\n\nThis interactive map provides an illustration of the changes.\n\n\n\n\n\n\n\n\n Exercise 5\n\n\n\nHow might we quantify the trend in Arctic sea ice cover, and what problems might we encounter in aiming to do this?\n\n\nSolution\n\nWe might want to present this as a graph of total estimated sea ice cover over time, across many years. Some problems with this approach could be data availability over time (satellites or submarines not covering the whole area, or only at certain timepoints, and lack of data in earlier years), and the difficulty in estimating coverage at any timepoint from these measurements — statistical approaches would be vital to estimate this and the associated uncertainty.\nNote that the use of before and after images (like in the above example) might not be thought of as the best idea in statistics (since they could be misused, with particular years cherry-picked to back up an incorrect claim), but such images can be useful in illustrating a trend to the general public, as long as this is also presented with additional complete information about the general patterns."
+  },
+  {
+    "objectID": "notes/notes_1.html#understanding-our-data-trends",
+    "href": "notes/notes_1.html#understanding-our-data-trends",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "\n3 Understanding our data: trends",
+    "text": "3 Understanding our data: trends\nMuch of the statistical analysis of environmental and ecological data will focus on identifying trends. The statistical definition of a trend is a long-term change in the mean level. Trends aren’t restricted to being linear, and we will also look at examples of non-linear trends, and changepoints.\nTrends generally tend to focus on the mean of the data. However, we may also be interested in observing other aspects of the statistical distribution. Extreme value theory looks specifically at the limits of our distribution, and focuses on rare (or extreme) events.\nWe’ll cover this more later in the course."
+  },
+  {
+    "objectID": "notes/notes_1.html#policy-and-legislation",
+    "href": "notes/notes_1.html#policy-and-legislation",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "\n4 Policy and legislation",
+    "text": "4 Policy and legislation\nA great deal of environmental statistical research is funded by governments and regulatory bodies. They need to know where the biggest challenges lie so that they can allocate their resources appropriately. Evidence-based policy relies on measuring changes and also evaluating the impacts of existing policies. However, the environment will be one of many competing policy areas, and every government will prioritise it differently.\n\n\n\n\n\n\n Example of international cooperation and negotiations: COP\n\n\n\n\n\nTeam photograph from COP28 in 2023.\n\nCOP is the United Nations Climate Change Conference that takes place annually (held in Glasgow in 2021), where most countries’ governments come together to try to agree on goals to limit global temperature rise and achieve net zero emissions. The most recent conference was COP29, which took place in Baku, Azerbaijan, in November 2024.\nOne of the key achievements of COP29 was an agreement by wealthier countries to pay at least US $300 billion per year to less wealthy countries to help finance their mitigation of climate change impacts, and to transform their economies away from fossil fuels. However, there was limited progress in other sectors.\nA report on COP29 and its implications for the UK is available from the UK’s Climate Change Committee here.\n\n\n\nEnvironmental policy tends to use very specific language: objectives, targets, guide values, standards, reductions relative to a baseline. Policy often prescribes monitoring quantities of interest over space and/or time. Quantities of interest include water, air and noise pollution, waste management, radioactive substances, biodiversity and animal and plant species.\nLegislation is the legal framework used to implement policy. Most legislation focuses on setting targets or safe levels for the pollutants. A number of regulatory bodies exist specifically to monitor such things, e.g. Scottish Environment Protection Agency (SEPA, for Scotland), the Environment Agency (EA, for England) and the European Environment Agency (EEA, for the EU). As well as regulatory bodies, the Climate Change Committee advises governments within the UK on reducing emissions and addressing climate change impacts.\nMuch of our data come from routine monitoring of our environmental quantities of interest. Government agencies often make these data available to researchers and/or the public. These data are used to assess compliance with legislation as well as to identify environmental trends and their potential impacts on society.\n\n\n\n\n\n\n Example of Natural Capital and Ecosystem Assessment (NCEA) programme\n\n\n\nThe UK Government’s Natural Capital and Ecosystem Assessment (NCEA) programme aims to provide a comprehensive understanding of the state of the natural environment to inform better decision-making for its protection and enhancement. By integrating data collection, mapping, standardized protocols, and detailed reporting, the NCEA seeks to halt biodiversity loss, support climate adaptation and mitigation, and ensure sustainable management of natural capital for future generations. This evidence-based approach helps identify environmental trends, risks, and opportunities to guide policy and conservation efforts.\nThe brochure below provides an overview of some of the key resources produced by the NCEA.\n Download the NCEA brochure \n\n\n\n\n\n\n\n\n Exercise 6\n\n\n\nDownload the NCEA. brochure and read to three case studies and identify (1) the problem that is being address (2) the proposed solution and its (3) policy impact. Then, think about how would you present the data."
+  },
+  {
+    "objectID": "notes/notes_1.html#references",
+    "href": "notes/notes_1.html#references",
+    "title": "Introduction to Environmental and Ecological Statistics",
+    "section": "References",
+    "text": "References\nSome general reference books that you may find useful include the following:\n\nPiegorsch, W. W., & Bailer, A. J. (2005). Analyzing environmental data. Wiley. (Available from the University Library as an e-book here.)\nBarnett, V. (2004). Environmental statistics: Methods and applications. Wiley. (Available from the University Library as an e-book here.)\nManly, B. F. J. (2001). Statistics for environmental science and management. Chapman & Hall/CRC. (No e-book available, but a physical copy is available from the University Library.)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Module 1",
+    "section": "",
+    "text": "This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common imperfections—such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design."
+  },
+  {
+    "objectID": "index.html#lectures",
+    "href": "index.html#lectures",
+    "title": "Module 1",
+    "section": "2.1 Lectures",
+    "text": "2.1 Lectures\nThere will be two - 1 hr lectures per week\n\nTuesday 12 noon (Wolfson Medical School:253 Seminar 1-Yudo)\nWednesday 9am (Maths and Stats:116 Lecture Theatre).\n\n\n\n\n\n\nNote\n\n\n\nLectures will be recorded if the room’s technology allows them to be."
+  },
+  {
+    "objectID": "index.html#tutorials",
+    "href": "index.html#tutorials",
+    "title": "Module 1",
+    "section": "2.2 Tutorials",
+    "text": "2.2 Tutorials\nIn addition, there will be four tutorials for this course. There are two tutorial groups - please check on MyCampus which one you are in.\n\nTutorial Group 1 - Monday 10amTutorial Group 2- Wednesday 12 noon\n\n\nTutorial groups:\n\nSTATS 4009 - TU01 (23738)\nSTATS 5031 - TU01 (24174)\n\nVenue:\nAdam Smith: 281\nTutorial dates:\n\n24-Jan-2026\n09-Feb-2026\n23-Feb-2026\n09-Mar-2026\n\n\n\nTutorial groups:\n\nSTATS 4009 - TU02 (23739)\nSTATS 5031 - TU02 (24175)\n\nVenue:\nJoseph Black Building:C407 Agricultm\nTutorial dates:\n\n28 -Jan-2026\n11-Feb-2026\n25-Feb-2026\n11-Mar-2026\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nYou are expected to have attempted the exercise sheets before the tutorial - they will be available in advance."
+  },
+  {
+    "objectID": "index.html#labs",
+    "href": "index.html#labs",
+    "title": "Module 1",
+    "section": "2.3 Labs",
+    "text": "2.3 Labs\nThere will be three labs taking place in Boyd Orr Building:418 Lab from 15:00-17:00pm on the following dates:\n\nFeb 27th\nMarch 13th\nTBC"
+  },
+  {
+    "objectID": "reading_list.html",
+    "href": "reading_list.html",
+    "title": "Reading list",
+    "section": "",
+    "text": "Barnett, V. (2004). Environmental statistics: Methods and applications. Wiley. (Available from the University Library as an e-book here.)\nHelsel, D. R. (2012). Statistics for censored environmental data using Minitab and R (2nd ed.). Wiley. Available from the University Library here.\nKirkup, L., & Frenkel, B. (2006). An introduction to uncertainty in measurement using the GUM (guide to the expression of uncertainty in measurement). Cambridge University Press. Available from the University Library here.\nManly, B. F. J. (2001). Statistics for environmental science and management. Chapman & Hall/CRC. (No e-book available, but a physical copy is available from the University Library.)\nPiegorsch, W. W., & Bailer, A. J. (2005). Analyzing environmental data. Wiley. (Available from the University Library as an e-book here.)"
+  },
+  {
+    "objectID": "notes/notes_2.html",
+    "href": "notes/notes_2.html",
+    "title": "Understanding our Data",
+    "section": "",
+    "text": "In this session, we will be looking at uncertainty and variability, and how we can measure these and incorporate them into our conclusions. Next, we will examine various environmental and ecological data sources, highlighting critical pre-processing steps such as handling censored data, outliers, and missing values.\nWe often talk about uncertainty and error as though they are interchangeable, but this is not quite correct.\n\n\nError is the difference between the measured value and the ‘true value’ of the thing being measured.\n\nUncertainty is a quantification of the variability of the measurement result.\n\n\nPractically speaking, we make use of common statistical distributions to account for uncertainty. These include both continuous and discrete distributions.\n\n\n\nNormal: perhaps the most commonly used distribution in statistics. \\(X \\sim N(\\mu, \\sigma^2)\\).\n\nExponential: distribution of the time (\\(\\lambda\\)) between events. \\(X \\sim Exp(\\lambda)\\).\n\n\n\nPoisson: distribution of the probability of observing a specific count (\\(\\theta\\)) within a particular time period. \\(X \\sim Po(\\theta)\\).\n\nBinomial: distribution of the number of successes in \\(n\\) independent trials where \\(\\theta\\) is the probability of success. \\(X \\sim Bi(n, \\theta)\\).\n\nNegative binomial: distribution of the number of trials until the \\(k\\)th success is observed. \\(X \\sim NeBi(k, \\theta)\\).\n\nThe observational error in a measurement is a single result, namely the difference between the measured and the true value. The error may include both a random and a systematic component.\nRandom error is variation that is observed randomly over a set of repeat measurements. As you make more measurements, these errors tend to average out and your estimates will improve in accuracy.\nSystematic error is variation that remains constant over repeated measures. This is typically due to some feature of the measurement process. Making more measurements will not improve accuracy, since all new measurements will be affected in the same way. Systematic error can only be eliminated by identifying the cause of the error.\n\n\nRepresentation of systematic vs random error and its relationship with bias/accuracy and precision.\n\n\n\n\n\n\n\n Exercise 1\n\n\n\nFor each of the examples below, consider whether the error is random or systematic.\n\nA meter reads 0.01 even when measuring no sample. \nrandom\nsystematic\n\nAn old thermometer can only measure the temperature to the nearest 0.5 degrees. (e.g., 23.5 \\(^\\circ\\)C becomes 23 \\(^\\circ\\)C or 24 \\(^\\circ\\)C) \nrandom\nsystematic\n\nA poorly designed rainfall monitor often leaks water on windy days. \nrandom\nsystematic\n\nYou are asked to measure the volume of an ice cube in a warm laboratory. \nrandom\nsystematic\n\nTo estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length. \nrandom\nsystematic"
+  },
+  {
+    "objectID": "notes/notes_2.html#statistical-distributions",
+    "href": "notes/notes_2.html#statistical-distributions",
+    "title": "Understanding our Data",
+    "section": "",
+    "text": "Practically speaking, we make use of common statistical distributions to account for uncertainty. These include both continuous and discrete distributions.\n\n\n\nNormal: perhaps the most commonly used distribution in statistics. \\(X \\sim N(\\mu, \\sigma^2)\\).\n\nExponential: distribution of the time (\\(\\lambda\\)) between events. \\(X \\sim Exp(\\lambda)\\).\n\n\n\nPoisson: distribution of the probability of observing a specific count (\\(\\theta\\)) within a particular time period. \\(X \\sim Po(\\theta)\\).\n\nBinomial: distribution of the number of successes in \\(n\\) independent trials where \\(\\theta\\) is the probability of success. \\(X \\sim Bi(n, \\theta)\\).\n\nNegative binomial: distribution of the number of trials until the \\(k\\)th success is observed. \\(X \\sim NeBi(k, \\theta)\\)."
+  },
+  {
+    "objectID": "notes/notes_2.html#observational-error",
+    "href": "notes/notes_2.html#observational-error",
+    "title": "Understanding our Data",
+    "section": "",
+    "text": "The observational error in a measurement is a single result, namely the difference between the measured and the true value. The error may include both a random and a systematic component.\nRandom error is variation that is observed randomly over a set of repeat measurements. As you make more measurements, these errors tend to average out and your estimates will improve in accuracy.\nSystematic error is variation that remains constant over repeated measures. This is typically due to some feature of the measurement process. Making more measurements will not improve accuracy, since all new measurements will be affected in the same way. Systematic error can only be eliminated by identifying the cause of the error.\n\n\nRepresentation of systematic vs random error and its relationship with bias/accuracy and precision.\n\n\n\n\n\n\n\n Exercise 1\n\n\n\nFor each of the examples below, consider whether the error is random or systematic.\n\nA meter reads 0.01 even when measuring no sample. \nrandom\nsystematic\n\nAn old thermometer can only measure the temperature to the nearest 0.5 degrees. (e.g., 23.5 \\(^\\circ\\)C becomes 23 \\(^\\circ\\)C or 24 \\(^\\circ\\)C) \nrandom\nsystematic\n\nA poorly designed rainfall monitor often leaks water on windy days. \nrandom\nsystematic\n\nYou are asked to measure the volume of an ice cube in a warm laboratory. \nrandom\nsystematic\n\nTo estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length. \nrandom\nsystematic"
+  },
+  {
+    "objectID": "notes/notes_2.html#standard-uncertainty-and-expanded-uncertainty",
+    "href": "notes/notes_2.html#standard-uncertainty-and-expanded-uncertainty",
+    "title": "Understanding our Data",
+    "section": "\n2.1 Standard uncertainty and expanded uncertainty",
+    "text": "2.1 Standard uncertainty and expanded uncertainty\nWhen presenting our results, it is important that we are clear the uncertainty associated with them. A common approach is to use a standard uncertainty, which is just the standard deviation, reported as: \\[\\text{estimated value } \\pm \\text{ standard uncertainty}\\]\nThe standard uncertainty (\\(u(\\bar{\\mathbf{x}})\\)) for a vector \\(\\mathbf{x}\\) of length \\(n\\) is computed as follows: \\[u(\\bar{\\mathbf{x}}) = \\frac{sd(\\mathbf{x})}{\\sqrt{(n)}}\\]\nMore generally we can use an expanded uncertainty, which is obtained by multiplying the standard uncertainty by a factor \\(k\\). You have already seen this in statistics as the key building block of a confidence interval. The value of \\(k\\) is chosen based on the quantiles of a standard normal distribution, with a value of \\(k=1.96\\) (or \\(k=2\\)) giving a 95% confidence interval. The 95% CI for the mean of \\(\\mathbf{x}\\) is given as \\(\\bar{\\mathbf{x}} \\pm 1.96 \\times u(\\bar{\\mathbf{x}}).\\)\n\n\n\n\n\n\n Example: Bathing water quality\n\n\n\nAll bathing water sites in Scotland are classified by SEPA as “Excellent”, “Good”, “Sufficient” or “Poor” in terms of how much fecal bacteria (from sewage) they contain. The minimum standard all beaches or bathing water must meet is “Sufficient”. The sites are classified based on the 90th and 95th percentiles of samples taken over the four most recent bathing seasons.\nThe figure below shows the data from some selected sites.\n\n\nBoxplots of FS by year for 10 sites. The dashed horizontal lines represent “excellent” (green, lowest), “good” (blue, middle) and “sufficient” (red, highest) classification boundaries, respectively.\n\nThe classification is based on a belief that the samples at each site follow a log-normal distribution. If this assumption does not hold, then our classifications would not be accurate. Therefore, it is crucial that we regularly assess this assumption to ensure the safety of our bathing water. We can use our standard plots to assess log-normality. In the figure below, the top plots are produced using the untransformed data and the bottom plots are produced after taking a logarithmic transformation of the data (FS).\n\n\n\n\n\n\n\n\n\n Exercise 2\n\n\n\nCan we assume that the samples at each site follow a log-normal distribution? \nYes\nNo\n\n\nSolution\n\nYes, we can assume that the samples at each site follow a log-normal distribution. From the plots, there is no strong evidence to suggest we have breached our assumptions. Specifically, the histogram of log\\(_{10}\\)(FS) shows that the distribution is not far from a bell shape, and the points on the Normal Q-Q plot lie close to the line of equality.\n\n\n\n\n\n\n\n\n\n Example: Bathing water quality (continued)\n\n\n\nIn the following exercises, we will calculate the standard uncertainty and a 95% confidence interval for the mean of log(FS).\n\n\n\n\n\n\n\n\n Exercise 3\n\n\n\n\nWe have 80 measurements of log(FS), with a mean of 3.861 and a standard deviation of 1.427. Use these to calculate the standard uncertainty of the population mean log(FS) using our vector \\(\\textbf{x}\\).\n\nAnswer (to 3 decimal places): \n\n\nSolution\n\n\\[u = \\frac{sd(\\mathbf{x})}{\\sqrt{(n)}} = \\frac{1.427}{\\sqrt{80}} = 0.160\\]\n\n\nGiven the standard uncertainty that calculated in part (a), calculate a 95% confidence interval for the population mean of log(FS).\n\nAnswer (to 3 decimal places): (,)\n\n\nSolution\n\nA 95% confidence interval for \\(\\bar{x}\\) is: \\[\\bar{x} \\pm 1.96 \\times u = 3.861 \\pm 1.96 \\times 0.160 = (3.574, 4.175)\\]"
+  },
+  {
+    "objectID": "notes/notes_2.html#uncertainty-propagation",
+    "href": "notes/notes_2.html#uncertainty-propagation",
+    "title": "Understanding our Data",
+    "section": "\n2.2 Uncertainty propagation",
+    "text": "2.2 Uncertainty propagation\nFor a measure \\(Y\\) that is a linear combination of \\(n\\) quantities \\(X_1, ..., X_n\\) (i.e. \\(Y = a_1X_1 + ... + a_nX_n\\), with \\(\\textbf{a} =(a_1, ..., a_n)\\) being a row vector of coefficients), the combined uncertainty \\(u(Y)\\) is calculated as follows:\n\\[\n\\begin{aligned}\n\\text{Var}(Y)\n& = \\text{Var}\\left(\\sum_{j=1}^n a_jX_j\\right)\\\\\n&= \\sum_{i=1}^ka_i^2 \\text{Var}(X_i) + \\sum_{i\\neq j}a_ia_j \\text{Cov}(X_i,X_j) \\\\\n&=\\sum_i\\sum_j a_ia_j\\underbrace{\\text{Cov}(X_i,X_j)}_{\\rho_{ij}\\sigma_i\\sigma_j}\\\\\n&\\Rightarrow\\\\\nu(Y) &= \\sqrt{\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\left(u(X_i)\\times u(X_j) \\times a_i \\times a_j \\times \\rho_{ij}\\right)}\n\\end{aligned}\n\\]\nwhere \\(u(X_i) = \\sigma_i\\) and \\(u(X_j) = \\sigma_j\\) are the standard uncertainties of \\(X_i\\) and \\(X_j\\), respectively, and \\(\\rho_{ij}\\) is the correlation between \\(X_i\\) and \\(X_j\\).\nIf \\(X_1, ..., X_n\\) are independent, this reduces to:\n\\[u(Y) = \\sqrt{\\sum_{i=1}^{n}\\left(u(X_i)^2 \\times a_i^2\\right)}\\]\n\n\n\n\n\n\n Exercise 4\n\n\n\nShow that the combined uncertainty \\(u(Y)\\) for \\(Y = a_0 + a_1X_1 + a_2X_2\\) (not assuming that \\(X_1, ..., X_n\\) are independent) reduces to:\n\\[u(Y) = \\sqrt{a_1^2 u(X_1)^2 + a_2^2 u(X_2)^2 + 2 \\rho_{12}u(X_1)u(X_2)a_1a_2}\\]\n\n\nSolution\n\nWe have:\n\\[u(Y) = \\sqrt{\\sum_{i=1}^{n}\\sum_{j=1}^{n}\\left(u(X_i)\\times u(X_j) \\times a_i \\times a_j \\times \\rho_{ij}\\right)}\\]\nwhere \\(i = 1, 2\\) and \\(j = 1, 2\\), i.e.\n\\[u(Y) = \\sqrt{u(X_1) u(X_1) a_1 a_1 \\rho_{11} + u(X_1) u(X_2) a_1 a_2 \\rho_{12} + u(X_2) u(X_1) a_2 a_1 \\rho_{21} + u(X_2) u(X_2) a_2 a_2 \\rho_{22}}\\] \\[\\therefore u(Y) = \\sqrt{u(X_1)^2 a_1^2 + 2 u(X_1) u(X_2) a_1 a_2 \\rho_{12} + u(X_2)^2 a_2^2}\\]\nsince \\(\\rho_{11} = \\rho_{22} = 1\\) and \\(\\rho_{12} = \\rho_{21}\\).\n\n\n\nThe general uncertainty propagation formula is as follows. The standard uncertainty of \\(Y = f(X_1, ..., X_n)\\) is:\n\\[u(Y) = \\sqrt{\\sum_{i=1}^n f'(\\mu_i)^2u(X_i)^2}\\]\nwhere \\(f'(\\mu_i)\\) is the partial derivative of \\(Y\\) with respect to \\(X_i\\) evaluated at its mean \\(\\mu_i\\).\n\n\n\n\n\n\n Exercise 5\n\n\n\nWe wish to calculate the area \\(A\\) of a rectangle, with height \\(h\\) and width \\(w\\). (\\(A = h \\times w\\).) Height and width are measured with uncertainty \\(u(h)\\) and \\(u(w)\\), respectively. Evaluate the uncertainty on the area \\(A\\).\n\n\nSolution\n\n\\[u(A) = f ( h,w) = u(h \\times w)\\]\n\\[\\frac{df}{dh} = w \\ \\ \\text{and} \\ \\ \\frac{df}{dw} = h\\]\n\\[\\therefore u(A) = \\sqrt{w^2 u(h)^2 + h^2 u(w)^2}\\]\n\n\n\n\n\n\n\n\n\n Exercise 6\n\n\n\nThe Shannon index (or Shannon-Wiener diversity index) is widely used in Ecology to quantify the diversity of a biological community by considering both species richness and evenness. It is calculated as:\n\\[\nH = -\\sum_{i=1}^S p_i \\log (p_i)\n\\]\nwhere \\(p_i\\) is the proportion of species \\(i\\) in the community computed as the ratio between the num. of individuals of a given species and total number of individual across all species.\n\nSuppose that the proportion of each species is estimated with some uncertainty \\(u(p_i)\\). Provide the general form for the uncertainty propagation of these proportions on the calculation of \\(H\\).\nImagine you go to your garden an find out there are \\(S=3\\) different species of arthropods living there. Then you go out one day and sample \\(N=100\\) individuals and end up collecting \\(n_1 = 50 \\text{ ants}\\), \\(n_2 = 30 \\text{ beetles}\\) and \\(n_3 = 20 \\text{ spiders}\\). Assuming that number of individuals of a given species follows \\(n_i \\sim \\text{Binomial}(N,\\theta_i)\\), and let \\(\\hat{\\theta_i} = \\frac{n_i}{N} = p_i\\) be the estimator of \\(\\theta_i\\) show that \\(u(p_i)^2 = p_i(1-p_i)/N\\) and then compute the uncertainty propagation for the Shannon Index.\n\n\n\nSolution\n\n\\[\n\\begin{aligned}\nu(H) = \\sqrt{\\sum_i^S \\left(\\dfrac{\\partial H}{\\partial p_i} \\right)^2u(p_i)^2}\n\\end{aligned}\n\\]\nwhere\n\\[\\dfrac{\\partial H}{\\partial p_i} = - (\\log(p_i) +1)\\]\n\\[\\therefore u(H) = \\sqrt{\\sum_i^S \\left(-\\log (p_i)-1 \\right)^2u(p_i)^2}\\]\nAssuming \\(n_i \\sim \\text{Binomial}(100,p_i)\\) for \\(i = 1,2,3\\) where \\(p_1 = 50/100; p_2 = 0.3; p_3 = 20/100\\). The partial derivatives are given by\n\\[\n\\begin{aligned}\\frac{\\partial H}{\\partial p_1} &= -(\\log 0.5 + 1) \\approx -0.307 \\\\\\frac{\\partial H}{\\partial p_2} &= -(\\log 0.3 + 1) \\approx 0.204 \\\\\\frac{\\partial H}{\\partial p_3} &= -(\\log 0.2 + 1) \\approx 0.609\\end{aligned}\n\\]\nFirst, the variance of \\(p_i\\) (i.e., \\(u(p_i)^2\\)) is given by:\n\\[\n\\begin{aligned}\n\\text{Var}(p_i) &= \\text{Var}\\left(\\frac{n_i}{N}\\right) \\\\\n&= \\frac{1}{N^2}\\text{Var}(n_i)\\\\\n&= \\frac{N p_i(1 - p_i)}{N^2} = \\dfrac{p_i(1-p_i)}{N}\n\\end{aligned}\n\\]\nThus,\n\\[\n\\begin{aligned}\nu(p_1)^2 &= \\frac{0.5 \\times 0.5}{100} = 0.0025 \\\\\nu(p_2)^2 &= \\frac{0.3 \\times 0.7}{100} = 0.0021 \\\\\nu(p_3)^3 &= \\frac{0.2 \\times 0.8}{100} = 0.0016\n\\end{aligned}\n\\]\nThen,\n\\[\nu(H)  = \\sqrt{0.0025 \\times (-0.307)^2 + 0.0021 \\times (0.204)^2 + 0.0016 \\times (0.609)^2} \\approx 0.03\n\\]"
+  },
+  {
+    "objectID": "notes/notes_2.html#ecological-and-environmental-data-sources",
+    "href": "notes/notes_2.html#ecological-and-environmental-data-sources",
+    "title": "Understanding our Data",
+    "section": "\n3.1 Ecological and Environmental Data sources",
+    "text": "3.1 Ecological and Environmental Data sources\nOver the last decade, the information available for surveying and monitoring ecological and environmental resources has changed radically. The rise of new technologies, novel collection methods, and modern data-submission platforms have facilitated the access to large volumes of environmental and ecological data.\nFor example, Figure 1 show the increasing trend in the number of NBN trust biodiversity records that have become available over the past 20 years.\n\n\n\n\n\nFigure 1: Number of biodiversity records publicly available from the NBN Trust’\n\n\nToday’s ecological and environmental data landscape is overwhelmingly vast - far too extensive to cover comprehensively in one session! Instead, we’ll focus on key data sources and digital technologies that are currently shaping policy decisions, enabling scientific breakthroughs, and driving innovation in research.\n\n\nEnvironmental monitoring over the year (UKCEH)"
+  },
+  {
+    "objectID": "notes/notes_2.html#institutional-monitoring-programmes",
+    "href": "notes/notes_2.html#institutional-monitoring-programmes",
+    "title": "Understanding our Data",
+    "section": "\n3.2 Institutional Monitoring Programmes",
+    "text": "3.2 Institutional Monitoring Programmes\nInstitutional Monitoring programmes have long been a primary source of information for long-term environmental assessment, producing structured datasets essential for detecting ecological change and informing evidence-based policy.\nThese initiatives rely field surveys conducted on established monitoring networks to track trends in species populations, habitat quality, and ecosystem processes - a topic we will explore in detail in the following session. Their strength lies in rigorous implementation of standardized sampling protocols, which reduces the observational errors associated with data collection methods. However, these are typically constrained by other factors. For example, large-scale programmes are inherently resource-intensive to maintain and often limited in taxonomic scope (typically focusing on key species), spatial/geographic coverage, and temporal resolution. Some popular monitoring schemes are shown below:\n\n\nMonitoring Scheme\nDescription\n\n\n\nUnited Kingdom Butterfly Monitoring Scheme (UKBMS)\nProtocolized sampling scheme run by butterfly conservation that has monitored changes in the abundance of butterflies throughout the United Kingdom since 1976.\n\n\nUK Environmental Change Network (ECN)\nUK’s long-term ecosystem monitoring and research programme that has produced a large collection of publicly available data sets including meteorological, biogeochemistry and biological data for different taxonomic groups (Rennie et al. 2020).\n\n\nNational Hydrological Monitoring Programme (NHMP)\nThe NHMP, particulalry the National River Flow Archive conveys a national scale management of hydrological data within the UK hosted by the UKCEH since 1982 collating hydrometric data from gauging station networks operated by multiple agencies.\n\n\nNatural Capital and Ecosystem Assessment (NCEA)\nLong-term environmental monitoring of natural capital including data from freshwater Surveillance Networks, ecosystem condition & soil health, forest inventory, estuary and coast surveillance, etc.\n\n\nBreeding Bird Survey (BBS)\nMain scheme for monitoring the population changes of the UK’s common breeding birds. It covers all habitat types and monitors 110 common and widespread breeding birds using a randomised site selection."
+  },
+  {
+    "objectID": "notes/notes_2.html#citizen-science-programmes-platforms",
+    "href": "notes/notes_2.html#citizen-science-programmes-platforms",
+    "title": "Understanding our Data",
+    "section": "\n3.3 Citizen Science Programmes & Platforms\n",
+    "text": "3.3 Citizen Science Programmes & Platforms\n\nCitizen science (CS) monitoring involve public participation to collect large volumes of ecological & environmental data at a low cost across broad spatiotemporal scales.\nData submission platforms like iNaturalist and eBird have become an important groundwork for citizen scientist to submit records and generate vast, real-time datasets, enabling researchers to track species distributions, phenology, and ecosystem responses to environmental change in ways that were previously logistically and financially unfeasible.\nDespite this, the analysis of such data remains challenging as there is little o no design involved in the sampling protocols of most CS data recording schemes. A major issue with the lack of a standardized sampling protocol is that sampling efforts tend to be uneven over time and space and biased towards human activity centers, locations that are easy to access, or sites where species are more likely to be found such as protected area. If unaccounted for, such sources of bias can mislead Figure 2 (left) shows the sampling effort based on CS records submitted through the Pl@anet Net App in the French mediterranean region. If we compare the spatial effort against the elevation of the region we can clearly see that a sampling bias towards lower elevation values. This would imply that small populations at lower elevation could be over-sampled and if we had worngly assumed sampling was evenly distributed, then species distributions at higher elevation would be under-estimated.\n\n\n\n\n\nFigure 2: Elevation versus sampling effort (obtained through the Pl@net Net App) in the French mediterranean region (Figure taken from Botella et al. (2020))\n\n\nHarnessing the power of CS data is not an easy task.\n\n\n\n\n\n\nAdvantages 😄👍\nDisadvantages 😔👎\n\n\n\nExtensive taxonomic, spatial and temporal coverage.\nUnder-reporting of rare and inconspicuous species.\n\n\nEye-catching species that are easily identifiable by participants.\nVarying recording skills and uneven sampling effort."
+  },
+  {
+    "objectID": "notes/notes_2.html#biological-collections",
+    "href": "notes/notes_2.html#biological-collections",
+    "title": "Understanding our Data",
+    "section": "\n3.4 Biological Collections",
+    "text": "3.4 Biological Collections\nBiological collections constitute probably the oldest form of historical data reservoirs. For over 300 years, naturalists have been collecting and preserving biological specimens, initially for personal curiosity and public display. Today, their value has expanded far beyond their original purpose; they are now recognized as critical sources of information for addressing modern global challenges like biodiversity loss and climate change. Now housed mostly in museums and herbaria throughout the world, these biological collections, and their associated systematic research, provided the basis for much biological research.\nFor instance, the Natural History Museum in London safeguards a collection of over 80 million specimens, spanning 4.5 billion years of Earth’s history to the present. This unparalleled archive, along with many others, is increasingly accessible through digital data portals, enabling researchers worldwide to analyse historical trends and understand the distribution of biodiversity and geodiversity through time.\nDespite their immense value, biological collections data are subject to significant limitations and biases that need bo considered.\n\nMost historic collection were obtained in an opportunistic manner without following any particular sampling protocol (largely dependent on the particular interests of the collector).\nOften there is no information about the collection methods or effort employed.\nLimited in the geographic coverage and typically biased near centres of human activity and along the roads or during specific seasons.\nThe information associated with each collection or specimen (e.g., species, sex, collection date, location, collector’s name, morphological measurements, habitat description) may vary widely which limits the environmental context and ecological questions that can be addressed.\nStrongly biased towards specific taxonomic groups, especially birds and mammals\n\n\n\n\n\n\n\n Exercise 7\n\n\n\nRead the paper by Pyke and Ehrlich (2010) and discuss three scenarios where biological collections have been used to address different environmental issues and ecological questions.\n Pyke and Ehrlich 2009"
+  },
+  {
+    "objectID": "notes/notes_2.html#data-repositories-portals",
+    "href": "notes/notes_2.html#data-repositories-portals",
+    "title": "Understanding our Data",
+    "section": "\n3.5 Data Repositories & Portals\n",
+    "text": "3.5 Data Repositories & Portals\n\nData repositories have become a major sources of information for modern environmental and ecological research, serving as centralized, curated platforms that aggregate, preserve, and disseminate vast quantities of data from diverse sources. \nThese digital archives - ranging from global biodiversity databases like the Global Biodiversity Information Facility (GBIF) to thematic collections such as the National Biodiversity Network (NBN) Atlas - standardize and harmonize heterogeneous datasets, enabling researchers to access, share, and reuse data across disciplines and geographic boundaries. Often, these repositories are integrated into comprehensive data portals that host interactive visualisaion tools, web-based applications, programming interfaces (APIs) and data catalogues, transforming static archives into dynamic platforms for exploration and discovery (see e.g. UK-SCAPE plant diversity trends and Grasshoppers and Allied Species Recording Scheme).\n\n\n\n\n\n\n Exercise 8\n\n\n\nSelect two or three of the following data repositories. For each, examine some of the available datasets and list the types of uncertainty or error that might affect the data quality and reliability.\n\n\nData Repository\nDescription\n\n\n\nMove Bank\nMovebank is a global, open-data repository and research platform that specializes in managing, sharing, and analyzing animal tracking and bio-logging data.\n\n\nGlobal Biodiversity Information Facility (GBIF)\nGBIF is an international open-data infrastructure that provides free and universal access to over two billion species occurrence records from a vast network of museums, research institutions, and citizen science platforms worldwide.\n\n\nNational Biodiversity Network (NBN)\nThe NBN Atlas is the UK’s largest repository of publicly available biodiversity data, aggregating and providing open access to millions of species records from a wide range of recording societies, conservation NGOs, and research institutions across the country.\n\n\nBiological Records Centre (BRC)\nThe Biological Records Centre (BRC) is a national UK facility that supports and coordinates a network of volunteer recording schemes and societies to collect, manage, and disseminate high-quality data on terrestrial and freshwater species distributions.\n\n\nNational River Flow Archive (NRFA)\nThe National River Flow Archive (NRFA) is ta hydrometric data repository hosted by the CEH, curating and providing open access to river flow, groundwater level, and rainfall time-series from a national network of monitoring stations.\n\n\nUK Lakes Portal\nThe UK Lakes Portal is a comprehensive data hub that provides access to physical, chemical, and biological monitoring data for lakes and reservoirs across the United Kingdom\n\n\nWorld Ocean Database (WOD)\nThe World Ocean Database (WOD) is the world’s largest publicly available, quality-controlled repository of uniformly formatted oceanographic profile and plankton data, spanning centuries of global marine observations.\n\n\nUK Water Resources Portal\nThe UK Water Resources Portal is an interactive online platform that provides access to current and historical data on water availability, including river flows, groundwater levels, rainfall, and reservoir stocks.\n\n\nWater quality data archive (WIMS)\nThe Water Quality Archive provides data on water quality measurements. Samples are taken at sampling points around England and can be from coastal or estuarine waters, rivers, lakes, ponds, canals or groundwaters.\n\n\nEcology & Fish Data Explorer\nThis is an online data portal that provides access to ecological monitoring data for English rivers and lakes, including fish populations, invertebrate surveys, and plant communities.\n\n\nKnowledge Network for Biocomplexity (KNB)\nThe Knowledge Network for Biocomplexity (KNB) is an open-source data repository that enables the discovery, management, sharing, and synthesis of complex, heterogeneous ecological and environmental datasets."
+  },
+  {
+    "objectID": "notes/notes_2.html#processed-information-products",
+    "href": "notes/notes_2.html#processed-information-products",
+    "title": "Understanding our Data",
+    "section": "\n3.6 Processed information products\n",
+    "text": "3.6 Processed information products\n\nProcessed information products transform raw measurements into refined, analysis-ready resources tailored for decision-makers and researchers. Unlike primary data repositories, these products undergo rigorous calibration, integration, and modelling to generate authoritative maps, indicators, and synthesized datasets.\n\n\n\n\n\n\n Example: WorldClim\n\n\n\nWorldClim is a widely used set of global, high-resolution climate surfaces (raster maps) that provide interpolated estimates of historical and future projections (using global climate models CMIP ) of temperature, precipitation, and other bioclimatic variables. The historical data layers are generated by applying advanced spatial interpolation algorithms to an extensive global network of weather station records, creating continuous, gap-free rasters. These surfaces serve as the foundational data for species distribution modeling, ecological forecasting, and a vast range of other environmental research applications.\n\n\n\n\n\n\nNowadays, it is common that contemporary data products are synthesized based on a combination of multiple data sources, including field surveys, citizen science and advanced remote sensing data from satellite and aerial platforms.\n\n3.6.1 Remote sensing\nRemote sensing refer the process of obtaining information of an object from a distance, typically from aircraft or satellites. Recent advances in bioinformatics, GIS technologies and remote sensing techniques have changed radically how we monitor the Earth’s environment at multiple spatial and temporal scales. These technologies enables the systematic, non-invasive, and often near-real-time collection of data across vast and inaccessible regions. The resulting data are then calibrated, classified, and modeled using specialized algorithms to generate diverse information products, such as land cover classifications, vegetation indices, and digital elevation models.\nWhile remote sensing-based products enable the quantification of ecological and environmental parameters across extensive geographic scales, they are often subject to substantial uncertainties. These include systematic errors from sensor calibration, spatial and temporal resolution constraints, and generally lower accuracy compared to direct in-situ field measurements. Consequently, remote sensing data are often validated using data collected in-situ to assess and ensure their accuracy. \n\n\n\n\n\n\n Example: Digital Elevation Models\n\n\n\nDigital Elevation Models (DEMs) are digital representations of the earth’s topographic surface. DEMs providing a continuous and quantitative model of terrain morphology and are typically stored as a raster grid where each cell (pixel) contains an elevation value. The accuracy of DEMs is determined primarily by the resolution of the model (the size of the area represented by each individual grid cell). For example, the\nShuttle RaDAR Topography Mission (SRTM), aquired by NASA using a Synthetic Aperture Radar (SAR) instrument, provide elevation data for any country and is available from the geodata R package.\n\n\n\n\n\n\n\n\n\n\n\n\n Example: Land Cover Maps\n\n\n\nLand cover maps describe the physical material on the Earth’s surface. They are created by applying automated algorithms to satellite or aerial imagery to identify features such as grassland, woodland, rivers & lakes or man-made structures such as roads and buildings.\nFor example, UK CEH has produced a series of Land Cover Maps which are a series of spatially continuous, raster-based classification products, derived from the automated analysis of Earth observation data (primarily from the Sentinel-2 satellite constellation), which provide consistent, national-scale representations of surface vegetation and land use classes.\n\n\n\n\nOther widely used global products include MODIS Land Cover, which offers a long-term, coarse-resolution record of global change since 2001, and ESA WorldCover, which provides a high-resolution (10m) global snapshot designed for detailed thematic mapping (the later is available on the geodata R package).\n\n\n\n\n\n\n\n\n Example: NDVI Vegetation Index\n\n\n\nVegetation indeces derived from remote sensing utilize spectral data from satellite or aerial sensors to quantify and monitor plant health, structure, and function across landscapes. These indeces are founded on the principle that vegetation absorbs red light (around 660 nm) for photosynthesis while highly reflecting near-infrared (NIR) light (around 800 nm) due to its internal leaf structure.\nThis contrast is captured by the Normalized Difference Vegetation Index (NDVI), which is calculated as\n\\[\nNDVI = \\dfrac{(NIR- Red)}{(NIR - Red)}\n\\]\nThe resulting value, which ranges from -1 to +1, provides a standardized measure of greenness; values close to +1 indicate dense, healthy vegetation, values near 0 represent bare soil, and negative values typically correspond to water. By translating raw spectral data into this simple yet robust index, remote sensing enables the tracking of phenological cycles, the assessment of drought stress, and the estimation of primary productivity on a global scale."
+  },
+  {
+    "objectID": "notes/notes_2.html#research-generated-data",
+    "href": "notes/notes_2.html#research-generated-data",
+    "title": "Understanding our Data",
+    "section": "\n3.7 Research-Generated Data\n",
+    "text": "3.7 Research-Generated Data\n\nResearch-generated data repositories, such as Dryad and Zenodo, are cornerstone platforms in the modern scientific workflow, explicitly designed to uphold the principles of transparency, reproducibility, and open data access. Unlike passive archives, these repositories require researchers to actively deposit the precise datasets, code, and scripts used to generate the results published in peer-reviewed journals. By assigning persistent digital object identifiers (DOIs) to these materials, they create a permanent, citable record that allows other scientists to independently verify, replicate, and build upon published findings. This process is fundamental to detecting errors, reducing redundancy, and accelerating scientific discovery, effectively transforming a single study’s output into a reusable resource for the entire research community and safeguarding the integrity of the scientific record.\n\n\n\n\n\n\n Exercise 9\n\n\n\n\n\nChoose a Repository: Select either Dryad or Zenodo.\n\nFind a Dataset: Browse or search for a dataset related to a topic in environmental science or ecology that interests you (e.g., “pollination,” “microplastics,” “forest fragmentation,” “climate change adaptation”).\n\nSelect and Record: Choose one specific dataset and note down:\n\nThe full citation for the dataset (including its DOI).\nThe title of the associated publication (if provided).\n\n\n\nHow did you find this dataset? Was the search intuitive? Is the dataset openly available? Could you download the files without restrictions?"
+  },
+  {
+    "objectID": "notes/notes_2.html#censored-data",
+    "href": "notes/notes_2.html#censored-data",
+    "title": "Understanding our Data",
+    "section": "\n4.1 Censored Data",
+    "text": "4.1 Censored Data\nCensored data are data where we are restricted in our knowledge about them in some way or other. Often this will be because we only know that the data value lies below a certain minimum value (or above a certain maximum). For example, if we had scales which only weighed up to 10kg, we would not know the exact weight of any object greater than 10kg.\nFor environmental data, it is more common to have data which are censored at some minimum value. This is because many pieces of measuring equipment will have an analytical limit of detection. A limit of detection is the lowest concentration that can be distinguished with reasonable confidence from a blank (a hypothetical sample with a value of zero). The limit of detection is often denoted \\(c_L\\).\nCensoring has a huge impact on how we interpret our data. The two plots below show the same data, but the right panel is ‘censored’ with two different limits of detection (some with an LOD of 0.5, others with an LOD of 1.5).\n\n\n\n\n\n\n\n\n\n\nCensored observations are not completely without information. We still know they are equal to or more extreme than the limit. For an LOD, we might therefore report the data point as either “not detected” or ‘\\(&lt; c_L\\)’. Removing them from our study would not be sensible, since this would lead to us overestimating the mean and probably also underestimating the variance. We therefore need to find a way to incorporate these censored data points into our analysis.\nWe can’t simply use the minimum value of the LOD. This would ignore the fact that the values are often below this. In the plot below, the LOD reduces after every 100 observations (e.g. because of better quality equipment), and this leads to an artificial trend.\n\n\n\n\n\n\n4.1.1 Simple Substitution\nThe simplest approach for dealing with LODs is via simple substitution. This involves taking the LOD value and multiplying it by a fixed constant, e.g. by replacing all \\(&lt;c_L\\) values with \\(0.5c_L\\).\nThis approach is fairly popular because it is simple and easy to implement. However, it only works if there is a small proportion of censored data (maximum 10–15%). If there is a higher proportion, it tends to overestimate the mean.\n\n4.1.2 Distribution-based approaches\nIt is generally preferable to use a more statistics-based approach which accounts for the data distribution. The basic idea is that we estimate the statistical distribution of the data in a way that takes into account the censoring. We can then use this estimated distribution to simulate values for our censored points.\nCommonly used distribution-based approaches are Maximum Likelihood, Kaplan-Meier, and Regression on Order Statistics.\n\n4.1.2.1 Maximum Likelihood\nThe maximum likelihood approach is a parametric approach. It requires us to specify a statistical distribution which is a close fit to the data. We then identify the parameters of this distribution that maximize the likelihood of obtaining a dataset like ours.\nThis ML approach has to take into account the likelihood of obtaining:\n\nthe observed values in our dataset\nthe correct proportion of data being censored, i.e. the proportion falling below our detection limit(s)\n\n\n\n\n\nAdvantages\n\nAble to handle multiple limits of detection.\nGood for estimating summary statistics with a suitably large sample size.\nMLE explicitly accounts for the underlying distribution of the data (if known).\n\nDisadvantages\n\nMore applicable to larger datasets (n &gt; 50).\nReliant on specifying the correct distribution, otherwise estimates can be incorrect.\nTransforming data to fit a distribution can potentially cause biased estimators.\n\n4.1.2.2 Kaplan-Meier Approach\nThe Kaplan-Meier approach is a nonparametric approach. I.e., it doesn’t require a distributional assumption. It’s often used in survival analysis for estimating summary statistics for right-censored data. However, it can be applied to left-censored data by ‘flipping’ the data and subtracting from a fixed constant.\nIn survival analysis, Kaplan-Meier estimates the probability that an observation will survive past a certain time. In our ‘flipped’ context, it gives the probability that an observation will fall below the limit of detection.\n\n\n\n\n\n\n Example: Cadmium in fish\n\n\n\nWe can illustrate this using an example of cadmium levels in fish. Cadmium is a heavy metal identified as having potential health risks. We observe cadmium levels in fish livers in two different regions of the Rocky Mountains.\nDue to variation in data collection, there are four different LODs (0.2, 0.3, 0.4 and 0.6 \\(\\mu\\)g per litre).\n\n\n\n\nPlotting the data shows the potential impact of censoring. The left panel shows all the data (plotting censored values as equal to the LOD), while the right panel excludes those which have been censored.\n\n\n\n\nWe can use the NADA (Nondetects and Data Analysis) package in R. The cenfit function applies the Kaplan-Meier method. This package automatically ‘flips’ the data, since it is designed for environmental data.\n\nCodeblinky &lt;- cenfit(obs, censored, groups)\n\n\n           n  n.cen  median    mean      sd\ngroups=1   9      3     0.4   0.589   0.352\ngroups=2  10      1     3.0  10.540  25.069\nThere are clear differences between the locations in terms of both median and standard deviation.\nThe cendiff function tests for significant differences between the groups. This uses a chi-squared hypothesis test:\n\nH0: Median cadmium levels are the same in Region 1 and Region 2\nH1: Median cadmium levels are different in Region 1 and Region 2\n\n\nCodecendiff(obs, censored, groups)\n\n\n                N  Observed Expected (O-E)^2/E (O-E)^2/V\ngroups=1        9      2.84     6.13      1.76      7.02\ngroups=2        10     6.84     3.55      3.05      7.02\n\nChisq=7 on 1 degrees of freedom, p= 0.00808 \nWe can also plot the empirical cumulative distribution function (ECDF), taking into account the LODs. Note that this works in the opposite direction from regular survival plots due to the ‘flipping’ of the data.\n\n\n\n\n\n\nAdvantages\n\nNonparametric, so no need to assume underlying distribution.\nCan easily account for multiple LODs.\nWorks for large numbers of censored datapoints (\\(&gt;\\) 50%).\n\nDisadvantages\n\nQuite simplistic — identical to simple substitution if we only have one LOD.\nLess reliable for values near and below the LOD.\nThe mean tends to be overestimated — need to rely on median.\n\n4.1.2.3 Regression on Order Statistics (ROS)\nRegression on Order Statistics is a semi-parametric approach. I.e., it combines elements of parametric and nonparametric models. It follows a two-step approach:\n\nPlot the uncensored values on a probability plot (QQ plot) and use linear regression to approximate the parameters of the underlying data distribution.\nUse this fitted distribution to impute estimates for the censored values.\n\nThere is an assumption that the censored measures are normally (or lognormally) distributed.\n\n\n\n\n\n\n Example: Bathing water quality (continued)\n\n\n\nThe plot shows the uncensored points and their probability plot regression model. The NADA package in R uses lognormal as default. The plot suggests this is sensible. We then use this fitted model to estimate the values of the censored observations based on their normal quantiles.\n\n\n\n\nWe can compare our ROS approach to simple substitution for the bathing water example used earlier. The left panel (ROS) shows no trend present, the right panel (simple) has an artificial trend.\n\n\n\n\n\n\n\n\n\n\n\n\nAdvantages\n\nCan be applied to a wide variety of environmental datasets.\nWorks with multiple LODs, but still not too simplistic with a single LOD.\nCan be used with up to 80% censored datapoints.\n\nDisadvantages\n\nSemiparametric approach — requires a distributional model to be assumed.\nSpecifically requires normality (or lognormality) for estimation of parameters.\nTwo-stage model introduces extra source of variability."
+  },
+  {
+    "objectID": "notes/notes_2.html#outliers",
+    "href": "notes/notes_2.html#outliers",
+    "title": "Understanding our Data",
+    "section": "\n4.2 Outliers",
+    "text": "4.2 Outliers\nAn outlier is an extreme or unusual observation in our dataset. These will often (but not always) have a large influence on the outcomes of our analysis. We have to find ways to identify and deal with outliers.\nThere are two main categories of outlier: (1) genuine but extreme values, and (2) data errors. If we have a genuinely extreme value, we should try to accommodate these in our analysis. Not doing so would mean that we are ignoring a real feature of our data. There are robust modelling techniques that allow us to incorporate outliers. On the other hand, if we have an outlier due to data error, we can either try to correct it (where possible) or remove it, since this does not reflect a real observation.\n\n4.2.1 Identifying outliers\nAn outlier is an observation that does not follow the general trend of the rest of the data. It is often helpful to plot your data, since outliers are sometimes very obvious in boxplots or scatterplots or even maps! E.g., Figure 3 shows an Elk’s animal track with two unusual observations. To assess whether these are errors from the tracking device or genuine unusual movement patterns (e.g., escaping a predator), we could compute the velocity between points. This is done using the time stamp and the step length (the straight-line distance traveled). We can then assess how likely it is for the animal to have moved at that calculated speed.\n\n\n\n\n\nFigure 3: Elk tracking data in southwestern Alberta. The Blue line indicates the tracking for one individual with blue and red crosses showing the start and end point of the track respectively.\n\n\nGraphical techniques are a commonly used for detecting outliers, but sometimes identifying outliers visually is not straightforward and can become difficult with larger data sets. This has led to the development of a variety of outlier detection techniques. There are also several statistical approaches that can be applied to identify datapoints that are significantly different from the rest. These include (but are not limited to) tests of discordancy, Chauvenet’s criterion, Grubb’s test and Dixon’s test.\n\n4.2.1.1 Test of discordancy\nThis is a hypothesis test, where the null hypothesis is that each datapoint comes from a given data distribution F. We look at the maximum (or minimum) value of our sample, \\(x_{(n)}\\) and test whether it is a reasonable sample from F. If the maximum (or minimum) value could reasonably come from this distribution, we have no outliers. If the maximum (or minimum) value is an outlier, we check the second highest (or lowest) and so on.\n\n4.2.1.2 Chauvenet’s criterion\nThis test assumes that our data are from a Normal distribution. For our dataset of size \\(n\\), we calculate the mean (\\(\\mu\\)) and standard deviation (\\(\\sigma\\)). We then use the Normal probability density function to estimate the probability (\\(p\\)) of obtaining a value as extreme our more extreme than or suspected outlier. If \\(p \\times n &lt; 0.5\\), then our value is considered to be an outlier.\n\n4.2.1.3 Grubbs’ test\nAgain, this test assumes that our data are from an N(\\(\\mu, \\sigma^2\\)) distribution. The Grubbs’ test statistic is the largest absolute deviation from this mean in terms of units of the standard deviation: \\[G = \\frac{\\max\\limits_{i=1,\\ldots,n} |y_i - \\mu|}{\\sigma}.\\] This is compared to the \\(t(N-2)\\) distribution to obtain a p-value. If we identify an outlier, we repeat the process for the next most extreme value.\n\n4.2.1.4 Dixon’s test\nRather than looking at the dataset as a whole, Dixon’s test compares the outlier to the next most extreme value. Let the gap be the distance between our suspected outlier and the closest value, and the range be the full range of the dataset. Then we compare \\(Q = \\frac{\\mbox{gap}}{\\mbox{range}}\\) to a specifically designed reference table.\nThis test is only suitable if there is a single distinct suspected outlier. If there were two similar outliers, then the gap would not be large.\n\n\n\n\n\n\n Example: Effectiveness of mosquito sprays\n\n\n\nThe example dataset below shows the effectiveness of several mosquito sprays.\n\n\n\n\nThe outliers package in R contains functions for Grubbs’ and Dixon’s tests. Here we apply the Grubbs’ test to the insect spray data.\n\nCodegrubbs.test(InsectSprays$count)\n\n\nGrubbs test for one outlier\n\ndata:  InsectSprays$count\nG = 2.29062, U = 0.92506, p-value = 0.719\nalternative hypothesis: highest value 26 is an outlier\n\n\n\n\n\n\n\n\n Exercise 10\n\n\n\nWhat conclusion can we draw from the results of the above test?\n\nThere is no statistically significant evidence that the point with the highest value is an outlier\nThere is statistically significant evidence that the point with the highest value is an outlier\n\n\nSolution\n\nSince the p-value for the Grubbs’ test is greater than 0.05, we can conclude that there is no statistically significant evidence that the point with the highest value is an outlier.\n\n\n\n\n\n\n\n\n\n Example: Effectiveness of mosquito sprays (continued)\n\n\n\nWe can also apply the Grubbs’ test to the data for just one spray type (spray C).\n\nCodegrubbs.test(InsectSprays$count[InsectSprays$spray==\"C\"])\n\n\nG = 2.48917, U = 0.38553, p-value = 0.0153\nalternative hypothesis: highest value 7 is an outlier\n\n\n\n\n\n\n\n\n Exercise 11\n\n\n\nWhat conclusion can we draw from the results of the above test?\n\nThere is no statistically significant evidence that the point with the highest value is an outlier\nThere is statistically significant evidence that the point with the highest value is an outlier\n\n\nSolution\n\nSince the p-value for the Grubbs’ test is less than 0.05, we can conclude that there is statistically significant evidence that the point with the highest value is an outlier.\nThis is unsurprising from the plot, as since the point is drawn as a circle above the upper whisker of the boxplot, we see that R has identified this point as being more than 1.5 times the interquartile range above the upper quartile. Note, however, that this does not necessarily mean that this point is an outlier, so that a test was still required.\n\n\n\n\n4.2.2 Dealing with outliers\nWe generally do not want to discard outliers. Sometimes, we can fit a model with and without them to assess their impact on the results. Additionally, we can use robust alternatives to summary statistics, for example median instead of mean, and median absolute deviation (MAD) instead of standard deviation.\nThe median absolute deviation is defined as: \\[\\mbox{MAD} = \\mbox{median}|y_i - \\tilde{y}|\\] where \\(\\tilde{y}\\) is the median of our dataset. In other words, we find all the distances between our points and the median, and then take the median of those distances."
+  },
+  {
+    "objectID": "notes/notes_2.html#missing-data",
+    "href": "notes/notes_2.html#missing-data",
+    "title": "Understanding our Data",
+    "section": "\n4.3 Missing Data",
+    "text": "4.3 Missing Data\nEnvironmental data are very prone to missing values. There is a whole discipline of statistics related to this, and we will just touch on the topic.\nData can be missing for any number of reasons. Adverse weather (e.g., rainfall, snow, drought or wind) can affect measuring equipment or prevent access to the location. We can have missing data due to the failure of scientific equipment or samples being lost or damaged. Monitoring networks also often change in size over time, with data considered “missing” at a certain site before that site was introduced or after it was removed.\n\n\n\n\n\n\n Exercise 12\n\n\n\nWhat causes of missing data do each of the three examples in the images below illustrate? Are these data missing at random?\n\n\n\n\n\nTop image: MERIS data over Ireland.\n\n\nSolution\n\nCloud cover means that the satellite cannot observe the lakes, oceans or land. These data are not missing at random, since cloud cover is likely to change over the seasons.\n\n\nMiddle images: MODIS data over the Aral Sea, for two timepoints.\n\n\nSolution\n\nThe Aral Sea has decreased in size over the years, due to human impacts. Suppose that we wish to measure chlorophyll levels in a certain location in the lake. The changing size of the lake means that some locations that had data in previous years will have missing data (since there is no water present at that location) in more recent years. The data are therefore not missing at random.\n\n\nBottom image: MODIS data over Lake Superior.\n\n\nSolution\n\nIce cover means that the satellite cannot observe the lake water. These data are not missing at random, since ice cover occurs during the coldest times of the year. This may be problematic, if it occurs during peaks or troughs of patterns of the variable that we wish to measure (e.g., chlorophyll may reach its lowest values at the same time that ice cover appears and prevents the satellite from recording measurements).\n\n\n\n\n\nThe technique we use to deal with missing data depends on the type of missingness. If there are a handful of datapoints missing at random, we can essentially ignore this and carry out our analysis as usual. However, if they are missing in some sort of systematic way (e.g., a whole month missing due to bad weather), we may instead look at some form of imputation.\n\n4.3.1 Imputation\nImputation is a process which involves predicting the missing values via some form of statistical method. There are two main forms of imputation:\n\n\nSingle imputation involves generating one value in place of each missing value.\n\nMultiple imputation involves generating several values in place of each missing value.\n\nSingle imputation has the advantage of being simpler, allowing for a straightforward analysis once the missing values have been estimated. Multiple imputation does a better job of accounting for the uncertainty of the imputation process, but it makes the final analysis more complex.\nOur approach for generating the imputed value will vary depending on the context. In the simplest case, we may replace missing values with the overall mean — usually only if we have very limited information. More commonly, we may use neighbouring values, or some form of seasonal mean. These will usually work reasonably well as long as we do not have too many missing data. A more complex approach is to fit a more general statistical model, perhaps taking account of other variables and/or using random components.\nTo handle missing data, models that incorporate it should be chosen over simply ignoring the missing values. If the missing data can be predicted based on the observed data, imputation models can effectively estimate them."
+  },
+  {
+    "objectID": "supplementary/supl_1.html",
+    "href": "supplementary/supl_1.html",
+    "title": "Supplementary Notes",
+    "section": "",
+    "text": "In this section we recap some important statistical properties of our estimators (for further details please refer to the statistical inference course).\nA population parameter \\(\\theta\\) represents a quantitative measurement of population values. Since \\(\\theta\\) is typically unknown, we need to estimate it by drawing samples from the population of interest. Our estimator, \\(\\hat{\\theta}\\),is then computed based on the samples we have obtained. The question is then, how well does \\(\\hat{\\theta}\\) do its job in estimating \\(\\theta\\)? To evaluate this, we examine key statistical properties of estimators.\n\n\n\n\n\n\n\nFigure 1: Sampling from Normal Distribution. The black curve represent the true population distribution with mean represented by the black solid line. The colored point are two different samples with their corresponding sample mean shown in colured dashed lines.\n\n\n\n\nConsistency\nAs we see in Figure 1, there is some discrepancy between the sample means and the true population mean. Thus, it is expected that, as the sample size increases, our estimator \\(\\hat{\\theta}\\) will get closer to the true value \\(\\theta\\). Thus an estimator \\(\\hat{\\theta}\\) is said to be consistent if it converges to the true parameter \\(\\theta\\) as the sample size \\(n\\) increases, i.e., \\(\\hat{\\theta} \\rightarrow \\theta\\) as \\(n\\to\\infty\\). E.g., let \\(\\hat{\\theta} = \\bar{x} + \\frac{1}{n}\\) be a biased but consistent estimator of \\(\\theta = 5\\) (\\(\\bar{x}\\) represents the sample mean). Figure 2 shows how as sample size increases, the estimator converges to the true parameter.\n\n\n\n\n\n\n\nFigure 2: Demonstration of estimator consistency. The dashed red line indicates the true parameter value. The blue line tracks the mean estimate across increasing sample sizes, while the shaded region represents the 95% confidence interval.\n\n\n\n\nExpected value\nThe expected value of an estimator is a weighted average of all possible estimates. Here, the weights are given by the probability of selecting a particular sample \\(s\\), i.e., \\(p(s)\\). Mathematically, this can be written as:\n\\[\n\\mathbb{E}(\\hat{\\theta})= \\sum_{x\\in\\Omega} p(s)\\hat{\\theta(s)}\n\\]\nWhere \\(\\Omega\\) is the sample space, i.e. the number of possible samples. Furthermore, if all possible samples are equally likely then \\(p(s)=\\frac{1}{\\Omega}\\) and the expected values becomes:\n\\[\n\\mathbb{E}(\\hat{\\theta}) = \\dfrac{1}{\\Omega} \\sum_{s\\in\\Omega} \\hat{\\theta}(s).\n\\]\nNote that the expected value is a function of both, the sampling design (due to \\(p(s)\\)) and the population being sampled (through the sample estimate \\(\\hat{\\theta}(s)\\)).\n\n\n\n\n\n\n Task 1\n\n\n\nSuppose we have a tiny population of three trees with the following diameters (cm) :\n\n\nTree\ndiameter (cm)\n\n\n\n1\n9.1\n\n\n2\n10.2\n\n\n3\n17.2\n\n\n\nNow, we sample only 2 trees and measure the diameter of each tree in the sample. It is clear from here that there are only \\(\\Omega=3\\) possible samples we could’ve taken:\n\n\\(s_1 = \\{\\text{tree 1},\\text{tree 2}\\}\\)\n\\(s_2 = \\{\\text{tree 1},\\text{tree 3}\\}\\)\n\\(s_3 = \\{\\text{tree 2},\\text{tree 3}\\}\\)\n\nImagine that samples are selected with an equal probability so that \\(p(s_1) = p(s_2) = p(s_3) = 1/3\\).\nThe true population mean diameter is \\(\\mu_y = ( 9.1+10.2+ 17.2)/3 =12.17\\).\nSuppose we chose the sample average \\(\\bar{y}\\) as our estimate of \\(\\mu_y\\). Then, the expected value of \\(\\bar{y}\\) is given by\n\\[\n\\begin{aligned}\\mathbb{E}(\\bar{y}) &= p(s_1) \\left(\\dfrac{9.1+10.2}{2}\\right) +  p(s_2) \\left(\\dfrac{9.1+17.2}{2}\\right) +  p(s_3) \\left(\\dfrac{10.2+17.2}{2}\\right)\\\\&= \\dfrac{1}{3}\\left(\\dfrac{19.3}{2} + \\dfrac{26.3}{2} + \\dfrac{27.4}{2} \\right)\\\\&= 12.17 = \\mu_y\\end{aligned}\n\\]\nWhat would have happened if our sampling design had unequal sampling probabilities given by \\(p(s_1) = 1/2\\), \\(p(s_2) = 1/3\\) and \\(p(s_3) = 1/6\\)? Calculate \\(\\mathbb{E}(\\hat{y})\\) under this sampling scenario.\n\n\nSee Solution\n\n\\[\n\\begin{aligned}\n\\mathbb{E}(\\bar{y}) &= p(s_1) \\left(\\dfrac{9.1+10.2}{2}\\right) +  p(s_2) \\left(\\dfrac{9.1+17.2}{2}\\right) +  p(s_3) \\left(\\dfrac{10.2+17.2}{2}\\right)\\\\\n&= \\dfrac{1}{2}\\left(\\dfrac{19.3}{2} \\right) + \\frac{1}{3} \\left(\\dfrac{26.3}{2}\\right) + \\dfrac{1}{6}\\left(\\dfrac{27.4}{2} \\right)\\\\\n&= \\dfrac{19.3}{4}  + \\dfrac{26.3}{6} + \\dfrac{27.4}{12} \\\\\n&= 11.5 \\neq \\mu_y\n\\end{aligned}\n\\]\n\n\n\nIn practice, \\(\\mathbb{E}(\\hat{\\theta})\\) cannot be evaluated because we can not measure all the \\(N\\) elements of our population of interest! (and if we could then \\(\\theta\\) could be evaluated directly on our population rather than obtaining a samples from it). However, understanding this concept is important for two other relevant quantities.\nBias\nThe bias of an estimator is the difference in magnitude between its expected value and the population parameter for which an estimated is desired:\n\\[\n\\textbf{Bias}(\\hat{\\theta}) = \\mathbb{E}(\\hat{\\theta}) - \\theta\n\\]\nWhen \\(\\mathbb{E}(\\hat{\\theta}) = \\theta\\) , \\(\\hat{\\theta}\\) is said to be an unbiased estimator of \\(\\theta\\).\nNote that the bias is not a property of an individual estimate (e.g., \\(\\hat{\\theta}(s)\\)). E.g., we can see in Figure 1 there are some discrepancies between the true population parameter \\(\\theta\\) and the sample estimates \\(\\hat{\\theta}(1)\\) and \\(\\hat{\\theta}(2)\\). Such discrepancies \\(\\hat{\\theta}(s) - \\theta\\) are known as sampling errors. This doesn’t mean that an error has been made during the sampling, it just indicates that the value being estimated will differ from the true value because is being estimated from just a fraction of the elements of the population. Thus, one may wonder how much an estimate \\(\\hat{\\theta}\\) from one sample will differ from that calculated from a different sample. In principle we would like this difference to be small because that will ensure that no matter which sample we take, the estimated value will be similar across samples.\nVariance\nThe variance of an estimator or sampling variance is the average squared distance between individual estimates \\(\\hat{\\theta}(s)\\) and their expected value \\(\\mathbb{E}(\\hat{\\theta})\\), i.e.,\n\\[\n\\text{Var}(\\hat{\\theta}) = \\sum_{s\\in \\Omega} p(s) \\left(\\hat{\\theta}(s)-\\mathbb{E}(\\hat{\\theta})\\right)^2\n\\] Notice how the variance of an estimator does not depend (unlike the bias) on the true parameter \\(\\theta\\)\n\n\n\n\n\n\n Task 2\n\n\n\nUsing the data from the previous task and assuming equal sampling probabilities, calculate \\(\\text{Var}(\\hat{y})\\)\n\n\nSee Solution\n\n\\[\n\\begin{aligned}\n\\text{Var}(\\bar{y}) &= p(s_1) \\left(\\dfrac{19.3}{2} - 12.17\\right)^2 +  p(s_2) \\left(\\dfrac{26.3}{2} - 12.17\\right)^2 +  p(s_3) \\left(\\dfrac{27.4}{2} - 12.17\\right)^2\\\\\n&= \\dfrac{1}{3}\\left(  9.65 \\right) =  3.22\n\\end{aligned}\n\\]\n\n\n\nPrecision\nThe precision of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is and does not relate to the true value. To illustrate this, suppose we draw 20 random samples with equal probability from our population of interest . Figure 3 shows 100 replicates/data sets of this experiment with 4 different estimators:\n\n\\(\\hat{\\theta}_{1}(s) =\\frac{1}{20}\\sum_{i=1}^{20} x_i\\) - the mean of the \\(s\\)th sample which is unbiased and precise\n\\(\\hat{\\theta}_{2}(s) = \\text{arg min } (x_1,\\ldots, x_{20})\\) - the \\(s\\)th sample minimum value which is biased and imprecise.\n\\(\\hat{\\theta}_{3}(s)  = x_1\\) - the first observation of the unordered sample which is unbiased and imprecise.\n\\(\\hat{\\theta}_{4}(s) =2 + \\frac{1}{20}\\sum_{i=1}^{20} x_i\\) - the mean + constant which is biased but precise.\n\n\n\n\n\n\nFigure 3: Illustration of bias and precision of an estimator. The red dashed line shows the true population parameter. the grey point shows the sample of the j-th data set, and the colored points indicate the estimates for each sample.\n\n\nImagine a dartboard where the bullseye represents the true population parameter (\\(\\theta\\)). Each throw corresponds to a sample estimate (\\(\\hat{\\theta}(s)\\)). Precision refers to how tightly clustered the darts are - a precise estimator produces estimates that land close together, regardless of their position relative to the bullseye. Bias, on the other hand, is the systematic offset from the bullseye - even with perfect precision, a biased estimator would consistently miss the center in the same direction."
+  },
+  {
+    "objectID": "slides/slides_2.html#understanding-our-data",
+    "href": "slides/slides_2.html#understanding-our-data",
+    "title": "Understanding our Data",
+    "section": "Understanding our Data",
+    "text": "Understanding our Data\n\nLast week we introduced some of the key motivations behind Environmental Statistics.\nThe course will cover a number of statistical ideas around the general theme of environmental data.\nThis week we will be looking at uncertainty and variability, and how we can measure these and incorporate them into our conclusions.\nWe will then look at a number of important features of environmental data — censoring, outliers and missing data."
+  },
+  {
+    "objectID": "slides/slides_2.html#uncertainty-and-error",
+    "href": "slides/slides_2.html#uncertainty-and-error",
+    "title": "Understanding our Data",
+    "section": "Uncertainty and Error",
+    "text": "Uncertainty and Error\n\nWe often talk about uncertainty and error as though they are interchangeable, but this is not quite correct.\nError is the difference between the measured value and the “true value” of the thing being measured.\nUncertainty is a quantification of the variability of the measurement result.\nPractically speaking, we make use of common statistical distributions to account for uncertainty."
+  },
+  {
+    "objectID": "slides/slides_2.html#recap-continuous-distributions",
+    "href": "slides/slides_2.html#recap-continuous-distributions",
+    "title": "Understanding our Data",
+    "section": "Recap: Continuous Distributions",
+    "text": "Recap: Continuous Distributions\n\nNormal densitylog-Normal densityExponential\n\n\n\n\nA continuous random variable \\(X\\) follows a normal distribution with mean \\(\\mu\\) and standard deviation \\(\\sigma\\) if its probability density function (pdf) is:\n\\[\n        f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2}\n\\]\nWe denote this as:\n\\[\n        X \\sim \\mathcal{N}(\\mu, \\sigma^2), ~\\text{where} ~ -\\infty &lt; X &lt; +\\infty\n\\]\n\n\n\n\n\n\n\n\n\n\n\nWhy can’t we just use normal distributions for all environmental data?\n\n\nA random variable \\(X\\) follows a log-normal distribution if \\(\\ln(X)\\) follows a normal distribution,i.e.\n\\[\n        Y = \\ln(X) \\sim \\mathcal{N}(\\mu, \\sigma^2) \\quad  \\text{where}~ Y\\in (0, +\\infty)\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nA random variable \\(X\\) follows an exponential distribution with rate parameter \\(\\lambda &gt;0\\) if its probability density function (pdf) is:\n\\[\nf(x; \\lambda) =\n\\begin{cases}\n\\lambda e^{-\\lambda x} & \\text{for } x \\geq 0 \\\\\n0 & \\text{for } x &lt; 0\n\\end{cases}\n\\]\n\\(\\lambda\\) describes the rate of events, i.e., the no. of events per unit time/distance\n\nHigher \\(\\lambda\\) = more frequent events\nMean waiting time: \\(E[X] = \\frac{1}{\\lambda}\\) (e.g., \\(\\lambda = 0.2\\) rainfall events/hour \\(\\rightarrow\\) Mean time between events = 5 hours)\nVariance: \\(Var(X) = \\frac{1}{\\lambda^2}\\)"
+  },
+  {
+    "objectID": "slides/slides_2.html#recap-discrete-distributions",
+    "href": "slides/slides_2.html#recap-discrete-distributions",
+    "title": "Understanding our Data",
+    "section": "Recap: Discrete Distributions",
+    "text": "Recap: Discrete Distributions\n\nPoisson densityBinomial densityNegative-Binomial density\n\n\n\n\nA discrete random variable \\(X\\) follows a Poisson distribution with rate parameter \\(\\lambda &gt; 0\\) if its probability mass function (PMF) is:\n\\[\nP(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}, ~ k = 0, 1, \\dots\n\\]\nWe denote this as \\(X \\sim Po(\\lambda)\\) where \\(\\lambda\\) describes:\n\nExpected number of events in a fixed interval\nMean events per unit time/area/volume\nExample: \\(\\lambda = 3.2\\) means 3.2 events expected on average\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA discrete random variable \\(X\\) follows a binomial distribution with parameters \\(n\\) and \\(p\\) if:\n\\[\nP(X = k) = \\binom{n}{k} p^k (1-p)^{n-k}, \\quad k = 0, 1, 2, \\dots, n\n\\]\nWe denote this as \\(X \\sim Bi(n, p)\\) where:\n\n\\(n\\) = number of independent trials\n\\(p\\) = probability of success in each trial\n\\(k\\) = number of successes observed\n\nSurvival studies: \\(n\\) animals, each with survival probability \\(p\\)\nDetection/non-detection: \\(n\\) surveys, probability \\(p\\) of detecting species\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA discrete random variable \\(X\\) follows a negative binomial distribution with parameters \\(r\\) and \\(p\\) if:\n\\[\nP(X = k) = \\binom{k + r - 1}{k} (1-p)^r p^k, ~ k = 0, 1, \\dots\n\\]\nThe distribution of the number of trials until the \\(r\\)th success is denoted by \\(X\\sim \\mathrm{NegBi}(r,p)\\) Where\n\n\\(r\\) = number of failures\n\\(p\\) = probability of success on each trial\n\\(k\\) = number of successes"
+  },
+  {
+    "objectID": "slides/slides_2.html#example-bathing-water-quality",
+    "href": "slides/slides_2.html#example-bathing-water-quality",
+    "title": "Understanding our Data",
+    "section": "Example: Bathing Water Quality",
+    "text": "Example: Bathing Water Quality\n\nAll bathing water sites in Scotland are classified by SEPA as “Excellent”, “Good”, “Sufficient” or “Poor” in terms of how much faecal bacteria (from sewage) they contain.\nThe minimum standard all beaches or bathing water must meet is “Sufficient”.\nThe sites are classified based on the 90th and 95th percentiles of samples taken over the four most recent bathing seasons.\n\n\nNote: SEPA = Scottish Environment Protection Agency The classification uses percentiles because water quality can be highly variable - we care about the worst-case scenarios (90th/95th percentiles), not just average conditions."
+  },
+  {
+    "objectID": "slides/slides_2.html#example-bathing-water-quality-1",
+    "href": "slides/slides_2.html#example-bathing-water-quality-1",
+    "title": "Understanding our Data",
+    "section": "Example: Bathing Water Quality",
+    "text": "Example: Bathing Water Quality\n\nGreen is excellent , blue is good, red is sufficient"
+  },
+  {
+    "objectID": "slides/slides_2.html#example-bathing-water-quality-2",
+    "href": "slides/slides_2.html#example-bathing-water-quality-2",
+    "title": "Understanding our Data",
+    "section": "Example: bathing water quality",
+    "text": "Example: bathing water quality\n\nThe classification system assumes that bacterial concentrations at each site follow a log-normal distribution.\nIf this assumption does not hold, the classifications would not be accurate.\nTherefore, it is crucial that we regularly assess this assumption to ensure the safety of our bathing water."
+  },
+  {
+    "objectID": "slides/slides_2.html#example-bathing-water-quality-3",
+    "href": "slides/slides_2.html#example-bathing-water-quality-3",
+    "title": "Understanding our Data",
+    "section": "Example: bathing water quality",
+    "text": "Example: bathing water quality\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can use our standard residual plots to assess log-normality.\nThe top plots show the standard residuals and the bottom plots show the residuals for the log-transformed data.\nThere is no strong evidence to suggest we have breached our assumptions."
+  },
+  {
+    "objectID": "slides/slides_2.html#error-in-environmental-measurements",
+    "href": "slides/slides_2.html#error-in-environmental-measurements",
+    "title": "Understanding our Data",
+    "section": "Error in Environmental Measurements",
+    "text": "Error in Environmental Measurements\nError in a measurement is the difference between the measured value and the true value.\n\nError may include both random and systematic components.\n\nRandom error: Variation observed randomly over repeat measurements.\n→ With more measurements, these errors average out (improves accuracy)."
+  },
+  {
+    "objectID": "slides/slides_2.html#systematic-error",
+    "href": "slides/slides_2.html#systematic-error",
+    "title": "Understanding our Data",
+    "section": "Systematic Error",
+    "text": "Systematic Error\nSystematic error: Variation that remains constant over repeated measures.\n\nTypically due to some feature of the measurement process.\nMaking more measurements will not improve accuracy (all affected equally).\nCan only be eliminated by identifying and correcting the cause."
+  },
+  {
+    "objectID": "slides/slides_2.html#error-identification-exercise",
+    "href": "slides/slides_2.html#error-identification-exercise",
+    "title": "Understanding our Data",
+    "section": "Error Identification Exercise",
+    "text": "Error Identification Exercise\nFor each example, identify whether the error is random or systematic:\n\nA meter reads 0.01 even when measuring no sample.\n→ Hint: Constant offset regardless of measurement…\nAn old thermometer can only measure to the nearest 0.5 degrees.\n→ Hint: Precision limitation…\nA poorly designed rainfall monitor often leaks water on windy days.\n→ Hint: Specific condition causing consistent bias…\nTo estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length\n→ Hint: Only fishes up to a given size can be caught \n\nDiscuss with a neighbor!"
+  },
+  {
+    "objectID": "slides/slides_2.html#answers-discussion",
+    "href": "slides/slides_2.html#answers-discussion",
+    "title": "Understanding our Data",
+    "section": "Answers & Discussion",
+    "text": "Answers & Discussion\n\nSystematic - Constant offset (bias)\nRandom - Precision limitation (rounding error varies)\nSystematic - Consistent bias under specific conditions\nSystematic - All measurements affected by melting\n\nKey takeaway: Random errors can be reduced by averaging; systematic errors require calibration, better instruments, or method changes."
+  }
+]
