@@ -13,7 +13,7 @@ format:
     toc-location: left
     toc-title: Contents
     number-sections: true
-  pdf:
+  PrettyPDF-pdf:
     number-sections: true
 embed-resources: true
 execute: 
@@ -278,21 +278,17 @@ $$
 
 ## Ecological and Environmental Data sources
 
-Over the last decade, the information available for surveying and monitoring ecological and environmental resources has changed radically. The rise of new technologies, novel collection methods, and modern data-submission platforms have facilitated the access to large volumes of environmental and ecological data. 
-
+Over the last decade, the information available for surveying and monitoring ecological and environmental resources has changed radically. The rise of new technologies, novel collection methods, and modern data-submission platforms have facilitated the access to large volumes of environmental and ecological data.
 
 ::: {.content-visible when-format="html"}
-
 For example, @fig-nbn_records show the increasing trend in the number of NBN trust biodiversity records that have become available over the past 20 years.
 
 ![Number of biodiversity records publicly available from the NBN Trust'](images/NBN_Trust_Growth.gif){#fig-nbn_records fig-align="center" width="574"}
-
 :::
 
 Today's ecological and environmental data landscape is overwhelmingly vast - far too extensive to cover comprehensively in one session! Instead, we'll focus on key data sources and digital technologies that are currently shaping policy decisions, enabling scientific breakthroughs, and driving innovation in research.
 
 [![Environmental monitoring over the year (UKCEH)](https://img.youtube.com/vi/7MywGLpOBWs/hqdefault.jpg)](https://www.youtube.com/watch?v=7MywGLpOBWs)
-
 
 <!-- {{< video https://www.youtube.com/watch?v=7MywGLpOBWs title="Environmental monitoring over the year (UKCEH)" >}} -->
 
@@ -303,7 +299,7 @@ Institutional Monitoring programmes have long been a primary source of informati
 These initiatives rely *field surveys* conducted on established *monitoring networks* to track trends in species populations, habitat quality, and ecosystem processes - a topic we will explore in detail in the following session. Their strength lies in rigorous implementation of *standardized sampling protocols*, which reduces the observational errors associated with data collection methods. However, these are typically constrained by other factors. For example, large-scale programmes are inherently resource-intensive to maintain and often limited in taxonomic scope (typically focusing on key species), spatial/geographic coverage, and temporal resolution. Some popular monitoring schemes are shown below:
 
 | Monitoring Scheme | Description |
-|---------------------------|---------------------------------------------|
+|----|----|
 | United Kingdom Butterfly Monitoring Scheme ([UKBMS](https://ukbms.org/)) | Protocolized sampling scheme run by butterfly conservation that has monitored changes in the abundance of butterflies throughout the United Kingdom since 1976. |
 | UK Environmental Change Network ([ECN](https://ecn.ac.uk/)) | UK's long-term ecosystem monitoring and research programme that has produced a large collection of publicly available data sets including meteorological, biogeochemistry and biological data for different taxonomic groups [@rennie2020]. |
 | National Hydrological Monitoring Programme ([NHMP](https://nrfa.ceh.ac.uk/nhmp)) | The NHMP, particulalry the National River Flow Archive conveys a national scale management of hydrological data within the UK hosted by the UKCEH since 1982 collating hydrometric data from gauging station networks operated by multiple agencies. |
@@ -323,7 +319,7 @@ Despite this, the analysis of such data remains challenging as there is little o
 Harnessing the power of CS data is not an easy task.
 
 | Advantages 😄👍 | Disadvantages 😔👎 |
-|----------------------------------------|--------------------------------|
+|----|----|
 | Extensive taxonomic, spatial and temporal coverage. | Under-reporting of rare and inconspicuous species. |
 | Eye-catching species that are easily identifiable by participants. | Varying recording skills and uneven sampling effort. |
 
@@ -365,7 +361,7 @@ These digital archives - ranging from global biodiversity databases like the Glo
 Select two or three of the following data repositories. For each, examine some of the available datasets and list the types of uncertainty or error that might affect the data quality and reliability.
 
 | Data Repository | Description |
-|----------------------------|--------------------------------------------|
+|----|----|
 | [Move Bank](https://www.movebank.org/cms/movebank-main) | Movebank is a global, open-data repository and research platform that specializes in managing, sharing, and analyzing **animal tracking** and bio-logging data. |
 | Global Biodiversity Information Facility ([GBIF](https://www.gbif.org/)) | GBIF is an international open-data infrastructure that provides free and universal access to over two billion **species occurrence records** from a vast network of museums, research institutions, and citizen science platforms worldwide. |
 | National Biodiversity Network ([NBN](https://nbnatlas.org/)) | The NBN Atlas is the UK's largest repository of publicly available biodiversity data, aggregating and providing open access to millions of **species records** from a wide range of recording societies, conservation NGOs, and research institutions across the country. |
@@ -760,4 +756,3 @@ Single imputation has the advantage of being simpler, allowing for a straightfor
 Our approach for generating the imputed value will vary depending on the context. In the simplest case, we may replace missing values with the overall mean --- usually only if we have very limited information. More commonly, we may use neighbouring values, or some form of seasonal mean. These will usually work reasonably well as long as we do not have too many missing data. A more complex approach is to fit a more general statistical model, perhaps taking account of other variables and/or using random components.
 
 To handle missing data, models that incorporate it should be chosen over simply ignoring the missing values. If the missing data can be predicted based on the observed data, imputation models can effectively estimate them.
-

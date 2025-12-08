@@ -1,6 +1,6 @@
 /* css styles */
 .navbar-logo {
-  max-height: 65px;
+  max-height: 70px;
 }
 
 .reveal .slide-logo-bottom-right {
@@ -14,7 +14,7 @@
 .slide-logo-max-size {
     bottom: unset !important;
     left: 12px;
-    height: 80px !important;
+    height: 100px !important;
     max-height: unset !important;
     right: unset !important;
     top: 5px;
@@ -24,5 +24,5 @@
     display: block;
     max-width: unset !important;
     position: fixed;
-    width: 80x !important;
+    width: 100x !important;
 }

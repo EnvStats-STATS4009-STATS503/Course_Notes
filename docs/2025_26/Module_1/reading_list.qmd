@@ -13,7 +13,7 @@ format:
     toc-location: left
     toc-title: Contents
     number-sections: true
-  pdf:
+  PrettyPDF-pdf:
     number-sections: true
 embed-resources: true
 execute: 
@@ -24,7 +24,9 @@ editor_options:
 ---
 
 -   Barnett, V. (2004). *Environmental statistics: Methods and applications*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/TbMBCTkV).)
+-   Dumelle, M., Kincaid, T., Olsen, A. R., & Weber, M. (2023). spsurvey: spatial sampling design and analysis in R. *Journal of Statistical Software*, *105*, 1-29.
 -   Helsel, D. R. (2012). *Statistics for censored environmental data using Minitab and R* (2nd ed.). Wiley. [Available from the University Library here](https://go.exlibris.link/nSYV0zLq).
 -   Kirkup, L., & Frenkel, B. (2006). *An introduction to uncertainty in measurement using the GUM (guide to the expression of uncertainty in measurement)*. Cambridge University Press. [Available from the University Library here](https://go.exlibris.link/HnNPJjFZ).
 -   Manly, B. F. J. (2001). *Statistics for environmental science and management*. Chapman & Hall/CRC. (No e-book available, but [a physical copy is available from the University Library](https://go.exlibris.link/Jcyj94mj).)
 -   Piegorsch, W. W., & Bailer, A. J. (2005). *Analyzing environmental data*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/6wbh6zq0).)
+-   Walther, B. A., & Moore, J. L. (2005). The concepts of bias, precision and accuracy, and their use in testing the performance of species richness estimators, with a literature review of estimator performance. *Ecography*, *28*(6), 815-829.

@@ -4,7 +4,7 @@ project:
   render:
   - index.qmd
   - reading_list.qmd
-  #- lab.qmd
+  - lab_1.qmd
   #- tutorial/tutorial_1.qmd
   #- tutorial/tutorial_2.qmd
   - notes/notes_1.qmd
@@ -15,7 +15,7 @@ project:
   - slides/slides_2.qmd
   - slides/slides_3.qmd
 website:
-  title: "Module 1: Environmental Monitoring & Data Processing"
+  title: "Module 1"
   page-footer:
     center: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_1/docs/" style="color:#ccc;">Home</a>'
   navbar:
@@ -50,8 +50,12 @@ website:
             href: notes/notes_1.qmd
           - text: "Practical 2 - spatial modelling"
             href: notes/notes_1.qmd
+      - text: "Lab"
+        menu:
+          - text: "Lab 1"
+            href: lab_1.qmd
       - text: "Reading List"
-        href: notes/notes_1.qmd
+        href: reading_list.qmd
 format:
   html:
     mainfont: serif

@@ -13,7 +13,7 @@ format:
     toc-location: left
     toc-title: Contents
     number-sections: true
-  pdf:
+  PrettyPDF-pdf:
     number-sections: true
 embed-resources: true
 execute: 

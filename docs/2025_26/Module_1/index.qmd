@@ -7,9 +7,10 @@ author:
 format: 
   html: 
     fontsize: "12"
+    embed-resources: true
     mainfont: serif
     number-sections: true
-  pdf:
+  PrettyPDF-pdf:
     number-sections: true
 ---
 
@@ -98,18 +99,19 @@ In addition, there will be **four** tutorials for this course. There are two tut
 :::
 
 ::: callout-note
-*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.*
+*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.* 
 :::
 
 ## Labs
 
-There will be three labs taking place in [Boyd Orr Building:418 Lab](#0) from **15:00-17:00pm** on the following dates:
+There will be three labs taking place in [Boyd Orr Building:418 Lab](#0) from **15:00-17:00pm** on the following dates (clicking on the date will direct you to the lab material):
 
-1.  **Feb 27th**
+1.  [Lab session 1 - Jan 30th](lab_1.qmd)
 
-2.  **March 13th**
+2.  Feb 27th 
 
-3.  TBC
+3.  March 13th
+
 
 # Assessments
 

@@ -846,7 +846,7 @@ Is a form of spatially balanced probability sampling scheme
 
 -   The length of each line-segment represents the inclusion probability for a given resources/site (inclusion probabilities should sum up to $n$).
 
-![the colored cells indicate site where small (blue) and large (red) lakes are present.](lake_d5.png){fig-align="center"}
+![the colored cells indicate site where small (blue) and large (red) lakes are present.](figures/lake_d5.png){fig-align="center"}
 
 ## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate="true"}
 

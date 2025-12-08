@@ -34,6 +34,7 @@ execute:
   echo: true
   allow-html: true
   freeze: auto
+bibliography: references.bib
 ---
 
 ## Understanding our Data
@@ -439,9 +440,9 @@ Note: SEPA = Scottish Environment Protection Agency The classification uses perc
 
 ::::: columns
 ::: {.column width="60%"}
-![](figures/WaterNormality1.png){fig-align="center"}
+![](figures/WaterNormality1.png){fig-align="center" width="500"}
 
-![](figures/WaterNormality2.png){fig-align="center"}
+![](figures/WaterNormality2.png){fig-align="center" width="500"}
 :::
 
 ::: {.column width="40%"}
@@ -453,54 +454,938 @@ Note: SEPA = Scottish Environment Protection Agency The classification uses perc
 :::
 :::::
 
-
 ## Error in Environmental Measurements
 
 **Error** in a measurement is the difference between the measured value and the true value.
 
-- Error may include both **random** and **systematic** components.
+-   Error may include both **random** and **systematic** components.
 
-**Random error**: Variation observed randomly over repeat measurements.  
+**Random error**: Variation observed randomly over repeat measurements.\
 → With more measurements, these errors average out (improves accuracy).
-
-
 
 ## Systematic Error
 
 **Systematic error**: Variation that remains constant over repeated measures.
 
-- Typically due to some feature of the measurement process.
-- Making more measurements **will not improve accuracy** (all affected equally).
-- Can only be eliminated by identifying and correcting the cause.
-
+-   Typically due to some feature of the measurement process.
+-   Making more measurements **will not improve accuracy** (all affected equally).
+-   Can only be eliminated by identifying and correcting the cause.
 
 ## Error Identification Exercise
 
 For each example, identify whether the error is **random** or **systematic**:
 
-1. **A meter reads 0.01 even when measuring no sample.**  
-   → *Hint: Constant offset regardless of measurement...*
+1.  **A meter reads 0.01 even when measuring no sample.**
 
-2. **An old thermometer can only measure to the nearest 0.5 degrees.**  
-   → *Hint: Precision limitation...*
+2.  **An old thermometer can only measure to the nearest 0.5 degrees.**
 
-3. **A poorly designed rainfall monitor often leaks water on windy days.**  
-   → *Hint: Specific condition causing consistent bias...*
+3.  **A poorly designed rainfall monitor often leaks water on windy days.**
 
-4. **To estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length**  
-   → *Hint: Only fishes up to a given size can be caught *
+4.  **To estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length**
 
-**Discuss with a neighbor!**
-
----
+------------------------------------------------------------------------
 
 ## Answers & Discussion
 
-1. **Systematic** - Constant offset (bias)
-2. **Random** - Precision limitation (rounding error varies)
-3. **Systematic** - Consistent bias under specific conditions
-4. **Systematic** - All measurements affected by melting
+1.  **Systematic** - Constant offset (bias)
+2.  **Random** - Precision limitation (rounding error varies)
+3.  **Systematic** - Consistent bias under specific conditions
+4.  **Systematic** - All measurements affected by melting
 
 **Key takeaway**: Random errors can be reduced by averaging; systematic errors require calibration, better instruments, or method changes.
 
+## Quantifying uncertainty
 
+-   When presenting our results, it is important that we are clear about the uncertainty associated with them.
+
+::: content-left
+-   A common approach is to use a **standard uncertainty** ($u$), which is just the standard deviation, reported as:
+
+$$\text{estimated value } \pm \text{ standard uncertainty}$$
+
+-   The standard uncertainty, $u(\bar{\mathbf{x}})$, for the mean of a vector $\mathbf{x}$ of length $n$ is computed as follows: $$u(\bar{\mathbf{x}}) = \frac{sd(\mathbf{x})}{\sqrt{(n)}}$$
+:::
+
+------------------------------------------------------------------------
+
+## Expanded uncertainty
+
+::: incremental
+-   More generally, we can use an **expanded uncertainty**, which is obtained by multiplying the standard uncertainty by a factor $k$.
+-   You have already seen this in statistics as the key building block of a confidence interval.
+-   The value of $k$ is chosen based on the quantiles of a standard normal distribution, with a value of $k=1.96$ (or $k=2$) giving a 95% confidence interval.
+-   The 95% CI for the mean of **x** is given as $\bar{\mathbf{x}} \pm 1.96 \times u(\bar{\mathbf{x}}).$
+:::
+
+## Example: bathing water quality
+
+-   In the bathing water example, we have 80 measurements of log(FS), with a mean of 3.861 and a standard deviation of 1.427.
+
+::: incremental
+1.  We can use these to compute the standard uncertainty of the mean log(FS) as $$u = \frac{1.427}{\sqrt{80}} = 0.160.$$
+
+2.  This would therefore give a 95% confidence interval for the mean of log(FS) of $$3.861 \pm 1.96 \times 0.160 = (3.574, 4.175).$$
+:::
+
+# Uncertainty propagation
+
+## Uncertainty propagation
+
+-   Sometimes, we have a result $Y$ that is obtained from the values of $n$ other quantities $X_1, \dots, X_n$.
+
+-   The **combined uncertainty** $u(Y)$ of a linear combination $Y = a + b_1X_1 + \dots + b_nX_n$ (where $a, b_1, \dots, b_n$ are constants) is calculated as follows:
+
+::: {.callout-caution icon="false"}
+## Combined uncertainty
+
+$$u(Y) = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}\left(u(X_i)\times u(X_j) \times b_i \times b_j \times \rho_{ij}\right)}$$
+
+where $u(X_i)$ and $u(X_j)$ are the standard uncertainties of $X_i$ and $X_j$, respectively, and $\rho_{ij}$ is the correlation between $X_i$ and $X_j$.
+:::
+
+## Uncertainty propagation
+
+-   If $X_1, ..., X_n$ are independent, the combined uncertainty $u(Y)$ of $Y = a + b_1X_1 + \dots + b_nX_n$ reduces to:
+
+::: {.callout-caution icon="false"}
+## Combined uncertainty (independence)
+
+$$u(Y) = \sqrt{\sum_{i=1}^{n}\left(u(X_i)^2 \times b_i^2\right)}$$
+:::
+
+## Uncertainty propagation
+
+-   The **general uncertainty propagation formula** is as follows:
+
+::: {.callout-caution icon="false"}
+## General uncertainty propagation formula
+
+The standard uncertainty of $Y = f (X_1, ..., X_n)$ is:
+
+$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
+
+where $f \ '(\mu_i)$ is the partial derivative of $Y$ with respect to $X_i$ evaluated at its mean $\mu_i$.
+:::
+
+## Example: Area of a rectangle {auto-animate="true"}
+
+-   The area $A$ of a rectangle with height $h$ and width $w$ is $A = h \times w$.
+
+-   Height and width are measured with uncertainty, $u(h)$ and $u(w)$, respectively.
+
+-   Evaluate the uncertainty on the area $A$.
+
+$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
+
+## Example: Area of a rectangle {auto-animate="true"}
+
+-   The area $A$ of a rectangle with height $h$ and width $w$ is $A = h \times w$.
+
+-   Height and width are measured with uncertainty, $u(h)$ and $u(w)$, respectively.
+
+-   Evaluate the uncertainty on the area $A$.
+
+::::::: columns
+:::: {.column width="50%"}
+::: {.callout-caution appearance="minimal"}
+$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
+:::
+::::
+
+:::: {.column width="50%"}
+::: incremental
+-   $u(A) = u(h \times w)$
+
+-   $\frac{df}{dh} = w \ \ \text{and} \ \ \frac{df}{dw} = h$
+
+-   $\therefore u(A) = \sqrt{w \ ^2 u(h)^2 + h \ ^2 u(w)^2}$
+:::
+::::
+:::::::
+
+## Measuring the quality of measurement {.smaller}
+
+-   We often talk about the *quality of a measurement process* (or an associated estimate) in terms of **accuracy**, **bias** and **precision**.
+
+-   **Bias**:
+
+    -   *Measurement bias*: is the difference between the *average* of a series of measurements and the true value - mainly due to faulty measuring devices of procedures (systematic error).
+
+    -   *Sampling bias*: Under-representative sample of the target population (systematic error).
+
+    -   *Estimation bias*: Relates to the property of an estimator, i.e., $E(\hat{\theta})-\theta = 0$, for unbiased estimators, the bias (random error) decreases with increased sampling effort (*See supplementary material for more details).*
+
+-   **Precision** is the closeness of agreement between independent measurements. Precision does **NOT** relate to the true value.
+
+-   **Accuracy** overall *distance* between the estimated (or observed) values and the **true** value. There are several definition of what this *distance* mean some of which include the precision (see @walther2005)
+
+## Measuring the quality of measurement {background-color="#FFFFFF"}
+
+![](figures/AccuracyPrecision.jpg){fig-align="center"}
+
+# Ecological and Environmental Data
+
+## The new era of environmental and ecological data {.smaller background-color="#FFFFFF"}
+
+-   Over the last decade, the information available for surveying and monitoring ecological and environmental resources has changed radically.
+
+-   The rise of new technologies facilitates the access to large volumes of environmental and ecological data.
+
+![](figures/NBN_Trust_Growth.gif){fig-align="center" width="635"}
+
+## The new era of environmental and ecological data {.smaller}
+
+Today's ecological and environmental data landscape is overwhelmingly vast - far too extensive to cover comprehensively in one session!
+
+Instead, we'll focus on key data sources
+
+{{< video https://www.youtube.com/watch?v=7MywGLpOBWs title="Environmental monitoring over the year (UKCEH)" >}}
+
+## Institutional Monitoring Programmes {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: incremental
+-   primary source of information for long-term environmental assessment, producing **structured datasets**
+
+-   *field surveys* conducted on established *monitoring networks* to track trends in species populations, habitat quality, and ecosystem processes
+
+-   Planned Surveys produce **structured data** which involves constant monitoring schemes using standardised methods at sites on a regular basis.
+
+-   Minimizing observational error & sampling biases.
+:::
+
+![](figures/survey_data.png){fig-align="center"}
+
+## Institutional Monitoring Programmes {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+-   primary source of information for long-term environmental assessment, producing **structured datasets**
+
+-   *field surveys* conducted on established *monitoring networks* to track trends in species populations, habitat quality, and ecosystem processes
+
+-   Planned Surveys produce **structured data** which involves constant monitoring schemes using standardised methods at sites on a regular basis.
+
+-   Minimizing observational error & sampling biases.
+
+-   These are **expensive** to collect and tend to be geographically and temporally restricted.
+
+![](figures/meme1.png){fig-align="center"}
+
+## Institutional Monitoring Programmes
+
+::: custom-tiny
+| Monitoring Scheme | Description |
+|---------------------------|---------------------------------------------|
+| United Kingdom Butterfly Monitoring Scheme ([UKBMS](https://ukbms.org/)) | Protocolized sampling scheme run by butterfly conservation that has monitored changes in the abundance of butterflies throughout the United Kingdom since 1976. |
+| UK Environmental Change Network ([ECN](https://ecn.ac.uk/)) | UK's long-term ecosystem monitoring and research programme that has produced a large collection of publicly available data sets including meteorological, biogeochemistry and biological data for different taxonomic groups [@rennie2020]. |
+| National Hydrological Monitoring Programme ([NHMP](https://nrfa.ceh.ac.uk/nhmp)) | The NHMP, particulalry the National River Flow Archive conveys a national scale management of hydrological data within the UK hosted by the UKCEH since 1982 collating hydrometric data from gauging station networks operated by multiple agencies. |
+| Natural Capital and Ecosystem Assessment ([NCEA](https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about)) | Long-term environmental monitoring of natural capital including data from freshwater Surveillance Networks, ecosystem condition & soil health, forest inventory, estuary and coast surveillance, etc. |
+| Breeding Bird Survey ([BBS](https://www.bto.org/)) | Main scheme for monitoring the population changes of the UK's common breeding birds. It covers all habitat types and monitors 110 common and widespread breeding birds using a randomised site selection. |
+:::
+
+## Citizen Science Programmes & Platforms {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+**Unstructured data** constitute the majority of available information.
+
+-   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
+
+![](figures/CS_apps.png){fig-align="center"}
+
+## Citizen Science Programmes & Platforms {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+**Unstructured data** constitute the majority of available information.
+
+-   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
+-   Harnessing the power of CS data is not an easy task!
+
+| Advantages 😄👍 | Disadvantages 😔👎 |
+|----------------------------------------|--------------------------------|
+| Extensive taxonomic, spatial and temporal coverage. | Under-reporting of rare and inconspicuous species. |
+| Eye-catching species that are easily identifiable by participants. | Varying recording skills and uneven sampling effort. |
+
+## Sampling Bias in CS opportunistic data {.smaller}
+
+Large volumes of CS data come from **Opportunistic surveys** where sampling effort is **biased** across space and time.
+
+-   People visit more certain places than others.
+
+![Elevation versus sampling effort (obtained through the Pl\@net Net App) in the French mediterranean region (Figure taken from [@botella2020]).](figures/sampling_eff_ex.png){fig-align="center"}
+
+::: incremental
+-   Small populations at lower elevation could be over-sampled.
+
+-   If we assume sampling is evenly distributed, species distribution at higher elevation would be under-estimated
+:::
+
+## Biological Collections {.smaller}
+
+:::::: columns
+:::: {.column width="40%"}
+::: incremental
+-   Oldest form of historical data reservoirs driven originally by personal interest but provedn to be a key source of information for addressing modern global challenges
+
+-   The Natural History Museum in London safeguards a collection of over 80 million specimens, spanning 4.5 billion years of Earth's history to the present.
+
+-   Most historic collection were obtained in an opportunistic manner - largely dependent on the particular interests of the collector)
+
+-   The information associated with each collection or specimen vary widely, limiting the environmental context.
+:::
+::::
+
+::: {.column width="60%"}
+![](figures/NH_collect.jpg){fig-align="center"}
+:::
+::::::
+
+## Data Repositories & Portals
+
+**Centralized, curated platforms** that aggregate, preserve, and disseminate environmental data
+
+**Examples:**
+
+-   Global Biodiversity Information Facility (GBIF)
+
+-   National Biodiversity Network (NBN) Atlas
+
+-   UK-SCAPE plant diversity trends
+
+-   UK Lakes portal
+
+**Key Features:**
+
+-   Standardize heterogeneous datasets
+
+-   Enable cross-disciplinary data sharing
+
+-   Often include interactive **data portals** with:
+
+    -   Visualization tools
+
+    -   Web applications
+
+    -   Programming interfaces (APIs)
+
+    -   Data catalogues
+
+## Processed information products {.smaller}
+
+Processed information products transform raw measurements into refined, analysis-ready resources tailored for decision-makers and researchers.
+
+Unlike primary data repositories, these products undergo rigorous calibration, integration, and modelling to generate authoritative maps, indicators, and synthesized datasets.
+
+::: {.callout-note appearance="simple" icon="false"}
+## Example: Worlclim
+
+-   [WorldClim](https://www.worldclim.org/) is a widely used set of global, high-resolution climate surfaces (raster maps) that provide interpolated estimates of historical and future projections of temperature, precipitation, and other bioclimatic variables.
+
+-   These surfaces serve as the foundational data for species distribution modeling, ecological forecasting, and a vast range of other environmental research applications.
+
+![](figures/worldclim.jpeg){fig-align="center" width="450"}
+:::
+
+## Remote sensing {.smaller}
+
+:::::: columns
+:::: {.column width="60%"}
+Remote sensing refer the process of obtaining information of an object from a distance, typically from aircraft or satellites
+
+::: incremental
+-   Enables non-invasive monitoring of Earth's environment across vast scales, generating products like land cover maps and vegetation indices
+
+-   Provides systematic, near-real-time data but has substantial uncertainties from sensor calibration, resolution constraints, and lower accuracy than field measurements
+
+-   Requires validation with in-situ data to assess and ensure accuracy of remote sensing products
+:::
+::::
+
+::: {.column width="40%"}
+![](figures/dem.jpeg){fig-align="center"}
+:::
+::::::
+
+## Remote sensing examples {.smaller}
+
+::: {.callout-note icon="false"}
+## Digital Elevation Models (DEMs) {{< fa mountain >}}
+
+DEMs are digital representations of the earth's topographic surface providing a continuous and quantitative model of terrain morphology.
+
+The accuracy of DEMs is determined primarily by the resolution of the model (the size of the area represented by each individual grid cell in a raster).
+
+**Example**: Shuttle RaDAR Topography Mission (SRTM), aquired by NASA using a Synthetic Aperture Radar (SAR) instrument, provide elevation data for any country
+:::
+
+::: {.callout-note icon="false"}
+## Land Cover Maps {{< fa mountain-city >}}
+
+Land cover maps describe the physical material on the Earth's surface.
+
+They are created by applying automated algorithms to satellite or aerial imagery to identify features such as grassland, woodland, rivers & lakes or man-made structures such as roads and buildings.
+
+**Example**: UK CEH [Land Cover Maps](https://www.ceh.ac.uk/data/ukceh-land-cover-maps) provide consistent national-scale representations of surface vegetation and land use classes.
+:::
+
+::: {.callout-note icon="false"}
+## NDVI Vegetation Index {{< fa seedling >}}
+
+Vegetation indeces derived from remote sensing utilize spectral data from satellite or aerial sensors to quantify and monitor plant health, structure, and function across landscapes.
+
+The Normalized Difference Vegetation Index (NDVI ranges from -1 to +1, where positive values indicating healthier, denser vegetation and negative values indicating surfaces like water, snow, or bare ground.
+:::
+
+## Research-Generated Data {.smaller}
+
+Research-generated data repositories, such as [Dryad](https://datadryad.org/about) and [Zenodo](https://zenodo.org/), are cornerstone platforms in the modern scientific workflow, explicitly designed to uphold the principles of transparency, reproducibility, and open data access.
+
+::::: columns
+::: {.column width="50%"}
+**Core Features:**
+
+-   Researchers **actively deposit** datasets, code, and scripts
+
+-   Assign **persistent DOIs** for citation and access
+
+-   Enable **verification** and **replication** of findings
+:::
+
+::: {.column width="50%"}
+**Impact:**
+
+-   Detects errors & reduces redundancy
+
+-   Accelerates scientific discovery
+
+-   Transforms single studies into community resources
+
+-   Safeguards scientific integrity
+:::
+:::::
+
+# Data Preprocessing
+
+## Data Preprocessing {.smaller}
+
+-   Environmental and Ecological systems are inherently complex due to the large number of interrelated biological, physical, and social components
+
+-   Adding to this complexity, analyzing these systems becomes a challenging task due to the heterogeneity of available data and the different sources of uncertainty that impact the quality of the data
+
+-   Data collection methods vary widely and spatial and temporal sampling schemes may be too sparse to fully capture overall system behavior. Consequently, we often have to deal with issues such as **outliers**, **missing values**, and highly **uncertain** information.
+
+-   Many of these data quality issues can be addressed through a rigorous data *pre-processing* and through statistical models that explicitly account for the observational process.
+
+::: callout-important
+Data pre-processing is crucial stage in any sort of ecological or environmental data analysis and it includes data cleaning, outlier detection, missing value treatment, handling censored data, transformation, and the creation of new derived variables.
+
+The **goal** is to create a robust, consistent dataset ready for analysis while carefully documenting all changes to preserve the integrity of the original information.
+:::
+
+## Censored Data {auto-animate="true"}
+
+-   **Censored data** are data where [we are restricted in our knowledge about them]{style="filter: blur(5px);"} in some way or other.
+
+-   Often this will be because [we only know that]{style="filter: blur(5px);"} the data value lies below a certain [minimum value]{style="filter: blur(5px);"} (or [above]{style="filter: blur(5px);"} a certain maximum).
+
+-   For example, [if we had scales which only]{style="filter: blur(5px);"} weighed up to [10kg, we would not know]{style="filter: blur(5px);"} the exact weight [of any object greater than]{style="filter: blur(5px);"} 10kg.
+
+## Censored Data {auto-animate="true"}
+
+-   **Censored data** are data where we are restricted in our knowledge about them in some way or other.
+
+-   Often this will be because we only know that the data value lies below a certain minimum value (or above a certain maximum).
+
+-   For example, if we had scales which only weighed up to 10kg, we would not know the exact weight of any object greater than 10kg.
+
+## Limits of Detection {.smaller}
+
+-   For environmental data, it is more common to have data which are censored at some minimum value.
+
+-   This is because many pieces of measuring equipment will have an analytical **limit of detection**.
+
+-   A limit of detection is the lowest concentration that can be distinguished with reasonable confidence from a "blank", i.e. a hypothetical sample with a value of zero.
+
+-   The limit of detection is often denoted $c_L$.
+
+:::: {.callout-note icon="false"}
+## Example
+
+Your environmental monitoring device measures a pollutant concentration of 0.05 ppm, but the instrument's Limit of Detection (LoD, $c_L$) is 0.1 ppm. Is this 0.05 ppm a measurement of real pollution?
+
+::: fragment
+-   We can't say with confidence. The LoD of 0.1 ppm represents the lowest concentration that can be reliably distinguished from a blank sample.
+
+-   At 0.05 ppm (below LoD), we cannot confidently tell if it's real pollution at a low level or just measurement noise
+:::
+::::
+
+## Impact of Censoring {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+-   Censoring has a huge impact on how we interpret our data.
+
+-   The two plots below show the same data, but the right panel is 'censored' with two different limits of detection (some with an LOD of 0.5, others with an LOD of 1.5).
+
+::: {layout-ncol="2"}
+![](figures/ConcUncensored.png)
+
+![](figures/ConcCensored.png)
+:::
+
+## Dealing with LODs
+
+-   Censored observations are not completely without information. We still know they are equal to or more extreme than the limit.
+
+-   For a LOD, we might therefore report the datapoint as either "not detected" or "$< c_L$".
+
+-   Removing them from our study would not be sensible, since this would lead to us overestimating the mean and probably also underestimating the variance.
+
+-   We need to find a way to incorporate these censored datapoints into our analysis.
+
+## Dealing with LODs (Continued) {background-color="#FFFFFF"}
+
+-   We can't simply use the minimum value of the LOD. This would ignore the fact that the values are often *below* this.
+
+-   In the plot below, the LOD reduces after every 100 observations (e.g. because of better quality equipment), and this leads to an artificial trend.
+
+![](figures/TSM1.png){fig-align="center" width="70%"}
+
+## Simple Substitution
+
+-   The simplest approach for dealing with LODs is via **simple substitution**.
+
+-   This involves taking the LOD value and multiplying it by a fixed constant, e.g. replacing all $<c_L$ values with $0.5c_L$.
+
+-   This approach is fairly popular because it is simple and easy to implement.
+
+-   However, this approach only works if there is a small proportion of censored data (maximum 10–15%). If there is a higher proportion, it tends to overestimate the mean.
+
+## Distribution-based Approaches
+
+-   It is generally preferable to use a more statistics-based approach which accounts for the data distribution.
+
+-   The basic idea is that we estimate the statistical distribution of the data in a way that takes into account the censoring.
+
+-   We can then use this estimated distribution to simulate values for our censored points.
+
+-   Commonly used distribution-based approaches are **Maximum Likelihood**, **Kaplan-Meier** and **Regression on Order Statistics**.
+
+## Maximum Likelihood Approach
+
+-   The maximum likelihood (ML) approach is a *parametric* approach, i.e. it requires us to specify a statistical **distribution** that is a close fit to the data.
+
+-   We then identify the **parameters** of this distribution that maximise the likelihood of obtaining a dataset like ours.
+
+-   This ML approach has to take into account the likelihood of obtaining:
+
+    -   the observed values in our dataset.
+    -   the correct proportion of data being censored, i.e. falling below our detection limit(s).
+
+## Maximum Likelihood Approach (Visualization) {background-color="#FFFFFF"}
+
+![](figures/MLEcensoring.png){fig-align="center" width="90%"}
+
+## Maximum Likelihood Approach: Pros and Cons
+
+::::: columns
+::: {.column width="50%"}
+**Advantages**
+
+-   Able to handle multiple limits of detection.
+
+-   Good for estimating summary statistics with a suitably large sample size.
+
+-   MLE explicitly accounts for the underlying distribution of the data (if known).
+:::
+
+::: {.column width="50%"}
+**Disadvantages**
+
+-   More applicable to larger datasets (n \> 50).
+
+-   Reliant on specifying the correct distribution, otherwise estimates can be incorrect.
+
+-   Transforming data to fit a distribution can potentially cause biased estimators.
+:::
+:::::
+
+## Kaplan-Meier Approach
+
+-   The Kaplan-Meier approach is a *nonparametric* approach, i.e. it doesn't require a distributional assumption.
+
+-   It's often used in survival analysis for estimating summary statistics for right-censored data.
+
+-   However, it can be applied to left-censored data by 'flipping' the data and subtracting from a fixed constant.
+
+-   In survival analysis, Kaplan-Meier estimates the probability that an observation will survive past a certain time.
+
+-   In our 'flipped' context, it gives the probability that an observation will fall below the limit of detection.
+
+## Example: Cadmium in Fish {background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="70%"}
+-   Cadmium is a heavy metal identified as having potential health risks.
+
+-   We observed cadmium levels in fish livers in two different regions of the Rocky Mountains.
+
+-   Due to variation in data collection, there are four different LODs (0.2, 0.3, 0.4 and 0.6 µg per litre).
+
+![](figures/Blinky.png){fig-align="center" width="250"}
+:::
+
+::: {.column width="30%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+library(patchwork)
+library(dplyr)
+library(NADA)
+cad_data <-data.frame(Cd=
+                        c(81.3,3.5,4.6,0.6,2.9,3,4.9,0.6,3.4,0.4,0.8,0.3,0.4,0.4,0.4,1.4,0.6,0.7,0.2),
+ Region = as.factor(c(rep(2,9),rep(1,9),2)),
+ CdCen = c(rep(FALSE,11),TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE))
+data(Cadmium)
+gt(Cadmium)
+```
+:::
+:::::
+
+## Example: Cadmium in Fish (Visualization) {background-color="#FFFFFF"}
+
+-   Plotting the data shows the potential impact of censoring.
+
+-   The left panel shows all the data (plotting censored values as equal to the LOD), while the right panel excludes those which have been censored.
+
+```{r}
+#| echo: false
+#| fig-align: center
+Cadmium %>% filter(Cd<80)%>%
+  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
+  geom_boxplot() +
+  labs(y = "Cadmium Concentration", x= "Regions", title = "Censored + Uncensored")+
+  theme(legend.position = "none") + 
+Cadmium %>% filter(CdCen == FALSE&Cd<80) %>%
+  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
+  geom_boxplot() +
+  labs(y = "Cadmium Concentration", x= "Regions", title = "Uncensored")+
+  theme(legend.position = "none")
+
+```
+
+## Using the Kaplan-Meier Approach in R
+
+-   We can use the NADA (Nondetects and Data Analysis) package in R.
+
+-   The `cenfit` function applies the Kaplan-Meier method. This package automatically 'flips' the data, since it is designed for environmental data.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(NADA)
+cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
+```
+
+-   There are clear differences between the locations in terms of both median and standard deviation.
+
+## Statistical Testing with Kaplan-Meier {.smaller}
+
+-   The `cendiff` function tests for significant differences between the groups.
+
+-   This uses a chi-squared hypothesis test:
+
+    -   $H_0$: Median cadmium levels are the same in Region 1 and Region 2
+
+    -   $H_1$: Median cadmium levels are different in Region 1 and Region 2
+
+```{r}
+cendiff(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
+
+```
+
+-   The p-value is very small, so there is a statistically significant difference between the groups.
+
+## ECDF Plot
+
+-   We can also plot the empirical cumulative distribution function (ECDF), taking into account the LODs.
+
+-   Note that this works in the opposite direction from regular survival plots due to the 'flipping' of the data.
+
+```{r}
+#| echo: false
+#| fig-align: center
+plot(cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region))
+legend("bottomright",c("Region 1","Region 2"),lty = 1:2)
+```
+
+## Kaplan-Meier Approach: Pros and Cons
+
+::::: columns
+::: {.column width="50%"}
+**Advantages**
+
+-   Nonparametric — no need to assume underlying distribution.
+
+-   Can easily account for multiple LODs.
+
+-   Works for large numbers of censored datapoints (\>50%).
+:::
+
+::: {.column width="50%"}
+**Disadvantages**
+
+-   Quite simplistic — identical to simple substitution if we only have one LOD.
+
+-   Less reliable for values near and below the LOD.
+
+-   The mean tends to be overestimated — need to rely on median.
+:::
+:::::
+
+## Regression on Order Statistics (ROS)
+
+-   Regression on Order Statistics is a *semi-parametric* approach, i.e. it combines elements of parametric and nonparametric models.
+
+-   It follows a two-step approach:
+
+    1.  Plot the uncensored values on a probability plot (QQ plot) and use linear regression to approximate the parameters of the underlying data distribution.
+
+    2.  Use this fitted distribution to impute estimates for the censored values.
+
+-   There is an assumption that the censored measures are normally (or lognormally) distributed.
+
+## ROS: Implementation {background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="60%"}
+-   The plot shows the uncensored points and their probability plot regression model.
+
+-   The NADA package in R uses lognormal as default. The plot suggests that this is sensible.
+
+-   We then use this fitted model to estimate the values of the censored observations, based on their normal quantiles.
+:::
+
+::: {.column width="40%"}
+![](figures/ROSQQ.png){fig-align="center"}
+:::
+:::::
+
+## ROS vs Simple Substitution {background-color="#FFFFFF"}
+
+-   We can compare our ROS approach to simple substitution for the bathing water example used earlier.
+
+-   The left panel (ROS) shows no trend present; the right panel (simple substitution) has an artificial trend.
+
+::: {layout-ncol="2"}
+![](figures/ROSEstimates.png)
+
+![](figures/TSM1.png)
+:::
+
+## ROS: Pros and Cons
+
+::::: columns
+::: {.column width="50%"}
+**Advantages**
+
+-   Can be applied to a wide variety of environmental datasets.
+
+-   Works with multiple LODs, but still not too simplistic with a single LOD.
+
+-   Can be used with up to 80% censored datapoints.
+:::
+
+::: {.column width="50%"}
+-   **Disadvantages**
+
+-   Semiparametric approach — requires a distributional model to be assumed.
+
+-   Specifically requires normality (or lognormality) for estimation of parameters.
+
+-   Two-stage model introduces extra source of variability.
+:::
+:::::
+
+# Outliers
+
+## What is an Outlier?
+
+-   An outlier is an extreme or unusual observation in our dataset.
+
+-   These will often (but not always) have a large influence on the outcomes of our analysis.
+
+-   We have to find ways to identify and deal with outliers.
+
+-   Can you think of any examples of outliers?
+
+## Types of Outliers
+
+There are two main categories of outlier:
+
+1.  **Genuine but extreme values**
+    -   Accommodate these in our analysis
+    -   Ignoring them would mean ignoring a real feature of our data
+    -   Robust modeling techniques can incorporate outliers
+2.  **Data errors**
+    -   Try to correct (where possible) or remove
+    -   Do not reflect real observations
+
+## Finding Outliers
+
+-   It is often helpful to **plot your data**
+    -   Sometimes outliers are very obvious in boxplots or scatterplots
+-   Elk's animal track with two unusual observations, how can we assess if these are outliers?
+
+[![Elk tracking data in southwestern Alberta. The Blue line indicates the tracking for one individual with blue and red crosses showing the start and end point of the track respectively.](figures/outlier_animal.png){#fig-movebank fig-align="center" width="340"}](https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map)
+
+## Finding Outliers
+
+-   It is often helpful to **plot your data**
+    -   Sometimes outliers are very obvious in boxplots or scatterplots
+-   **Statistical approaches** for identifying datapoints significantly different from the rest:
+    -   Tests of discordancy
+    -   Chauvenet's criterion
+    -   Grubbs's test
+    -   Dixon's test
+
+::: callout-note
+Check notes material for a more detailed description of these tests
+:::
+
+# Missing Data
+
+## Missing Data
+
+::::: columns
+::: {.column width="50%"}
+-   Environmental data are very prone to missing values.
+
+-   Data can be missing for any number of reasons.
+
+-   There's a whole discipline of statistics related to this. We will just touch on the topic.
+:::
+
+::: {.column width="50%"}
+![](figures/MissingData.png){width="90%"}
+:::
+:::::
+
+## Causes of Missing Data
+
+-   Adverse weather (e.g., rainfall, snow, drought and wind) can affect measuring equipment or prevent access to the location.
+
+-   Failure of scientific equipment.
+
+-   Samples being lost or damaged.
+
+-   Monitoring networks change in size over time. (Data are "missing" before the site is introduced or after it is removed.)
+
+## Dealing with Missing Data
+
+-   The technique we use to deal with missing data depends on the **type of missingness**.
+
+-   If there are a handful of datapoints missing at random, we can essentially ignore this and carry out our analysis as usual.
+
+-   However, if they are missing in some sort of systematic way (e.g., a whole month missing due to bad weather), we may instead look at some form of **imputation**.
+
+-   Imputation is a process that involves predicting the missing values via some form of statistical method.
+
+## Imputation
+
+-   There are two main forms of imputation:
+
+    -   **Single imputation** involves generating one value in place of each missing value.
+    -   **Multiple imputation** involves generating several values in place of each missing value.
+
+-   Single imputation has the advantage of being simpler, and allows straightforward analysis once the missing values have been estimated.
+
+-   Multiple imputation does a better job of accounting for the uncertainty of the imputation process, but makes the final analysis more complex.
+
+## How Do We Impute?
+
+-   Our approach for generating the imputed value will vary depending on the context.
+
+-   In the simplest case, we may replace missing values with the overall mean (usually only if we have very limited information).
+
+-   More commonly, we may use neighbouring values, or some form of seasonal mean.
+
+-   These will usually work reasonably well as long as we do not have too much missing data.
+
+-   A more complex approach is to fit a more general statistical model, perhaps taking account of other variables and/or using random components.
+
+# Summary Points
+
+## Error, Uncertainty, and Their Components {.smaller}
+
+-   **Error** is the difference between the measured value and the "true value" of the quantity being measured.
+
+-   **Uncertainty** is a quantification of the variability of the measurement result.
+
+-   **Error includes two components:**
+
+    -   **Random error:** variation observed randomly over a set of measurements.
+    -   **Systematic error:** variation that remains constant over repeated measurements.
+
+-   **Uncertainty can be expressed as:**
+
+    -   **Standard uncertainty:** a function of the standard deviation.
+    -   **Expanded uncertainty:** $k \times$ the standard uncertainty (used in confidence intervals).
+
+## Accuracy, Bias, and Precision
+
+-   **Bias** is the difference between the average of a series of measurements and the true value.
+
+-   **Precision** is the closeness of agreement between independent measurements.
+
+-   **Accuracy** is the *distance* between the estimated (or observed) values and the **true** value.
+
+## Ecological and Environmental data sets {.scrollable}
+
+
+::: custom-tiny
+| Source 📅 | Advantages 😀 | Disadvantages 😒 |
+|------------------------------|---------------------|---------------------|
+| Monitoring programmes | Minimises sources of bias through design | Costly and temporally and geographically restricted |
+| Citizen Science | Cost effective, large spatio-temporal coverage | Biased towards certain species and places that are easy to access or of public interest. |
+| Biological collections | Large historical collections preserved in collections. | The data associated with each collection varies widely.  Also, information about the sampling is  often missing and there are also important sources of spatial and taxonomic bias. |
+| Data repositories | Store large collection of data sources which are often publicly available. | Data are often standardized (losing information) or summarised  to a particular spatial resolution.  Contain varying data source some of which can be biased. |
+| Processed products | Undergo rigorous calibration, integration, and modelling to generate high quality data. | Not always licence-free or publicly available. |
+| Research Generated Data | If available, they provide high quality data,scripts and code that can be cited and provides transparency and reproducibility. | *If available* sometimes is a big *If*. Also, sometimes code gets outdated  or developers do not longer maintain  it. |
+:::
+
+## Censored Data and Limits of Detection
+
+-   We are restricted in our knowledge about **censored data**.
+
+-   The **limit of detection (LoD)** $c_L$ is the lowest concentration that can be distinguished with reasonable confidence from a "blank" (a hypothetical sample with a value of zero).
+
+-   We can address LoDs through:
+
+    -   Simple substitution
+    -   Distribution-based approaches like:
+        -   Maximum Likelihood
+        -   Kaplan-Meier
+        -   Regression on Order Statistics
+
+
+## Outliers
+
+-   An **outlier** is an extreme or unusual observation in our dataset.
+
+-   Can be identified via:
+
+    -   Examining plots of the data
+    -   Test of discordancy
+    -   Chauvenet's criterion
+    -   Grubbs' test
+    -   Dixon's test
+
+## Missing Data (Summary)
+
+-   **Missing data** can be missing at random, or systematically.
+
+-   Systematic missingness may require imputation, e.g.:
+
+    -   **Single imputation:** generating one value in place of each missing value.
+    -   **Multiple imputation:** generating several values in place of each missing value.
+
+## References

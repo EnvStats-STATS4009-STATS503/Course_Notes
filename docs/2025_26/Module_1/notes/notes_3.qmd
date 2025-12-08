@@ -13,7 +13,7 @@ format:
     toc-location: left
     toc-title: Contents
     number-sections: true
-  pdf:
+  PrettyPDF-pdf:
     number-sections: true
 embed-resources: true
 execute: 
@@ -422,7 +422,7 @@ The Generalised Randomised Tessellation Stratified (GRTS) is a form of spatially
 
 ![](images/lake_d3.png){fig-align="center"}
 
-4.  Continue this hierarchical randomisation to the desired spatial scale such that $\mathcal{A}_k \equiv \{a_1,\ldots,a_k:a_1 = 0,1,2,3; \ldots; a_k = 0,1,2,3\}$ until the sum of the inclusion probabilities of each element within a given square are less than one.
+4.  Continue this hierarchical randomisation to the desired spatial scale such that $\mathcal{A}_k \equiv \{a_1,\ldots,a_k:a_1 = 0,1,2,3; \ldots; a_k = 0,1,2,3\}$ until the sum of the inclusion probabilities of each element within a given square are less than one (i.e., (Number of samples needed from this cell) / (Number of sites in this cell) \< 1).
 
 ![](images/lake_d4.png){fig-align="center" width="300"}
 

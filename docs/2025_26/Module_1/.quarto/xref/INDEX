@@ -31,5 +31,9 @@
   },
   "slides/slides_3.qmd": {
     "slides_3.html": "53234f04"
+  },
+  "lab_1.qmd": {
+    "lab_1.html": "106ad676",
+    "lab_1.tex": "d4cb74fa"
   }
 }
