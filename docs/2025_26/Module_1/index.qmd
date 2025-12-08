@@ -16,7 +16,7 @@ format:
 
 # Overview
 
-This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common imperfections—such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design. 
+This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common imperfections—such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design.
 
 # Course Structure
 
