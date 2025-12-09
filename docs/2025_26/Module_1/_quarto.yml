@@ -5,8 +5,8 @@ project:
   - index.qmd
   - reading_list.qmd
   - lab_1.qmd
-  - tutorial_sheet_1.qmd.qmd
-  - tutorial_sheet_1_solutions.qmd.qmd
+  - tutorial_sheet_1.qmd
+  - tutorial_sheet_1_solutions.qmd
   - notes/notes_1.qmd
   - notes/notes_2.qmd
   - notes/notes_3.qmd
@@ -46,9 +46,9 @@ website:
             href:  supplementary/supl_1.qmd
       - text: "Tutorials"
         menu:
-          - text: "Practical 1 - inlabru workflow"
+          - text: "Tutorial sheet 1"
             href: tutorial_sheet_1.qmd
-      - text: "Lab"
+      - text: "Labs"
         menu:
           - text: "Lab 1"
             href: lab_1.qmd

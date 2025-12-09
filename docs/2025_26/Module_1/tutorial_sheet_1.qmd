@@ -1,14 +1,9 @@
 ---
 title: "Tutorial Sheet 1"
-title-block-banner: true
 format: 
   html:
     number-sections: true
     toc: true
-    embed-resources: true
-    theme: 
-      - cosmo
-      - custom.scss
   PrettyPDF-pdf:
     keep-tex: true
     number-sections: true

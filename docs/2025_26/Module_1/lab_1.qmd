@@ -5,9 +5,6 @@ format:
     number-sections: true
     toc: true
     embed-resources: true
-    theme:
-      light: flatly
-      dark: darkly
   PrettyPDF-pdf:
     keep-tex: true
     number-sections: true
