@@ -247,7 +247,7 @@ $$
 
 **Precision**
 
-The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is and does not relate to the true value. To illustrate this, suppose we draw 20 random samples with equal probability from our population of interest . @fig-bias_prec shows 100 replicates/data sets of this experiment with 4 different estimators:
+The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is and does not relate to the true value. To illustrate this, suppose we draw 20 random samples with equal probability from our population of interest . The figure below shows 100 replicates/data sets of this experiment with 4 different estimators:
 
 -   $\hat{\theta}_{1}(s) =\frac{1}{20}\sum_{i=1}^{20} x_i$ - the mean of the $s$th sample which is **unbiased** and **precise**
 

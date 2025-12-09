@@ -230,7 +230,7 @@ Suppose we need to take samples of water quality on a lake. Our sampling scheme 
 
 ### **Distance sampling**
 
-In ecology, *distance sampling,* is a widely used spatial sampling method for estimating animal abundance or population density by measuring the perpendicular distances from a transect line or point to detected individuals @fig-dist_sampling . The methods assumes that the probability of observing animals decreases with increasing distance from the observer according to a specific detection function. The distance data are modelled using this detection function to account for imperfect detection and estimate the proportion of missed individuals in the study area.
+In ecology, *distance sampling,* is a widely used spatial sampling method for estimating animal abundance or population density by measuring the perpendicular distances from a transect line or point to detected individuals. The methods assumes that the probability of observing animals decreases with increasing distance from the observer according to a specific detection function. The distance data are modelled using this detection function to account for imperfect detection and estimate the proportion of missed individuals in the study area.
 
 ::: {.content-visible when-format="html"}
 ![Illustration of a distance sampling scheme. On the left, the true species distribution point pattern, the vertical transects (dashed lines) and detected individuals along each transect (blue points). On the right hand side, the distribution of the observed distances from each transect to each detected individual.](images/distance-animation.gif){#fig-dist_sampling fig-align="center" width="603"}

@@ -673,7 +673,7 @@ Instead, we'll focus on key data sources
 
 ::: custom-tiny
 | Monitoring Scheme | Description |
-|---------------------------|---------------------------------------------|
+|----|----|
 | United Kingdom Butterfly Monitoring Scheme ([UKBMS](https://ukbms.org/)) | Protocolized sampling scheme run by butterfly conservation that has monitored changes in the abundance of butterflies throughout the United Kingdom since 1976. |
 | UK Environmental Change Network ([ECN](https://ecn.ac.uk/)) | UK's long-term ecosystem monitoring and research programme that has produced a large collection of publicly available data sets including meteorological, biogeochemistry and biological data for different taxonomic groups [@rennie2020]. |
 | National Hydrological Monitoring Programme ([NHMP](https://nrfa.ceh.ac.uk/nhmp)) | The NHMP, particulalry the National River Flow Archive conveys a national scale management of hydrological data within the UK hosted by the UKCEH since 1982 collating hydrometric data from gauging station networks operated by multiple agencies. |
@@ -697,7 +697,7 @@ Instead, we'll focus on key data sources
 -   Harnessing the power of CS data is not an easy task!
 
 | Advantages 😄👍 | Disadvantages 😔👎 |
-|----------------------------------------|--------------------------------|
+|----|----|
 | Extensive taxonomic, spatial and temporal coverage. | Under-reporting of rare and inconspicuous species. |
 | Eye-catching species that are easily identifiable by participants. | Varying recording skills and uneven sampling effort. |
 
@@ -1340,16 +1340,15 @@ Check notes material for a more detailed description of these tests
 
 ## Ecological and Environmental data sets {.scrollable}
 
-
 ::: custom-tiny
 | Source 📅 | Advantages 😀 | Disadvantages 😒 |
-|------------------------------|---------------------|---------------------|
+|----|----|----|
 | Monitoring programmes | Minimises sources of bias through design | Costly and temporally and geographically restricted |
 | Citizen Science | Cost effective, large spatio-temporal coverage | Biased towards certain species and places that are easy to access or of public interest. |
-| Biological collections | Large historical collections preserved in collections. | The data associated with each collection varies widely.  Also, information about the sampling is  often missing and there are also important sources of spatial and taxonomic bias. |
-| Data repositories | Store large collection of data sources which are often publicly available. | Data are often standardized (losing information) or summarised  to a particular spatial resolution.  Contain varying data source some of which can be biased. |
+| Biological collections | Large historical collections preserved in collections. | The data associated with each collection varies widely. Also, information about the sampling is often missing and there are also important sources of spatial and taxonomic bias. |
+| Data repositories | Store large collection of data sources which are often publicly available. | Data are often standardized (losing information) or summarised to a particular spatial resolution. Contain varying data source some of which can be biased. |
 | Processed products | Undergo rigorous calibration, integration, and modelling to generate high quality data. | Not always licence-free or publicly available. |
-| Research Generated Data | If available, they provide high quality data,scripts and code that can be cited and provides transparency and reproducibility. | *If available* sometimes is a big *If*. Also, sometimes code gets outdated  or developers do not longer maintain  it. |
+| Research Generated Data | If available, they provide high quality data,scripts and code that can be cited and provides transparency and reproducibility. | *If available* sometimes is a big *If*. Also, sometimes code gets outdated or developers do not longer maintain it. |
 :::
 
 ## Censored Data and Limits of Detection
@@ -1365,7 +1364,6 @@ Check notes material for a more detailed description of these tests
         -   Maximum Likelihood
         -   Kaplan-Meier
         -   Regression on Order Statistics
-
 
 ## Outliers
 

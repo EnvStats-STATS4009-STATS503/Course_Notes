@@ -667,13 +667,13 @@ $$\bar{x} \pm t_{1-\alpha/2} \sqrt{\text{Var}(\bar{x})}.$$
 
 -   Can anyone see a problem here?
 
-## Choosing the sample size {auto-animate =true}
+## Choosing the sample size {auto-animate ="true"}
 
 -   This calculation requires us to use $s^2$, the variance of our sample.
 -   But we don't have the sample yet. The whole point of this exercise is to determine the size of our sample.
 -   So, what can we use instead?
 
-## Choosing the sample size {auto-animate =true}
+## Choosing the sample size {auto-animate ="true"}
 
 -   This calculation requires us to use $s^2$, the variance of our sample.
 -   But we don't have the sample yet. The whole point of this exercise is to determine the size of our sample.
