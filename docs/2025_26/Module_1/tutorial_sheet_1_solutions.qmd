@@ -10,6 +10,8 @@ format:
     keep-tex: true
     number-sections: true
 engine: knitr
+execute: 
+  freeze: auto
 css: styles.css
 ---
 
@@ -145,7 +147,7 @@ So, for the frequency of the wave, we have: $$f=(0.5\pm0.025)s^{-1}$$
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 4
 
 10 sets of data (N=13) have been collected. Within each there is a number of (suspected) outliers.
@@ -227,7 +229,7 @@ Again we are testing the null hypothesis that the maximum value is not an outlie
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 5
 
 (a) An ecologist wishes to analyse a dataset that contains a variable with around 1% of its data censored at a limit of detection. The ecologist proposes to use a simple substitution method to replace all values at the limit of detection ($c_L$) with 0.5$c_L$. Do you agree with this approach? Why/ why not?
@@ -243,7 +245,7 @@ Again we are testing the null hypothesis that the maximum value is not an outlie
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 6
 
 (a) Suppose that chlorophyll data in a freshwater loch are collected twice a week, but the equipment needs to be removed for maintenance once a month, so that there are around 12 missing values per year. Can we assume that these values are missing at random?
@@ -261,7 +263,7 @@ Again we are testing the null hypothesis that the maximum value is not an outlie
 
 # Part B: Sampling and monitoring
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 7
 
 In the case of a simple random sample $x_1,..., x_n$ of a random variable, $X$, assuming the observations are independent,
@@ -285,7 +287,7 @@ $$=\frac{1}{n-1}\left(E\left(\sum X_i^2\right) - E\left(n\bar{X}^2\right)\right)
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 8
 
 [Gilbert (1977)](https://go.exlibris.link/DnZPRrww) reports results of soil sampling at a nuclear weapons test area obtained using stratified random sampling to assess the total amount of Plutonium found in surface soil. Use the information in the table below to:
@@ -349,7 +351,7 @@ $$n_l = n \frac{W_l\sigma_l}{\sum_{i=1}^L W_l\sigma_l}$$ Alternatively, we could
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 9
 
 Discuss the advantages and disadvantages of the three sampling methods below for mapping a pollutant field:
@@ -369,7 +371,7 @@ Systematic is much more practical for field work, although it is not often rando
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 10
 
 The Water Framework Directive states:
@@ -399,7 +401,7 @@ So, for population discussed we have:
 `r unhide()`
 :::
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 11
 
 Read pages 17--23 of the Analytical Laboratories for the Measurement of Environmental Radioactivity (ALMERA) report on soil sampling (available below). Describe briefly the sampling strategy adopted and also the methods of analysis presented.
@@ -427,7 +429,7 @@ The sampling approach used is fundamentally systematic. The sample preparation a
 
 
 
-::: {.callout- icon="false"}
+::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 12
 
 Read the SEPA survey of business waste (available [on Moodle](https://moodle.gla.ac.uk/pluginfile.php/9627009/mod_folder/content/0/SEPA%20Sampling%20Tutorial%20Sheet%201.docx)) and describe briefly the sampling strategy you would propose. Discuss its advantages and disadvantages.

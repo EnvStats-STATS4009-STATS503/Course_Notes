@@ -12,6 +12,8 @@ format:
     number-sections: true
   PrettyPDF-pdf:
     number-sections: true
+execute: 
+  freeze: auto
 ---
 
 # Overview

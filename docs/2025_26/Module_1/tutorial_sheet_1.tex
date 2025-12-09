@@ -298,7 +298,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, colback={codebgcolor}, enhanced, boxrule=0pt, frame hidden, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, sharp corners, boxrule=0pt, frame hidden, colback={codebgcolor}, enhanced]}{\end{tcolorbox}}\fi
 \makeatother
 
 \usepackage{bookmark}
@@ -470,7 +470,7 @@ Comment on this output.
 \section{Part B: Sampling and
 monitoring}\label{part-b-sampling-and-monitoring}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, opacityback=0, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, left=2mm, arc=.35mm, toprule=.15mm, breakable, coltitle=black, leftrule=.75mm, colback=white, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, opacitybacktitle=0.6, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, colframe=quarto-callout-note-color-frame, toptitle=1mm, left=2mm, coltitle=black, leftrule=.75mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, toprule=.15mm, breakable, bottomtitle=1mm, colback=white, titlerule=0mm, opacityback=0, bottomrule=.15mm, arc=.35mm]
 
 This part of the tutorial sheet relates to material in Week 3, which
 we'll cover in the lectures during the same week as Tutorial 1. You can
@@ -545,7 +545,7 @@ Variance \(s^2_l\)
 4 & 11,000 & 20 & 260 & 84,500 \\
 \end{longtable}
 
-\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, bottomtitle=1mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, bottomrule=.15mm, left=2mm, arc=.35mm, toprule=.15mm, breakable, coltitle=black, leftrule=.75mm, colback=white, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, rightrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, colframe=quarto-callout-tip-color-frame, toptitle=1mm, left=2mm, coltitle=black, leftrule=.75mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, toprule=.15mm, breakable, bottomtitle=1mm, colback=white, titlerule=0mm, opacityback=0, bottomrule=.15mm, arc=.35mm]
 
 The stratified estimator of the population total is
 

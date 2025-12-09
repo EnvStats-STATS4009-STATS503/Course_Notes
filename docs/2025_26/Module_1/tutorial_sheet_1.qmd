@@ -8,6 +8,8 @@ format:
     keep-tex: true
     number-sections: true
 engine: knitr
+execute: 
+  freeze: auto
 css: styles.css
 ---
 

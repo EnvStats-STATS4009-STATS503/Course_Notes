@@ -331,7 +331,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={codebgcolor}, frame hidden, enhanced, sharp corners, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, colback={codebgcolor}, frame hidden, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
 \makeatother
 
 \usepackage{bookmark}
@@ -472,7 +472,7 @@ Ammonia and time.
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-3-1.pdf}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Question}, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Question}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 What do you notice about the relationship between Ammonia and time? Do
 you notice any patterns or \emph{unusual} observations?
@@ -497,7 +497,7 @@ plots.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Task 1}, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-warning-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Task 1}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 By looking at the exploratory plots there seems to be an outlier given
 by an Ammonia value that is larger than 2. Suppose we want to remove
@@ -701,7 +701,7 @@ are actually interestes is in the following output:
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-11-1.pdf}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Question}, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Question}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 What can you tell about the plot above?
 
@@ -796,7 +796,7 @@ For example taking the mean and sd from the ROS output and a
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.1150491
+[1] 0.05668802
 \end{verbatim}
 
 Now we can input the censored values by applying the custom-built
@@ -850,7 +850,7 @@ combining the year with the day of year:
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-18-1.pdf}}
 \end{center}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Task 2}, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-warning-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Task 2}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1005,12 +1005,12 @@ function to visualise the distribution of lakes as follow:
 \end{Shaded}
 
 \begin{verbatim}
-file:///C:/Users/admin/AppData/Local/Temp/RtmpWsVwKT/file4db82dc45375/widget4db84f753a32.html screenshot completed
+file:///C:/Users/admin/AppData/Local/Temp/RtmpK6G9Kk/file1f08673f730/widget1f0858836403.html screenshot completed
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-21-1.pdf}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Task 3}, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-warning-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Task 3}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 In the previous plot we have shown the spatial distribution of lakes
 colored by their size. Create a map that shows the lake distribution
@@ -1105,7 +1105,7 @@ selected site for monitoring.
 \end{Shaded}
 
 \begin{verbatim}
-file:///C:/Users/admin/AppData/Local/Temp/RtmpWsVwKT/file4db864856ab9/widget4db825db762b.html screenshot completed
+file:///C:/Users/admin/AppData/Local/Temp/RtmpK6G9Kk/file1f0813dc3acf/widget1f086406561e.html screenshot completed
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-28-1.pdf}}
@@ -1153,7 +1153,7 @@ data that represents the stratification variable via the
 \end{Shaded}
 
 \begin{verbatim}
-file:///C:/Users/admin/AppData/Local/Temp/RtmpWsVwKT/file4db8483a5dbd/widget4db8317c67d6.html screenshot completed
+file:///C:/Users/admin/AppData/Local/Temp/RtmpK6G9Kk/file1f087773376/widget1f0874bf5482.html screenshot completed
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-30-1.pdf}}
@@ -1196,7 +1196,7 @@ of 10 small lakes.
 \end{Shaded}
 
 \begin{verbatim}
-file:///C:/Users/admin/AppData/Local/Temp/RtmpWsVwKT/file4db81ead4227/widget4db861fb7e24.html screenshot completed
+file:///C:/Users/admin/AppData/Local/Temp/RtmpK6G9Kk/file1f0828d91310/widget1f08fbc4734.html screenshot completed
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-32-1.pdf}}
@@ -1225,7 +1225,7 @@ by specifying the lake's areas as an \texttt{aux\_var} variable in the
 \end{Shaded}
 
 \begin{verbatim}
-file:///C:/Users/admin/AppData/Local/Temp/RtmpWsVwKT/file4db84b4f7111/widget4db8bca5e12.html screenshot completed
+file:///C:/Users/admin/AppData/Local/Temp/RtmpK6G9Kk/file1f0836b71d43/widget1f081abb5a6e.html screenshot completed
 \end{verbatim}
 
 \pandocbounded{\includegraphics[keepaspectratio]{lab_1_files/figure-pdf/unnamed-chunk-34-1.pdf}}
@@ -1298,7 +1298,7 @@ again the SRS:
 
 \begin{verbatim}
   stratum metric      value
-1    None pielou 0.03248577
+1    None pielou 0.02348388
 \end{verbatim}
 
 \begin{Shaded}
@@ -1308,11 +1308,11 @@ again the SRS:
 \end{Shaded}
 
 \begin{verbatim}
-  stratum metric      value
-1    None pielou 0.03251751
+  stratum metric     value
+1    None pielou 0.0376794
 \end{verbatim}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Question}, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Question}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 Which design has better spatial balance?
 
@@ -1344,7 +1344,7 @@ in similar fashion -- the only difference being the geometry type of the
 tasked to design a river network using GRTS algorithm for a section of
 the llinois River in Arkansas and Oklahoma.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, toptitle=1mm, title={Task 4}, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, opacitybacktitle=0.6, leftrule=.75mm, bottomtitle=1mm, breakable, titlerule=0mm, colframe=quarto-callout-warning-color-frame, coltitle=black, toprule=.15mm, left=2mm, opacityback=0, colback=white, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, breakable, arc=.35mm, opacityback=0, title={Task 4}, bottomrule=.15mm, rightrule=.15mm, leftrule=.75mm, colback=white, opacitybacktitle=0.6, left=2mm, coltitle=black, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, titlerule=0mm]
 
 The \texttt{Illinois\_River} data in \texttt{spsurvey} contains the
 spatial information of 244 segments of the Illinois River in Arkansas
@@ -1406,7 +1406,7 @@ Click here to see the solution
 
 \begin{verbatim}
   stratum metric      value
-1    None pielou 0.04758683
+1    None pielou 0.04926403
 \end{verbatim}
 
 \begin{Shaded}
@@ -1417,7 +1417,7 @@ Click here to see the solution
 
 \begin{verbatim}
   stratum metric      value
-1    None pielou 0.02731609
+1    None pielou 0.02844077
 \end{verbatim}
 
 \begin{Shaded}
