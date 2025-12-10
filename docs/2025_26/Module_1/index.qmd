@@ -77,9 +77,6 @@ In addition, there will be **four** tutorials for this course. There are two tut
 
 4.  09-Mar-2026
 
-:::{.callout-note}
-Part B of the [tutorial sheet 1](tutorial_sheet_1.qmd) relates to material covered in Week 3. You can attempt these questions in Tutorial 1 if you wish, but you may prefer to go through these during Tutorial 2 instead.
-:::
 
 # Tutorial Group 2- Wednesday 12 noon
 

@@ -37,7 +37,7 @@ In this first practical we are going
 
 {{< downloadthis lab_1.R dname="lab_1" label = "Download Lab 1 R script" icon="database-fill-down" type="success" >}}
 
-# Task 1: Limits of detection {#sec-LoD}
+# Part 1: Limits of detection {#sec-LoD}
 
 Data reported at a limit of detection represent a common problem in environmental studies. For this problem, measurements on ammonia from a stretch of river will be studied, with 31% censored data. The data are available in the file `SiteSoar.csv`.
 
@@ -75,7 +75,6 @@ library(patchwork)  # For plotting multiple ggplot objects together
 Soar <- read.csv("datasets/SiteSoar.csv", header = TRUE)
 
 # Examine structure of the dataset:
-dim(Soar)
 str(Soar)
 
 ```
@@ -135,11 +134,11 @@ Lets look into some further statistics using the `pctCen` and `censummary` funct
 ```{r}
 # Further summary statistics:
 pctCen(Soar$Ammonia, Soar$censored)     ## percent of censored data
-censummary(Soar$Ammonia, Soar$censored) ## like summary cmd but for 
-                                        ## censored data
+censummary(Soar$Ammonia, Soar$censored) ## like summary cmd but for censored data
+                                        
 ```
 
-**What does this tell us?** You can ignore the limit of "0.00", since the function adds this by default if there is only one positive limit in the dataset --- you can see that `n` takes the value 0 here, meaning that there are no data points censored at 0.
+**What does this tell us?** You can ignore the limit of `0.00`, since the function adds this by default if there is only one positive limit in the dataset --- you can see that `n` takes the value 0 here, meaning that there are no data points censored at 0.
 
 In the first line, `uncen` tells us that there are 22 data points that have values between 0 and the LoD of 0.03, so this emphasises that just because we have a LoD in the data, that doesn't mean that all data points will be censored here, since different instruments (that have different LoDs) may have been used to generate the same dataset.
 
@@ -153,11 +152,8 @@ First, we will implement Regression on Order Statistics (ROS) using the `cenros`
 
 ```{r}
 ## 1. ROS:
-ROS <- cenros(Soar$Ammonia, Soar$censored) ## constructs an object of 
-                                           ## class c("ros", "lm")
-plot(ROS)    ## probability plot
+ROS <- cenros(Soar$Ammonia, Soar$censored) 
 plot(ROS, plot.censored = TRUE) ## plots the modelled censored 
-    
 ```
 
 **Interpretation of plot:** Here, do the filled black circles generally follow a straight line? Yes, so the model seems reasonable to use here.
@@ -186,7 +182,7 @@ KM <- cenfit(Soar$Ammonia, Soar$censored)  ## constructs a Kaplan-Meier model
 plot(KM)   ## survival function plot
 ```
 
-On the x-axis we have the Concentration values and on the y-axis we have the proportion of observations $\neq$ to each concentration. Don't worry too much about the interpretation of this plot. It tells us about the probability of the data being at most a certain value (using the information that we have from the censored and uncensored data). What we are actually interestes is in the following output:
+On the x-axis we have the Concentration values and on the y-axis we have the proportion of observations $\leq$ to each concentration. Don't worry too much about the interpretation of this plot. It tells us about the probability of the data being at most a certain value (using the information that we have from the censored and uncensored data). What we are actually interested is in the following output:
 
 ```{r}
 print(KM)
@@ -291,9 +287,6 @@ ggplot(data=Soar,aes(y=imputed.ROS,x=year.day,color=censored))+
 
 2.  Create three plots that compare the imputed ammonia values against the decimal year for each method. Discuss how changing the approach taken affects the imputed values.
 
-`r hide("Take hint")`
-
-`r unhide()`
 
 ```{r}
 #| webex.hide: "Click here to see the solution"
@@ -331,7 +324,7 @@ ggplot(data=Soar,aes(y=imputed.MLE,x=year.day,color=censored))+
 ```
 :::
 
-# Designing a monitoring network {#sec-design}
+# Part 2: Designing a monitoring network {#sec-design}
 
 Spatial sampling design is critical for ensuring monitoring data are representative and cost-effective. This practical introduces **generalized random-tessellation stratified (GRTS) sampling** using the `spsurvey` package in R. GRTS provides spatially balanced samples—avoiding clustering while ensuring geographic coverage—and is widely used in environmental monitoring programs. We will design a monitoring network for lakes in the Northeastern US. The `NE_Lakes` dataset contains the spatial information of 195 lakes in the Northeastern United States which are summarised in the following table:
 
@@ -346,12 +339,14 @@ Spatial sampling design is critical for ensuring monitoring data are representat
 We begin by first loading the data set contained within the `spsurvey` package, additionally we will load the `mapview` and `sf` packages for visualizing our data.
 
 ```{r}
+#| message: false
+#| warning: false
 library(spsurvey)
 library(mapview)
 data("NE_Lakes")
 ```
 
-The `NE_Lakes` data is a Simple Features (`sf`) object containing the spatial information for the point-location of 195 lakes in the Northeastern United States. We can use the `mapview` function to visualise the distribution of lakes as follow:
+The `NE_Lakes` data is a Simple Features (`sf`) object containing the spatial information for the point-location of 195 lakes in the Northeastern United States. We can use the `mapview` function to visualise the distribution of lakes and colored them by their size as follow:
 
 ```{r}
 mapview(NE_Lakes,zcol="AREA_CAT")
@@ -494,7 +489,7 @@ Other useful features that have been implemented on the `grts` function are (see
 
 -   *Minimum distance selection* -Sometimes the selected sites are too close to each other. We can set a minimum distance between sites by setting the `mindis` argument to a particular distance determined by the data CRS (e.g., `grts(NE_Lakes, n_base = 50, mindis = 1600)`)
 
--   *Replacement sites* - it is common that once a network has been designed the data at some of the selected in the sample not able to been able to collected at the site(e.g, due terrain contraints or landowner permission). We can then use a nearest neighbor approach to selects replacement sites according to the distance between GRTS-sampled site and all other sites in the sampling frame that are not part of the GRTS sample. E.g., to select a GRTS sample of size 50 with two nearest neighbor replacement we can run `eqprob_nn <- grts(NE_Lakes, n_base = 50, n_near = 2)`.
+-   *Replacement sites* - it is common that once a network has been designed the data at some of the selected in the sample not able to been able to collected at the site (e.g, due terrain contraints or landowner permission). We can then use a nearest neighbor approach to selects replacement sites according to the distance between GRTS-sampled site and all other sites in the sampling frame that are not part of the GRTS sample. E.g., to select a GRTS sample of size 50 with two nearest neighbor replacement we can run `eqprob_nn <- grts(NE_Lakes, n_base = 50, n_near = 2)`.
 
 ## Assessing spatial balance
 
@@ -506,7 +501,7 @@ $$
 
 where $n$ is the sample size. PEI is bounded between zero and one. A PEI of zero indicates perfect spatial balance. As PEI increases, the spatial balance worsens. The `sp_balance()` function which receives as arguments the (i) design sites and (ii) the sampling frame ( note that if stratified sampling is being compared you also need to supply the name of the stratified variable in your data via the `stratum_var` arugment).
 
-the following code compares the GRTS with equal inclusion probabilities again the SRS:
+The following code compares the GRTS with equal inclusion probabilities again the SRS:
 
 ```{r}
 sp_balance(eqprob$sites_base, NE_Lakes)
@@ -518,19 +513,19 @@ sp_balance(eqprob_irs$sites_base, NE_Lakes)
 ## {{< bi question-octagon color=#6dc83c >}} Question
 Which design has better spatial balance?
 
-`r mcq(c("SRS", answer = "GRTS"))`
+`r mcq(c("IRS", answer = "GRTS"))`
 
 :::
 
 
-So far we have applied the GRTS algorithm to point reference data. However, this methodology can also be applied on linear and areal data in similar fashion – the only difference being the geometry type of the `sf` object used as argument.  In the next exercise you will be tasked to design a river network using GRTS algorithm for a section of the llinois River in Arkansas and Oklahoma.
+So far we have applied the GRTS algorithm to point reference data. However, this methodology can also be applied on linear and areal data in similar fashion – the only difference being the geometry type of the `sf` object used as argument.  In the next exercise, you will be tasked with designing a river network using the GRTS algorithm for a section of the Illinois River in Arkansas and Oklahoma
 
 ::: {.callout-warning icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 4
 
 The  `Illinois_River` data in `spsurvey` contains the spatial information of 244 segments of the Illinois River in Arkansas and Oklahoma. The data can be accessed with `data(Illinois_River)`. Use the `grts` to:
 
-1. Design a monitoring network with $n=25$ sampling points using *simple random sampling*.
+1. Design a monitoring network with $n=25$ sampling points using *independent random sampling*.
 
 2. Design a monitoring network with $n=25$ sampling points using *GRTS sampling* with equal inclusion probabilities.
 

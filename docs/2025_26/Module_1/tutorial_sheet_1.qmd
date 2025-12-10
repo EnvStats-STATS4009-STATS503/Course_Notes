@@ -159,8 +159,12 @@ Discuss briefly how you would translate this statement into a monitoring program
 
 ## Task 11 {.unnumbered}
 
-Read pages 17--23 of the Analytical Laboratories for the Measurement of Environmental Radioactivity (ALMERA) report on soil sampling (available [on Moodle](https://moodle.gla.ac.uk/pluginfile.php/9627009/mod_folder/content/0/ALMERA%20Soil%20Sampling%20Tutorial%20Sheet%201.pdf)). Describe briefly the sampling strategy adopted and also the methods of analysis presented.
+Read pages 17--23 of the Analytical Laboratories for the Measurement of Environmental Radioactivity (ALMERA) report on soil sampling (available below). Describe briefly the sampling strategy adopted and also the methods of analysis presented.
+
+{{< downloadthis ALMERA_Soil_Sampling.pdf dname="ALMERA_Soil_Sampling" label="Download ALMERA report" icon="database-fill-down" type="info" >}}
 
 ## Task 12 {.unnumbered}
 
-Read the SEPA survey of business waste (available [on Moodle](https://moodle.gla.ac.uk/pluginfile.php/9627009/mod_folder/content/0/SEPA%20Sampling%20Tutorial%20Sheet%201.docx)) and describe briefly the sampling strategy you would propose. Discuss its advantages and disadvantages.
+Read the SEPA survey of business waste (available below) and describe briefly the sampling strategy you would propose. Discuss its advantages and disadvantages.
+
+{{< downloadthis SEPA_Sampling.pdf dname="SEPA_Sampling" label="Download SEPA report" icon="database-fill-down" type="info" >}}

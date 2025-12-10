@@ -26,11 +26,11 @@ website:
     left:
       - text: "Notes"
         menu:
-          - text: "Week 1"
+          - text: "Week 1 - Introduction"
             href:  notes/notes_1.qmd
-          - text: "Week 2"
+          - text: "Week 2 - Understanding our Data"
             href:  notes/notes_2.qmd
-          - text: "Week 3"
+          - text: "Week 3 - Sampling & Monitoring"
             href:  notes/notes_3.qmd
       - text: "Slides"
         menu:

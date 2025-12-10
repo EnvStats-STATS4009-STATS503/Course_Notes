@@ -382,61 +382,61 @@ ggplot(data.frame(x = c(-3, 3)), aes(x)) +
 
 A sampling strategy integrates both sample **selection methods** from a target population and **estimation techniques** to infer population attributes from sample measurements.
 
-## Flash Re-cap: Estimator properties {.smaller}
+<!-- ## Flash Re-cap: Estimator properties {.smaller} -->
 
-::: {.callout-note icon="false"}
-## Def. Consistency
+<!-- ::: {.callout-note icon="false"} -->
+<!-- ## Def. Consistency -->
 
-An estimator $\hat{\theta}$ of $\theta$ is said to be consistent if for any $\epsilon >0$
+<!-- An estimator $\hat{\theta}$ of $\theta$ is said to be consistent if for any $\epsilon >0$ -->
 
-$$
-\lim_{n\to\infty} \mathbb{P}(|\hat{\theta}-\theta| > \epsilon) = 0
-$$
-:::
+<!-- $$ -->
+<!-- \lim_{n\to\infty} \mathbb{P}(|\hat{\theta}-\theta| > \epsilon) = 0 -->
+<!-- $$ -->
+<!-- ::: -->
 
-::: {.callout-note icon="false"}
-## Expected value
+<!-- ::: {.callout-note icon="false"} -->
+<!-- ## Expected value -->
 
-The expected value of an estimator is a weighted average of all possible estimates.
+<!-- The expected value of an estimator is a weighted average of all possible estimates. -->
 
-$$
-\mathbb{E}(\hat{\theta})= \sum_{x\in\Omega} p(s)\hat{\theta}(s)
-$$
+<!-- $$ -->
+<!-- \mathbb{E}(\hat{\theta})= \sum_{x\in\Omega} p(s)\hat{\theta}(s) -->
+<!-- $$ -->
 
-It is a function of both, the sampling design (due to inclusion probabilities $p(s)$) and the population being sampled (through the sample estimate $\hat{\theta}(s)$)
-:::
+<!-- It is a function of both, the sampling design (due to inclusion probabilities $p(s)$) and the population being sampled (through the sample estimate $\hat{\theta}(s)$) -->
+<!-- ::: -->
 
-## Flash Re-cap: Estimator properties {.smaller}
+<!-- ## Flash Re-cap: Estimator properties {.smaller} -->
 
-::: {.callout-note icon="false"}
-## Bias
+<!-- ::: {.callout-note icon="false"} -->
+<!-- ## Bias -->
 
-The difference in magnitude between its expected value and the population parameter
+<!-- The difference in magnitude between its expected value and the population parameter -->
 
-$$
-\textbf{Bias}(\hat{\theta}) = \mathbb{E}(\hat{\theta}) - \theta
-$$
-:::
+<!-- $$ -->
+<!-- \textbf{Bias}(\hat{\theta}) = \mathbb{E}(\hat{\theta}) - \theta -->
+<!-- $$ -->
+<!-- ::: -->
 
-::: {.callout-note icon="false"}
-## Variance
+<!-- ::: {.callout-note icon="false"} -->
+<!-- ## Variance -->
 
-Average squared distance between individual estimates $\hat{\theta}(s)$ and their expected value $\mathbb{E}(\hat{\theta})$
+<!-- Average squared distance between individual estimates $\hat{\theta}(s)$ and their expected value $\mathbb{E}(\hat{\theta})$ -->
 
-$$
-\text{Var}(\hat{\theta}) = \sum_{s\in \Omega} p(s) \left[\hat{\theta}(s)-\mathbb{E}(\hat{\theta})\right]^2 
-$$
-:::
+<!-- $$ -->
+<!-- \text{Var}(\hat{\theta}) = \sum_{s\in \Omega} p(s) \left[\hat{\theta}(s)-\mathbb{E}(\hat{\theta})\right]^2  -->
+<!-- $$ -->
+<!-- ::: -->
 
-::: {.callout-note icon="false"}
-## Precision
+<!-- ::: {.callout-note icon="false"} -->
+<!-- ## Precision -->
 
-The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is
-:::
+<!-- The **precision** of an estimator is a qualitative measurement that assess how small or large the variability of an estimator is -->
+<!-- ::: -->
 
-## Flash Re-cap: Estimator properties {.smaller}
+<!-- ## Flash Re-cap: Estimator properties {.smaller} -->
 
-![](figures/four_estimators.gif){fig-align="center" width="526"}
+<!-- ![](figures/four_estimators.gif){fig-align="center" width="526"} -->
 
 # Types of Sampling methods
 
@@ -667,13 +667,13 @@ $$\bar{x} \pm t_{1-\alpha/2} \sqrt{\text{Var}(\bar{x})}.$$
 
 -   Can anyone see a problem here?
 
-## Choosing the sample size {auto-animate ="true"}
+## Choosing the sample size{auto-animate=true}
 
 -   This calculation requires us to use $s^2$, the variance of our sample.
 -   But we don't have the sample yet. The whole point of this exercise is to determine the size of our sample.
 -   So, what can we use instead?
 
-## Choosing the sample size {auto-animate ="true"}
+## Choosing the sample size{auto-animate=true}
 
 -   This calculation requires us to use $s^2$, the variance of our sample.
 -   But we don't have the sample yet. The whole point of this exercise is to determine the size of our sample.
@@ -814,33 +814,33 @@ Is a form of spatially balanced probability sampling scheme
 ::::
 ::::::
 
-## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate=true}
 
 1.  A square bounding box is superimposed onto the sampling frame and is divided into four equally sized square cells (level 1 cells).
 
 ![](figures/lake_d1.jpg){fig-align="center"}
 
-## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate=true}
 
 1.  A square bounding box is superimposed onto the sampling frame and is divided into four equally sized square cells (level 1 cells).
 2.  Each cell is then randomly labelled/numbered, e.g.,$\mathcal{A}_1\equiv \{a_1:a_1 - 0,1,2,3\}$.
 
 ![](figures/lake_d2.jpg.png){fig-align="center" width="318"}
 
-## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate=true}
 
 3.  Each square is split into four more tessellations which are again randomly numbered while retaining the first-level label.
 4.  The set of level-two cells is denoted by $\mathcal{A}_2 \equiv \{a_1a_2 : a_1 = 0,1,2,3; ~a_2 = 0,1,2,3\}$.
 
 ![](figures/lake_d3.png){fig-align="center"}
 
-## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate=true}
 
 5.  Continue this hierarchical randomisation to the desired spatial scale such that $\mathcal{A}_k \equiv \{a_1,\ldots,a_k:a_1 = 0,1,2,3; \ldots; a_k = 0,1,2,3\}$ until the sum of the inclusion probabilities of each element within a given square are less than one.
 
 ![](figures/lake_d4.png){fig-align="center" width="411"}
 
-## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate=true}
 
 6.  Transform the level $k$ grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).
 
@@ -848,7 +848,7 @@ Is a form of spatially balanced probability sampling scheme
 
 ![the colored cells indicate site where small (blue) and large (red) lakes are present.](figures/lake_d5.png){fig-align="center"}
 
-## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tesselation Stratified (GRTS) {.smaller auto-animate=true}
 
 6.  Transform the level $k$ grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).
 
@@ -856,7 +856,7 @@ Is a form of spatially balanced probability sampling scheme
 
 ![](figures/lake_systematic.png){fig-align="center"}
 
-## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate="true"}
+## Generalised Randomised Tessellation Stratified (GRTS) {.smaller auto-animate=true}
 
 6.  Transform the level $k$ grid cell to a one-dimensional number line by sorting the cells hierarchically (starting from the first-level label).
 

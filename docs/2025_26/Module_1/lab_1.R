@@ -13,7 +13,6 @@ library(patchwork)  # For plotting multiple ggplot objects together
 Soar <- read.csv("datasets/SiteSoar.csv", header = TRUE)
 
 # Examine structure of the dataset:
-dim(Soar)
 str(Soar)
 
 
@@ -29,17 +28,14 @@ ggplot(data = Soar,aes(y = Ammonia, x = year))+geom_point()+
 ## -----------------------------------------------------------------------------
 # Further summary statistics:
 pctCen(Soar$Ammonia, Soar$censored)     ## percent of censored data
-censummary(Soar$Ammonia, Soar$censored) ## like summary cmd but for 
-                                        ## censored data
+censummary(Soar$Ammonia, Soar$censored) ## like summary cmd but for censored data
+                                        
 
 
 ## -----------------------------------------------------------------------------
 ## 1. ROS:
-ROS <- cenros(Soar$Ammonia, Soar$censored) ## constructs an object of 
-                                           ## class c("ros", "lm")
-plot(ROS)    ## probability plot
+ROS <- cenros(Soar$Ammonia, Soar$censored) 
 plot(ROS, plot.censored = TRUE) ## plots the modelled censored 
-    
 
 
 ## -----------------------------------------------------------------------------
@@ -125,6 +121,8 @@ ggplot(data=Soar,aes(y=imputed.ROS,x=year.day,color=censored))+
 
 
 ## -----------------------------------------------------------------------------
+#| message: false
+#| warning: false
 library(spsurvey)
 library(mapview)
 data("NE_Lakes")

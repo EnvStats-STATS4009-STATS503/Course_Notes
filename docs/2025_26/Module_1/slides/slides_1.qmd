@@ -474,7 +474,7 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 
 ::::: columns
 ::: {.column width="30%"}
-```{mermaid}
+```{mermaid, echo=FALSE}
 flowchart TB
   A(Policy) --> B(Legislation)
   B --> C(Monitoring)
@@ -494,7 +494,7 @@ flowchart TB
 
 ::::: columns
 ::: {.column width="30%"}
-```{mermaid}
+```{mermaid, echo=FALSE}
 flowchart TB
   A(Policy) --> B(Legislation)
   B --> C(Monitoring)
