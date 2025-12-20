@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+  - index.qmd
+  # - reading_list.qmd
+  # - lab_1.qmd
+  # - tutorial_sheet_1.qmd
+  # - tutorial_sheet_1_solutions.qmd
+  # - notes/notes_1.qmd
+  # - notes/notes_2.qmd
+  - notes/notes_3.qmd
+website:
+  title: "Module 2"
+  page-footer:
+    center: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_2/docs/" style="color:#ccc;">Home</a>'
+  navbar:
+    logo: UofG.png
+    right:
+      - text: "Home"
+        href: index.qmd
+    left:
+      - text: "Notes"
+        menu:
+          # - text: "Week 4 - Assessing Change Over Time"
+          #   href:  notes/notes_1.qmd
+          # - text: "Week 5 - Autocorrelation & Changepoints"
+          #   href:  notes/notes_2.qmd
+          - text: "Week 6- Modelling Extremes"
+            href:  notes/notes_3.qmd
+      - text: "Slides"
+        menu:
+          # - text: "Week 4 - Assessing Change Over Time"
+          #   href: slides/Week_4.pdf
+          # - text: "Week 5 - Autocorrelation & Changepoints"
+          #   href: slides/Week_5.pdf
+          - text: "Week 6 - Modelling Extremes"
+            href: slides/Week 6_2425.pdf
+      # - text: "Tutorials"
+      #   menu:
+      #     - text: "Tutorial sheet 2"
+      #       href: tutorial_sheet_1.qmd
+      # - text: "Labs"
+      #   menu:
+      #     - text: "Lab 2"
+      #       href: lab_1.qmd
+      # - text: "Reading List"
+      #   href: reading_list.qmd
+format:
+  html:
+    embed-resources: false
+    mainfont: serif
+    theme:
+      light: flatly
+      dark: darkly
+    css:
+      - styles.css
+      - include/webex.css
+    toc: true
+    include-after-body: include/webex.js
+editor: visual
+filters:
+  - shinylive

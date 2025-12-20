@@ -1,0 +1,1031 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod,
+  oneside]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[left=1in,marginparwidth=2.0666666666667in,textwidth=4.1333333333333in,marginparsep=0.3in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+% load packages
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+%% Set page size with a wider right margin
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm, bottom=20mm, right=50mm}
+
+%% Let's define some colours
+\definecolor{uniblue}{HTML}{003865}
+\definecolor{burgundy}{HTML}{7D2239}
+\definecolor{cobalt}{HTML}{005C8A}
+\definecolor{lavender}{HTML}{5B4D94}
+\definecolor{leaf}{HTML}{006630}
+\definecolor{moss}{HTML}{385A4F}
+\definecolor{pillarbox}{HTML}{B30C00}
+\definecolor{rust}{HTML}{9A3A06}
+\definecolor{sandstone}{HTML}{52473B}
+\definecolor{skyblue}{HTML}{005398}
+\definecolor{slate}{HTML}{4F5961}
+\definecolor{thistle}{HTML}{951272}
+
+%\definecolor{light}{HTML}{E6E6FA} % original from template - redefined below as uni blue at 10 percent:
+\colorlet{light}{uniblue!10}
+%\definecolor{highlight}{HTML}{800080} % original from template - redefined below as uni's skyblue:
+\colorlet{highlight}{skyblue}
+%\definecolor{dark}{HTML}{330033} % original from template - redefined below as uni blue at 100 percent:
+\colorlet{dark}{uniblue}
+
+%% Let's add the border on the right hand side 
+\AddToShipoutPicture{% 
+    \AtPageLowerLeft{% 
+        \put(\LenToUnit{\dimexpr\paperwidth-3cm},0){% 
+            \color{light}\rule{3cm}{\LenToUnit\paperheight}%
+          }%
+     }%
+     % logo
+    \AtPageLowerLeft{% start the bar at the bottom right of the page
+        \put(\LenToUnit{\dimexpr\paperwidth-2.25cm},27.2cm){% move it to the top right
+            \color{light}\includegraphics[width=2.25cm]{_extensions/nrennie/PrettyPDF/uni_logo_boxed.jpg}
+          }%
+     }%
+}
+
+%% Style the page number
+\fancypagestyle{mystyle}{
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\thepage}
+  \fancyfootoffset{3.5cm}
+}
+\setlength{\footskip}{20pt}
+
+%% style the chapter/section fonts
+\chapterfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\sectionfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\subsectionfont{\color{skyblue}\fontsize{14}{16.8}\selectfont}
+\titleformat{\subsection}
+  {\color{uniblue!90}\sffamily\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.8pt]}]
+\subsubsectionfont{\color{cobalt}}
+
+\renewcommand\thesection{\color{slate}\arabic{section}}
+  
+% left align title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  {\color{uniblue}\sffamily\huge\textbf{\@title}} \vspace{0.3cm} \newline
+  {\Large {\@subtitle}} \newline
+  \@author
+\end{flushleft}\egroup
+}
+\makeatother
+
+%%% Use some custom fonts
+\setsansfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+
+\setmainfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}{}
+\makeatother
+\makeatletter
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
+\makeatother
+\makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, sharp corners, enhanced, boxrule=0pt, colback={codebgcolor}, frame hidden]}{\end{tcolorbox}}\fi
+\makeatother
+\makeatletter
+\@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
+\@ifpackageloaded{marginnote}{}{\usepackage{marginnote}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Tutorial Sheet 1 Solutions},
+  colorlinks=true,
+  linkcolor={highlight},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={highlight},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Tutorial Sheet 1 Solutions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\pagestyle{mystyle}
+
+
+\section{Part A: Censoring and uncertainty
+calculations.}\label{part-a-censoring-and-uncertainty-calculations.}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 1}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+Several methods for dealing with values marked as being at the limit of
+detection within the paper by Eastoe et al (2006). Read the paper
+(available below), summarise the different methods compared by the
+authors and comment on what the conclusions were.
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Replacement analysis; replace values marked at the LOD by 2/3 of that
+  value. Rationale is that true value will be somewhere between zero and
+  the LOD. After replacing the censored values, the distribution of the
+  data are assumed to be log normally distributed and the likelihood
+  function is maximized in order to obtain parameter estimates.
+  Replacement analysis is a standard approach that is commonly used in
+  practice. We will call the model fitted with parameters estimated with
+  this approach Model R.
+\item
+  Survival analysis; In this case a parametric distribution is specified
+  -- in this case -- again log normal distribution was assumed. The
+  likelihood function is then made up of the product of the density
+  functions for the observed values and the probabilities of getting a
+  censored value. The likelihood is then maximized to estimate the
+  parameters of the distribution - all the data were used within this
+  (both observations marked at the LOD and those without). We will call
+  the model fitted with parameters estimated with this approach Model S.
+\end{enumerate}
+
+For each of the approaches a Kaplan Meier estimator was computed in
+order to explore the survival function of the standardized residuals
+from models R and S. This was done to assess goodness of fit (and to see
+if the assumed distribution was normal).
+
+\textbf{Conclusions:} LOD values cannot be ignored! The estimated
+survival functions showed the models fitted the data well and the
+distributional assumptions were satisfied -- particularly for model S.
+When the proportion of LOD values was low (\textless10\%) there was
+little difference between the approaches. With a greater proportion of
+censored observations survival analysis models were more robust in terms
+of estimating a trend.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 2}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+The Shannon index (or Shannon-Wiener diversity index) is widely used in
+Ecology to quantify the diversity of a biological community by
+considering both species richness and evenness. It is calculated as:
+
+\[
+H = -\sum_{i=1}^S p_i \log (p_i)
+\]
+
+where \(p_i\) is the proportion of species \(i\) in the community
+computed as the ratio between the num. of individuals of a given species
+\(n_i\) and total number of individual across all species \(N\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Suppose a fixed number of individuals \(N\) are sampled and that the
+  proportion of each species is estimated with some uncertainty
+  \(u(p_i)\). Provide the general form for the uncertainty propagation
+  of these proportions on the calculation of \(H\).
+\item
+  Imagine you go to your garden an find out there are \(S=3\) different
+  species of arthropods living there. Then you go out one day and sample
+  \(N=100\) individuals and end up collecting \(n_1 = 50 \text{ ants}\),
+  \(n_2 = 30 \text{ beetles}\) and \(n_3 = 20 \text{ spiders}\).
+  Assuming that number of individuals of a given species follows
+  \(n_i \sim \text{Binomial}(N,\theta_i)\), and let
+  \(\hat{\theta_i} = \frac{n_i}{N} = p_i\) be the estimator of
+  \(\theta_i\) show that \(u(p_i)^2 = p_i(1-p_i)/N\) and then compute
+  the uncertainty propagation for the Shannon Index.
+\end{enumerate}
+
+Solution
+
+\[
+\begin{aligned}
+u(H) = \sqrt{\sum_i^S \left(\dfrac{\partial H}{\partial p_i} \right)^2u(p_i)^2}
+\end{aligned}
+\]
+
+Let
+
+\[
+\begin{aligned}
+f(p_i) &= - p_i \log p_i \\
+f'(p_i) &= -\left(\frac{d}{d p_i} ( p_i \log p_i)\right)
+\end{aligned}
+\] Applying product rule (i.e., \([f(x)g(x)]'=f'(x)g(x) +f(x)g'(x)\)
+
+\[
+f'(p_i) = - (\log(p_i)+1)
+\]
+
+\[ \Rightarrow \dfrac{\partial H}{\partial p_i} = - (\log(p_i) +1)\]
+
+\[\therefore u(H) = \sqrt{\sum_i^S \left(-\log (p_i)-1 \right)^2u(p_i)^2}\]
+
+Assuming \(n_i \sim \text{Binomial}(100,p_i)\) for \(i = 1,2,3\) where
+\(p_1 = 50/100; p_2 = 0.3; p_3 = 20/100\). The partial derivatives are
+given by
+
+\[
+\begin{aligned}\frac{\partial H}{\partial p_1} &= -(\log 0.5 + 1) \approx -0.307 \\\frac{\partial H}{\partial p_2} &= -(\log 0.3 + 1) \approx 0.204 \\\frac{\partial H}{\partial p_3} &= -(\log 0.2 + 1) \approx 0.609\end{aligned}
+\]
+
+First, the variance of \(p_i\) (i.e., \(u(p_i)^2\)) is given by:
+
+\[
+\begin{aligned}
+\text{Var}(p_i) &= \text{Var}\left(\frac{n_i}{N}\right) \\
+&= \frac{1}{N^2}\text{Var}(n_i)\\
+&= \frac{N p_i(1 - p_i)}{N^2} = \dfrac{p_i(1-p_i)}{N}
+\end{aligned}
+\]
+
+Thus,
+
+\[
+\begin{aligned}
+u(p_1)^2 &= \frac{0.5 \times 0.5}{100} = 0.0025 \\
+u(p_2)^2 &= \frac{0.3 \times 0.7}{100} = 0.0021 \\
+u(p_3)^3 &= \frac{0.2 \times 0.8}{100} = 0.0016
+\end{aligned}
+\]
+
+Then,
+
+\[
+u(H)  = \sqrt{0.0025 \times (-0.307)^2 + 0.0021 \times (0.204)^2 + 0.0016 \times (0.609)^2} \approx 0.03
+\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 3}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+Waves have a major influence on the marine environment and ultimately on
+the planet's climate and so are often studied by oceanographers. The
+period of a particular wave oscillation is measured to be
+\(T=(2\pm0.1)s\). What is the uncertainty associated with the frequency,
+\(f\), of the wave, where \(f=1/T\)?
+
+Solution
+
+The estimated frequency is:
+
+\[\hat{f}=\frac{1}{\hat{T}} = \frac{1}{2s}=0.5s^{-1}\]
+
+The estimated uncertainty \(u(f)\) is:
+
+\[u(f)= \sqrt{\left.\left(\frac{\delta f}{\delta T}\right)^2\right|_{T=2} u(T)^2}\]
+
+\[\left(\frac{\delta f}{\delta T}\right) = -T^{-2} = \frac{-1}{T^2}\]
+
+\[\left(\frac{\delta f}{\delta T}\right)^2 = \left(\frac{-1}{T^2}\right)^2 = \left(\frac{1}{T^4}\right)\]
+
+\[u(T)=0.1s^{-1}\]
+
+\[\therefore u(f)= \sqrt{\left(\frac{1}{2^4}\right)(0.1)^2} = \sqrt{0.000625} = 0.025\]
+
+So, for the frequency of the wave, we have: \[f=(0.5\pm0.025)s^{-1}\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 4}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+10 sets of data (N=13) have been collected. Within each there is a
+number of (suspected) outliers.
+
+\begin{verbatim}
+     mean median    sd   MAD Nout?
+s1  23.82  10.31 33.21 13.98     2
+s2  17.72  10.90 24.88  7.64     1
+s3  16.58   9.83 25.05  7.52     1
+s4  24.13  10.63 33.56 14.13     2
+s5  30.68  10.24 39.37 21.07     3
+s6  30.82  10.64 39.04 21.08     3
+s7  23.79  10.01 33.91 14.47     2
+s8  23.95  10.05 34.01 14.39     2
+s9  30.96  10.50 39.40 21.33     3
+s10 24.31  10.52 33.79 14.32     2
+\end{verbatim}
+
+The data for the first sample are shown below:
+
+\begin{verbatim}
+9.89, 10.55, 9.67, 10.62, 10.31, 10.21, 10.92, 98.25, 99.03, 9.33, 11.17, 9.78, 9.90
+\end{verbatim}
+
+The R code/output below shows the results of various outlier tests.
+Comment on this output.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Chauvenet’s test for outliers}
+
+\NormalTok{P }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(s1[}\DecValTok{9}\NormalTok{],}\FunctionTok{mean}\NormalTok{(s1), }\FunctionTok{sd}\NormalTok{(s1))}
+\NormalTok{P}\SpecialCharTok{*}\FunctionTok{length}\NormalTok{(s1)}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{0.152972}
+
+\CommentTok{\# Grubbs test for one outlier}
+
+\NormalTok{data}\SpecialCharTok{:}\NormalTok{  s1}
+\NormalTok{G }\OtherTok{=} \FloatTok{2.2647}\NormalTok{, U }\OtherTok{=} \FloatTok{0.5370}\NormalTok{, p}\SpecialCharTok{{-}}\NormalTok{value }\OtherTok{=} \FloatTok{0.06811}
+\NormalTok{alternative hypothesis}\SpecialCharTok{:}\NormalTok{ highest value }\FloatTok{99.03}\NormalTok{ is an outlier}
+
+\CommentTok{\# Dixon test for outliers}
+
+\NormalTok{data}\SpecialCharTok{:}\NormalTok{  s1}
+\NormalTok{Q }\OtherTok{=} \FloatTok{0.98321}\NormalTok{, p}\SpecialCharTok{{-}}\NormalTok{value }\SpecialCharTok{\textless{}} \FloatTok{2.2e{-}16}
+\NormalTok{alternative hypothesis}\SpecialCharTok{:}\NormalTok{ highest value }\FloatTok{99.03}\NormalTok{ is an outlier}
+\end{Highlighting}
+\end{Shaded}
+
+Solution
+
+There is a lot of variability in the means of each of the samples than
+there is in the median. The medians are all close to 10, indicating that
+this is likely close of the mean of the data if it was not influenced by
+large/outlier values. We could not confirm this without observing all
+data, however.
+
+The median absolute difference provides a more robust estimate of the
+spread of the data if outliers are present. The MAD values are all much
+lower than the variance estimates provided. The greater the number of
+suspected outliers, the higher the MAD.
+
+In terms of the sample data, there are two values which are much larger
+than the others (observations 8 and 9). We would need to go back to how
+the data has been collected and recorded before we assess whether or not
+these are truly `outliers' but they may be identified as such using the
+statistical test results presented.
+
+\textbf{Chauvenet's Criterion}
+
+This is assessing if observation 9 can be termed an `outlier'. As the
+value of P multiplied by n (=13) is less than 0.5 (0.15) this indicates
+there is evidence that observation 9 is an outlier by Chauvenet's
+criterion.
+
+\textbf{Grubbs Test}
+
+Here we are testing the null hypothesis that the maximum value is not an
+outlier against the alternative that it is an outlier. As the p value is
+0.06 it is just above the significance level of 0.05 (5\%) and so the
+maximum is not deemed to be an outlier using this test. The output for
+the test with the second highest value is presented below -- in this
+case the highest value is deemed to be an outlier. This indicates that
+Grubbs test may be better suited to cases where there is only a single
+suspected outlier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grubbs.test}\NormalTok{(s1[}\SpecialCharTok{{-}}\DecValTok{8}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  Grubbs test for one outlier
+
+data:  s1[-8]
+G = 3.17470000, U = 0.00043801, p-value < 2.2e-16
+alternative hypothesis: highest value 99.03 is an outlier
+\end{verbatim}
+
+\textbf{Dixon's Criterion}
+
+Again we are testing the null hypothesis that the maximum value is not
+an outlier against the alternative that it is an outlier. As the p value
+is \textless0.05 it is much less than the significance level of 0.05
+(5\%). Hence we can reject the null hypothesis and accept that the
+maximum value (observation 9) is an outlier using this test.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 5}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  An ecologist wishes to analyse a dataset that contains a variable with
+  around 1\% of its data censored at a limit of detection. The ecologist
+  proposes to use a simple substitution method to replace all values at
+  the limit of detection (\(c_L\)) with 0.5\(c_L\). Do you agree with
+  this approach? Why/ why not?
+\item
+  The ecologist wishes to analyse another dataset that contains a
+  variable with around 55\% of the data censored at a limit of
+  detection. The ecologist would like to take the same simple
+  substitution approach as in part (a). Do you agree with this approach?
+  What advice would you give?
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Since we have a very small proportion of data at the limit of
+  detection, using a simple substitution approach here seems to be
+  appropriate.
+\item
+  With more than 50\% of the data points being censored at a limit of
+  detection, a simple substitution approach will not be appropriate.
+  Taking one of the distribution-based approaches would be more
+  appropriate.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 6}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Suppose that chlorophyll data in a freshwater loch are collected twice
+  a week, but the equipment needs to be removed for maintenance once a
+  month, so that there are around 12 missing values per year. Can we
+  assume that these values are missing at random?
+\item
+  Suppose that in another loch, the data are also collected twice a
+  week, but the monitoring device there only needs to be maintained once
+  a year. If this is removed every December, so that there are no values
+  for that month, can we assume that these data are missing at random?
+  Might we need to impute the data?
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Since the monitoring device is removed every month, there is unlikely
+  to be a seasonal pattern that we are missing here, so it would be
+  possible to assume that the data are missing at random.
+\item
+  Since the monitoring device is removed at the same time every year
+  (and we miss a whole month of data), it would not be appropriate to
+  assume that the data are missing at random. It is likely that we are
+  missing a peak or trough of a seasonal pattern/ cycle in the data. We
+  should consider an imputation approach. (We do not have enough
+  information in the question to come up with an approach here, but we
+  would have to consider the seasonal patterns (e.g.~through exploring
+  the data via plots) and consider whether we could use other variables
+  to help with imputing these values (e.g.~by looking at relationships
+  between the variable with missing values and other relates variables
+  with non-missing values).)
+\end{enumerate}
+
+\end{tcolorbox}
+
+\section{Part B: Sampling and
+monitoring}\label{part-b-sampling-and-monitoring}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 7}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+In the case of a simple random sample \(x_1,..., x_n\) of a random
+variable, \(X\), assuming the observations are independent,
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  derive the expected value of \(X^2\)
+\item
+  derive the expected value of \(\bar{X}^2\)
+\item
+  show that the sample variance, \(s^2\), is an unbiased estimator of
+  the population variance, \(\sigma^2\).
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  \[Var(X_i) = E(X_i^2) - \{E(X_i)\}^2\]
+  \[E(X_i^2) = \text{Var}(X_i) + \{E(X_i)\}^2\]
+  \[E(X_i^2) = \sigma^2 + \mu^2\]
+\item
+  \[E(\bar{X}^2) = \text{Var}(\bar{X}) + \{E(\bar{X})\}^2\]
+  \[= \text{Var}\left(\frac{\sum X_i}{n}\right) + \left\{ E\left(\frac{\sum X_i}{n}\right)\right\}^2\]
+  \[= \frac{1}{n^2}\text{Var}\left(\sum X_i\right) + \frac{1}{n^2} \left\{E\left(\sum X_i\right)\right\}^2\]
+  \[=\frac{1}{n^2}(n\sigma^2 + n^2\mu^2)\]
+  \[=\frac{\sigma^2}{n} + \mu^2\]
+\item
+  Show that \(E(s^2) = \sigma^2\).
+\end{enumerate}
+
+\[E(s^2) = E\left(\frac{1}{n-1}\sum(X_i - \bar{X})^2 \right)\]
+\[=\frac{1}{n-1}E\left(\sum \left(X_i - \bar{X})^2 \right)\right)\]
+\[=\frac{1}{n-1}E\left(\sum X_i^2 - 2\sum X_i \bar{X} + \sum\bar{X}^2\right)\]
+\[=\frac{1}{n-1}E\left(\sum X_i^2 - 2 \bar{X}\sum X_i + n\bar{X}^2\right)\]
+Remember that
+{\marginnote{\begin{footnotesize}\end{footnotesize}}}{\marginnote{\begin{footnotesize}\(2 \bar{x} \sum x_i = 2\bar{x}\cdot n\bar{x} = 2n\bar{x}^2\)\end{footnotesize}}}
+
+\[=\frac{1}{n-1}\left(E\left(\sum X_i^2\right) - E\left(n\bar{X}^2\right)\right)\]
+\[=\frac{1}{n-1}\left(\sum E\left(X_i^2\right) - nE\left(\bar{X}^2\right)\right)\]
+\[=\frac{1}{n-1}\left(n\left(\sigma^2 + \mu^2\right) - n\left(\frac{\sigma^2}{n} + \mu^2\right)\right)\]
+\[=\frac{1}{n-1}\left(n \sigma^2 - n \frac{\sigma^2}{n}\right)\]
+\[=\frac{1}{n-1}\left(n-1\right)\sigma^2 = \sigma^2\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 8}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+\href{https://go.exlibris.link/DnZPRrww}{Gilbert (1977)} reports results
+of soil sampling at a nuclear weapons test area obtained using
+stratified random sampling to assess the total amount of Plutonium found
+in surface soil. Use the information in the table below to:
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Estimate the total inventory and derive the estimator for the variance
+  of the totals.
+\item
+  Determine the optimal number of population units of measure in each of
+  the 4 strata. Find the total number of units to sample, assuming cost
+  is fixed (where total=£50,000 and cost per unit is £500 for all
+  strata).
+\end{enumerate}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+strata
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Size \(\times\) area of the stratum \(N_l\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(n_l\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mean for stratum
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Variance \(s^2_l\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 351,000 & 18 & 4.1 & 30.42 \\
+2 & 82,300 & 12 & 73 & 10,800 \\
+3 & 26,200 & 13 & 270 & 127,413 \\
+4 & 11,000 & 20 & 260 & 84,500 \\
+\end{longtable}
+
+Solution
+
+The total inventory in all strata is (the original units are in
+microcuries ( \(\mu\)Ci))
+\[\hat{I} = \sum_{l=1}^4 N_l\hat{\mu}_l = \sum_{l=1}^4 N_l\bar{y}_l\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  \[ \begin{aligned}
+  \hat{I} &= (351000 \times 4.1) + (82300 \times 73)+ (26200 \times 270)+ (11000 \times 260)\\
+  & = 17381000 \mu\text{Ci} \approx 17.4 \text{Ci}
+  \end{aligned}\]
+
+  An estimator for the variance of the totals is given by:
+\end{enumerate}
+
+\[
+\begin{aligned}
+\mathrm{Var}(\hat{I}) &= \sum_l\frac{1}{N_l^2}\mathrm{Var}(\bar{y_l}) \\
+&= \sum_{l=1}^{L}N_l^2 \left( 1 - \frac{n_l}{N_l} \right)\frac{s_l^2}{n_l}\\
+&=(351000)^2\left( 1-\frac{18}{351000}\right)\left(\frac{30.42}{18}\right) +\\
+& (82300)^2\left( 1-\frac{12}{82300}\right)\left(\frac{10800}{12}\right) +\\
+&(26200)^2\left( 1-\frac{13}{26200}\right)\left(\frac{127413}{13}\right)+\\
+&(11000)^2\left( 1-\frac{20}{11000}\right)\left(\frac{84500}{20}\right)\\
+& =(1.354 \times 10^{13})
+\end{aligned}
+\]\\
+\[s(\hat{I}) = \sqrt{1.354 \times 10^{13} = 3679674 \mu\text{Ci} \approx 3.7\text{Ci}}\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  Total size of population (\(N\)) = \(351k+82.3k+26.2k+11k=470.5k\)
+
+  What sample size can we afford?
+
+  \(£50,000/£500 = 100 = n\)
+
+  How do we split the 100 samples across each of the strata?
+
+  As the costs are the same for each stratum then we can use Neyman
+  Allocation.
+\end{enumerate}
+
+\[n_l = n \frac{W_l\sigma_l}{\sum_{i=1}^L W_l\sigma_l}\] Alternatively,
+we could use proportional allocation
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Proportion of total population \(\frac{N_l}{N} = W_l\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(W_l s_l\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Proportional allocation \(nW_l\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Neyman allocation \(n_l=n \frac{W_l s_l}{\sum_{l=1}^L W_l s_l}\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(351/470.5=0.746\) & \(0.746 \times \sqrt{30.42}\) & 74 &
+\(\frac{100\times 0.746\times\sqrt{30.42}}{48.98} = 8\) \\
+\(82.3/470.5=0.175\) & \(0.175\times\sqrt{10800}\) & 18 & 37 \\
+\(26.2/470.5=0.056\) & \(0.056\times\sqrt{127413}\) & 6 & 41 \\
+\(11/470.5=0.023\) & \(0.023\times\sqrt{84500}\) & 2 & 14 \\
+& & & \\
+& Total: 48.98 & & \\
+\end{longtable}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 9}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+Discuss the advantages and disadvantages of the three sampling methods
+below for mapping a pollutant field:
+
+\begin{itemize}
+\tightlist
+\item
+  Simple random sampling
+\item
+  Systematic sampling
+\item
+  Stratified random sampling
+\end{itemize}
+
+Solution
+
+\textbf{Advantages and disadvantages of sampling schemes:}
+
+Simple random sampling and stratified sampling should provide a
+representative sample, thus ensuring that we can quantify the sampling
+variability and hence precision. Therefore, estimation should be
+unbiased. The stratified random sample will be more efficient (have
+lower variance) than simple random sampling and so may be preferred.
+However, stratified random sampling requires us to know about the
+different strata and the relative proportions in the population.
+
+Systematic is much more practical for field work, although it is not
+often random except for identifying a random starting point. The other
+potential drawback of systematic sampling is that we may miss hidden
+periodicities in the data. The analysis is more complex than the other
+two methods.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 10}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+The Water Framework Directive states:
+
+\emph{``Member states must ensure that enough individual water bodies of
+each water type are monitored and determine how many stations are
+required to determine the ecological and chemical status of the water
+body''}
+
+Discuss briefly how you would translate this statement into a monitoring
+programme, given that there are 6 different water body types comprising
+10\%, 25\%, 30\%, 20\%, 10\% and 5\% of the total population of 6600
+water bodies and that your limited resources only allow you to study a
+total of 200 water bodies. Knowledge of the within-type variability is
+not available.
+
+Solution
+
+In this case it may make sense to adopt a stratified random sampling
+scheme. We have the strata identified as well as their relative
+proportions within the population. We have been told that we can
+`afford' to have a sample size of \(n=200\). As there is no information
+regarding within-type variability available we cannot use Neyman
+allocation. The simplest approach is to use proportional allocation
+where the allocation of samples to the stratum is pro-rata to the size
+of the stratum within the population.
+
+So, for population discussed we have:
+
+\begin{itemize}
+\tightlist
+\item
+  Population size (\(N\)) 6600
+\item
+  Sample size \(n =200\)
+\end{itemize}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+\(W_l\) & \(N_l = W_lN\) & Proportional allocation \(nW_l\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0.10 & \(0.10 \times 6600 = 660\) & \(200 \times 0.10 = 20\) \\
+0.25 & 1650 & 50 \\
+0.30 & 1980 & 60 \\
+0.20 & 1320 & 40 \\
+0.10 & 660 & 20 \\
+0.05 & 330 & 10 \\
+\end{longtable}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 11}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+Read pages 17--23 of the Analytical Laboratories for the Measurement of
+Environmental Radioactivity (ALMERA) report on soil sampling (available
+below). Describe briefly the sampling strategy adopted and also the
+methods of analysis presented.
+
+Solution
+
+\textbf{ALMERA Sampling strategy}
+
+The aim was to compare the protocols of different institutes by having
+them each determine the mean value of several radionuclides in an
+agricultural area of about 10000 square meters.
+
+The area selected was a reference site -- meaning it was an area where
+the spatial and temporal variability of one or more of the element
+concentrations of interest are well understood.
+
+Soil sampling over a site was carried out by dividing the site into 100
+sub-areas (cells), each measuring 10m \(\times\) 10m. From each sub
+areas a systematic sample was collected, with samples 2m apart (25 per
+sub area). The 25 samples per sub-area were pooled to give 100 composite
+samples. These composite samples were used to look at long range
+variability.
+
+For two sub areas (cells) each of the 25 samples/cell were analysed
+separately in order to verify within cell variability. There is no
+explanation given as to how these two sub areas were selected.
+
+The sampling approach used is fundamentally systematic. The sample
+preparation and analytical activity were performed by a single
+laboratory in order to rule out the variabilities due to different
+analytical laboratories.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, rightrule=.15mm, coltitle=black, opacitybacktitle=0.6, toprule=.15mm, arc=.35mm, opacityback=0, breakable, bottomrule=.15mm, left=2mm, title={Task 12}, titlerule=0mm, bottomtitle=1mm, toptitle=1mm, leftrule=.75mm, colback=white, colframe=quarto-callout-tip-color-frame]
+
+Read the SEPA survey of business waste (available below) and describe
+briefly the sampling strategy you would propose. Discuss its advantages
+and disadvantages.
+
+Solution
+
+\textbf{SEPA Business waste survey}
+
+The key thing here is to recognise that the population of businesses in
+Scotland is divided into strata by both the type of business and also by
+the size of the business. Therefore, a natural approach may be to apply
+a stratified sampling plan.
+
+The advantage of this approach is that the estimates we get would be
+more precise than if a simple random sampling approach was used and
+hence this is a more efficient approach.
+
+However, there are potential disadvantages. One of which is to use a
+proportional sampling scheme we need to have knowledge about the
+relative sizes of the different strata in the population. An additional
+potential disadvantage is that there may be some strata where there are
+very small numbers of firms, and so there are possible issues
+surrounding information disclosure or identifiability and the entire
+population of the strata is sampled.
+
+\end{tcolorbox}
+
+
+
+
+\end{document}
