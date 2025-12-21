@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -192,11 +226,20 @@ window.Quarto = {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#extreme-value-distributions" id="toc-extreme-value-distributions" class="nav-link" data-scroll-target="#extreme-value-distributions">Extreme Value Distributions</a></li>
+  <li><a href="#return-levels" id="toc-return-levels" class="nav-link" data-scroll-target="#return-levels">Return Levels</a>
+  <ul class="collapse">
+  <li><a href="#example-venice-sea-levels" id="toc-example-venice-sea-levels" class="nav-link" data-scroll-target="#example-venice-sea-levels">Example — Venice Sea Levels</a></li>
+  <li><a href="#extending-block-maxima-k-largest" id="toc-extending-block-maxima-k-largest" class="nav-link" data-scroll-target="#extending-block-maxima-k-largest">Extending Block Maxima — <span class="math inline">\(k\)</span>-largest</a></li>
+  </ul></li>
+  <li><a href="#peak-over-threshold" id="toc-peak-over-threshold" class="nav-link" data-scroll-target="#peak-over-threshold">Peak Over Threshold</a>
+  <ul class="collapse">
+  <li><a href="#example-fort-collins-colorado" id="toc-example-fort-collins-colorado" class="nav-link" data-scroll-target="#example-fort-collins-colorado">Example — Fort Collins, Colorado</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -253,13 +296,13 @@ window.Quarto = {
 <li>If <span class="math inline">\(\xi &gt; 0\)</span> then we have the Frechet distribution.</li>
 <li>As <span class="math inline">\(\xi \to 0\)</span> then we have the Gumbel distribution.</li>
 </ul>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi-box " style="color: #005C8A;" role="img" aria-hidden="true"></i> Task
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -268,7 +311,7 @@ window.Quarto = {
 <button>
 Take Hint
 </button>
-<p>Recall that the CDF of an U(0,1) is given by <span class="math inline">\(F(x) = x ~(\text{for } 0 \leq x \leq 1)\)</span>, also note that:</p>
+<p>Recall that if <span class="math inline">\(X_1,X_2,\ldots\)</span> are a sequence of independent uniform U(0, 1) then, <span class="math inline">\(F(x) = x ~(\text{for } 0 \leq x \leq 1)\)</span>, also note that:</p>
 <p><span class="math display">\[
 \lim_{n \to \infty}\left( 1 + \frac{1}{n} x\right)^n  = \exp{x}
 \]</span></p>
@@ -292,14 +335,14 @@ G(x) =  \exp \left\{- (1 -x + 1 )\right\} = \exp x
 </div>
 </div>
 </div>
-<p>The following app illustrates EVT how the block maxima of a random variable fits a GEV distribution as the sample size increases. The app will generate some samples (blocks) of size <span class="math inline">\(n\)</span> drawn from a specified distribution (Uniform(0,1) or Exp(1)) and plot the distribution (histograms) of the maximum of each sample. Then, it compares the empirical histograms against the theoretical GEV (solid red line). For example, if <span class="math inline">\(X\sim\text{Uniform(0,1)}\)</span> and we standardise the maxima using <span class="math inline">\(b_n=1\)</span> and <span class="math inline">\(a_n=1/n\)</span> the asymptotic distribution of the maxima is a GEV(<span class="math inline">\(\mu=-1,\sigma=1,\xi=-1\)</span>) (see the previous task). Likewise, if <span class="math inline">\(X\sim \exp(1)\)</span> and we let <span class="math inline">\(a_n=1\)</span> and <span class="math inline">\(b_n= \log n\)</span>, the its maxima will converge to a GEV(<span class="math inline">\(\mu=0,\sigma=1,\xi=0\)</span>), i.e., a Gumbell distribution (see the proof in the tutorial material).</p>
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<p>The following app illustrates how the block maxima of a random variable fits a GEV distribution as the sample size increases. The app will generate some samples (blocks) of size <span class="math inline">\(n\)</span> drawn from a specified distribution (Uniform(0,1) or Exp(1)) and plot the distribution (histograms) of the maximum of each sample. Then, it compares the empirical histograms against the theoretical GEV (solid red line). For example, if <span class="math inline">\(X\sim\text{Uniform(0,1)}\)</span> and we standardise the maxima using <span class="math inline">\(b_n=1\)</span> and <span class="math inline">\(a_n=1/n\)</span> the asymptotic distribution of the maxima is a GEV(<span class="math inline">\(\mu=-1,\sigma=1,\xi=-1\)</span>) (see the previous task). Likewise, if <span class="math inline">\(X\sim \exp(1)\)</span> and we let <span class="math inline">\(a_n=1\)</span> and <span class="math inline">\(b_n= \log n\)</span>, the its maxima will converge to a GEV(<span class="math inline">\(\mu=0,\sigma=1,\xi=0\)</span>), i.e., a Gumbell distribution (see the proof in the tutorial material).</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<i class="bi-box " style="color: #005C8A;" role="img" aria-hidden="true"></i> Task
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -365,94 +408,205 @@ server &lt;- function(input, output) {
 # Run App
 shinyApp(ui = iu, server = server)
 </code></pre>
-<!-- # Return Levels -->
-<!-- Communication of extremes typically focuses on maxima (or minima). Environmental or climate events are often described as the "worst/highest/lowest in X years". -->
-<!-- ![](images/EuropeDrought.png){height="250"} ![](images/BangladeshFloods.png){height="250"} -->
-<!-- In statistics, this idea of the "highest in X years" can be related to the idea of a **return level** and **return period**. The return level $z_p$ is the value we would expect to be exceeded once every $p$ years, where $\frac{1}{p}$ is the return period. The return level can also be thought of as the value which has probability $\frac{1}{p}$ of being exceeded in a given year. -->
-<!-- Now consider the statement "The temperature in Glasgow will reach 20 degrees once every 50 years". -->
-<!-- Here, we have return period $\frac{1}{p}=0.02$ and return level $z_p=20$. -->
-<!-- The return level $z_p$ is the $(1-\frac{1}{p})$ quantile of the GEV distribution, since we have a probability $\frac{1}{p}$ of the maximum exceeding that value. -->
-<!-- Recall that the GEV takes the form $$G(x) = \exp \left( - \left[ 1 + \frac{\xi (z - \mu)}{\sigma} \right]^{-\frac{1}{\xi}} \right)$$ -->
-<!-- Therefore the return level can be obtained by inverting this distribution to obtain -->
-<!-- $$z_p = \begin{cases} -->
-<!--   \mu -  \frac{\sigma}{\xi}\left[ 1 -  \{ - \log(1-\frac{1}{p}) \}^\xi  \right] &  \xi \neq 0\\ -->
-<!--   \mu - \sigma \log\{ - \log(1-\frac{1}{p})\}  &  \xi = 0 -->
-<!--   \end{cases}$$ -->
-<!-- ## Example --- Venice Sea Levels -->
-<!-- Sea levels in Venice are rising and the city floods on a regular basis. What sea level can we expect in the next 5, 10, 100 years? -->
-<!-- ![](images/GuardianVenice.png){width="500"} -->
-<!-- We have daily sea level measurements from 1931-1981. The plot below shows the 10 highest sea level measurements from each year. -->
-<!-- ![](images/VeniceData.png){width="500"} -->
-<!-- We can apply a block maxima approach, treating each year as a block. This requires us to identify and model the maximum values every year --- highlighted in red. -->
-<!-- ![](images/VeniceMax.png){width="500"} -->
-<!-- We use the `ismev` package to fit a GEV distribution in R. The `gev.fit()` simply takes a data vector and provides parameter estimates using maximum likelihood estimation. -->
-<!-- ```{r, eval=FALSE} -->
-<!-- mod1 <- gev.fit(venice) -->
-<!-- mod1$mle -->
-<!-- ``` -->
-<!-- ```          -->
-<!-- [1] 111.09925486  17.17548761  -0.07673265 -->
-<!-- ``` -->
-<!-- From the output we can see that $\mu = 111.1$, $\sigma = 17.2$ and $\xi = -0.077$. -->
-<!-- We can assess the suitability of the GEV distribution using a return level plot. This involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV. -->
-<!-- ![](images/ReturnLevelPlot.png){width="500"} -->
-<!-- The observed points lie along the theoretical line. Our proposed GEV distribution is appropriate. The Venice maxima follow a Gumbel distribution. -->
-<!-- ## Extending Block Maxima --- $k$-largest -->
-<!-- Looking at just the maxima means we throw away a lot of data, making it harder to accurately estimate parameters. We could instead follow an approach which models the $k$ largest values within a block. -->
-<!-- ![](images/BlockMaximaK.png){width="500"} -->
-<!-- We have to make difficult subjective choices when fitting a block maxima model. What do we choose as our block? Week? Month? Year? Decade? Bigger blocks means we have fewer data points, but smaller blocks mean our 'extremes' might not be extreme at all, violating the assumptions of the GEV distribution. If we use a $k$-largest approach, we have a similar decision on what value of $k$ to choose. -->
-<!-- Block maxima methods work well in many situations, and take advantage of natural blocks in the data. However, it does not work well if there is a lot of variability between blocks. In that scenario, some blocks may have many more large counts than others, and much of the data will be discarded. We can overcome this by using a threshold approach, which models all observations which exceed some pre-specified value. -->
-<!-- # Peak Over Threshold -->
-<!-- This approach is known as *peak over threshold (POT)* modelling. Again, we assume we have data represented by a time series, and some threshold $u$. We need a statistical model for the values which are above $u$, known as *exceedances*. Sometimes we may also wish to model the *number* of exceedances. -->
-<!-- Again, let $X_1, \ldots, X_n$ be a sequence of independent random variables with a common distribution function $F$. We can consider our extreme values in terms of their **threshold excess** (how much they exceed the threshold by). For an extreme value $X > u$, its threshold excess is given as $y = X - u$. The probability of threshold excess of size $y$ is given by -->
-<!-- $$\text{P}(X > u+y|X > u) = \frac{1 - F(u + y)}{1 - F(u)} \hspace{3mm}\text{ where } y > 0.$$ -->
-<!-- The function $F$ is still unknown, but the distribution of all threshold excesses can be approximated by a **Generalised Pareto distribution (GPD)**. The cdf of the Generalised Pareto distribution is given by -->
-<!-- $$ -->
-<!-- G(y) =  -->
-<!-- \begin{cases} -->
-<!-- 1 - \left( 1 + \frac{\xi (y-\mu)}{\sigma} \right)^{-\frac{1}{\xi}} &  \xi \neq 0\\ -->
-<!-- 1 - \exp \left( - \frac{y-\mu}{\sigma} \right)  &  \xi = 0 -->
-<!-- \end{cases} -->
-<!-- $$ -->
-<!-- Again, $\mu$ is the location parameter, $\sigma$ is the scale parameter and $\xi$ is the shape parameter. We can define a return level for POT models in a roughly similar way to block maxima models. The $m$-observation return level, $x_m$ is defined as the level expected to be exceeded once every $m$ observations, with -->
-<!-- $$ -->
-<!-- x_m =  -->
-<!-- \begin{cases} -->
-<!-- u + \frac{\sigma}{\xi} \left[ \left(m \text{P}(X>u)\right)^\xi -1 \right] &  \xi \neq 0\\ -->
-<!-- u + \sigma \log\left(m \text{P}(X>u)\right) &  \xi = 0 -->
-<!-- \end{cases} -->
-<!-- $$ -->
-<!-- For any given observation, the probability of exceeding $x_m$ is simply $\frac{1}{m}$. -->
-<!-- Choosing a threshold is challenging. We need a threshold low enough that we have sufficient data, but high enough that values above it are genuinely extreme. -->
-<!-- ![](images/Thresholds.png){width="500"} -->
-<!-- Occasionally there is a natural choice of threshold (eg a legal limit for a pollutant), but generally we need to choose it. One approach is to use a **mean residual life plot**, which plots the sample mean excess (mean of $x>u$) at a variety of thresholds $u$. If the GPD is appropriate, the mean excess should be linearly related to the threshold. Therefore, we can identify a suitable threshold as one which lies with an area of linearity on this plot. -->
-<!-- ## Example --- Fort Collins, Colorado -->
-<!-- We have daily precipitation data from 1900-1999, obtained from a rain gauge in Fort Collins, Colorado, taken from Katz et al, 2002. -->
-<!-- ![](images/FortCollinsData.png){width="500"} -->
-<!-- We compare three different choices of threshold below ($u = 0.5, 1.0, 1.5$) to show the importance of getting the choice right. -->
-<!-- | u   | $\% > u$ | $n > u$ | -->
-<!-- |:----|:---------|:--------| -->
-<!-- | 0.5 | 2.08     | 759     | -->
-<!-- | 1.0 | 0.58     | 213     | -->
-<!-- | 1.5 | 0.25     | 91      | -->
-<!-- We can fit a mean residual plot to identify a sensible choice of threshold. It appears that a value of $u$ somewhere between 1.2 and 1.8 would be an appropriate choice here --- this is where the plot appears to be linear. -->
-<!-- ![](images/MeanResidualPlot.png){width="500"} -->
-<!-- We can also carry out a sensitivity analysis to see the effect of choosing different threshold values on the estimated model parameters. The plot below shows the parameter estimates at different thresholds --- they seem fairly robust. -->
-<!-- ![](images/Sensitivity.png){width="500"} -->
-<!-- We can use the `extRemes` package to fit a Generalised Pareto distribution in R. The function `fevd` allows several extreme value distributions (including GEV and GPD) to be fitted, and can also provide return levels. -->
-<!-- ```{r, eval=FALSE} -->
-<!-- fitGP <- fevd(Fort, threshold=1.5, type="GP",  -->
-<!--                     time.units="365/year") -->
-<!-- return.level(fitGP, c(10,20,100), type="GP") -->
-<!-- ``` -->
-<!-- ```          -->
-<!-- [1] "Return Levels for period units in years" -->
-<!--  10-year level  20-year level 100-year level  -->
-<!--       2.857184       3.340219       4.581339  -->
-<!-- ``` -->
-<!-- Threshold exceedances are not always independent due to temporal correlation. If we have high temperatures today, it's likely we might also have high temperatures tomorrow. We have to account for this dependence within our model, for example by using the ARIMA approaches outlined in the time series section. Alternatively, we could use a "declustering" approach which identifies these temporal clusters and simply uses the cluster maxima. -->
+</section>
+<section id="return-levels" class="level1">
+<h1>Return Levels</h1>
+<p>Communication of extremes typically focuses on maxima (or minima). Environmental or climate events are often described as the “worst/highest/lowest in X years”.</p>
+<p><img src="images/EuropeDrought.png" height="250"> <img src="images/BangladeshFloods.png" height="250"></p>
+<p>In statistics, this idea of the “highest in X years” can be related to the idea of a <strong>return level</strong> and <strong>return period</strong>. The return level <span class="math inline">\(z_p\)</span> is the value we would expect to be exceeded once every <span class="math inline">\(p\)</span> years, where <span class="math inline">\(\frac{1}{p}\)</span> is the return period. The return level can also be thought of as the value which has probability <span class="math inline">\(\frac{1}{p}\)</span> of being exceeded in a given year.</p>
+<p>Now consider the statement “The temperature in Glasgow will reach 20 degrees once every 50 years”.</p>
+<p>Here, we have return period <span class="math inline">\(\frac{1}{p}=0.02\)</span> and return level <span class="math inline">\(z_p=20\)</span>.</p>
+<p>The return level <span class="math inline">\(z_p\)</span> is the <span class="math inline">\((1-\frac{1}{p})\)</span> quantile of the GEV distribution, since we have a probability <span class="math inline">\(\frac{1}{p}\)</span> of the maximum exceeding that value.</p>
+<p>Recall that the GEV takes the form <span class="math display">\[G(x) = \exp \left( - \left[ 1 + \frac{\xi (z - \mu)}{\sigma} \right]^{-\frac{1}{\xi}} \right)\]</span></p>
+<p>Therefore the return level can be obtained by inverting this distribution to obtain</p>
+<p><span class="math display">\[z_p = \begin{cases}
+  \mu -  \frac{\sigma}{\xi}\left[ 1 -  \{ - \log(1-\frac{1}{p}) \}^\xi  \right] &amp;  \xi \neq 0\\
+  \mu - \sigma \log\{ - \log(1-\frac{1}{p})\}  &amp;  \xi = 0
+  \end{cases}\]</span></p>
+<section id="example-venice-sea-levels" class="level2">
+<h2 class="anchored" data-anchor-id="example-venice-sea-levels">Example — Venice Sea Levels</h2>
+<p>Sea levels in Venice are rising and the city floods on a regular basis. What sea level can we expect in the next 5, 10, 100 years?</p>
+<p><img src="images/GuardianVenice.png" class="img-fluid" width="500"></p>
+<p>We have daily sea level measurements from 1931-1981 (data available on the <code>ismev</code> R package). The plot below shows the 10 highest sea level measurements from each year.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notes_3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can apply a block maxima approach, treating each year as a block. This requires us to identify and model the maximum values every year — highlighted in red.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notes_3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We use the <code>extRemes</code> package to fit a GEV distribution in R. The <code>fevd()</code> simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extRemes)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Mn <span class="ot">&lt;-</span> <span class="fu">apply</span>(venice[,<span class="sc">-</span><span class="dv">1</span>],<span class="dv">1</span>,<span class="cf">function</span>(x)<span class="fu">max</span>(x,<span class="at">na.rm =</span> T))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fit_gev <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Mn,<span class="at">method=</span><span class="st">"MLE"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fit_gev<span class="sc">$</span>results<span class="sc">$</span>par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    location        scale        shape 
+111.09726863  17.17910050  -0.07678211 </code></pre>
+</div>
+</div>
+<p>From the output we can see that <span class="math inline">\(\mu = 111.1\)</span>, <span class="math inline">\(\sigma = 17.2\)</span> and <span class="math inline">\(\xi = -0.077\)</span>.</p>
+<p>We can assess the suitability of the GEV distribution using a return level plot. This involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit_gev, <span class="at">type =</span> <span class="st">"rl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notes_3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The observed points lie along the theoretical line. Our proposed GEV distribution is appropriate. The Venice maxima follow a Gumbel distribution.</p>
+</section>
+<section id="extending-block-maxima-k-largest" class="level2">
+<h2 class="anchored" data-anchor-id="extending-block-maxima-k-largest">Extending Block Maxima — <span class="math inline">\(k\)</span>-largest</h2>
+<p>Looking at just the maxima means we throw away a lot of data, making it harder to accurately estimate parameters. We could instead follow an approach which models the <span class="math inline">\(k\)</span> largest values within a block.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="notes_3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We have to make difficult subjective choices when fitting a block maxima model. What do we choose as our block? Week? Month? Year? Decade? Bigger blocks means we have fewer data points, but smaller blocks mean our ‘extremes’ might not be extreme at all, violating the assumptions of the GEV distribution. If we use a <span class="math inline">\(k\)</span>-largest approach, we have a similar decision on what value of <span class="math inline">\(k\)</span> to choose.</p>
+<p>Block maxima methods work well in many situations, and take advantage of natural blocks in the data. However, it does not work well if there is a lot of variability between blocks. In that scenario, some blocks may have many more large counts than others, and much of the data will be discarded. We can overcome this by using a threshold approach, which models all observations which exceed some pre-specified value.</p>
+</section>
+</section>
+<section id="peak-over-threshold" class="level1 page-columns page-full">
+<h1>Peak Over Threshold</h1>
+<p>This approach is known as <em>peak over threshold (POT)</em> modelling. Again, we assume we have data represented by a time series, and some threshold <span class="math inline">\(u\)</span>. We need a statistical model for the values which are above <span class="math inline">\(u\)</span>, known as <em>exceedances</em>. Sometimes we may also wish to model the <em>number</em> of exceedances.</p>
+<p>Again, let <span class="math inline">\(X_1, \ldots, X_n\)</span> be a sequence of independent random variables with a common distribution function <span class="math inline">\(F\)</span>. We can consider our extreme values in terms of their <strong>threshold excess</strong> (how much they exceed the threshold by). For an extreme value <span class="math inline">\(X &gt; u\)</span>, its threshold excess is given as <span class="math inline">\(y = X - u\)</span>. The probability of threshold excess of size <span class="math inline">\(y\)</span> is given by</p>
+<div class="page-columns page-full"><p><span class="math display">\[
+\begin{aligned}
+\mathbb{Pr}(X &gt; u+y|X &gt; u) &amp;= \dfrac{\mathbb{Pr}(X&gt; u+y)}{\mathbb{Pr}(X&gt; u)} \\
+&amp;= \dfrac{1 -\mathbb{Pr}(X\leq u+y)}{1 -\mathbb{Pr}(X\leq u)} \\
+&amp;=\frac{1 - F(u + y)}{1 - F(u)} \hspace{3mm}\text{ where } y &gt; 0.
+\end{aligned}
+\]</span> </p><div class="no-row-height column-margin column-container"><span class="margin-aside">Note: Letting <span class="math inline">\(A  = \mathbb{Pr}(X&gt; u+y)\)</span> and <span class="math inline">\(B = \mathbb{Pr}(X&gt; u)\)</span> then $ (A|B)= = $ since <span class="math inline">\(A\subset B\)</span></span></div></div>
+<p>The function <span class="math inline">\(F\)</span> is still unknown, but the distribution of all threshold excesses can be approximated by a <strong>Generalised Pareto distribution (GPD)</strong>. The cdf of the Generalised Pareto distribution is given by</p>
+<p><span class="math display">\[
+G(y) =
+\begin{cases}
+1 - \left( 1 + \frac{\xi (y-\mu)}{\sigma} \right)^{-\frac{1}{\xi}} &amp;  \xi \neq 0\\
+1 - \exp \left( - \frac{y-\mu}{\sigma} \right)  &amp;  \xi = 0
+\end{cases}
+\]</span></p>
+<p>Again, <span class="math inline">\(\mu\)</span> is the location parameter, <span class="math inline">\(\sigma\)</span> is the scale parameter and <span class="math inline">\(\xi\)</span> is the shape parameter. We can define a return level for POT models in a roughly similar way to block maxima models. The <span class="math inline">\(m\)</span>-observation return level, <span class="math inline">\(x_m\)</span> is defined as the level expected to be exceeded once every <span class="math inline">\(m\)</span> observations, with</p>
+<p><span class="math display">\[
+x_m =
+\begin{cases}
+u + \frac{\sigma}{\xi} \left[ \left(m \mathbb{Pr}(X&gt;u)\right)^\xi -1 \right] &amp;  \xi \neq 0\\
+u + \sigma \log\left(m \mathbb{Pr}(X&gt;u)\right) &amp;  \xi = 0
+\end{cases}
+\]</span></p>
+<p>For any given observation, the probability of exceeding <span class="math inline">\(x_m\)</span> is simply <span class="math inline">\(\frac{1}{m}\)</span>.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Show that the return level <span class="math inline">\(x_m = u + \sigma \log\left(m \text{P}(X&gt;u)\right)\)</span> when <span class="math inline">\(\xi = 0\)</span></p>
+<div class="webex-solution">
+<button>
+Take hint
+</button>
+<p>Recall that the probability of exceeding is given by<br>
+<span class="math inline">\(\mathbb{Pr}(x &gt; x_m) = \mathbb{Pr}(x &gt; x_m|x &gt; u)\mathbb{Pr}(x&gt;u) = 1/m\)</span>. And that the GEV with <span class="math inline">\(\xi = 0\)</span> is</p>
+<p><span class="math display">\[\underbrace{G(x_m)}_{\mathbb{Pr}(x\leq x_m | x &gt;u)} = 1- \underbrace{\exp \left(-\dfrac{x_m -u}{\sigma}\right)}_{\mathbb{Pr}(x&gt;x_m|x&gt;u)}\]</span></p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Recall that the GEV with <span class="math inline">\(\xi = 0\)</span> is</p>
+<p><span class="math display">\[\underbrace{G(x_m)}_{\mathbb{Pr}(x\leq x_m | x &gt;u)} = 1- \underbrace{\exp \left(-\dfrac{x_m -u}{\sigma}\right)}_{\mathbb{Pr}(x&gt;x_m|x&gt;u)}\]</span> Thus,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbb{Pr}(x &gt; x_m) &amp;= \mathbb{Pr}(x &gt; x_m|x &gt; u)\mathbb{Pr}(x&gt;u)\\
+&amp; = \exp \left(-\dfrac{x_m -u}{\sigma}\right) \mathbb{Pr}(x&gt;u) \\
+&amp;= \frac{1}{m}\\
+\Rightarrow ~ &amp;\exp \left(-\dfrac{x_m -u}{\sigma}\right) = \dfrac{1}{m\mathbb{Pr}(x&gt;u)}\\
+-\dfrac{x_m -u}{\sigma}&amp;= \log (1) -\log (m\mathbb{Pr}(x&gt;u)) \\
+\vdots \\
+x_m &amp;=  u + \sigma \log (m\mathbb{Pr}(x&gt;u))
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Choosing a threshold is challenging. We need a threshold low enough that we have sufficient data, but high enough that values above it are genuinely extreme.</p>
+<p><img src="images/Thresholds.png" class="img-fluid" width="500"></p>
+<p>Occasionally there is a natural choice of threshold (eg a legal limit for a pollutant), but generally we need to choose it. One approach is to use a <strong>mean residual life plot</strong>, which plots the sample mean excess (mean of <span class="math inline">\(x&gt;u\)</span>) at a variety of thresholds <span class="math inline">\(u\)</span>. If the GPD is appropriate, the mean excess should be linearly related to the threshold. Therefore, we can identify a suitable threshold as one which lies with an area of linearity on this plot.</p>
+<section id="example-fort-collins-colorado" class="level2">
+<h2 class="anchored" data-anchor-id="example-fort-collins-colorado">Example — Fort Collins, Colorado</h2>
+<p>We have daily precipitation data from 1900-1999, obtained from a rain gauge in Fort Collins, Colorado, taken from Katz et al, 2002.</p>
+<p><img src="images/FortCollinsData.png" class="img-fluid" width="500"></p>
+<p>We compare three different choices of threshold below (<span class="math inline">\(u = 0.5, 1.0, 1.5\)</span>) to show the importance of getting the choice right.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">u</th>
+<th style="text-align: left;"><span class="math inline">\(\% &gt; u\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(n &gt; u\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0.5</td>
+<td style="text-align: left;">2.08</td>
+<td style="text-align: left;">759</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">0.58</td>
+<td style="text-align: left;">213</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1.5</td>
+<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">91</td>
+</tr>
+</tbody>
+</table>
+<p>We can fit a mean residual plot to identify a sensible choice of threshold. It appears that a value of <span class="math inline">\(u\)</span> somewhere between 1.2 and 1.8 would be an appropriate choice here — this is where the plot appears to be linear.</p>
+<p><img src="images/MeanResidualPlot.png" class="img-fluid" width="500"></p>
+<p>We can also carry out a sensitivity analysis to see the effect of choosing different threshold values on the estimated model parameters. The plot below shows the parameter estimates at different thresholds — they seem fairly robust.</p>
+<p><img src="images/Sensitivity.png" class="img-fluid" width="500"></p>
+<p>We can use the <code>extRemes</code> package to fit a Generalised Pareto distribution in R. The function <code>fevd</code> allows several extreme value distributions (including GEV and GPD) to be fitted, and can also provide return levels.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">time.units=</span><span class="st">"365/year"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">return.level</span>(fitGP, <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>), <span class="at">type=</span><span class="st">"GP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>[1] "Return Levels for period units in years"
+ 10-year level  20-year level 100-year level
+      2.857184       3.340219       4.581339</code></pre>
+<p>Threshold exceedances are not always independent due to temporal correlation. If we have high temperatures today, it’s likely we might also have high temperatures tomorrow. We have to account for this dependence within our model, for example by using the ARIMA approaches outlined in the time series section. Alternatively, we could use a “declustering” approach which identifies these temporal clusters and simply uses the cluster maxima.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

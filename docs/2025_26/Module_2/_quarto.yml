@@ -48,6 +48,7 @@ website:
       #   href: reading_list.qmd
 format:
   html:
+    embed-resources: false
     mainfont: serif
     theme:
       light: flatly
