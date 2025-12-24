@@ -294,7 +294,7 @@ Jafet Belmont
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -318,7 +318,7 @@ Jafet Belmont
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -342,7 +342,7 @@ Jafet Belmont
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -366,7 +366,7 @@ Jafet Belmont
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -530,7 +530,8 @@ a_n = \frac{1}{n} ~~~~~b_n=1,
 \end{aligned}
 \]</span></p>
 <div class="fragment">
-<p>Using the fact that <span class="math display">\[
+<p>Using the fact that</p>
+<p><span class="math display">\[
 \lim_{n \to \infty}\left( 1 + \frac{1}{n} x\right)^n  = \exp{x}
 \]</span></p>
 </div>
@@ -583,7 +584,7 @@ G(x) =  \exp \left\{- (1 -x + 1 )\right\} = \exp x
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="384"></p>
 </figure>
 </div>
 </div>
@@ -746,7 +747,7 @@ z_p = \begin{cases}
 <li>The plot below shows the 10 highest sea level measurements from each year.</li>
 </ul>
 
-<img data-src="slides_6_files/figure-html/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+<img data-src="slides_6_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
 <section id="example---venice-sea-levels-2" class="slide level2" data-background-color="#FFFFFF">
 <h2>Example - Venice Sea Levels</h2>
 <ul>
@@ -754,7 +755,7 @@ z_p = \begin{cases}
 <li>This requires us to identify and model the yearly maximum.</li>
 </ul>
 
-<img data-src="slides_6_files/figure-html/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
+<img data-src="slides_6_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="384"></section>
 <section id="fitting-the-gev-in-r" class="slide level2" data-background-color="#FFFFFF">
 <h2>Fitting the GEV in R</h2>
 <ul>
@@ -762,10 +763,6 @@ z_p = \begin{cases}
 <li>The <code>fevd()</code> simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(extRemes)</span>
-<span id="cb3-2"><a></a>Mn <span class="ot">&lt;-</span> <span class="fu">apply</span>(venice[,<span class="sc">-</span><span class="dv">1</span>],<span class="dv">1</span>,<span class="cf">function</span>(x)<span class="fu">max</span>(x,<span class="at">na.rm =</span> T))</span>
-<span id="cb3-3"><a></a>fit_gev <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Mn,<span class="at">method=</span><span class="st">"MLE"</span>)</span>
-<span id="cb3-4"><a></a>fit_gev<span class="sc">$</span>results<span class="sc">$</span>par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    location        scale        shape 
 111.09726863  17.17910050  -0.07678211 </code></pre>
@@ -792,11 +789,10 @@ z_p = \begin{cases}
 </div>
 </div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(fit_gev, <span class="at">type =</span> <span class="st">"rl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_6_files/figure-html/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="432"></p>
+<p><img data-src="slides_6_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="432"></p>
 </figure>
 </div>
 </div>
@@ -810,7 +806,7 @@ z_p = \begin{cases}
 <li>We could instead follow an approach which models the <span class="math inline">\(k\)</span> largest values within a block.</li>
 </ul>
 
-<img data-src="slides_6_files/figure-html/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
+<img data-src="slides_6_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="576"></section>
 <section id="choice-of-block-size" class="slide level2">
 <h2>Choice of Block Size</h2>
 <div>
@@ -856,13 +852,17 @@ z_p = \begin{cases}
 <img data-src="figures/POT.png" style="width:100.0%" class="r-stretch"></section>
 <section id="peak-over-threshold-3" class="slide level2">
 <h2>Peak Over Threshold</h2>
-<p>The probability of threshold excess of size <span class="math inline">\(y\)</span> is given by <span class="math display">\[
+<p>The probability of threshold excess of size <span class="math inline">\(y\)</span> is given by</p>
+<p><span class="math display">\[
 \begin{aligned}
 P(X &gt; u+y~|~X &gt; u) &amp;= \frac{P(X&gt;u+y)}{P(X&gt;u)} \quad\text{where } y &gt; 0\\
 &amp;=  \frac{1 - F(u + y)}{1 - F(u)}
 \end{aligned}
 \]</span></p>
-<p><img data-src="figures/POT2.png" class="quarto-figure quarto-figure-center" style="width:50.0%"> ## Generalised Pareto</p>
+
+<img data-src="figures/POT2.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="generalised-pareto" class="slide level2">
+<h2>Generalised Pareto</h2>
 <ul>
 <li>The function <span class="math inline">\(F\)</span> is still unknown, but the distribution of all threshold excesses can be approximated by a <strong>Generalised Pareto distribution (GPD)</strong>.</li>
 <li>The cdf of the Generalised Pareto distribution is given by <span class="math display">\[
@@ -1006,10 +1006,10 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
 <li>The function <code>fevd</code> allows several extreme value distributions (including GEV and GPD) to be fitted, and can also provide return levels.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
-<span id="cb6-2"><a></a>                    <span class="at">time.units=</span><span class="st">"365/year"</span>)</span>
-<span id="cb6-3"><a></a></span>
-<span id="cb6-4"><a></a><span class="fu">return.level</span>(fitGP, <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>), <span class="at">type=</span><span class="st">"GP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
+<span id="cb4-2"><a></a>                    <span class="at">time.units=</span><span class="st">"365/year"</span>)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="fu">return.level</span>(fitGP, <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>), <span class="at">type=</span><span class="st">"GP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code>[1] "Return Levels for period units in years"
  10-year level  20-year level 100-year level
@@ -1255,6 +1255,82 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

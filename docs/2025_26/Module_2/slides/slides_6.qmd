@@ -454,7 +454,9 @@ $$
 $$
 
 ::: fragment
-Using the fact that $$
+Using the fact that
+
+$$
 \lim_{n \to \infty}\left( 1 + \frac{1}{n} x\right)^n  = \exp{x}
 $$
 :::
@@ -814,16 +816,22 @@ ggplot(venice_long, aes(x = Year, y = value)) +
 
 ![](figures/POT.png){width="100%"}
 
+
 ## Peak Over Threshold
 
-The probability of threshold excess of size $y$ is given by $$
+The probability of threshold excess of size $y$ is given by 
+
+$$
 \begin{aligned}
 P(X > u+y~|~X > u) &= \frac{P(X>u+y)}{P(X>u)} \quad\text{where } y > 0\\
  &=  \frac{1 - F(u + y)}{1 - F(u)}
 \end{aligned}
 $$
 
-![](figures/POT2.png){width="50%" fig-align="center"} \## Generalised Pareto
+![](figures/POT2.png){width="50%" fig-align="center"} 
+
+
+## Generalised Pareto
 
 -   The function $F$ is still unknown, but the distribution of all threshold excesses can be approximated by a **Generalised Pareto distribution (GPD)**.
 -   The cdf of the Generalised Pareto distribution is given by $$

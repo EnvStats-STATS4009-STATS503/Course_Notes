@@ -151,7 +151,7 @@
     "href": "slides/slides_6.html#example-solution-1",
     "title": "Modelling Environmental Extremes",
     "section": "Example: Solution",
-    "text": "Example: Solution\nRecall that if \\(X_1,X_2,\\ldots\\) are a sequence of independent uniform U(0, 1) then, \\(F(x) = x ~(\\text{for } 0 \\leq x \\leq 1)\\)\n\\[\n\\begin{aligned}\n\\mathbb{Pr}\\left(\\dfrac{M_n -b_n}{a_n}\\leq x \\right) & = \\mathbb{Pr}(M_n \\leq b_n +a_n x)\\\\\n&= F\\left(b_n +a_n x\\right)^n\\\\\n&= F\\left(1 + \\frac{1}{n}x\\right)^n\\\\\n&= \\left(1 + \\frac{1}{n}x\\right)^n ~~~\\text{for } 0 \\leq 1 + x/n   \\leq 1\\\\\n& \\class{fragment}{ \\rightarrow \\exp x~ \\text{as }  n \\to \\infty}\n\\end{aligned}\n\\]\n\nUsing the fact that \\[\n\\lim_{n \\to \\infty}\\left( 1 + \\frac{1}{n} x\\right)^n  = \\exp{x}\n\\]"
+    "text": "Example: Solution\nRecall that if \\(X_1,X_2,\\ldots\\) are a sequence of independent uniform U(0, 1) then, \\(F(x) = x ~(\\text{for } 0 \\leq x \\leq 1)\\)\n\\[\n\\begin{aligned}\n\\mathbb{Pr}\\left(\\dfrac{M_n -b_n}{a_n}\\leq x \\right) & = \\mathbb{Pr}(M_n \\leq b_n +a_n x)\\\\\n&= F\\left(b_n +a_n x\\right)^n\\\\\n&= F\\left(1 + \\frac{1}{n}x\\right)^n\\\\\n&= \\left(1 + \\frac{1}{n}x\\right)^n ~~~\\text{for } 0 \\leq 1 + x/n   \\leq 1\\\\\n& \\class{fragment}{ \\rightarrow \\exp x~ \\text{as }  n \\to \\infty}\n\\end{aligned}\n\\]\n\nUsing the fact that\n\\[\n\\lim_{n \\to \\infty}\\left( 1 + \\frac{1}{n} x\\right)^n  = \\exp{x}\n\\]"
   },
   {
     "objectID": "slides/slides_6.html#example-solution-2",
@@ -228,14 +228,14 @@
     "href": "slides/slides_6.html#fitting-the-gev-in-r",
     "title": "Modelling Environmental Extremes",
     "section": "Fitting the GEV in R",
-    "text": "Fitting the GEV in R\n\nWe use the extRemes package to fit a GEV distribution in R\nThe fevd() simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.\n\n\nlibrary(extRemes)\nMn &lt;- apply(venice[,-1],1,function(x)max(x,na.rm = T))\nfit_gev &lt;- fevd(Mn,method=\"MLE\")\nfit_gev$results$par\n\n    location        scale        shape \n111.09726863  17.17910050  -0.07678211 \n\n\n\nFrom the output we can see that \\(\\mu = 111.1\\), \\(\\sigma = 17.2\\) and \\(\\xi = -0.077\\)."
+    "text": "Fitting the GEV in R\n\nWe use the extRemes package to fit a GEV distribution in R\nThe fevd() simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.\n\n\n\n    location        scale        shape \n111.09726863  17.17910050  -0.07678211 \n\n\n\nFrom the output we can see that \\(\\mu = 111.1\\), \\(\\sigma = 17.2\\) and \\(\\xi = -0.077\\)."
   },
   {
     "objectID": "slides/slides_6.html#return-level-plot",
     "href": "slides/slides_6.html#return-level-plot",
     "title": "Modelling Environmental Extremes",
     "section": "Return Level Plot",
-    "text": "Return Level Plot\n\nWe can assess the suitability of the GEV distribution using a return level plot.\nThis involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV.\n\n\n\n\n\nThe observed points lie along the theoretical line.\nOur proposed GEV distribution is appropriate.\nThe Venice maxima follow a Gumbel distribution.\n\n\n\n\nplot(fit_gev, type = \"rl\")"
+    "text": "Return Level Plot\n\nWe can assess the suitability of the GEV distribution using a return level plot.\nThis involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV.\n\n\n\n\n\nThe observed points lie along the theoretical line.\nOur proposed GEV distribution is appropriate.\nThe Venice maxima follow a Gumbel distribution."
   },
   {
     "objectID": "slides/slides_6.html#extending-block-maxima---k-largest",
@@ -277,7 +277,14 @@
     "href": "slides/slides_6.html#peak-over-threshold-3",
     "title": "Modelling Environmental Extremes",
     "section": "Peak Over Threshold",
-    "text": "Peak Over Threshold\nThe probability of threshold excess of size \\(y\\) is given by \\[\n\\begin{aligned}\nP(X &gt; u+y~|~X &gt; u) &= \\frac{P(X&gt;u+y)}{P(X&gt;u)} \\quad\\text{where } y &gt; 0\\\\\n&=  \\frac{1 - F(u + y)}{1 - F(u)}\n\\end{aligned}\n\\]\n ## Generalised Pareto\n\nThe function \\(F\\) is still unknown, but the distribution of all threshold excesses can be approximated by a Generalised Pareto distribution (GPD).\nThe cdf of the Generalised Pareto distribution is given by \\[\nP(X \\leq y~|~X&gt;u) = G(y) =\n\\begin{cases}\n1 - \\left( 1 + \\frac{\\xi (y-u)}{\\sigma} \\right)^{-\\frac{1}{\\xi}} & \\xi \\neq 0\\\\\n1 - \\exp \\left( - \\frac{y-u}{\\sigma} \\right) & \\xi = 0\n\\end{cases}\n\\]\nAgain, \\(u\\) is the location parameter, \\(\\sigma\\) is the scale parameter and \\(\\xi\\) is the shape parameter."
+    "text": "Peak Over Threshold\nThe probability of threshold excess of size \\(y\\) is given by\n\\[\n\\begin{aligned}\nP(X &gt; u+y~|~X &gt; u) &= \\frac{P(X&gt;u+y)}{P(X&gt;u)} \\quad\\text{where } y &gt; 0\\\\\n&=  \\frac{1 - F(u + y)}{1 - F(u)}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/slides_6.html#generalised-pareto",
+    "href": "slides/slides_6.html#generalised-pareto",
+    "title": "Modelling Environmental Extremes",
+    "section": "Generalised Pareto",
+    "text": "Generalised Pareto\n\nThe function \\(F\\) is still unknown, but the distribution of all threshold excesses can be approximated by a Generalised Pareto distribution (GPD).\nThe cdf of the Generalised Pareto distribution is given by \\[\nP(X \\leq y~|~X&gt;u) = G(y) =\n\\begin{cases}\n1 - \\left( 1 + \\frac{\\xi (y-u)}{\\sigma} \\right)^{-\\frac{1}{\\xi}} & \\xi \\neq 0\\\\\n1 - \\exp \\left( - \\frac{y-u}{\\sigma} \\right) & \\xi = 0\n\\end{cases}\n\\]\nAgain, \\(u\\) is the location parameter, \\(\\sigma\\) is the scale parameter and \\(\\xi\\) is the shape parameter."
   },
   {
     "objectID": "slides/slides_6.html#return-levels-for-pot-models",
