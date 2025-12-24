@@ -1,0 +1,212 @@
+---
+title: "Tutorial Sheet 2"
+format: 
+  html:
+    number-sections: true
+    toc: true
+  PrettyPDF-pdf:
+    keep-tex: true
+    number-sections: true
+engine: knitr
+execute: 
+  freeze: auto
+css: styles.css
+---
+
+# Journal club activity
+
+This week we will focus on a reading group to discuss the following paper:
+
+-   Linder, H. L., & Horne, J. K. (2018). Evaluating statistical models to measure environmental change: A tidal turbine case study. *Ecological Indicators*, *84*, 765-792.
+    -   The paper can be accesses through the following DOI: <https://doi.org/10.1016/j.ecolind.2017.09.041>
+    -   Or downloaded using the following link:
+
+{{< downloadthis Linder_2018.pdf dname="Linder_2018" label="Download Linder & Horne (2018) paper" icon="database-fill-down" type="info" >}}
+
+This week, we will focus on how to read a methodological paper in applied ecology. The **Goal of the Session** is to evaluate and critique the *statistical methods* presented in a scientific paper related to an environmental problem. We will focus on *understanding* the author's framework, assessing the practical *implications* of their findings, and identifying the validity of the conclusions drawn from the study.
+
+::: callout-note
+This tutorial is designed as direct practice for your final exam, which will require you to write a critical essay on a given scientific topic. The skills practiced here (e.g., deconstructing a paper's core argument, evaluating its methodology, and synthesizing its contributions) are precisely the skills that will help you with that task. Think of this as a collaborative training session.
+:::
+
+## ☑️ Pre-session work
+
+**Your Preparation (Please complete BEFORE the session):**
+
+1.  **Read Strategically:** Don't get bogged down in every statistical detail on the first pass. Focus on understanding the **narrative**.
+
+    -   **Abstract & Introduction:** What is the context of the problem? What is the core problem they are solving, and why is it important?
+
+    -   **Section 2 (Data):** Why have the authors selected this specific case study? How is data been collected and can you identify any potential sources of bias?
+
+    -   **Section 2 (Methods):** What models have the authors used and why? how are these methods being compared? Understand the principles of the intervention analysis and how the model's ability to detect change has been measured? Can you think of any caveats on the usage of these metrics?
+
+    -   **Section 3 (Results):** Focus on the **take-home messages** from tables and figures. How would you summaries the paper key findings?
+
+    -   **Discussion & Conclusion:** What do the authors claim is their key contribution? What are the broader implications? Have you identified any limitations with the study?
+
+2.  **Take Notes on These Four Key Questions:**
+
+    -   **The Core Problem:** In your own words, what is the "gap" in standard monitoring practices that this paper addresses?
+
+    -   **The Evaluation Framework:** How did the authors test the models? What were the criteria for "best"?
+
+    -   **Main Recommendation:** What is the "best practice" they propose, and does it vary by objective (detect, quantify, forecast)?
+
+    -   **Your Critical Assessment:** What is one major strength of this study's approach? What is one potential limitation or remaining question you have?
+
+3.  **Bring:** Your annotated copy of the paper and your prepared notes.
+
+## 👥 **In-Person Group Activity: Paper Discussion & Critical Review**
+
+**Activity Goal:** To collaboratively break down the paper's core components, evaluate its methodological framework, and share your insights with the whole class.
+
+Work in small groups to tackle key questions about the paper's argument and methods. Your tutor will lead the session by posing specific questions, giving your group time to discuss, and then facilitating a class-wide conversation to compare insights.
+
+## 📋 For tutors
+
+1.  Ask the students to work on small groups (e.g, 4-5 students per group)
+2.  Begin the warmo-up session with a small group discussion and ask the students about what the found most interesting about the paper - give them around 5 minutes to discuss and then ask each group to present their answers.
+3.  For the following part each group will discuss different sections of the paper. This is a rough plan for you to guide this discussion but it could (and probably will) be adapted based on the discussion student have. Please spend some time discussing some of the ideas with each group
+
+### Tutorial structure
+
+Total session: 60minutes
+
+-   Intro & warm-up: 5-10 min
+
+-   Group work: 25-30 min
+
+-   Group presentations: 25 min per group (5 min per group approx)
+
+Each group should prepare:
+
+1.  2-3 key insights to share with the class.
+
+2.  1 remaining question or uncertainty
+
+3.  A visual aid (sketch/diagram on whiteboard or paper) explaining their section of the paper.
+
+### **Output Specifications**
+
+The number of groups depends on the number of students so there could me more than one group working on a specific topic.
+
+### **Tutor Guidance**
+
+**During group work:** - Rotate between groups, listen first before intervening - Ask probing questions: "*Why do you think that?*" "*What evidence supports that?*" - Try that all students participate
+
+**During presentations:** - Connect different groups' insights: "*Group 2's point about simulation relates to what Group 4 found...*" - Synthesize conflicting interpretations - Highlight particularly insightful critiques
+
+::: callout-note
+-   **For students who finish early:** - You can ask the to compare this paper's methods to another paper they've read or that is cited on the same paper. Ask them to sketch how they'd apply these methods if they were hired for example as statistics consultants - ask them to identify one ore more concept you'd like to learn more about.
+
+-   **For advanced groups:** Challenge them to identify what's *missing* from the paper
+
+-   **For struggling groups:** Provide more directed questions or a summary template
+
+-   **Mixed-skill groups:** Assign roles within groups (summarizer, questioner, connector, presenter)
+:::
+
+### Differentiation Strategies
+
+-   **For quiet groups:** Use think-pair-share or assign specific speaking roles
+-   **For fast groups:** Add extension questions about broader implications
+-   **For technical confusion:** Clarify one key concept, then let them apply it
+
+### 🔄 Alternative Structure 
+
+You can also consider a "*jigsaw*" approach if things are moving fast where:
+
+1.   Original groups become experts on their section
+
+2.  Regroup so new groups have one expert from each section
+
+3.  Experts teach their section to their new group
+
+4.  Then each group can take on a "consultancy role" scenario. E.g., tell the students : "*You're a consulting firm hired to evaluate this research for a client*"
+
+Then each member of the team is assingned a role:
+
+-   Project Manager (oversees)
+
+-   Statistician (methods expert)
+
+-   Subject Expert (domain knowledge)
+
+-   Communications Officer (presentation)
+
+5.  Then, on the **Consultation Phase** each student analyze paper from their role's perspective.
+6.  Finally, students finish the session with a "*Client Meeting*" where they present their findings to the whole group.
+
+Time structure for jigsaw activity:
+
+-   Expert groups: 15 min approx
+
+-   Teaching groups & Consultancy role-play: 15 min approx
+
+-   Client meeting/group presentation: 25 (5 min per group approx)
+
+### Group Topics
+
+Here are some of examples of the focus- groups:
+
+::: {.callout-tip icon="false"}
+## Example: Group 1
+
+**Topic**: **General summary of the paper, background and data.**
+
+Students should provide (i) an overall summary of the paper highlighting the main findings and (ii) discuss the context of the problem in detail (i.e. sections 1 & 2.1 , 2.2) . Questions to motivate the discussion can be:
+
+-   What is the purpose of the study?
+-   What is the motivation behind the case study the authors presented and is the explanation about the data collection process clear? Can you think of any potential sources of bias that the original paper has not considered?
+-   Is the choice of statistical methods well-justified? Would you do things differently?
+:::
+
+::: {.callout-tip icon="false"}
+## Example: Group 2
+
+**Topic**: **Simulated scenarios.**
+
+Students should discuss the baseline simulation models and change scenarios (sections 2.3 thru 2.6) . Questions to motivate the discussion can be:
+
+-   Is the explanation about the baseline simulation models clear? discuss how authors have chosen the amount of observation error .
+-   Performance of candidate models has been tested using "*Before-After simulated datasets*" - what problem you might face in a real-world data scenario? If you had unlimited resources would you propose a different design? (e.g., student can discuss BACI)
+-   Explain and discuss Table 1 in detail.
+:::
+
+::: {.callout-tip icon="false"}
+## Example: Group 3
+
+**Topic**: **Modelling approaches**
+
+Students should discuss the candidate models to detect change and how are they being assessed (sections 2.7 thru 2.10) . Questions to motivate the discussion can be:
+
+-   Are the choice of statistical model well-justified? Discuss how the authors have presented the different candidate models, do you think is a clear manner of explaining this?
+-   How would the Intervention analysis presented in section 2.8. to a non-statistician (e.g., the general public)
+-   Explain the power analysis that was conducted to evaluate model ability to detect change.
+-   Summarise the different model fit and forecast accuracy metrics used by the authors.
+:::
+
+::: {.callout-tip icon="false"}
+## Example: Group 4
+
+**Topic**: **Results**
+
+Students should discuss the results of the paper (section 3) . Questions to motivate the discussion can be:
+
+-   What are the main findings reported on this section?
+-   Students should explain to their classmates the figures presented in this section and what are the implications for the study.
+-   Then, ask them how would they communicate these results to the general public? Imagine they are working for a consultancy company and they have to explain this to a group of environmental scientists and conservationists.
+:::
+
+::: {.callout-tip icon="false"}
+## Example: Group 5
+
+**Topic**: **Discussion and recommendations**
+
+Students should discuss Section 4 & 5 . Questions to motivate the discussion can be:
+
+-   Summarise the main points the authors have discussed? What have the authors recommended on each scenario and why? Do you agree with the authors recommendation?
+-   Discuss figure 9. what do you think of it? would you presented the recommended models differently?
+-   How valid are the conclusions drawn from this study? Can you think a situation in which authors recommendation would be difficult or even impossible to implement?
+:::

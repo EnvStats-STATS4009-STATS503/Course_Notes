@@ -42,11 +42,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-893e4fa9b165916e87ebfc845c8fafbc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-5a3a0bccc80ee0efae93998e1c969e55.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -133,11 +128,41 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Week 5 - Autocorrelation &amp; Changepoints</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./slides/Week 6_2425.pdf">
+    <a class="dropdown-item" href="./slides/slides_6.html">
  <span class="dropdown-text">Week 6 - Modelling Extremes</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="./notes/tutorial_sheet_2.html">
+ <span class="dropdown-text">Tutorial sheet 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./notes/tutorial_sheet_3.html">
+ <span class="dropdown-text">Tutorial sheet 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="./lab_2.html">
+ <span class="dropdown-text">Lab 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./reading_list.html"> 
+<span class="menu-text">Reading List</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -203,64 +228,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
-<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
-#|   shinylive does not work in self-contained HTML documents.
-#|   Please set `embed-resources: false` in your metadata.
-#| standalone: true
-#| viewerHeight: 500
-library(shiny)
-
-
-# Function to generate block maxima
-generate_max &lt;- function(N, n, rdist, param, a, b, seed=pi){
-  set.seed(seed)
-  Mn &lt;- numeric(N)
-  for(i in 1:N){
-    sample &lt;- rdist(n, param[1], param[2])
-    Mn[i] &lt;- (max(sample) - b) / a
-  }
-  return(Mn)
-}
-
-# UI
-iu &lt;- fluidPage(
-  titlePanel("Block Maxima Simulation"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput("dist", "Choose Distribution:", choices = c("Uniform(0,1)" = "uniform", "Exponential(1)" = "exponential")),
-      sliderInput("n", "Observations per Block (n):", min = 5, max = 100, value = 5, step = 5),
-      sliderInput("N", "Number of Blocks (N):", min = 10000, max = 50000, value = 50000, step = 10000)
-    ),
-    mainPanel(
-      plotOutput("histogram")
-    )
-  )
-)
-
-# Server
-server &lt;- function(input, output) {
-  output$histogram &lt;- renderPlot({
-    if (input$dist == "uniform") {
-      a &lt;- 1 / input$n
-      b &lt;- 1
-      Mn &lt;- generate_max(input$N, input$n, runif, c(0,1), a, b)
-      true_gev &lt;- function(x) evd::dgev(x, loc = -1, scale = 1, shape = -1)
-    } else {
-      a &lt;- 1
-      b &lt;- log(input$n)
-      Mn &lt;- generate_max(input$N, input$n, rgamma, c(1,1), a, b)
-      true_gev &lt;- function(x) evd::dgev(x, loc = 0, scale = 1, shape = 0)
-    }
-    
-    hist(Mn, breaks = "FD", col = "lightblue", prob = TRUE, main = "Histogram of Block Maxima", xlab = "Maxima")
-    curve(true_gev, col = "red", lwd = 2, add = TRUE)
-  })
-}
-
-# Run App
-shinyApp(ui = iu, server = server)
-</code></pre>
-<p>This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common issues found in environmental and ecological data — such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design.</p>
+<p>This module provides the theoretical foundation and practical skills for analysing temporal environmental and ecological data, with emphasis on quantifying ecological trends, detecting structural changes, and modelling extremes. Using contemporary environmental challenges as case studies, we will learn how to extract meaningful signals from noisy temporal data and make robust inferences about environmental change.</p>
+<p>We will focus on methods that move beyond modelling central tendencies to explicitly quantify what happens at the tails of distributions—where many critical environmental phenomena occur. Floods, droughts, heatwaves, and other extremes define system boundaries, drive ecological transitions, and inform the design of critical infrastructure.</p>
 </section>
 <section id="course-structure" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Course Structure</h1>
@@ -359,9 +328,9 @@ Note
 <p><a href="https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W22&amp;toId=W220281&amp;toType=R">Adam Smith: 281</a></p>
 <p><strong>Tutorial dates:</strong></p>
 <ol type="1">
-<li><p><a href="tutorial_sheet_1.qmd">26-Jan-2026</a></p></li>
-<li><p>09-Feb-2026</p></li>
-<li><p>23-Feb-2026</p></li>
+<li><p>26-Jan-2026</p></li>
+<li><p><a href="./notes/tutorial_sheet_2.html">09-Feb-2026</a></p></li>
+<li><p><a href="./notes/tutorial_sheet_3.html">23-Feb-2026</a></p></li>
 <li><p>09-Mar-2026</p></li>
 </ol>
 </div>
@@ -375,9 +344,9 @@ Note
 <p><a href="https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=124&amp;toId=124C407&amp;toType=R">Joseph Black Building:C407 Agricult</a><a href="https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&amp;toId=W230311B&amp;toType=R">m</a></p>
 <p><strong>Tutorial dates:</strong></p>
 <ol type="1">
-<li><p><a href="tutorial_sheet_1.qmd">28 -Jan-2026</a></p></li>
-<li><p>11-Feb-2026</p></li>
-<li><p>25-Feb-2026</p></li>
+<li><p>28 -Jan-2026</p></li>
+<li><p><a href="./notes/tutorial_sheet_2.html">11-Feb-2026</a></p></li>
+<li><p><a href="./notes/tutorial_sheet_3.html">25-Feb-2026</a></p></li>
 <li><p>11-Mar-2026</p></li>
 </ol>
 </div>
@@ -401,8 +370,8 @@ Important
 <h2 data-number="2.3" class="anchored" data-anchor-id="labs"><span class="header-section-number">2.3</span> Labs</h2>
 <p>There will be three labs taking place in <a href="https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=295&amp;toId=2950418&amp;toType=R">Boyd Orr Building:418 Lab</a> from <strong>15:00-17:00pm</strong> on the following dates (clicking on the date will direct you to the lab material):</p>
 <ol type="1">
-<li><p><a href="lab_1.qmd">Lab session 1 - Jan 30th</a></p></li>
-<li><p>Feb 27th</p></li>
+<li><p>Lab session 1 - Jan 30th</p></li>
+<li><p><a href="./lab_2.html">Lab session 2 - Feb 27th</a></p></li>
 <li><p>March 13th</p></li>
 </ol>
 </section>

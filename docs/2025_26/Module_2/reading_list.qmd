@@ -23,10 +23,14 @@ editor_options:
   chunk_output_type: console
 ---
 
--   Barnett, V. (2004). *Environmental statistics: Methods and applications*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/TbMBCTkV).)
--   Dumelle, M., Kincaid, T., Olsen, A. R., & Weber, M. (2023). spsurvey: spatial sampling design and analysis in R. *Journal of Statistical Software*, *105*, 1-29.
--   Helsel, D. R. (2012). *Statistics for censored environmental data using Minitab and R* (2nd ed.). Wiley. [Available from the University Library here](https://go.exlibris.link/nSYV0zLq).
--   Kirkup, L., & Frenkel, B. (2006). *An introduction to uncertainty in measurement using the GUM (guide to the expression of uncertainty in measurement)*. Cambridge University Press. [Available from the University Library here](https://go.exlibris.link/HnNPJjFZ).
--   Manly, B. F. J. (2001). *Statistics for environmental science and management*. Chapman & Hall/CRC. (No e-book available, but [a physical copy is available from the University Library](https://go.exlibris.link/Jcyj94mj).)
--   Piegorsch, W. W., & Bailer, A. J. (2005). *Analyzing environmental data*. Wiley. (Available from the University Library as an e-book [here](https://go.exlibris.link/6wbh6zq0).)
--   Walther, B. A., & Moore, J. L. (2005). The concepts of bias, precision and accuracy, and their use in testing the performance of species richness estimators, with a literature review of estimator performance. *Ecography*, *28*(6), 815-829.
+-   Coles, S., Bawa, J., Trenner, L., & Dorazio, P. (2001). *An introduction to statistical modeling of extreme values* (Vol. 208, p. 208). London: Springer.
+
+-   Cowpertwait, P. S., & Metcalfe, A. V. (2009). *Introductory time series with R*. Springer Science & Business Media.
+
+-   Reeves, J., Chen, J., Wang, X. L., Lund, R., & Lu, Q. Q. (2007). A review and comparison of changepoint detection techniques for climate data. *Journal of applied meteorology and climatology*, *46*(6), 900-915.
+
+-   Sharma, S., Swayne, D. A., & Obimbo, C. (2016). Trend analysis and change point techniques: a survey. *Energy, ecology and environment*, *1*(3), 123-130.
+
+-   Shunway, R. H., & Stoffer, D. S. (2019). *Time series: a data analysis approach using R*. Chapman and Hall/CRC.
+
+-   Wood, S. N. (2017). *Generalized additive models: an introduction with R*. chapman and hall/CRC.

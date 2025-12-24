@@ -42,7 +42,7 @@ We can write our set of time series data as $y_1, \ldots, y_T,$ where $y_i$ is t
 
 Can you spot any dependency structure shown in the below plot of log(flow) in the River Dee?
 
-![Log(flow) data for River Dee.](images/TimeSeries.png){width="500"}
+![Log(flow) data for River Dee.](images/TimeSeries.png){fig-align="center" width="500"}
 
 `r hide("Solution")`
 
@@ -56,7 +56,7 @@ There is a clear structure to the data. It looks like there is a repeated patter
 
 Mauna Loa in Hawaii is one of the biggest and most active volcanoes in the world. $\text{CO}_2$ levels have been monitored since 1958. Mauna Loa is one of the first sites worldwide where increasing $\text{CO}_2$ levels were identified.
 
-![](images/Volcano1.png){height="180"}![](images/Volcano2.png){height="180"}\
+![](images/Volcano1.png){height="180"}![](images/Volcano2.png){height="180"}
 
 We can observe a clear trend, and also a seasonal pattern. It may be sensible to standardise the data and represent all observations in terms of '**anomalies**', i.e., their deviation from the starting point (1960 mean level).
 

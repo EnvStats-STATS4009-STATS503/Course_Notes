@@ -22,8 +22,9 @@ editor_options:
 
 # Overview
 
+This module provides the theoretical foundation and practical skills for analysing temporal environmental and ecological data, with emphasis on quantifying ecological trends, detecting structural changes, and modelling extremes. Using contemporary environmental challenges as case studies, we will learn how to extract meaningful signals from noisy temporal data and make robust inferences about environmental change.
 
-This module provides the foundational principles and practical skills for processing, evaluating, and interpreting environmental and ecological data. It begins by contextualizing the role of statistics in environmental science, using contemporary news and research to illustrate how quantitative evidence informs public discourse and policy. The core of the module focuses on characterizing and managing the inherent uncertainty, variability, and common issues found in environmental and ecological data — such as censored data, outliers, and missing values—found in empirical datasets. We will also revise some core statistical concepts and look further into how environmental data is sourced, from different sampling strategies to monitoring network design.
+We will focus on methods that move beyond modelling central tendencies to explicitly quantify what happens at the tails of distributions—where many critical environmental phenomena occur. Floods, droughts, heatwaves, and other extremes define system boundaries, drive ecological transitions, and inform the design of critical infrastructure.
 
 # Course Structure
 
@@ -74,11 +75,11 @@ In addition, there will be **four** tutorials for this course. There are two tut
 
 **Tutorial dates:**
 
-1.  [26-Jan-2026](tutorial_sheet_1.qmd)
+1.  26-Jan-2026
 
-2.  09-Feb-2026
+2.  [09-Feb-2026](notes/tutorial_sheet_2.qmd)
 
-3.  23-Feb-2026
+3.  [23-Feb-2026](notes/tutorial_sheet_3.qmd)
 
 4.  09-Mar-2026
 
@@ -96,11 +97,11 @@ In addition, there will be **four** tutorials for this course. There are two tut
 
 **Tutorial dates:**
 
-1.  [28 -Jan-2026](tutorial_sheet_1.qmd)
+1.  28 -Jan-2026
 
-2.  11-Feb-2026
+2.  [11-Feb-2026](notes/tutorial_sheet_2.qmd)
 
-3.  25-Feb-2026
+3.  [25-Feb-2026](notes/tutorial_sheet_3.qmd)
 
 4.  11-Mar-2026
 
@@ -115,9 +116,9 @@ In addition, there will be **four** tutorials for this course. There are two tut
 
 There will be three labs taking place in [Boyd Orr Building:418 Lab](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=295&toId=2950418&toType=R) from **15:00-17:00pm** on the following dates (clicking on the date will direct you to the lab material):
 
-1.  [Lab session 1 - Jan 30th](lab_1.qmd)
+1.  Lab session 1 - Jan 30th
 
-2.  Feb 27th
+2.  [Lab session 2 - Feb 27th](lab_2.qmd)
 
 3.  March 13th
 

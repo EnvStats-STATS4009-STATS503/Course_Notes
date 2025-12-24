@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Tutorial Sheet 2 – Module 2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d976503a77e3cc1e05540cf55dea42ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-4127622b2b65deacbfc6fc4bd5f4cca7.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/bootstrap-icons-1.13.1/bootstrap-icons.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../include/webex.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../UofG.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Module 2</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Notes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">    
+        <li>
+    <a class="dropdown-item" href="../notes/notes_1.html">
+ <span class="dropdown-text">Week 4 - Assessing Change Over Time</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../notes/notes_2.html">
+ <span class="dropdown-text">Week 5 - Autocorrelation &amp; Changepoints</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../notes/notes_3.html">
+ <span class="dropdown-text">Week 6- Modelling Extremes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/Week_4.pdf">
+ <span class="dropdown-text">Week 4 - Assessing Change Over Time</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/Week_5.pdf">
+ <span class="dropdown-text">Week 5 - Autocorrelation &amp; Changepoints</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides_6.html">
+ <span class="dropdown-text">Week 6 - Modelling Extremes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../notes/tutorial_sheet_2.html">
+ <span class="dropdown-text">Tutorial sheet 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../notes/tutorial_sheet_3.html">
+ <span class="dropdown-text">Tutorial sheet 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="../lab_2.html">
+ <span class="dropdown-text">Lab 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../reading_list.html"> 
+<span class="menu-text">Reading List</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-a-seasonal-and-trend-analysis." id="toc-part-a-seasonal-and-trend-analysis." class="nav-link active" data-scroll-target="#part-a-seasonal-and-trend-analysis."><span class="header-section-number">1</span> Part A: Seasonal and trend analysis.</a></li>
+  <li><a href="#part-b-models-for-extremes" id="toc-part-b-models-for-extremes" class="nav-link" data-scroll-target="#part-b-models-for-extremes"><span class="header-section-number">2</span> Part B: Models for extremes</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="tutorial_sheet_3_solutions.pdf"><i class="bi bi-file-pdf"></i>PDF (PrettyPDF)</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tutorial Sheet 2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="part-a-seasonal-and-trend-analysis." class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Part A: Seasonal and trend analysis.</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Several of these examples are similar in nature to exam questions, in that you are asked to comment on statements being made or on analysis already completed.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following excerpt is taken from the European Environment Agency web site, concerning one of their key indicators (CLIM008) for snow cover (accessed Jan 2011).</p>
+<p><em>“Data from satellite monitoring (NESDIS-database at NOAA) from 1966 to 2005 show that monthly snow-cover extent in the northern hemisphere is decreasing by 1.3 % per decade (Figure 2.1), with the strongest retreat in spring and summer (UNEP, 2007).”</em></p>
+<p>Discuss critically the statement concerning the decrease per decade, and the comment concerning the spring and summer effects. Figure 1 shows a ‘trend’ a 12 month running mean and the original values expressed as anomalies, compare and contrast the three representations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/snow_cover_anomaly.png" class="img-fluid figure-img" width="543"></p>
+<figcaption>Figure 1: Trends in Snow Cover</figcaption>
+</figure>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>The data plot (Fig 1) shows cycles and also a linear trend (with the slope estimated as % per decade). The green curve shows a 12 month running mean (so a smoothed curve), one could query the simplicity of the linear regression, since the running mean (moving average) does show fluctuations, although much smoothed in comparison to the original anomaly data. The comment that there is a strongest retreat in spring and summer suggest quite strongly that a simple straight line regression for the entire time period does not capture the ‘heterogeneity’ of rate of decline.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is of interest to look at temperature records in Loch Lomond and to consider what the trend might be in water temperature. The data shown here are for Cailness in the north basin of the Loch. Comment on the patterns over time in this record. What other plots might you look at and how might you model this data to investigate the changes in temperature over time. There are some missing data values which you might consider how to impute. The data are available to explore on Moodle if you want to look at this in detail.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Cailness.png" class="img-fluid figure-img" width="531"></p>
+<figcaption>Figure 2: Cailness temperature over time</figcaption>
+</figure>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Temperature records- here the approach since we have approximately monthly data requires both a trend and seasonality term, since we expect that temperature will be seasonal. This is a very similar problem to what we will look at with the Central England temperature record, in the lab. I would expect to see a time series plot of these data (with time expressed as year.decimal part of the year), and a seasonality plot, where each temperature is plotted against position within the year. This latter plot will for sure show a seasonal cycle and we could easily imagine fitting some sort of sin/cosine curve to this, hence the idea to use a harmonic regression. However we also have a problem in that there is some missing data, and so as a discussion point we could consider how best to impute these missing values.</p>
+<p>Imputation rules (this again would be more typical of an exam style question): Possible answers here could range from replacement by a simple average of the values surrounding the missing value, to a more complex approach which would also use the seasonal signal (e.g.&nbsp;if the value was missing in January 2006, you could replace the missing value by the average of the January 2005 and Jan 2007 values). You could also use the fitted sine/cosine seasonal curve as a tool for imputation.</p>
+<p>You could be asked to look at the original equation for the harmonic regression (which is non-linear in the params) and show how it can be linearised (straight from the notes).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following excerpts are taken from the National Snow and Ice Data Centre (NSIDC) site, concerning arctic sea ice:</p>
+<p><strong>Statement 3a</strong></p>
+<p><em>“Arctic sea ice extent in January 2012 averaged 13.73 million square kilometers (5.30 million square miles). This is the fourth-lowest January ice extent in the 1979 to 2012 satellite data record, 1.10 million square kilometers (425,000 square miles) below the 1979 to 2000 average extent. Including the year 2012, the linear rate of decline for January ice extent over the satellite record is 3.2% per decade. Based on the satellite record, before 2005, average January ice extent had never been lower than 14 million square kilometers (5.41 million square miles). January ice extent has now fallen below that mark six out of the last seven years.”</em></p>
+<p><strong>Statement 3b</strong></p>
+<p><em>“The growth rate for Arctic sea ice in January was the slowest in the satellite record. After growing relatively quickly early in January, ice extent declined briefly in the middle of the month, and then grew more slowly than normal for the rest of the month. Overall, the Arctic gained 765,000 square kilometers (295,000 square miles) of ice during the month. This was 545,000 square kilometers (210,000 square miles) less than the average ice growth rate for January 1979 to 2000.”</em></p>
+<p><img src="images/jan_sea_ice_extent.png" class="img-fluid" width="446" alt="Figure 3.1: January Sea Ice Extent"> <img src="images/ann_sea_ice_extent.png" class="img-fluid" width="446" alt="Figure 3.2: Annual Sea Ice Extent"></p>
+<p>Discuss critically the two statements above concerning the 2012 sea-ice making reference to Figures 3.1 and 3.2, specifically the decrease per decade. Comment on the statistical methods and assumption which could be used to fit the models shown in the Figures. How would you interpret Figure 3.2 in terms of the comparison of the 5 curves shown to the 1979-2000 average curve?</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Statement 3a, several aspects to comment on, the most straightforward concerns the linear rate of decline (3.2% per decade), no uncertainty mentioned. Fig 3.1, shows the straight line fit and the fluctuations around the line (why no uncertainty bands?). The second aspect to comment on really is about the rank information, fourth lowest, and January ice extent fallen below 14 million km<span class="math inline">\(^2\)</span> 6 out of last 7 years (these latter comments would be picked up when we discuss extremes in the next section of the lectures). Figure 3.2 shows several curves, including a global average curve and its standard deviation band and then the curves for individual decades. We can see that several of the decade curves lie outside the grey bands, all are below the mean curve.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Carbon dioxide concentrations are routinely measured at many places around the globe- one such data set is shown below with also some text describing how the plot and smooth curve was produced.</p>
+<p><em>“To reduce noise in the determination of the global estimate due to atmospheric variability and measurement gaps, we fit a smooth curve to the weekly measurements.</em></p>
+<p><em>To approximate the long-term trend and average seasonal cycle at a site, a function of the form</em></p>
+<p><span class="math display">\[S(t) = \alpha_o  + \alpha_1 t + \alpha_2 t^2  + \sum_{k=1:4}\left[b_{2k-1} \text{sin}(2\pi kt) + b_{2k} \text{cos}(2\pi kt)\right]\]</span></p>
+<p><em>is fitted to the measurements [Thoning et al., 1989]. The above function includes 3 polynomial parameters (quadratic) and 8 harmonic parameters, associated with the sine and cosine terms which can be converted to amplitude and phase of each harmonic, if desired.”</em></p>
+<p>Figure 4 shows the smooth curve, <span class="math inline">\(S(t)\)</span>, in red fitted to weekly background CO2 measurements from Ascension Island for 2000-2009.</p>
+<p>Discuss the approach described in the statement concerning Figure 4 to quantify <strong>trend</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/co2_Ascension.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 4: CO<span class="math inline">\(_2\)</span> data from Ascension Island</figcaption>
+</figure>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>Critically, we have time series data, there are gaps, so a smooth curve is fitted, using a quadratic as in the equation. However there is also a need to include some cyclical terms, again introduced in the linear modelling framework using sin and cosine terms. Very standard regression modelling, but could and should also pick up on the fact there is no mention of the error terms or assumptions and since this is time series, we could expect that observations at a weekly scale are correlated, and what effect that might have on the estimates and any inference – i.e.&nbsp;less independent data so we might expect the standard estimates of our parameters to increase. An alternative approach may be to use a more flexible method (e.g.&nbsp;smoothing/GAM) to incorporate the seasonal pattern but with a linear term for trend. Models could be compared using an approximate F test. The advantage of the parametric approach adopted is the (relative) ease of interpretation.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following excerpt is taken from the European Environment Agency web site, concerning one of their key indicators (CSI012) for European temperature (accessed Jan 2010):</p>
+<p><em>“The Earth has experienced considerable temperature increases in the last 100 years, especially in the most recent decades. These changes are unusual in terms of both magnitude and rate of change. The rate of change in the global average temperature is accelerating from 0.08</em><span class="math inline">\(^\circ\)</span>C per decade over the last 100 years, to 0.13<span class="math inline">\(^\circ\)</span>C per decade over the past 50 years up to 0.23<span class="math inline">\(^\circ\)</span>C per decade over the last 10 years (all values represent land &amp; ocean area) (IPCC, 2007a). As such the indicative target (to keep climate change within ‘safe’ limits) of 0.2<span class="math inline">\(^\circ\)</span>C per decade has been exceeded in the recent years.”</p>
+<p>The figure below shows the time series plot of the CSI012 indicator, which has been developed to address specific policy issues concerning the trend and rate of change in the European annual and seasonal temperature.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/csi012.png" class="img-fluid figure-img" width="619"></p>
+<figcaption>Figure 5: CSI012 European Land Temperature Deviations</figcaption>
+</figure>
+</div>
+<p>Discuss critically the statement and the above figure and how they might be related. Suggest how you might model such temperature data above to address the policy issues.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>This example is again all about trends, expressed one presumes as a linear trend, and a slope in the quote. The interesting thing is that the slope is different in different time periods and over different lengths of time. Again, no uncertainty is quoted. The plot shows deviations using a 10 year moving average, so a smoothed plot, and we can also see differences between summer and winter, suggesting temperature change may indeed be occurring at different rates in different times of the year. How might we model absolute temperature and the deviations? We can certainly imagine therefore that temperature will have a strong seasonal cycle (so could use a harmonic regression), that a simple linear regression is not likely to be complex enough since the rate of change is changing, so could fit some sort of piecewise regression but what is the justification for the changepoints? Or we could fit some sort of smooth curve (not necessarily monotonic).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The plot below shows the Monthly time series of phosphorous (P) concentrations in mg/l, Speed River, Guelph, Ontario between 1972.1–1977.1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Speed.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Comment subjectively on the patterns in the plots P in the River Guelph and how you might statistically model any trends/patterns over time observed.</p>
+<p>The output below shows the summary information for the Mann Kendall score for all time points and for the data split by month (Seasonal). Use the information to carry out a Mann Kendall test and seasonal Mann Kendall test and compute the Mann Kendall correlation coefficient for each. Interpret your results.</p>
+<pre><code>All Time Points          Seasonal
+D = 2546.482             D = 178.4556
+S =  -1171               S = -99
+Var(S) = 42292.33        Var(S) = 337</code></pre>
+<p>The output below shows the output for an estimate of Sen’s slope for the River Guelph phosphorus data. Comment on how this slope estimate is computed and how it differs from a standard linear regression slope. Why might we want to use a Sen’s slope rather than a standard regression slope in this case?</p>
+<pre><code>Sen's slope and intercept
+ 
+slope:  -0.0248
+95 percent confidence interval for slope
+-0.0174 -0.0323
+ 
+intercept: -0.956
+nr. of observations: 72</code></pre>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>The plots show a decreasing trend. The plot of the data on the original scale indicates non-constant variability but this seems to have been dealt with by the application of the log transformation. Subjectively there may be an indication of a change point in 1974 were there is a large jump in the level of P and so a changepoint analysis may be applied here.</p>
+<p>The data are quite noisy but there is some indication of a seasonal pattern. This could be incorporated using a harmonic regression term within a linear regression. Alternatively, we could assess if there was a trend using a seasonal Mann Kendall test to check if there was any evidence of a monotonic change in P over the time period considered.</p>
+<pre><code>All Time Points        Seasonal
+D = 2546.482           D = 178.4556
+S =  -1171             S = -99
+Var(S) = 42292.33      Var(S) = 337</code></pre>
+<p>All data:</p>
+<ul>
+<li><span class="math inline">\(\text{Tau} = S/D = -1171/2546.482= -0.46\)</span></li>
+<li><span class="math inline">\(Z= (-1171+1)/\sqrt{42292.33} = -5.7\)</span>.</li>
+</ul>
+<p>Seasonal:</p>
+<ul>
+<li><span class="math inline">\(\text{Tau} = S/D = -99/178.4556= -0.55\)</span></li>
+<li><span class="math inline">\(Z= (-99+1)/\sqrt{337} = -5.3\)</span>.</li>
+</ul>
+<p>Both the Z score for all data together and the Z score after the seasonal adjustment are greater than the critical value of 1.96 (in absolute value terms). So there is evidence of a statistically significant monotonic trend in the data. The tau values of -0.46 for all data together, and -0.55 for the data taking into account the seasonal component both suggest there is a moderate negative monotonic trend. This supports the initial impression gained from inspection of the data.</p>
+<p>Sen’s slope is a non-parametric estimator of the regression slope. While a standard regression line fitted using OLS minimises the sum of squared residuals, Sen’s slope is computed by calculating the median of the slopes which join each pair of points. It is thought to be more robust when there are doubts about the distribution of the data because it is non-parametric and therefore does not require the same distributional assumptions as OLS.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The figure below shows a regression example from a recent paper in Science (Johnson et al, 2014) which investigated the rate of thinning of the Pine Island glacier. They fit a “2-segment, piecewise-linear age-elevation history to the Mt Moses data”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MtMoses.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="383"></p>
+</figure>
+</div>
+<p>Explain what the phrase in bold above means, and write down the equation for a 2 stage regression, assuming a <strong>known changepoint</strong>. Explain how the parameters of the model can be estimated. Comment briefly on the figure above.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>The model that the authors have fitted is one where there are two straight lines which are constrained to meet at a changepoint.</p>
+<p>A change-point could be defined as a point that separates a series of observations into two groups, each following a different model, in this case a different slope and intercept.</p>
+<p>Known changepoint:</p>
+<p><span class="math display">\[f(x_i) = \begin{cases} \alpha_1 + \beta_1x_i \hspace{1cm} x_i\leq \delta\\ \alpha_2 + \beta_2 x_i \hspace{1cm} \delta \leq x_i \end{cases}\]</span></p>
+<p>constrained such that</p>
+<p><span class="math display">\[\alpha_1 + \beta_1 \delta = \alpha_2 + \beta_2 \delta\]</span></p>
+<p>Parameters can then be estimated by ordinary least squares. Plot shows the diverging line, no uncertainty estimates, nor justification of where the changepoint occurs.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b-models-for-extremes" class="level1 page-columns page-full" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Part B: Models for extremes</h1>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X_1, \dots, X_n\)</span> is a sequence of independent standard exponential <span class="math inline">\(Exp(1)\)</span> variables,</p>
+<ol type="a">
+<li>Show that <span class="math inline">\(F(x)= 1-e^{-x}\)</span> for <span class="math inline">\(x&gt; 0\)</span>.</li>
+<li>Show that, for <span class="math inline">\(a_n=1\)</span> and <span class="math inline">\(b_n=\log(n)\)</span>, the limit distribution of <span class="math inline">\(M_n\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span> is the Gumbel distribution, corresponding to <span class="math inline">\(\zeta = 0\)</span> in the GEV family.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ol type="a">
+<li><p>If <span class="math inline">\(X_1, \dots, X_n \sim Exp(1)\)</span>,</p>
+<ul>
+<li>range of <span class="math inline">\(x\)</span> is <span class="math inline">\(X&gt;0\)</span></li>
+<li>pdf of <span class="math inline">\(Exp(\lambda)\)</span> is <span class="math inline">\(f(x) = \lambda e^{-\lambda x}\)</span>, so for <span class="math inline">\(Exp(1)\)</span>, <span class="math inline">\(f(x) = e^{-x}\)</span></li>
+</ul></li>
+</ol>
+<p><span class="math display">\[\begin{split}\therefore F(x) &amp;= P(X \leq x)\\ &amp;= \int_0^x f(t) dt\\ &amp;= [-e^{-t}]_0^x\\ &amp;= -e^{-x} - (-e^0)\\ &amp;= 1 - e^{-x} \hspace{1cm} (\text{for } x&gt;0)\end{split}\]</span></p>
+<ol start="2" type="a">
+<li>Let <span class="math inline">\(M_n = \max\{X_1, \dots, X_n\}\)</span>, let <span class="math inline">\(a_n = 1\)</span> and let <span class="math inline">\(b_n = \log(n)\)</span>. Then:</li>
+</ol>
+<p><span class="math display">\[Pr\left\{\frac{M_n - b_n}{a_n} \leq z \right\} = F^n(a_nz + b_n) \rightarrow G(z) \text{ as } n \rightarrow \infty\]</span> <span class="math display">\[\begin{split} F_n(a_nz + b_n) &amp; = F^n(z+\log(n))\\ &amp; = [1 - e^{-(z+\log(n))}]^n\\ &amp;\rightarrow \left[1-\frac{e^{-z}}{n} \right]^n \ \text{ as } n \rightarrow \infty\\ &amp;= -\exp(-\exp(-z))\end{split}\]</span></p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><span class="margin-aside callout-margin-content">Note: <span class="math display">\[\exp(x) = \lim_{n \rightarrow \infty}\left( 1+\frac{x}{n}\right)^n \ \ \ \ \ \ \ \ \]</span></span></div><div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">\(X_1, \dots, X_n\)</span> is a sequence of independent standard exponential <span class="math inline">\(Exp(\lambda)\)</span> variables,</p>
+<ol type="a">
+<li>Show that <span class="math inline">\(F_n(x)= (1-e^{-\lambda x})^n\)</span> for <span class="math inline">\(x&gt; 0\)</span>, where <span class="math inline">\(F_n(x)\)</span> is the distribution of <span class="math inline">\(X(n)\)</span>.</li>
+<li>Find the distribution function of <span class="math inline">\(X_{(1)}\)</span>, and show that <span class="math inline">\(X_{(1)}\)</span> has an Exponential distribution with parameter <span class="math inline">\(n\lambda\)</span>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ol type="a">
+<li><span class="math inline">\(F(x) = 1 - e^{-\lambda x}\)</span></li>
+</ol>
+<p><span class="math display">\[\begin{split} F_n(x) &amp;= [P(X \leq x)]^n\\ &amp;=\left[ \int_0^x f(t) dt\right]^n\\ &amp;=\left[\int_0^x \lambda e^{-\lambda t} dt \right]^n\\ &amp;=\left[ \left[ e^{-\lambda t}\right]_0^x\right]^n\\ &amp;=\left[ 1 - e^{-\lambda x}\right]^n \end{split}\]</span></p>
+<ol start="2" type="a">
+<li>Let <span class="math inline">\(X_{(1)} = \min\left\{X_1, \dots, X_n \right\}\)</span>. Then:</li>
+</ol>
+<p><span class="math display">\[\begin{split} \Pr\left\{ X_{(1)} \leq t\right\} &amp;= \Pr\left\{ \min\left\{X_1, \dots, X_n \right\} \leq t\right\}\\ &amp;= 1 - \Pr\left\{ \min\left\{X_1, \dots, X_n \right\} \geq t\right\}\\ &amp;= 1 - \Pr \left\{ X_i \geq t \ \text{for all} \ i\right\}\\ &amp;= 1 - (e^{-\lambda t})^n\\ &amp;= 1 - e^{-\lambda nt} \end{split}\]</span> <span class="math display">\[\therefore X_{(1)} \sim Exp(n \lambda)\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Daily wind speed data are available for a location in the Netherlands. A POT modelling approach has been used to model the data. The figure below shows a mean residual life plot for the series. Comment on how you could use this plot to identify a suitable threshold for the POT model. What threshold would you select here?</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/windspeed_Netherlands.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="496"></p>
+</figure>
+</div>
+<ol start="2" type="a">
+<li>The figure below shows the diagnostic plots for a fitted POT model for the wind speed data. Comment on the model fit using these plots.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/windspeed_Netherlands_model.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ol start="3" type="a">
+<li>The threshold selected was 10. Comment on this choice using the sensitivity analysis below.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/windspeed_Netherlands_sens.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="483"></p>
+</figure>
+</div>
+<ol start="4" type="a">
+<li>The R output for the model is shown below.</li>
+</ol>
+<pre><code>$threshold
+[1] 10
+
+$nexc
+[1] 105
+
+$conv
+[1] 0
+
+$nllh
+[1] 92.17218
+
+$mle
+[1]  0.9278907 -0.0473220
+
+$rate
+[1] 0.00684485
+
+$se
+[1] 0.12364549 0.09084164</code></pre>
+<p>Estimate the 1 in 100 year wind speed.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<ol type="a">
+<li><p>Looking for area where (after taking confidence bands into account) the mean excess is linearly related to the threshold. Not immediately obvious, somewhat subjective. I would say somewhere between 10 and 13. Start as low as possible so 10 would be a good threshold to start with.</p></li>
+<li><p>Quantile and probability plots both have good agreement between points (corresponding to the sample) and the theoretical line, therefore the fit seems reasonable. Histogram also seems to have good agreement between the sample and the solid line which represents the estimated density using the fitted model. Have to be careful when interpreting histograms as interpretation can change with the number of bins used, particularly when the sample size is small. Return level plot, points lie within confidence interval in general. Another indication the model is suitable.</p></li>
+<li><p>The threshold value of 10 seems like a good threshold. There is very little variability in the sensitivity analysis fit, the parameter estimates seem constant across a range of thresholds, only at 12 and above do estimates seem to vary. Maybe could argue we could look at thresholds even lower than 10 —- need to balance what is truly extreme, while ensuring there is sufficient data available above the threshold to use to estimate our model.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<i class="bi-pencil-square " style="color: #c8793c;" role="img" aria-hidden="true"></i> Task 11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The generalized extreme value distribution (GEV) has three parameters and distribution function</p>
+<p><span class="math display">\[G(z) = \exp \left\{ -\left[ 1+\xi\frac{(z_i - \mu)}{\sigma}\right]^{\frac{-1}{\xi}}\right\}\]</span></p>
+<p>GEV is often used when modelling block maxima. Identify the particular family and write down its distribution function when <span class="math inline">\(\xi\)</span> is assumed equal to 0.</p>
+<p>Show that when <span class="math inline">\(G(z_p) =1-p\)</span>, then</p>
+<p><span class="math display">\[z_p = \begin{cases} \mu - \sigma \frac{[1-\{-\log(1-p)\}^{-\xi}]}{\xi} &amp; \text{for } \xi \neq 0\\
+\mu - \sigma[\log\{-\log(1-p)\}] &amp; \text{for } \xi = 0\end{cases}\]</span></p>
+<p>For the distribution <span class="math inline">\(G\)</span> in the case <span class="math inline">\(\xi=0\)</span>, show that if <span class="math inline">\(z_p\)</span> is plotted against <span class="math inline">\(\log[–\log(1-p)]\)</span>, the plot should be linear.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p><span class="math display">\[G(z) = \exp \left\{ -\left[ 1+\xi\frac{(z - \mu)}{\sigma}\right]^{\frac{-1}{\xi}}\right\}\]</span></p>
+<p>Set <span class="math inline">\(G(z_p) = 1 - p\)</span> and solve equation above for <span class="math inline">\(z_p\)</span>:</p>
+<p><span class="math display">\[\begin{split} \exp \left\{ -\left[ 1+\xi\frac{(z_p - \mu)}{\sigma}\right]^{\frac{-1}{\xi}}\right\} &amp;= 1 - p\\
+\left\{ -\left[ 1+\xi\frac{(z_p - \mu)}{\sigma}\right]^{\frac{-1}{\xi}}\right\} &amp;= \log(1-p)\\
+-\left[ 1+\xi\frac{(z_p - \mu)}{\sigma}\right] &amp;= \log(1-p)^{-\xi}\\
+\left[ 1+\xi\frac{(z_p - \mu)}{\sigma}\right] &amp;= -\log(1-p)^{-\xi}\\
+\xi\frac{(z_p - \mu)}{\sigma} &amp;= \{ -\log(1-p)^{-\xi}\}-1\\
+\frac{(\mu - z_p)}{\sigma} &amp;= \frac{1}{\xi}[1-(-\log(1-p)^{-\xi})]\\
+-z_p &amp;= -\mu + \frac{\sigma}{\xi}(1-(-\log(1-p)^{-\xi}))\\z_p &amp;= \mu - \frac{\sigma}{\xi}(1-(-\log(1-p)^{-\xi}))\end{split}\]</span></p>
+<p>When <span class="math inline">\(\xi = 0\)</span>, we have a Gumbel distribution:</p>
+<p><span class="math display">\[\begin{split}\exp\left[ -\exp\left( \frac{-(z_p - \mu)}{\sigma}\right)\right] &amp;= 1-p\\
+\left[ -\exp\left( \frac{-(z_p - \mu)}{\sigma}\right)\right] &amp;=\log(1-p)\\
+\left( \frac{-(z_p - \mu)}{\sigma}\right) &amp;= \log(-\log(1-p))\\
+-z_p + \mu &amp;= \sigma\log(-\log(1-p))\\
+-z_p &amp;= -\mu + \sigma\log(-\log(1-p))\\
+z_p &amp;= \mu - \sigma\log(-\log(1-p))\end{split}\]</span></p>
+<p><span class="math inline">\(z_p\)</span> is the return level associated with the return period <span class="math inline">\(1/p\)</span>.</p>
+<p>Let <span class="math inline">\(s_p = \log(-\log(1-p))\)</span>. Then <span class="math inline">\(z_p = \mu - \sigma\log(-\log(1-p)) = \mu - \sigma s_p\)</span> when <span class="math inline">\(\xi = 0\)</span>. Therefore, <span class="math inline">\(z_p\)</span> is linearly related to <span class="math inline">\(\log(-\log(1-p))\)</span> in the case <span class="math inline">\(\xi = 0\)</span>.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+
+
+/* update total correct if #webex-total_correct exists */
+
+update_total_correct = function() {
+
+  console.log("webex: update total_correct");
+
+
+
+  var t = document.getElementsByClassName("webex-total_correct");
+
+  for (var i = 0; i < t.length; i++) {
+
+    p = t[i].parentElement;
+
+    var correct = p.getElementsByClassName("webex-correct").length;
+
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+
+    var selects = p.getElementsByClassName("webex-select").length;
+
+
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+
+  }
+
+}
+
+
+
+/* webex-solution button toggling function */
+
+b_func = function() {
+
+  console.log("webex: toggle hide");
+
+
+
+  var cl = this.parentElement.classList;
+
+  if (cl.contains('open')) {
+
+    cl.remove("open");
+
+  } else {
+
+    cl.add("open");
+
+  }
+
+}
+
+
+
+/* check answers */
+
+check_func = function() {
+
+  console.log("webex: check answers");
+
+
+
+  var cl = this.parentElement.classList;
+
+  if (cl.contains('unchecked')) {
+
+    cl.remove("unchecked");
+
+    this.innerHTML = "Hide Answers";
+
+  } else {
+
+    cl.add("unchecked");
+
+    this.innerHTML = "Show Answers";
+
+  }
+
+}
+
+
+
+/* function for checking solveme answers */
+
+solveme_func = function(e) {
+
+  console.log("webex: check solveme");
+
+
+
+  var real_answers = JSON.parse(this.dataset.answer);
+
+  var my_answer = this.value;
+
+  var cl = this.classList;
+
+  if (cl.contains("ignorecase")) {
+
+    my_answer = my_answer.toLowerCase();
+
+  }
+
+  if (cl.contains("nospaces")) {
+
+    my_answer = my_answer.replace(/ /g, "")
+
+  }
+
+
+
+  if (my_answer == "") {
+
+    cl.remove("webex-correct");
+
+    cl.remove("webex-incorrect");
+
+  } else if (real_answers.includes(my_answer)) {
+
+    cl.add("webex-correct");
+
+    cl.remove("webex-incorrect");
+
+  } else {
+
+    cl.add("webex-incorrect");
+
+    cl.remove("webex-correct");
+
+  }
+
+
+
+  // match numeric answers within a specified tolerance
+
+  if(this.dataset.tol > 0){
+
+    var tol = JSON.parse(this.dataset.tol);
+
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+
+      cl.add("webex-correct");
+
+    } else {
+
+      cl.remove("webex-correct");
+
+    }
+
+  }
+
+
+
+  // added regex bit
+
+  if (cl.contains("regex")){
+
+    answer_regex = RegExp(real_answers.join("|"))
+
+    if (answer_regex.test(my_answer)) {
+
+      cl.add("webex-correct");
+
+    }
+
+  }
+
+
+
+  update_total_correct();
+
+}
+
+
+
+/* function for checking select answers */
+
+select_func = function(e) {
+
+  console.log("webex: check select");
+
+
+
+  var cl = this.classList
+
+
+
+  /* add style */
+
+  cl.remove("webex-incorrect");
+
+  cl.remove("webex-correct");
+
+  if (this.value == "answer") {
+
+    cl.add("webex-correct");
+
+  } else if (this.value != "blank") {
+
+    cl.add("webex-incorrect");
+
+  }
+
+
+
+  update_total_correct();
+
+}
+
+
+
+/* function for checking radiogroups answers */
+
+radiogroups_func = function(e) {
+
+  console.log("webex: check radiogroups");
+
+
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+
+  var cl = checked_button.parentElement.classList;
+
+  var labels = checked_button.parentElement.parentElement.children;
+
+
+
+  /* get rid of styles */
+
+  for (i = 0; i < labels.length; i++) {
+
+    labels[i].classList.remove("webex-incorrect");
+
+    labels[i].classList.remove("webex-correct");
+
+  }
+
+
+
+  /* add style */
+
+  if (checked_button.value == "answer") {
+
+    cl.add("webex-correct");
+
+  } else {
+
+    cl.add("webex-incorrect");
+
+  }
+
+
+
+  update_total_correct();
+
+}
+
+
+
+window.onload = function() {
+
+  console.log("webex onload");
+
+  /* set up solution buttons */
+
+  var buttons = document.getElementsByTagName("button");
+
+
+
+  for (var i = 0; i < buttons.length; i++) {
+
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+
+      buttons[i].onclick = b_func;
+
+    }
+
+  }
+
+
+
+  var check_sections = document.getElementsByClassName("webex-check");
+
+  console.log("check:", check_sections.length);
+
+  for (var i = 0; i < check_sections.length; i++) {
+
+    check_sections[i].classList.add("unchecked");
+
+
+
+    let btn = document.createElement("button");
+
+    btn.innerHTML = "Show Answers";
+
+    btn.classList.add("webex-check-button");
+
+    btn.onclick = check_func;
+
+    check_sections[i].appendChild(btn);
+
+
+
+    let spn = document.createElement("span");
+
+    spn.classList.add("webex-total_correct");
+
+    check_sections[i].appendChild(spn);
+
+  }
+
+
+
+  /* set up webex-solveme inputs */
+
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+
+
+  for (var i = 0; i < solveme.length; i++) {
+
+    /* make sure input boxes don't auto-anything */
+
+    solveme[i].setAttribute("autocomplete","off");
+
+    solveme[i].setAttribute("autocorrect", "off");
+
+    solveme[i].setAttribute("autocapitalize", "off");
+
+    solveme[i].setAttribute("spellcheck", "false");
+
+    solveme[i].value = "";
+
+
+
+    /* adjust answer for ignorecase or nospaces */
+
+    var cl = solveme[i].classList;
+
+    var real_answer = solveme[i].dataset.answer;
+
+    if (cl.contains("ignorecase")) {
+
+      real_answer = real_answer.toLowerCase();
+
+    }
+
+    if (cl.contains("nospaces")) {
+
+      real_answer = real_answer.replace(/ /g, "");
+
+    }
+
+    solveme[i].dataset.answer = real_answer;
+
+
+
+    /* attach checking function */
+
+    solveme[i].onkeyup = solveme_func;
+
+    solveme[i].onchange = solveme_func;
+
+
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+
+  }
+
+
+
+  /* set up radiogroups */
+
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+
+  for (var i = 0; i < radiogroups.length; i++) {
+
+    radiogroups[i].onchange = radiogroups_func;
+
+  }
+
+
+
+  /* set up selects */
+
+  var selects = document.getElementsByClassName("webex-select");
+
+  for (var i = 0; i < selects.length; i++) {
+
+    selects[i].onchange = select_func;
+
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+
+  }
+
+
+
+  update_total_correct();
+
+}
+
+
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_2/docs/" style="color:#ccc;">Home</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

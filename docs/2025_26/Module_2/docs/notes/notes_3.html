@@ -196,11 +196,41 @@ window.Quarto = {
  <span class="dropdown-text">Week 5 - Autocorrelation &amp; Changepoints</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/Week 6_2425.pdf">
+    <a class="dropdown-item" href="../slides/slides_6.html">
  <span class="dropdown-text">Week 6 - Modelling Extremes</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Tutorials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+        <li>
+    <a class="dropdown-item" href="../notes/tutorial_sheet_2.html">
+ <span class="dropdown-text">Tutorial sheet 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../notes/tutorial_sheet_3.html">
+ <span class="dropdown-text">Tutorial sheet 3</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-labs" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Labs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-labs">    
+        <li>
+    <a class="dropdown-item" href="../lab_2.html">
+ <span class="dropdown-text">Lab 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../reading_list.html"> 
+<span class="menu-text">Reading List</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -328,7 +358,7 @@ Solution
 &amp; = \left(1 + \frac{1}{n}x\right)^n ~~~\text{for } 0 \leq 1 + x/n   \leq 1 \\
 &amp;\rightarrow \exp x~ \text{as }  n \to \infty
 \end{aligned}
-\]</span> Let <span class="math inline">\(G(x) = \exp \left\{- (1 + \xi \frac{x -\mu}{\sigma})^{-1/xi}\right\}\)</span>, setting <span class="math inline">\(\mu= -1\)</span> ,<span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\xi = -1\)</span></p>
+\]</span> Let <span class="math inline">\(G(x) = \exp \left\{- (1 + \xi \frac{x -\mu}{\sigma})^{-1/xi}\right\}\)</span>, setting <span class="math inline">\(\mu= -1\)</span> ,<span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\xi = -1\)</span> leads to:</p>
 <p><span class="math display">\[
 G(x) =  \exp \left\{- (1 -x + 1 )\right\} = \exp x
 \]</span></p>
@@ -346,7 +376,7 @@ G(x) =  \exp \left\{- (1 -x + 1 )\right\} = \exp x
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Play around with the app settings to see the impact that the number of samples and the size of blocks have on the approximation of the GEV for the different distributions.</p>
+<p>Play around with the app settings to see the impact that the number of block and the sample size have on the approximation of the GEV for the different distributions.</p>
 </div>
 </div>
 <pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
@@ -426,13 +456,17 @@ shinyApp(ui = iu, server = server)
 <section id="example-venice-sea-levels" class="level2">
 <h2 class="anchored" data-anchor-id="example-venice-sea-levels">Example — Venice Sea Levels</h2>
 <p>Sea levels in Venice are rising and the city floods on a regular basis. What sea level can we expect in the next 5, 10, 100 years?</p>
-<p><img src="images/GuardianVenice.png" class="img-fluid" width="500"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/GuardianVenice.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
 <p>We have daily sea level measurements from 1931-1981 (data available on the <code>ismev</code> R package). The plot below shows the 10 highest sea level measurements from each year.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="notes_3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<p><img src="notes_3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
 </figure>
 </div>
 </div>
@@ -442,7 +476,7 @@ shinyApp(ui = iu, server = server)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="notes_3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<p><img src="notes_3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
 </figure>
 </div>
 </div>
@@ -465,7 +499,7 @@ shinyApp(ui = iu, server = server)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="notes_3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<p><img src="notes_3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="432"></p>
 </figure>
 </div>
 </div>
@@ -479,7 +513,7 @@ shinyApp(ui = iu, server = server)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="notes_3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+<p><img src="notes_3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="432"></p>
 </figure>
 </div>
 </div>
@@ -498,7 +532,7 @@ shinyApp(ui = iu, server = server)
 &amp;= \dfrac{1 -\mathbb{Pr}(X\leq u+y)}{1 -\mathbb{Pr}(X\leq u)} \\
 &amp;=\frac{1 - F(u + y)}{1 - F(u)} \hspace{3mm}\text{ where } y &gt; 0.
 \end{aligned}
-\]</span> </p><div class="no-row-height column-margin column-container"><span class="margin-aside">Note: Letting <span class="math inline">\(A  = \mathbb{Pr}(X&gt; u+y)\)</span> and <span class="math inline">\(B = \mathbb{Pr}(X&gt; u)\)</span> then $ (A|B)= = $ since <span class="math inline">\(A\subset B\)</span></span></div></div>
+\]</span> </p><div class="no-row-height column-margin column-container"><span class="margin-aside">Note: Letting <span class="math inline">\(A  = \mathbb{Pr}(X&gt; u+y)\)</span> and <span class="math inline">\(B = \mathbb{Pr}(X&gt; u)\)</span> then <span class="math inline">\(\mathbb{Pr}(A|B)=\dfrac{\mathbb{Pr}(A\cap B)}{\mathbb{Pr}(B)} = \dfrac{\mathbb{Pr}(A)}{\mathbb{Pr}(B}\)</span> since <span class="math inline">\(A\subset B\)</span></span></div></div>
 <p>The function <span class="math inline">\(F\)</span> is still unknown, but the distribution of all threshold excesses can be approximated by a <strong>Generalised Pareto distribution (GPD)</strong>. The cdf of the Generalised Pareto distribution is given by</p>
 <p><span class="math display">\[
 G(y) =
@@ -531,8 +565,7 @@ u + \sigma \log\left(m \mathbb{Pr}(X&gt;u)\right) &amp;  \xi = 0
 <button>
 Take hint
 </button>
-<p>Recall that the probability of exceeding is given by<br>
-<span class="math inline">\(\mathbb{Pr}(x &gt; x_m) = \mathbb{Pr}(x &gt; x_m|x &gt; u)\mathbb{Pr}(x&gt;u) = 1/m\)</span>. And that the GEV with <span class="math inline">\(\xi = 0\)</span> is</p>
+<p>Recall that the probability of exceeding <span class="math inline">\(x_m\)</span> is given by <span class="math inline">\(\mathbb{Pr}(x &gt; x_m) = \mathbb{Pr}(x &gt; x_m|x &gt; u)\mathbb{Pr}(x&gt;u) = 1/m\)</span>. And that the GEV with <span class="math inline">\(\xi = 0\)</span> is</p>
 <p><span class="math display">\[\underbrace{G(x_m)}_{\mathbb{Pr}(x\leq x_m | x &gt;u)} = 1- \underbrace{\exp \left(-\dfrac{x_m -u}{\sigma}\right)}_{\mathbb{Pr}(x&gt;x_m|x&gt;u)}\]</span></p>
 </div>
 <div class="webex-solution">
@@ -556,12 +589,20 @@ x_m &amp;=  u + \sigma \log (m\mathbb{Pr}(x&gt;u))
 </div>
 </div>
 <p>Choosing a threshold is challenging. We need a threshold low enough that we have sufficient data, but high enough that values above it are genuinely extreme.</p>
-<p><img src="images/Thresholds.png" class="img-fluid" width="500"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Thresholds.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
 <p>Occasionally there is a natural choice of threshold (eg a legal limit for a pollutant), but generally we need to choose it. One approach is to use a <strong>mean residual life plot</strong>, which plots the sample mean excess (mean of <span class="math inline">\(x&gt;u\)</span>) at a variety of thresholds <span class="math inline">\(u\)</span>. If the GPD is appropriate, the mean excess should be linearly related to the threshold. Therefore, we can identify a suitable threshold as one which lies with an area of linearity on this plot.</p>
 <section id="example-fort-collins-colorado" class="level2">
 <h2 class="anchored" data-anchor-id="example-fort-collins-colorado">Example — Fort Collins, Colorado</h2>
 <p>We have daily precipitation data from 1900-1999, obtained from a rain gauge in Fort Collins, Colorado, taken from Katz et al, 2002.</p>
-<p><img src="images/FortCollinsData.png" class="img-fluid" width="500"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/FortCollinsData.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
 <p>We compare three different choices of threshold below (<span class="math inline">\(u = 0.5, 1.0, 1.5\)</span>) to show the importance of getting the choice right.</p>
 <table class="caption-top table">
 <thead>
@@ -590,9 +631,17 @@ x_m &amp;=  u + \sigma \log (m\mathbb{Pr}(x&gt;u))
 </tbody>
 </table>
 <p>We can fit a mean residual plot to identify a sensible choice of threshold. It appears that a value of <span class="math inline">\(u\)</span> somewhere between 1.2 and 1.8 would be an appropriate choice here — this is where the plot appears to be linear.</p>
-<p><img src="images/MeanResidualPlot.png" class="img-fluid" width="500"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MeanResidualPlot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
 <p>We can also carry out a sensitivity analysis to see the effect of choosing different threshold values on the estimated model parameters. The plot below shows the parameter estimates at different thresholds — they seem fairly robust.</p>
-<p><img src="images/Sensitivity.png" class="img-fluid" width="500"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Sensitivity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
 <p>We can use the <code>extRemes</code> package to fit a Generalised Pareto distribution in R. The function <code>fevd</code> allows several extreme value distributions (including GEV and GPD) to be fitted, and can also provide return levels.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
@@ -603,7 +652,7 @@ x_m &amp;=  u + \sigma \log (m\mathbb{Pr}(x&gt;u))
 <pre><code>[1] "Return Levels for period units in years"
  10-year level  20-year level 100-year level
       2.857184       3.340219       4.581339</code></pre>
-<p>Threshold exceedances are not always independent due to temporal correlation. If we have high temperatures today, it’s likely we might also have high temperatures tomorrow. We have to account for this dependence within our model, for example by using the ARIMA approaches outlined in the time series section. Alternatively, we could use a “declustering” approach which identifies these temporal clusters and simply uses the cluster maxima.</p>
+<p>Threshold exceedances are not always independent due to temporal correlation. If we have high temperatures today, it’s likely we might also have high temperatures tomorrow. We have to account for this dependence within our model, for example by using autoregressive model outlined in the time series section. Alternatively, we could use a “declustering” approach which identifies these temporal clusters and simply uses the cluster maxima.</p>
 
 
 </section>

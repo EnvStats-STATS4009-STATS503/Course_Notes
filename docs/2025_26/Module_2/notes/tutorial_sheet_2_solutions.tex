@@ -1,0 +1,689 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+% load packages
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{sectsty}
+\usepackage{fontspec}
+\usepackage{titlesec}
+
+%% Set page size with a wider right margin
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm, bottom=20mm, right=50mm}
+
+%% Let's define some colours
+\definecolor{uniblue}{HTML}{003865}
+\definecolor{burgundy}{HTML}{7D2239}
+\definecolor{cobalt}{HTML}{005C8A}
+\definecolor{lavender}{HTML}{5B4D94}
+\definecolor{leaf}{HTML}{006630}
+\definecolor{moss}{HTML}{385A4F}
+\definecolor{pillarbox}{HTML}{B30C00}
+\definecolor{rust}{HTML}{9A3A06}
+\definecolor{sandstone}{HTML}{52473B}
+\definecolor{skyblue}{HTML}{005398}
+\definecolor{slate}{HTML}{4F5961}
+\definecolor{thistle}{HTML}{951272}
+
+%\definecolor{light}{HTML}{E6E6FA} % original from template - redefined below as uni blue at 10 percent:
+\colorlet{light}{uniblue!10}
+%\definecolor{highlight}{HTML}{800080} % original from template - redefined below as uni's skyblue:
+\colorlet{highlight}{skyblue}
+%\definecolor{dark}{HTML}{330033} % original from template - redefined below as uni blue at 100 percent:
+\colorlet{dark}{uniblue}
+
+%% Let's add the border on the right hand side 
+\AddToShipoutPicture{% 
+    \AtPageLowerLeft{% 
+        \put(\LenToUnit{\dimexpr\paperwidth-3cm},0){% 
+            \color{light}\rule{3cm}{\LenToUnit\paperheight}%
+          }%
+     }%
+     % logo
+    \AtPageLowerLeft{% start the bar at the bottom right of the page
+        \put(\LenToUnit{\dimexpr\paperwidth-2.25cm},27.2cm){% move it to the top right
+            \color{light}\includegraphics[width=2.25cm]{_extensions/nrennie/PrettyPDF/uni_logo_boxed.jpg}
+          }%
+     }%
+}
+
+%% Style the page number
+\fancypagestyle{mystyle}{
+  \fancyhf{}
+  \renewcommand\headrulewidth{0pt}
+  \fancyfoot[R]{\thepage}
+  \fancyfootoffset{3.5cm}
+}
+\setlength{\footskip}{20pt}
+
+%% style the chapter/section fonts
+\chapterfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\sectionfont{\color{uniblue}\fontsize{20}{16.8}\selectfont}
+\subsectionfont{\color{skyblue}\fontsize{14}{16.8}\selectfont}
+\titleformat{\subsection}
+  {\color{uniblue!90}\sffamily\Large\bfseries}{\thesubsection}{1em}{}[{\titlerule[0.8pt]}]
+\subsubsectionfont{\color{cobalt}}
+
+\renewcommand\thesection{\color{slate}\arabic{section}}
+  
+% left align title
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  {\color{uniblue}\sffamily\huge\textbf{\@title}} \vspace{0.3cm} \newline
+  {\Large {\@subtitle}} \newline
+  \@author
+\end{flushleft}\egroup
+}
+\makeatother
+
+%%% Use some custom fonts
+\setsansfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+
+\setmainfont{Ubuntu}[
+    Path=_extensions/nrennie/PrettyPDF/Ubuntu/,
+    Scale=0.9,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    ]
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}{}
+\makeatother
+\makeatletter
+\@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
+\makeatother
+\makeatletter
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, boxrule=0pt, enhanced, breakable, colback={codebgcolor}]}{\end{tcolorbox}}\fi
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Tutorial Sheet 2},
+  colorlinks=true,
+  linkcolor={highlight},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={highlight},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Tutorial Sheet 2}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\pagestyle{mystyle}
+
+
+\section{Journal club activity}\label{journal-club-activity}
+
+This week we will focus on a reading group to discuss the following
+paper:
+
+\begin{itemize}
+\tightlist
+\item
+  Linder, H. L., \& Horne, J. K. (2018). Evaluating statistical models
+  to measure environmental change: A tidal turbine case study.
+  \emph{Ecological Indicators}, \emph{84}, 765-792.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The paper can be accesses through the following DOI:
+    \url{https://doi.org/10.1016/j.ecolind.2017.09.041}
+  \item
+    Or downloaded using the following link:
+  \end{itemize}
+\end{itemize}
+
+This week, we will focus on how to read a methodological paper in
+applied ecology. The \textbf{Goal of the Session} is to evaluate and
+critique the \emph{statistical methods} presented in a scientific paper
+related to an environmental problem. We will focus on
+\emph{understanding} the author's framework, assessing the practical
+\emph{implications} of their findings, and identifying the validity of
+the conclusions drawn from the study.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+This tutorial is designed as direct practice for your final exam, which
+will require you to write a critical essay on a given scientific topic.
+The skills practiced here (e.g., deconstructing a paper's core argument,
+evaluating its methodology, and synthesizing its contributions) are
+precisely the skills that will help you with that task. Think of this as
+a collaborative training session.
+
+\end{tcolorbox}
+
+\subsection{☑️ Pre-session work}\label{pre-session-work}
+
+\textbf{Your Preparation (Please complete BEFORE the session):}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Read Strategically:} Don't get bogged down in every
+  statistical detail on the first pass. Focus on understanding the
+  \textbf{narrative}.
+
+  \begin{itemize}
+  \item
+    \textbf{Abstract \& Introduction:} What is the context of the
+    problem? What is the core problem they are solving, and why is it
+    important?
+  \item
+    \textbf{Section 2 (Data):} Why have the authors selected this
+    specific case study? How is data been collected and can you identify
+    any potential sources of bias?
+  \item
+    \textbf{Section 2 (Methods):} What models have the authors used and
+    why? how are these methods being compared? Understand the principles
+    of the intervention analysis and how the model's ability to detect
+    change has been measured? Can you think of any caveats on the usage
+    of these metrics?
+  \item
+    \textbf{Section 3 (Results):} Focus on the \textbf{take-home
+    messages} from tables and figures. How would you summaries the paper
+    key findings?
+  \item
+    \textbf{Discussion \& Conclusion:} What do the authors claim is
+    their key contribution? What are the broader implications? Have you
+    identified any limitations with the study?
+  \end{itemize}
+\item
+  \textbf{Take Notes on These Four Key Questions:}
+
+  \begin{itemize}
+  \item
+    \textbf{The Core Problem:} In your own words, what is the ``gap'' in
+    standard monitoring practices that this paper addresses?
+  \item
+    \textbf{The Evaluation Framework:} How did the authors test the
+    models? What were the criteria for ``best''?
+  \item
+    \textbf{Main Recommendation:} What is the ``best practice'' they
+    propose, and does it vary by objective (detect, quantify, forecast)?
+  \item
+    \textbf{Your Critical Assessment:} What is one major strength of
+    this study's approach? What is one potential limitation or remaining
+    question you have?
+  \end{itemize}
+\item
+  \textbf{Bring:} Your annotated copy of the paper and your prepared
+  notes.
+\end{enumerate}
+
+\subsection{\texorpdfstring{👥 \textbf{In-Person Group Activity: Paper
+Discussion \& Critical
+Review}}{👥 In-Person Group Activity: Paper Discussion \& Critical Review}}\label{in-person-group-activity-paper-discussion-critical-review}
+
+\textbf{Activity Goal:} To collaboratively break down the paper's core
+components, evaluate its methodological framework, and share your
+insights with the whole class.
+
+Work in small groups to tackle key questions about the paper's argument
+and methods. Your tutor will lead the session by posing specific
+questions, giving your group time to discuss, and then facilitating a
+class-wide conversation to compare insights.
+
+\subsection{📋 For tutors}\label{for-tutors}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Ask the students to work on small groups (e.g, 4-5 students per group)
+\item
+  Begin the warmo-up session with a small group discussion and ask the
+  students about what the found most interesting about the paper - give
+  them around 5 minutes to discuss and then ask each group to present
+  their answers.
+\item
+  For the following part each group will discuss different sections of
+  the paper. This is a rough plan for you to guide this discussion but
+  it could (and probably will) be adapted based on the discussion
+  student have. Please spend some time discussing some of the ideas with
+  each group
+\end{enumerate}
+
+\subsubsection{Tutorial structure}\label{tutorial-structure}
+
+Total session: 60minutes
+
+\begin{itemize}
+\item
+  Intro \& warm-up: 5-10 min
+\item
+  Group work: 25-30 min
+\item
+  Group presentations: 25 min per group (5 min per group approx)
+\end{itemize}
+
+Each group should prepare:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  2-3 key insights to share with the class.
+\item
+  1 remaining question or uncertainty
+\item
+  A visual aid (sketch/diagram on whiteboard or paper) explaining their
+  section of the paper.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Output
+Specifications}}{Output Specifications}}\label{output-specifications}
+
+The number of groups depends on the number of students so there could me
+more than one group working on a specific topic.
+
+\subsubsection{\texorpdfstring{\textbf{Tutor
+Guidance}}{Tutor Guidance}}\label{tutor-guidance}
+
+\textbf{During group work:} - Rotate between groups, listen first before
+intervening - Ask probing questions: ``\emph{Why do you think that?}''
+``\emph{What evidence supports that?}'' - Try that all students
+participate
+
+\textbf{During presentations:} - Connect different groups' insights:
+``\emph{Group 2's point about simulation relates to what Group 4
+found\ldots{}}'' - Synthesize conflicting interpretations - Highlight
+particularly insightful critiques
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\begin{itemize}
+\item
+  \textbf{For students who finish early:} - You can ask the to compare
+  this paper's methods to another paper they've read or that is cited on
+  the same paper. Ask them to sketch how they'd apply these methods if
+  they were hired for example as statistics consultants - ask them to
+  identify one ore more concept you'd like to learn more about.
+\item
+  \textbf{For advanced groups:} Challenge them to identify what's
+  \emph{missing} from the paper
+\item
+  \textbf{For struggling groups:} Provide more directed questions or a
+  summary template
+\item
+  \textbf{Mixed-skill groups:} Assign roles within groups (summarizer,
+  questioner, connector, presenter)
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsubsection{Differentiation
+Strategies}\label{differentiation-strategies}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{For quiet groups:} Use think-pair-share or assign specific
+  speaking roles
+\item
+  \textbf{For fast groups:} Add extension questions about broader
+  implications
+\item
+  \textbf{For technical confusion:} Clarify one key concept, then let
+  them apply it
+\end{itemize}
+
+\subsubsection{🔄 Alternative Structure}\label{alternative-structure}
+
+You can also consider a ``\emph{jigsaw}'' approach if things are moving
+fast where:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Original groups become experts on their section
+\item
+  Regroup so new groups have one expert from each section
+\item
+  Experts teach their section to their new group
+\item
+  Then each group can take on a ``consultancy role'' scenario. E.g.,
+  tell the students : ``\emph{You're a consulting firm hired to evaluate
+  this research for a client}''
+\end{enumerate}
+
+Then each member of the team is assingned a role:
+
+\begin{itemize}
+\item
+  Project Manager (oversees)
+\item
+  Statistician (methods expert)
+\item
+  Subject Expert (domain knowledge)
+\item
+  Communications Officer (presentation)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Then, on the \textbf{Consultation Phase} each student analyze paper
+  from their role's perspective.
+\item
+  Finally, students finish the session with a ``\emph{Client Meeting}''
+  where they present their findings to the whole group.
+\end{enumerate}
+
+Time structure for jigsaw activity:
+
+\begin{itemize}
+\item
+  Expert groups: 15 min approx
+\item
+  Teaching groups \& Consultancy role-play: 15 min approx
+\item
+  Client meeting/group presentation: 25 (5 min per group approx)
+\end{itemize}
+
+\subsubsection{Group Topics}\label{group-topics}
+
+Here are some of examples of the focus- groups:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, title={Example: Group 1}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\textbf{Topic}: \textbf{General summary of the paper, background and
+data.}
+
+Students should provide (i) an overall summary of the paper highlighting
+the main findings and (ii) discuss the context of the problem in detail
+(i.e.~sections 1 \& 2.1 , 2.2) . Questions to motivate the discussion
+can be:
+
+\begin{itemize}
+\tightlist
+\item
+  What is the purpose of the study?
+\item
+  What is the motivation behind the case study the authors presented and
+  is the explanation about the data collection process clear? Can you
+  think of any potential sources of bias that the original paper has not
+  considered?
+\item
+  Is the choice of statistical methods well-justified? Would you do
+  things differently?
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, title={Example: Group 2}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\textbf{Topic}: \textbf{Simulated scenarios.}
+
+Students should discuss the baseline simulation models and change
+scenarios (sections 2.3 thru 2.6) . Questions to motivate the discussion
+can be:
+
+\begin{itemize}
+\tightlist
+\item
+  Is the explanation about the baseline simulation models clear? discuss
+  how authors have chosen the amount of observation error .
+\item
+  Performance of candidate models has been tested using
+  ``\emph{Before-After simulated datasets}'' - what problem you might
+  face in a real-world data scenario? If you had unlimited resources
+  would you propose a different design? (e.g., student can discuss BACI)
+\item
+  Explain and discuss Table 1 in detail.
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, title={Example: Group 3}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\textbf{Topic}: \textbf{Modelling approaches}
+
+Students should discuss the candidate models to detect change and how
+are they being assessed (sections 2.7 thru 2.10) . Questions to motivate
+the discussion can be:
+
+\begin{itemize}
+\tightlist
+\item
+  Are the choice of statistical model well-justified? Discuss how the
+  authors have presented the different candidate models, do you think is
+  a clear manner of explaining this?
+\item
+  How would the Intervention analysis presented in section 2.8. to a
+  non-statistician (e.g., the general public)
+\item
+  Explain the power analysis that was conducted to evaluate model
+  ability to detect change.
+\item
+  Summarise the different model fit and forecast accuracy metrics used
+  by the authors.
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, title={Example: Group 4}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\textbf{Topic}: \textbf{Results}
+
+Students should discuss the results of the paper (section 3) . Questions
+to motivate the discussion can be:
+
+\begin{itemize}
+\tightlist
+\item
+  What are the main findings reported on this section?
+\item
+  Students should explain to their classmates the figures presented in
+  this section and what are the implications for the study.
+\item
+  Then, ask them how would they communicate these results to the general
+  public? Imagine they are working for a consultancy company and they
+  have to explain this to a group of environmental scientists and
+  conservationists.
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, coltitle=black, opacityback=0, toprule=.15mm, breakable, colframe=quarto-callout-tip-color-frame, title={Example: Group 5}, toptitle=1mm, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, left=2mm, opacitybacktitle=0.6, rightrule=.15mm, colback=white]
+
+\textbf{Topic}: \textbf{Discussion and recommendations}
+
+Students should discuss Section 4 \& 5 . Questions to motivate the
+discussion can be:
+
+\begin{itemize}
+\tightlist
+\item
+  Summarise the main points the authors have discussed? What have the
+  authors recommended on each scenario and why? Do you agree with the
+  authors recommendation?
+\item
+  Discuss figure 9. what do you think of it? would you presented the
+  recommended models differently?
+\item
+  How valid are the conclusions drawn from this study? Can you think a
+  situation in which authors recommendation would be difficult or even
+  impossible to implement?
+\end{itemize}
+
+\end{tcolorbox}
+
+
+
+
+\end{document}
