@@ -97,19 +97,6 @@ S =  -1171               S = -99
 Var(S) = 42292.33        Var(S) = 337
 ```
 
-The output below shows the output for an estimate of Sen’s slope for the River Guelph phosphorus data. Comment on how this slope estimate is computed and how it differs from a standard linear regression slope. Why might we want to use a Sen’s slope rather than a standard regression slope in this case?
-
-```         
-Sen's slope and intercept
- 
-slope:  -0.0248
-95 percent confidence interval for slope
--0.0174 -0.0323
- 
-intercept: -0.956
-nr. of observations: 72
-```
-
 ## Task 7 {.unnumbered}
 
 The figure below shows a regression example from a recent paper in Science (Johnson et al, 2014) which investigated the rate of thinning of the Pine Island glacier. They fit a "2-segment, piecewise-linear age-elevation history to the Mt Moses data".

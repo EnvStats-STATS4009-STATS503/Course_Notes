@@ -182,11 +182,39 @@ Students must submit at least 75% by weight of the components (including examina
 
 This brings increased focus and interest in statistics as a subject, and how we are working to handle topics like climate change.
 
--   <https://www.bbc.co.uk/news/science-environment-46384067>
+::::: columns
+::: {.column width="50%"}
 
--   <https://www.channel4.com/programmes/2022-the-year-from-space/on-demand/74702-001> (**38:41**)
+::: {style="height: 50px;"}
+:::
 
-{{< video https://www.youtube.com/watch?v=CC5WSpby01E&ab_channel=BBCWorldService aspect-ratio="21x9" >}}
+{{< video https://www.youtube.com/watch?v=CC5WSpby01E&ab_channel=BBCWorldService aspect-ratio="21x9" start="745" >}}
+
+:::
+
+::: {.column width="50%"}
+<https://www.bbc.co.uk/news/science-environment-46384067>
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| eval: false
+
+library(qrcode)
+
+qr_code("https://www.bbc.co.uk/news/science-environment-46384067") |>
+  generate_svg(
+    "slides/figures/BBC_QR.svg",
+    background = "transparent",
+    show = FALSE
+  )
+
+```
+
+![](figures/BBC_QR.svg){fig-align="center" width="388"}
+:::
+:::::
 
 ## BBC article graphs task
 
@@ -229,13 +257,36 @@ We want to understand changes in the environment and species respond to these ch
 -   Also consider complex relationships between environmental variables and species habitats.
 :::
 
-## Communicating and presenting data
+## Communicating and presenting data {.smaller}
 
 -   Our skills in presenting and communicating data are also crucial.
 
 -   We need to be able to explain our findings to the public and show them why our work is important.
 
 -   <https://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/>
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| eval: false
+
+library(qrcode)
+
+qr_code("https://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/") |>
+  generate_svg(
+    "slides/figures/rainfall_QR.svg",
+    background = "transparent",
+    show = FALSE
+  )
+
+```
+
+![](figures/rainfall_QR.svg){fig-align="center" width="388"}
+
+::: fragment
+**What kinds of data were generated, and how can they be analysed?**
+:::
 
 ## Examples
 
@@ -248,7 +299,7 @@ We want to understand changes in the environment and species respond to these ch
 
 Only **one person in ten** lives in a city that complies with the World Health Organisation Air quality guidelines.
 
-![](figures/Shanghai.jpg)
+![](figures/Shanghai.jpg){fig-align="center"}
 
 ## Examples: Air pollution {.smaller auto-animate="true"}
 
@@ -260,6 +311,10 @@ Only **one person in ten** lives in a city that complies with the World Health O
 -   Fine particular matter was associated with an estimated 2,000 premature deaths and 22,500 lost life years in Scotland in 2010.
 -   The Cleaner Air for Scotland strategy seeks to reduce air pollution across Scotland.
 -   It aims to achieve the "ambitious vision for Scotland to have the best air quality in Europe"
+:::
+
+::: fragment
+**How can we estimate air pollution across Scotland?**
 :::
 
 ## Measuring Pollution {.smaller}
@@ -294,7 +349,7 @@ Monitor wildlife populations to halt biodiversity loss according the to National
 
 -   To halt biodiversity loss we first need to accurately map where species exist and why
 
-![](figures/a.gif)
+![](figures/gycthr-abundance-map.gif){fig-align="center" width="752"}
 
 ## Water Quality
 
@@ -322,7 +377,7 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 :::
 :::::
 
-## Water Quality {.smaller}
+## Water Quality {.smaller background-color="#FFFFFF"}
 
 ::::: columns
 ::: {.column width="60%"}
@@ -346,7 +401,7 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
     -   **Inherent variability** of the process itself (the thing we are measuring is variable).
     -   **Imprecise knowledge** of the process (our measurements may not be accurate).
 
-## Example: Climate change trends
+## Example: Climate change trends {background-color="#FFFFFF"}
 
 -   These plots illustrate the trends in several climate change measures.
 -   Both sources of variability will be present, but how much of each?
@@ -354,7 +409,7 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 ::: {layout-ncol="2"}
 ![](figures/TempAndSea.png){width="422"}
 
-![](figures/GreenhouseCO2.png){width="624"}
+![](figures/GreenhouseCO2.png){width="541"}
 :::
 
 ## Asking questions
@@ -366,21 +421,25 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 
 ## Example: Arctic Ice {.smaller}
 
-::::: columns
+:::::: columns
 ::: {.column width="40%"}
 ![](figures/ArcticIceMap.png){width="341"}
 :::
 
-::: {.column width="60%"}
+:::: {.column width="60%"}
+::: incremental
 -   Submarines have been used to measure Arctic sea ice.
 
--   The ice has shrunk both in terms of thickness and extent. -
+-   The ice has shrunk both in terms of thickness and extent.
 
--   We may soon see ice-free summers, which will have a devastating impact on sea life. -
+-   We may soon see ice-free summers, which will have a devastating impact on sea life.
 
 -   [Arctic sea ice article (clickable)](https://interactive.carbonbrief.org/when-will-the-arctic-see-its-first-ice-free-summer/)
+
+-   How might we quantify the trend in Arctic ice cover?
 :::
-:::::
+::::
+::::::
 
 ## Example: Arctic Ice {.smaller}
 
@@ -427,7 +486,7 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 :::
 
 ::: {.column width="60%"}
-![](figures/COP28.jpg){width="346"}
+![](figures/COP28.jpg){fig-align="center" width="346"}
 :::
 :::::
 
@@ -452,14 +511,17 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 
 ## Routine Monitoring
 
+::: incremental
 -   Monitoring requirements may be prescribed in policy.
 -   Much of our data come from routine monitoring of our environmental quantities of interest.
 -   Government agencies often make these data available to researchers and/or the public.
 -   These data are used to assess compliance with legislation as well as to identify environmental trends and their potential impacts on society.
 -   We have already seen monitoring data in the air pollution and water quality examples.
+:::
 
 ## Evidence from routine monitoring
 
+::: incremental
 -   Assessment of long-term changes in **natural conditions**.
 
 -   Assessment of long-term changes resulting from **anthropogenic activities**.
@@ -469,23 +531,27 @@ Goal 6 of the UN's Sustainable Development Goals is "*Ensure availability and su
 -   Assessing compliance with the **standards** and **objectives** of protected areas.
 
 -   Quantifying **reference conditions**.
+:::
 
 ## Policy, legislation and monitoring {auto-animate="true"}
 
 ::::: columns
-::: {.column width="30%"}
-```{mermaid, echo=FALSE}
+::: {.column width="40%"}
+
+```{mermaid}
+%%| echo: false
 flowchart TB
   A(Policy) --> B(Legislation)
   B --> C(Monitoring)
   C --> D(Analysis)
   D --> A
 ```
+
 :::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 -   Statistical analyses and reporting is important for ensuring compliance with legislation.
--   Understanding trends, spatial and temporal patterns, and impacts is important for informing policy: \textit{``evidence-based policy making''}.
+-   Understanding trends, spatial and temporal patterns, and impacts is important for informing policy: *evidence-based policy making*.
     -   E.g. Evaluating effectiveness of current policy, e.g. measurement of change before/after implementation.
 :::
 :::::
@@ -493,8 +559,9 @@ flowchart TB
 ## Policy, legislation and monitoring {auto-animate="true"}
 
 ::::: columns
-::: {.column width="30%"}
-```{mermaid, echo=FALSE}
+::: {.column width="40%"}
+```{mermaid}
+%%| echo: false
 flowchart TB
   A(Policy) --> B(Legislation)
   B --> C(Monitoring)
@@ -503,7 +570,7 @@ flowchart TB
 ```
 :::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 -   *Good policy needs a foundation in good science*'' [(Wallstr"om, 2005](https://www.eea.europa.eu/media/speeches/29-11-2005_2)
 -   Agencies can be *data rich and information poor*
 -   Other (often short-term) factors play a role in policy making (e.g. news coverage)
