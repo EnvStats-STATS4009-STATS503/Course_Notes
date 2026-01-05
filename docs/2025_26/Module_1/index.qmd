@@ -34,9 +34,9 @@ The course consists of 3 modules divided into weeks - this is primarily to help 
 | Measuring Environmental Change | 4 | Assessing Change Over Time |
 |  | 5 | Temporal Correlation and Changepoints |
 |  | 6 | Modelling Environmental Extremes |
-| Spatial Ecology and Conservation Modelling | 7 | Introduction to Spatial Ecology |
-|  | 8 | Species Distribution Modelling |
-|  | 9 | Methods for Complex Ecological Data |
+| Spatial Ecology and Conservation Modelling | 7 | Modelling Areal Data |
+|  | 8 | Modelling Geostatistical Data |
+|  | 9 | Methods for Point referrenced Data |
 
 ## Lectures
 

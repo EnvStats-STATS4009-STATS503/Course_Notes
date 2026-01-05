@@ -4,6 +4,7 @@ format:
   html:
     number-sections: true
     toc: true
+    embed-resources: true
   PrettyPDF-pdf:
     keep-tex: true
     number-sections: true
@@ -113,11 +114,11 @@ The number of groups depends on the number of students so there could me more th
 -   **For fast groups:** Add extension questions about broader implications
 -   **For technical confusion:** Clarify one key concept, then let them apply it
 
-### 🔄 Alternative Structure 
+### 🔄 Alternative Structure
 
 You can also consider a "*jigsaw*" approach if things are moving fast where:
 
-1.   Original groups become experts on their section
+1.  Original groups become experts on their section
 
 2.  Regroup so new groups have one expert from each section
 

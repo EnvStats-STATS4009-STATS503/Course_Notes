@@ -4,6 +4,7 @@ format:
   html:
     number-sections: true
     toc: true
+    embed-resources: true
   PrettyPDF-pdf:
     number-sections: true
 engine: knitr
@@ -167,19 +168,6 @@ S =  -1171               S = -99
 Var(S) = 42292.33        Var(S) = 337
 ```
 
-The output below shows the output for an estimate of Sen’s slope for the River Guelph phosphorus data. Comment on how this slope estimate is computed and how it differs from a standard linear regression slope. Why might we want to use a Sen’s slope rather than a standard regression slope in this case?
-
-```         
-Sen's slope and intercept
- 
-slope:  -0.0248
-95 percent confidence interval for slope
--0.0174 -0.0323
- 
-intercept: -0.956
-nr. of observations: 72
-```
-
 
 `r hide("Solution")`
 
@@ -206,7 +194,6 @@ Seasonal:
 
 Both the Z score for all data together and the Z score after the seasonal adjustment are greater than the critical value of 1.96 (in absolute value terms). So there is evidence of a statistically significant monotonic trend in the data. The tau values of -0.46 for all data together, and -0.55 for the data taking into account the seasonal component both suggest there is a moderate negative monotonic trend. This supports the initial impression gained from inspection of the data.
 
-Sen’s slope is a non-parametric estimator of the regression slope. While a standard regression line fitted using OLS minimises the sum of squared residuals, Sen’s slope is computed by calculating the median of the slopes which join each pair of points. It is thought to be more robust when there are doubts about the distribution of the data because it is non-parametric and therefore does not require the same distributional assumptions as OLS.
 
 `r unhide()`
 

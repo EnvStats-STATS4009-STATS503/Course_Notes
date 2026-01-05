@@ -109,23 +109,23 @@ execute:
   <tr>
     <td class="tg-if4e" rowspan="3"><br><br><br>Environmental and Ecological Spatial Statistics<br><br><br></td>
     <td class="tg-abip">7</td>
-    <td class="tg-btxf">Risk assessment and </td>
+    <td class="tg-btxf">Modelling Areal Data </td>
     <td class="tg-btxf">Tutorial 4</td>
   </tr>
   <tr>
     <td class="tg-c3ow">8</td>
-    <td class="tg-0pky">Geostatistical Data</td>
+    <td class="tg-0pky">Modelling Geostatistical Data</td>
     <td class="tg-0pky"></td>
   </tr>
   <tr>
     <td class="tg-abip">9</td>
-    <td class="tg-btxf">Point process model</td>
+    <td class="tg-btxf">Methods for Point referrenced Data</td>
     <td class="tg-btxf">Lab 3</td>
   </tr>
   <tr>
     <td class="tg-fymr">Special Lecture</td>
     <td class="tg-c3ow">10</td>
-    <td class="tg-0pky">Complex observational processess</td>
+    <td class="tg-0pky">TBC</td>
     <td class="tg-0pky"></td>
   </tr>
 </tbody></table>
@@ -149,13 +149,13 @@ Assessment in this course includes continuous assessment and a final exam. The e
 
 -   Written Exam (75%) - Degree exam in the exam diet
 
--   Group Report (25%) - Group project running throughout the semester resulting in a group report
+-   Group Report (25%) - Group project
 
 # Level (M) **STATS5031**
 
 -   Written Exam (65%) - Degree exam in the exam diet
 
--   Group Report (25%) - Group project running throughout the semester resulting in a group report
+-   Group Report (25%) - Group project
 
 -   Set Exercise (10%) - Critical review of published research
 :::
@@ -176,7 +176,7 @@ Students must submit at least 75% by weight of the components (including examina
 
 -   The environment is (sometimes literally) a burning issue in the 21st century.
 
-![](news.png){fig-align="center"}
+![](figures/news.png){fig-align="center"}
 
 ## Media Coverage {.smaller}
 

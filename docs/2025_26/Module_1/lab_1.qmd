@@ -419,7 +419,7 @@ mapview(eqprob$sites_base)
 ```
 :::
 
-## GRTS with statified sampling
+## GRTS with stratified sampling
 
 Instead of sampling from the entire sampling area simultaneously, we can apply the GRTS algorithm for a given strata and select samples from each stratum independently of other strata.
 

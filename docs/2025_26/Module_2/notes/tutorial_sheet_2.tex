@@ -258,7 +258,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, colback={codebgcolor}, frame hidden, enhanced, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[colback={codebgcolor}, enhanced, boxrule=0pt, breakable, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 \makeatother
 
 \usepackage{bookmark}
@@ -316,7 +316,7 @@ author's framework, assessing the practical \emph{implications} of their
 findings, and identifying the validity of the conclusions drawn from the
 study.
 
-\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, leftrule=.75mm, coltitle=black, titlerule=0mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, breakable, toprule=.15mm, bottomtitle=1mm, left=2mm, opacityback=0, opacitybacktitle=0.6, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, rightrule=.15mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, colback=white, colbacktitle=quarto-callout-note-color!10!white, breakable, opacityback=0, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, bottomtitle=1mm, bottomrule=.15mm, titlerule=0mm, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, toprule=.15mm, coltitle=black, arc=.35mm, left=2mm, rightrule=.15mm]
 
 This tutorial is designed as direct practice for your final exam, which
 will require you to write a critical essay on a given scientific topic.
