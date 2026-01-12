@@ -40,11 +40,11 @@ The course consists of 3 modules divided into weeks - this is primarily to help 
 
 ## Lectures
 
-There will be two - 1 hr lectures per week
+There will be two - 1 hr lectures per week at [42 Bute Gardens:916](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=322&toId=3220916&toType=R)
 
--   **Tuesday 12** noon ([Wolfson Medical School:253 Seminar 1-Yudo](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=170&toId=1700253&toType=R))
+-   **Tuesday 12** noon
 
--   **Wednesday 9am** ([Maths and Stats:116 Lecture Theatre](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&toId=W230116&toType=R)).
+-   **Wednesday 9am**
 
 ::: callout-note
 *Lectures will be recorded if the room’s technology allows them to be.*
@@ -54,7 +54,7 @@ There will be two - 1 hr lectures per week
 
 In addition, there will be **four** tutorials for this course. There are two tutorial groups - please check on MyCampus which one you are in.
 
-::: panel-tabset
+:::: panel-tabset
 # Tutorial Group 1 - Monday 10am
 
 **Tutorial groups:**
@@ -76,7 +76,6 @@ In addition, there will be **four** tutorials for this course. There are two tut
 3.  23-Feb-2026
 
 4.  09-Mar-2026
-
 
 # Tutorial Group 2- Wednesday 12 noon
 
@@ -100,14 +99,13 @@ In addition, there will be **four** tutorials for this course. There are two tut
 
 4.  11-Mar-2026
 
-:::{.callout-note}
+::: callout-note
 Part B of the [tutorial sheet 1](tutorial_sheet_1.qmd) relates to material covered in Week 3. You can attempt these questions in Tutorial 1 if you wish, but you may prefer to go through these during Tutorial 2 instead.
 :::
-
-:::
+::::
 
 ::: callout-important
-*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.* 
+*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.*
 :::
 
 ## Labs
@@ -116,10 +114,9 @@ There will be three labs taking place in [Boyd Orr Building:418 Lab](https://www
 
 1.  [Lab session 1 - Jan 30th](lab_1.qmd)
 
-2.  Feb 27th 
+2.  Feb 27th
 
 3.  March 13th
-
 
 # Assessments
 

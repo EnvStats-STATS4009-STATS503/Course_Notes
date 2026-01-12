@@ -746,7 +746,7 @@
     "href": "slides/slides_1.html#policy-legislation-and-monitoring-2",
     "title": "Environmental and Ecological Statistics",
     "section": "Policy, legislation and monitoring",
-    "text": "Policy, legislation and monitoring\n\n\n\n\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n\n\n\n\n\n\n\n\nGood policy needs a foundation in good science’’ (Wallstr”om, 2005\nAgencies can be data rich and information poor\nOther (often short-term) factors play a role in policy making (e.g. news coverage)\nSo, timely findings of practical relevance are important."
+    "text": "Policy, legislation and monitoring\n\n\n\n\n\n\n\nflowchart TB\n  A(Policy) --&gt; B(Legislation)\n  B --&gt; C(Monitoring)\n  C --&gt; D(Analysis)\n  D --&gt; A\n  \n\n\n\n\n\n\n\n\nGood policy needs a foundation in good science’’ (Wallstr”om, 2005\nAgencies can be data rich and information poor\nOther (often short-term) factors play a role in policy making (e.g. news coverage)\nSo, timely findings of practical relevance are important."
   },
   {
     "objectID": "slides/slides_1.html#informing-policy-and-legislation",
@@ -1033,7 +1033,7 @@
     "href": "index.html#lectures",
     "title": "Module 1",
     "section": "2.1 Lectures",
-    "text": "2.1 Lectures\nThere will be two - 1 hr lectures per week\n\nTuesday 12 noon (Wolfson Medical School:253 Seminar 1-Yudo)\nWednesday 9am (Maths and Stats:116 Lecture Theatre).\n\n\n\n\n\n\n\nNote\n\n\n\nLectures will be recorded if the room’s technology allows them to be."
+    "text": "2.1 Lectures\nThere will be two - 1 hr lectures per week at 42 Bute Gardens:916\n\nTuesday 12 noon\nWednesday 9am\n\n\n\n\n\n\n\nNote\n\n\n\nLectures will be recorded if the room’s technology allows them to be."
   },
   {
     "objectID": "index.html#tutorials",
