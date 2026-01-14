@@ -40,17 +40,14 @@ The course consists of 3 modules divided into weeks - this is primarily to help 
 | Measuring Environmental Change | 4 | [Assessing Change Over Time](notes/notes_1.qmd) |
 |  | 5 | [Temporal Correlation and Changepoints](notes/notes_2.qmd) |
 |  | 6 | [Modelling Environmental Extremes](notes/notes_3.qmd) |
-| Spatial Ecology and Conservation Modelling | 7 | Introduction to Spatial Ecology |
-|  | 8 | Species Distribution Modelling |
-|  | 9 | Methods for Complex Ecological Data |
+| Spatial Modelling in Ecology | 7 | Modelling Areal Data |
+|  | 8 | Modelling Geostatistical Data|
+|  | 9 | Methods for Point referrenced Data |
 
 ## Lectures
 
-There will be two - 1 hr lectures per week
+There will be two - 1 hr lectures per week at [42 Bute Gardens:916](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=322&toId=3220916&toType=R)
 
--   **Tuesday 12** noon ([Wolfson Medical School:253 Seminar 1-Yudo](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=170&toId=1700253&toType=R))
-
--   **Wednesday 9am** ([Maths and Stats:116 Lecture Theatre](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&toId=W230116&toType=R)).
 
 ::: callout-note
 *Lectures will be recorded if the room’s technology allows them to be.*
