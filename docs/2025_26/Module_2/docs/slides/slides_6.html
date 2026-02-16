@@ -103,6 +103,8 @@
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -242,12 +244,14 @@ Jafet Belmont
 </section>
 <section id="extremes" class="slide level2">
 <h2>Extremes</h2>
+<div>
 <ul>
-<li>We are trying to model rare events - by their very definition we won’t have a lot of data on these.</li>
-<li>The bulk of the data in any statistical distribution will be in the centre.</li>
-<li>Standard density estimation techniques (e.g., the normal distribution) work well where the data have the greatest density, but that’s not what we need here.</li>
-<li>We need to use a statistical model which is good at estimating the <strong>tails</strong> of our distribution.</li>
+<li class="fragment">We are trying to model rare events - by their very definition we won’t have a lot of data on these.</li>
+<li class="fragment">The bulk of the data in any statistical distribution will be in the centre.</li>
+<li class="fragment">Standard density estimation techniques (e.g., the normal distribution) work well where the data have the greatest density, but that’s not what we need here.</li>
+<li class="fragment">We need to use a statistical model which is good at estimating the <strong>tails</strong> of our distribution.</li>
 </ul>
+</div>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
@@ -273,6 +277,11 @@ Jafet Belmont
 <p>The only sensible way to do this is to use data on the variable of interest (wind, rain etc.) and fit an appropriate statistical model.</p>
 <p>The models themselves are motivated by asymptotic theory, and this is our starting point.</p>
 </section>
+<section id="what-are-your-thoughts" class="slide level2">
+<h2>What are your thoughts?</h2>
+<p><strong>Join mentimeter</strong></p>
+
+<img data-src="images/clipboard-2550031199.png" class="r-stretch"></section>
 <section id="environmental-extremes-in-our-life" class="slide level2">
 <h2>Environmental extremes in our life</h2>
 <p>Environmental extreme events are closer than you think…</p>
@@ -416,18 +425,20 @@ Jafet Belmont
 </section>
 <section id="extreme-value-theory-1" class="slide level2 smaller">
 <h2>Extreme Value Theory</h2>
+<div>
 <ul>
-<li>The true cumulative distribution function, <span class="math inline">\(F(x)\)</span>, is unknown.</li>
-<li>We could replace it with an estimate, but:
+<li class="fragment"><p>The true cumulative distribution function, <span class="math inline">\(F(x)\)</span>, is unknown.</p></li>
+<li class="fragment"><p>We could replace it with an estimate, but:</p>
 <ul>
-<li>Any small differences between the estimate and the truth for <span class="math inline">\(F(x)\)</span> could lead to large differences in <span class="math inline">\(F^n(x)\)</span>.</li>
-<li>As <span class="math inline">\(n \to \infty\)</span> then the value of <span class="math inline">\(F^n(x)\)</span> will be 0 or 1 depending on whether <span class="math inline">\(F(x) &lt;1\)</span> or <span class="math inline">\(F(x)=1\)</span>. This means that the limit distribution of the maxima is a degenerate distribution.</li>
+<li class="fragment">Any small differences between the estimate and the truth for <span class="math inline">\(F(x)\)</span> could lead to large differences in <span class="math inline">\(F^n(x)\)</span>.</li>
+<li class="fragment">As <span class="math inline">\(n \to \infty\)</span> then the value of <span class="math inline">\(F^n(x)\)</span> will be 0 or 1 depending on whether <span class="math inline">\(F(x) &lt;1\)</span> or <span class="math inline">\(F(x)=1\)</span>. This means that the limit distribution of the maxima is a degenerate distribution.</li>
 </ul></li>
-<li>Instead, we tend to focus on the limiting distribution of <span class="math inline">\(F^n(x)\)</span> as <span class="math inline">\(n \to \infty\)</span>, .i.e., the <em>limiting distribution of the normalized maximum</em> by introducing some constants to stabilize the maximum as <span class="math inline">\(n\)</span> grows.</li>
-<li>This is a distribution <span class="math inline">\(G(x)\)</span> such that, for constants <span class="math inline">\(a_n &gt; 0\)</span> and <span class="math inline">\(b_n\)</span>,</li>
-</ul>
+<li class="fragment"><p>Instead, we tend to focus on the limiting distribution of <span class="math inline">\(F^n(x)\)</span> as <span class="math inline">\(n \to \infty\)</span>, .i.e., the <em>limiting distribution of the normalized maximum</em> by introducing some constants to stabilize the maximum as <span class="math inline">\(n\)</span> grows.</p></li>
+<li class="fragment"><p>This is a distribution <span class="math inline">\(G(x)\)</span> such that, for constants <span class="math inline">\(a_n &gt; 0\)</span> and <span class="math inline">\(b_n\)</span>,</p>
 <p><span class="math display">\[\text{P}\left(\frac{M_n - b_n}{a_n} \leq x\right) = F^n(a_n x + b_n) \to G(x) \text{ as } n \to \infty\]</span></p>
-<p><span class="math inline">\(G\)</span> belongs to the type of one of three distribution functions.</p>
+<p><span class="math inline">\(G\)</span> belongs to the type of one of three distribution functions.</p></li>
+</ul>
+</div>
 </section>
 <section id="extreme-value-distributions" class="slide level2">
 <h2>Extreme Value Distributions</h2>
@@ -453,12 +464,14 @@ Jafet Belmont
 </section>
 <section id="block-maxima-approach" class="slide level2">
 <h2>Block Maxima Approach</h2>
+<div>
 <ul>
-<li>Break up our sequence <span class="math inline">\(X_1,X_2,\ldots\)</span> into blocks of size <span class="math inline">\(n\)</span> (with <span class="math inline">\(n\)</span> reasonably large), and extract only the maximum observation from each block.</li>
-<li>Now we fit <span class="math inline">\(G(x)\)</span> to the sequence of extracted maxima <span class="math inline">\(M_{(1)},M_{(2)},\ldots , M_{(N)}\)</span> and use this as the basis for statistical inference.</li>
-<li>For example, consider the annual maxima of daily rainfall. Here our blocks have <span class="math inline">\(n=365\)</span> observations, which is reasonably large, so we fit our model to <span class="math inline">\(N\)</span> annual maxima (where <span class="math inline">\(N\)</span> is the number of years).</li>
-<li>This rough and ready approach has shown itself to be surprisingly robust.</li>
+<li class="fragment">Break up our sequence <span class="math inline">\(X_1,X_2,\ldots\)</span> into blocks of size <span class="math inline">\(n\)</span> (with <span class="math inline">\(n\)</span> reasonably large), and extract only the maximum observation from each block.</li>
+<li class="fragment">Now we fit <span class="math inline">\(G(x)\)</span> to the sequence of extracted maxima <span class="math inline">\(M_{(1)},M_{(2)},\ldots , M_{(N)}\)</span> and use this as the basis for statistical inference.</li>
+<li class="fragment">For example, consider the annual maxima of daily rainfall. Here our blocks have <span class="math inline">\(n=365\)</span> observations, which is reasonably large, so we fit our model to <span class="math inline">\(N\)</span> annual maxima (where <span class="math inline">\(N\)</span> is the number of years).</li>
+<li class="fragment">This rough and ready approach has shown itself to be surprisingly robust.</li>
 </ul>
+</div>
 </section>
 <section id="the-gev-distribution" class="slide level2">
 <h2>The GEV Distribution</h2>
@@ -1059,6 +1072,7 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
   <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1080,7 +1094,8 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1251,7 +1266,7 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
