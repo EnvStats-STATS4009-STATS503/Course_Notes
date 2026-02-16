@@ -1,0 +1,127 @@
+---
+title: "Module 3"
+subtitle: "Spatial Modelling in Ecology"
+author:
+  - name: Jafet Belmont
+    email: Jafet.Belmont@glasgow.ac.uk
+format: 
+  html: 
+    embed-resources: false
+    fontsize: "12"
+    mainfont: serif
+    number-sections: true
+  PrettyPDF-pdf:
+    number-sections: true
+execute: 
+  freeze: auto
+filters: 
+  - shinylive
+editor_options: 
+  chunk_output_type: console
+---
+
+# Overview
+
+This module provides an overview of widely-used contemporary methods for analysing spatial data in ecology and environmental sciences. We begin by developing spatial modelling techniques for **disease risk assessment** as a critical interface between environmental hazards and public health. From there, we move to **modern computational tools for spatial prediction** **and inference** that integrate hierarchical structures, latent processes, and scalable inference frameworks suited to complex spatial data.
+
+The module balances **methodological principles** with **hands-on application**, focusing on fitting interpretable spatial models that account for spatial dependence and produce robust predictions for conservation planning, environmental management, and ecosystem assessment.
+
+# Course Structure
+
+This course provides an appreciation of the application of statistical methods and concepts to problems in *Environmental and Ecological Sciences*.
+
+The course consists of 3 modules divided into weeks - this is primarily to help you find the relevant material easily.
+
+| Module | Week | Topic |
+|:--:|:--:|:--:|
+| Environmental Monitoring & Data processing | 1 | Introduction to Environmental Statistics |
+|  | 2 | Understanding our Data |
+|  | 3 | Sampling and Monitoring Networks |
+| Measuring Environmental Change | 4 | Assessing Change Over Time |
+|  | 5 | Temporal Correlation and Changepoints |
+|  | 6 | Modelling Environmental Extremes |
+| Spatial Modelling in Ecology | 7 | [Modelling Areal Data](notes/notes_7.qmd) |
+|  | 8 | [Modelling Geostatistical Data](notes/notes_8.qmd) |
+|  | 9 | [Methods for Point referrenced Data](notes/notes_9.qmd) |
+
+## Lectures
+
+There will be two - 1 hr lectures per week at [42 Bute Gardens:916](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=322&toId=3220916&toType=R)
+
+::: callout-note
+*Lectures will be recorded if the room’s technology allows them to be.*
+:::
+
+## Tutorials
+
+In addition, there will be **four** tutorials for this course. There are two tutorial groups - please check on MyCampus which one you are in.
+
+::: panel-tabset
+# Tutorial Group 1 - Monday 10am
+
+**Tutorial groups:**
+
+-   STATS 4009 - TU01 (23738)
+
+-   STATS 5031 - TU01 (24174)
+
+**Venue:**
+
+[Adam Smith: 281](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W22&toId=W220281&toType=R)
+
+**Tutorial dates:**
+
+1.  26-Jan-2026
+
+2.  09-Feb-2026
+
+3.  23-Feb-2026
+
+4.  [09-Mar-2026](notes/tutorial_sheet_4.qmd)
+
+# Tutorial Group 2- Wednesday 12 noon
+
+**Tutorial groups:**
+
+-   STATS 4009 - TU02 (23739)
+
+-   STATS 5031 - TU02 (24175)
+
+**Venue:**
+
+[Joseph Black Building:C407 Agricult](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=124&toId=124C407&toType=R)[m](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=W23&toId=W230311B&toType=R)
+
+**Tutorial dates:**
+
+1.  28 -Jan-2026
+
+2.  11-Feb-2026
+
+3.  25-Feb-2026
+
+4.  [11-Mar-2026](notes/tutorial_sheet_4.qmd)
+:::
+
+::: callout-important
+*You are expected to have attempted the exercise sheets before the tutorial - they will be available in advance.*
+:::
+
+## Labs
+
+There will be three labs taking place in [Boyd Orr Building:418 Lab](https://www.gla.ac.uk/apps/uofglife/#/map?buildingId=295&toId=2950418&toType=R) from **15:00-17:00pm** on the following dates (clicking on the date will direct you to the lab material):
+
+1.  Lab session 1 - Jan 30th
+
+2.  Lab session 2 - Feb 27th
+
+3.  [Lab session 3 - March 13th](lab_3.qmd)
+
+# Assessments
+
+Assessment in this course includes continuous assessment and a final exam. The exam will take place in April/May.
+
+-   *Level H* students will have a **Group Report** worth 25% and a\
+    final exam worth 75%.
+
+-   *Level M* students will have a **Group Report** worth 25%, a\
+    **critique** worth 10% and a final exam worth 65%.

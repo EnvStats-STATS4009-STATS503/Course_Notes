@@ -1,0 +1,2249 @@
+---
+title: "Modelling Geostatistical Data"
+format:
+  revealjs:
+    embed-resources: true
+    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_3/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
+    margin: 0
+    logo:  UofG.png
+    theme: uofg_theme.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+  data-background-color: "#FFFFFF"
+slide-number: true
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+execute: 
+  freeze: auto
+chalkboard: false
+---
+
+```{r setup}
+#| include: false
+
+knitr::opts_chunk$set(echo = FALSE,  
+                      message=FALSE, 
+                      warning=FALSE, 
+                      strip.white=TRUE, 
+                      prompt=FALSE,
+                      fig.align="center",
+                       out.width = "60%")
+
+library(knitr)    # For knitting document and include_graphics function
+library(ggplot2)  # For plotting
+library(png) 
+library(tidyverse)
+library(INLA)
+library(BAS)
+library(patchwork)
+library(inlabru)
+library(scico)
+
+```
+
+# Geostatistical modelling
+
+## Geostatistical Data {.smaller}
+
+In many ecological and environmental settings, measurements are taken from fixed sampling units, aiming to quantify spatial variation and interpolate values at unobserved sites.
+
+:::::: columns
+:::: {.column width="60%"}
+::: incremental
+-   Geostatistical data are the most common form of spatial data found in environmental and ecological settings.
+-   We regularly take measurements of an environmental variable of interest at a set of fixed locations.
+-   This could be data from samples taken across a region (eg., water depth in a lake) or from monitoring stations as part of a network (e.g., air pollution).
+-   In each of these cases, our goal is to estimate the value of our variable across the entire space.
+:::
+::::
+
+::: {.column width="40%"}
+![](figures/monitoring_net.jpg){fig-align="center" width="475"}
+:::
+::::::
+
+## Understanding our region
+
+::: incremental
+-   Let $D$ be our two-dimensional region of interest.
+-   In principle, there are infinitely many locations within $D$, each of which can be represented by mathematical coordinates (e.g. latitude and longitude).
+-   We can identify any individual location as $\mathbf{s}_i = (x_i, y_i)$, where $x_i$ and $y_i$ are their coordinates.
+-   We can treat our variable of interest as a random variable, $Z$ which can be observed at any location as $Z(\mathbf{s}_i)$.
+:::
+
+## Geostatistical process
+
+-   A geostatistical process can therefore be written as: $$\{Z(\mathbf{s}); \mathbf{s} \in D\}$$
+-   In practice, data are observed at a finite number of locations, $m$, and can be denoted as: $$z = \{z(\mathbf{s}_1), \ldots z(\mathbf{s}_m) \}$$
+-   We have observed our data at $m$ locations, but often want to predict this process at a set of unknown locations.
+-   For example, what is the value of $z(\mathbf{s}_0)$, where $\mathbf{s}_0$ is an unobserved site?
+
+# Spatial Dependence
+
+## Spatial autocorrelation
+
+-   The key challenge in modelling geostatistical data is understanding **correlation**.
+-   Typically observations close together in space will be more similar than those which are further apart.
+-   Spatial correlation is usually driven by some unmeasured confounding variable(s) - for example, air pollution is spatially correlated because nearby areas tend to experience similar traffic levels.
+-   It is important that we account for these correlations in our analysis - failing to do so will lead to poor inference.
+
+## Modelling geostatistical data
+
+For a set of geostatistical data $\mathbf{z} = \{ z(\mathbf{s}_1), \ldots, z(\mathbf{s}_m) \}$, we can consider the general model:
+
+$$Z(\mathbf{s}_i) = \mu(\mathbf{s}_i) + e(\mathbf{s}_i)$$
+
+::: incremental
+-   $\mu(\mathbf{s}_i)$ is a mean function which models trend and covariate effects.
+
+-   Then $e(\mathbf{s}_i)$ is the error process which accounts for any spatial correlation which exists after accounting for $\mu(\mathbf{s}_i)$
+
+-   Spatial statistics is therefore often focused on understanding the process for $e(\mathbf{s}_i)$.
+:::
+
+## Our key problem(s)
+
+::: incremental
+-   We have observations at $m$ locations $$\mathbf{z} = \{ z(\mathbf{s}_1), \ldots, z(\mathbf{s}_m) \}.$$
+-   We want to use these to obtain an estimate of $Z(\mathbf{s}_0)$ where $\mathbf{s}_0$ is an unobserved location.
+-   How do we model the spatial dependence between our observed sites $\mathbf{s}_1, \ldots, \mathbf{s}_m$?
+-   What does this tell us about the dependence between our observed sites and our unobserved site $\mathbf{s}_0$?
+:::
+
+## Variograms
+
+The first step is to assess whether there is any evidence of spatial dependency in our data.
+
+-   Spatial dependence in georeferenced data can be explored by a function known as a variogram $2\gamma(\cdot)$ (or semivariogram $\gamma(\cdot)$).
+
+-   The variogram is similar in many ways to the autocorrelation function used in time series modelling.
+
+-   In simple terms, it is a function which measures the difference in the spatial process between a pair of locations a fixed distance apart.
+
+## Variograms
+
+The variogram measures the variance of the difference in the process $Z(\cdot)$ at two spatial locations $\mathbf{s}$ and $\mathbf{s+h}$ and is defined as :
+
+$$\mathrm{Var}[Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})] = E[(Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h}))^2] = 2\gamma_z(\mathbf{h}).$$
+
+Note that in practice we use the semi-variogram $\gamma_z(\mathbf{h})$ because our points come in pairs, and the semi-variance is equivalent to the variance per point at a given lag.
+
+::: incremental
+-   When the variance of the difference $Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})$ is relatively small, then $Z(\mathbf{s})$ and $Z(\mathbf{s} + \mathbf{h})$ are similar (spatially correlated).
+
+-   When the variance of the difference $Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h})$ is relatively large, then $Z(\mathbf{s})$ and $Z(\mathbf{s} + \mathbf{h})$ are less similar (closer to independence).
+:::
+
+## Variograms {background-color="#FFFFFF"}
+
+:::::: {style="font-size: 0.8em;"}
+A plot of the empirical semivariogram against the separation distance conveys important information about the continuity and spatial variability of the process.
+
+:::: {.column width="40%"}
+::: {style="font-size: 0.8em;"}
+-   The **sill** is the maximum variance as $h \to \infty$.
+-   The **partial sill** represents the spatially structured variability
+-   The **nugget** is the minimum variance as $h \to 0$ and represents the variability at distances smaller than sampling interval.
+-   The **range** is the distance to the sill.
+-   Points further apart than the range are assumed to be uncorrelated.
+:::
+::::
+
+::: {.column width="60%"}
+![](figures/Variogram.png){fig-align="center" width="389"}
+:::
+::::::
+
+## Example: Construction a Variogram {auto-animate="true" background-color="#FFFFFF"}
+
+In practice, we only have access to $m$ realisations of this process, and therefore we have to estimate the variogram. This is known as the **empirical variogram**.
+
+The empirical semivariogram can be used as exploratory tool to assess whether data present spatial correlation.
+
+We obtain this by computing the semi-variance for all possible pairs of observations: $\gamma(\mathbf{s}, \mathbf{s} + \mathbf{h}) = 0.5(Z(\mathbf{s}) - Z(\mathbf{s} + \mathbf{h}))^2$.
+
+## Example: Constructing a Variogram {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+The data Paraná from the `geoR` Package contains the average rainfall over different years for the period May to June at 123 monitoring stations in Paraná state, Brazil.
+
+![Rainfall values measured at 143 recording stations in Paraná state, Brazil with low values being represented in blue and high values in red.](figures/parana.png){fig-align="center" width="586"}
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(geoR)
+library(ggplot2)
+library(sf)
+library(patchwork)
+library(gstat)
+parana_df <- data.frame(x = parana$coords[, 1],
+                         y = parana$coords[, 2],
+                         value = parana$data)
+
+parana_sf <- st_as_sf(parana_df,
+              coords = c("x", "y"))
+```
+
+## Example: Construction a Variogram {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+To illustrate how an empirical variogram is computed, consider the two highlighted locations below.
+
+![](figures/parana_ex1.png){fig-align="center" width="586"}
+
+## Example: Construction a Variogram {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+To illustrate how an empirical variogram is computed, consider the two highlighted locations below.
+
+:::::: columns
+::: {.column width="50%"}
+![](figures/parana_ex1.png){fig-align="center" width="586"}
+:::
+
+:::: {.column width="50%"}
+::: incremental
+1.  We can first compute the distance between the two locations using the Euclidean distance formula $$h = \sqrt{(475.1 - 403)^2 + (83.6 - 164.5)^2} = 108.36$$
+
+2.  Next, we compute the semi-variance between the points using their observed values as $$\begin{aligned}\gamma(\mathbf{s}, \mathbf{s}+\mathbf{h}) &= 0.5(Z(\mathbf{s}) - Z(\mathbf{s}+\mathbf{h}))^2 \\ &= 0.5(315.33 - 306.9)^2 = 35.53\end{aligned}$$
+
+3.  We repeat this process for every possible pair of points, and plot $h$ against $\gamma(\mathbf{s}, \mathbf{t})$ for each.
+:::
+::::
+::::::
+
+## Example: Construction a Variogram {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+We can calculate the empirical variogram for the data using the `variogram` function from the `gstat` library.
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+#| fig-align: center
+#| fig-width: 4
+#| fig-height: 4
+#| fig-cap: "Empirical variogram values corresponding to the rainfall data in Paraná state, Brazil."
+#| echo: false
+
+plot(gstat::variogram(value~1,   # data is the name of the column where rainfall values are stored and 1 tell the function that we assume a constant mean
+               data = parana_sf, # an sf object
+               cloud=TRUE,       # show cloud points
+               cutoff=400))
+
+```
+:::
+
+::: {.column width="40%"}
+-   This plot shows the semi-variances for each pair of points.
+
+-   Each pair of points has a different distance, making it difficult to use this for prediction.
+:::
+:::::
+
+## Binned variogram
+
+To make the variogram easier to use and interpret, we divide the distances into a set of discrete bins, and compute the average semi-variance in each.
+
+-   We compute this binned empirical variogram as $$\gamma(\mathbf{h}) = \frac{1}{2N(h_k)}\sum_{(\mathbf{s},\mathbf{t}) \in N(h_k)}[z(\mathbf{s}) - z(\mathbf{s}+\mathbf{h})]^2$$
+-   Here, $k$ is the number of bins and $N(h_k)$ is the number of points in the bin with average distance $h$.
+-   We then construct a plot of our empirical variogram and use this to estimate the covariance structure.
+
+## Binned variogram {.smaller background-color="#FFFFFF"}
+
+The bins are illustrated on the left, and the empirical variogram obtained from them is shown on the right.
+
+```{r}
+#| fig-align: center
+#| echo: false
+
+
+# 1. Compute both variograms
+vario_binned <- gstat::variogram(value ~ 1, 
+                                 data = parana_sf,
+                                 cloud = FALSE,
+                                 cutoff = 400)
+
+vario_cloud <- gstat::variogram(value ~ 1,
+                                data = parana_sf,
+                                cloud = TRUE,
+                                cutoff = 400)
+
+# 2. Get bin information
+bin_centers <- vario_binned$dist
+n_bins <- length(bin_centers)
+bin_width <- 400 / 15  # Default gstat uses 15 bins if cutoff specified
+bin_edges <- seq(0, 400, by = bin_width)
+
+# 3. Set up plotting area for side-by-side plots
+par(mfrow = c(1, 2), mar = c(4, 4, 3, 2), oma = c(0, 0, 2, 0))
+
+
+
+# Plot cloud points
+plot(vario_cloud$dist, vario_cloud$gamma,
+     pch = 16,
+     col = rgb(0.2, 0.2, 0.2, 0.2),  # Very transparent
+     cex = 0.7,
+     xlab = "Distance (h)",
+     ylab = expression(gamma(h)),
+     main = "Variogram Cloud with Bin Visualization",
+     frame.plot = FALSE)
+
+# Add grid
+grid(col = "gray80")
+
+# Add shaded bins with alternating colors
+colors <- c(rgb(0.8, 0.9, 1, 0.3), rgb(1, 0.95, 0.8, 0.3))
+for (i in 1:(length(bin_edges)-1)) {
+  rect(bin_edges[i], 0,
+       bin_edges[i+1], max(vario_cloud$gamma),
+       col = colors[(i %% 2) + 1],
+       border = NA)
+}
+
+
+# Add bin boundary lines
+abline(v = bin_edges, col = "red", lty = 2, lwd = 1.5)
+
+# Add bin means
+points(bin_centers, vario_binned$gamma,
+       pch = 19,    # Filled circles
+     col = "purple")
+
+
+# 4. LEFT PLOT: Binned variogram
+plot(vario_binned$dist, vario_binned$gamma,
+     type = "p",  # Both points and lines
+     pch = 19,    # Filled circles
+     col = "purple",
+     lwd = 2,
+     cex = 1.2,
+     xlab = "Distance (h)",
+     ylab = expression(gamma(h)),
+     main = "Binned Empirical Variogram",
+     ylim = c(0, 6000),
+     xlim = c(0, 400),
+     frame.plot = FALSE,
+     panel.first = {
+       grid()
+       abline(h = max(vario_cloud$gamma) * 0.9, 
+              col = "gray", lty = 2, lwd = 0.5)
+     })
+
+
+```
+
+## Do we observe any spatial dependence? {.smaller background-color="#FFFFFF"}
+
+We can construct null envelope based on permutations of the data values across the locations, i.e. envelopes built under the assumption of no spatial correlation.
+
+:::::: columns
+:::: {.column width="50%"}
+::: incremental
+-   By overlapping these envelopes with the empirical variograms we can determine whether there is some spatial dependence in our data
+
+-   We can construct permutation envelopes on the empirical variogram using the `envelope` function from the `variosig` R package.
+
+-   In this example, we observe that the variogram only falls outside of the null envelope at distances $<200$m and also at distances above $300$m.
+
+-   Once we have computed an empirical variogram, we have to think about model fitting.
+:::
+::::
+
+::: {.column width="50%"}
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4
+#| fig-height: 4
+
+library(variosig)
+
+varioEnv <- envelope(vario_binned,
+                     data = parana_sf,
+                     locations = st_coordinates(parana_sf),
+                     formula = value ~ 1,
+                     nsim = 499)
+
+envplot(varioEnv)
+```
+:::
+::::::
+
+# Spatial Modelling
+
+## What We Observed and What We Did Not {.smaller}
+
+We treat the observed process of interest as being measured with error
+
+$$
+(\text{observed value})_i = (\text{true value at location } i) + (\text{error})_i
+$$
+
+alternatively
+
+$$
+y_i = Z(\mathbf{s}_i) + \varepsilon_i
+$$
+
+When geostatistical data are considered, we can often assume that there is a spatially continuous variable underlying the observations that can be modeled using a **random field**.
+
+::: incremental
+-   we have a process that is occurring everywhere in space $\rightarrow$ natural to try to model it using some sort of function (of space)
+
+-   a **random field** is a random function that generates smooth surfaces
+
+-   This is hard
+
+-   We typically make our lives easier by making everything Gaussian
+:::
+
+## Gaussian Random Fields {.smaller auto-animate="true"}
+
+A **Gaussian random field** (GRF) is a collection of random variables, where observations occur in a continuous domain, and where every finite collection of random variables has a multivariate normal distribution
+
+$$
+\mathbf{z} = (z(\mathbf{s}_1),\ldots,z(\mathbf{s}_m)) \sim N(\mu(\mathbf{s}_1),\ldots,\mu(\mathbf{s}_m),\Sigma),
+$$
+
+where $\Sigma_{ij} = \mathrm{Cov}(z(\mathbf{s}_i),z(\mathbf{s}_j))$ is a dense $m \times m$ matrix.
+
+::: incremental
+-   This is actually quite tricky: $\Sigma$ will need to depend on the set of observation sites and has to behave well (be "*positive definite*")
+-   Use a covariance function $C_z(\cdot,\cdot)$ that depends on the distance ($\Sigma_{ij} = C_z(\mathbf{s}_i,\mathbf{s}_j)$) between two points and that
+    -   has no negative variances
+    -   is symmetric
+    -   is decreasing, with maximum at distance = 0
+-   $C_z(\mathbf{s}_i, \mathbf{s}_j)$ measures the strength of the linear dependence between $Z(\mathbf{s}_i)$ and $Z(\mathbf{s}_j)$.
+-   $C_z(\mathbf{s}_i, \mathbf{s}_j) = \mathrm{Var}(Z(\mathbf{s}_i))$ for $i = j$.
+:::
+
+## Stationary and isotropy {.smaller}
+
+We will assume our *Gaussian process* can be described as weakly stationary if the following criteria are met:
+
+$E[{Z(\mathbf{s})}] = \mu_z(\mathbf{s}) = \mu_z$ - a finite constant which does not depend on $\mathbf{s}$.
+
+$\text{Cov}(Z(\mathbf{s}_i),Z(\mathbf{s}_j)) = C_z(\mathbf{s}_i-\mathbf{s}_j)$ - a finite constant which can depend on distance $(\mathbf{s}_i-\mathbf{s}_j)$.
+
+-   Condition 1 states that our mean function must be constant in space, with no overall spatial trend.
+
+-   Condition 2 states that for any two locations, their covariance depends only on how far apart they are (their spatial lag, $h$), not their absolute position.
+
+Our process is said to be isotropic if the covariance function is directionally invariant. This means that the covariance only depends on the euclidean distance $(||\mathbf{s}_i-\mathbf{s}_j||)$ and not the direction.
+
+## Building the model {.smaller}
+
+The first step in defining a model for a random field in a hierarchical framework is to identify a probability distribution for the observations available at $m$ sampled spatial locations and represented by the vector $\mathbf{y} = y_1,\ldots,y_m$.
+
+For example, if we assume our observations follow a Gaussian distribution then
+
+$$
+\begin{aligned}
+Y_i &\sim N(\mu_i,\tau_e^{-1})\\
+\eta_i &=\mu_i = \beta_0 + \ldots + Z(\mathbf{s}_i)
+\end{aligned}
+$$
+
+-   $\tau_e^{-1} = \sigma^2_e$ represents the variance of the zero-mean measurement error (equivalent to the nugget effect)
+
+-   The response mean $\mu_i$ which coincides with the linear predictor $\eta_i$ is defined based on:
+
+    -   the intercept $\beta_0$ and any additional covariates
+
+    -   the realization of the latent (*unobservable*) GF $Z(\mathbf{s}) \sim \mathrm{MVN}(0,\Sigma)$ which accounts for the spatial correlation through $\Sigma = C_z(\cdot,\cdot)$.
+
+## The Matérn Field {.smaller}
+
+A commonly used covariance function is the Matérn covariance function. The covariance of two points which are a distance $h$ apart is:
+
+$$
+    \Sigma =C_{\nu}(h) = \sigma^2 \frac{2^{1-\nu}}{\Gamma(\nu)} \left( \frac{\sqrt{2\nu} h}{\rho} \right)^{\nu} K_{\nu} \left( \frac{\sqrt{2\nu} h}{\rho} \right)
+$$
+
+-   $\Gamma(\cdot)$ is the gamma function
+
+-   $K_{\nu}(\cdot)$ is the modified Bessel function of the second kind.
+
+-   Parameters $\sigma^2$, $\rho$ and $\nu$ are non-negative values of the covariance function.
+
+    -   $\sigma^2$ is the *spatially structured* variance component
+
+    -   $\rho$ is the range of the spatial process
+
+    -   $\nu$ controls smoothness of the spatial process.
+
+## Big *n* problem!
+
+The disadvantage of the modelling approach involving the spatial covariance function is known as "big *n* problem" and concerns the computational costs required for algebra operations with dense covariance matrices (such as $\Sigma$).
+
+In particular dense matrix operations scale cubically with the matrix size, given by the number of locations where the process is observed. A computationally effective alternative is given by the stochastic partial differential equation (SPDE) approach
+
+## The SPDE approach
+
+We define a (Matérn) GRF as the solution of a stochastic partial differential equation (SPDE)
+
+$$
+(\kappa^2-\Delta)^{\alpha/2}Z(t) = W(t)
+$$
+
+What is this?
+
+-   $W(t)$ is random noise
+-   $\omega(t)$ is the smooth process we want
+-   $(\kappa^2-\Delta)^{\alpha/2}$ is an operator that "smooths" the white noise.
+-   $\kappa$ and $\alpha$ are parameters
+
+## **One analogy** {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+:::: {.column width="40%"}
+Imagine a guitar string stretched from left to right.
+
+-   Now imagine someone randomly taps along it at many locations:
+
+    ::: incremental
+    -   Each tap is independent
+    -   Some taps are strong, some weak
+    -   There is no coordination between taps
+    -   A tap at one location tells you nothing about a tap nearby
+    :::
+
+::: fragment
+*This is pure randomness.* But a real string does not behave like this
+:::
+::::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 10
+
+set.seed(2026)
+# ----- Parameters -----
+N      <- 650        # number of grid points
+x_min  <- 0
+x_max  <- 10
+x      <- seq(x_min, x_max, length.out = N)
+h      <- x[2] - x[1]   # grid spacing
+
+W <- rnorm(N, mean = 0, sd = 1)  # white noise on the grid
+
+p1 = data.frame(x =x,
+           W = W)
+
+ggplot(p1,aes(x=x,y=W))+geom_line(col="grey60")+geom_hline(yintercept = 0) + coord_cartesian(ylim = c(-1, 1)) + labs(x="t")
+
+```
+:::
+::::::
+
+::: notes
+No smoothness
+
+Sharp up/down jumps
+
+No gentle waves
+
+No continuity in behavior
+
+That's because nothing connects one tap to the next.
+:::
+
+## **One analogy** {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+:::: {.column width="40%"}
+Imagine a guitar string stretched from left to right.
+
+-   The rope has tension and stiffness
+    -   the tension spreads each tap to nearby points
+    -   Sharp jumps are softened. $(\kappa^2-\Delta)^{\color{red}{\alpha}/2}Z(t) = W(t)$
+
+::: fragment
+-   $\Delta$ measures the local curvature
+-   $\kappa$ controls how far randomness propagates
+-   stronger tension (large $\kappa$) = stronger pull
+
+$$(\color{red}{\kappa^2}-\Delta)Z(t) = W(t), ~~~\text{for } \alpha=2$$
+:::
+::::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 10
+
+set.seed(2026)
+N      <- 650        # number of grid points
+x_min  <- 0
+x_max  <- 10
+x      <- seq(x_min, x_max, length.out = N)
+h      <- x[2] - x[1]   # grid spacing
+
+# SPDE parameters to try
+kappa_vals <- c(0.5, 1.0, 2.0)   # smaller kappa -> longer range (looser rope)
+alpha_vals <- c(2, 4)            # alpha = 2 (one smoothing), alpha = 4 (smoother)
+
+# ----- Build 1D second-difference matrix D2 -----
+# D2 * u approx = u_{i-1} - 2 u_i + u_{i+1}
+D2 <- matrix(0, nrow = N, ncol = N)
+diag(D2) <- -2
+for(i in 1:(N-1)){
+  D2[i, i+1] <- 1
+  D2[i+1, i] <- 1
+}
+# (Neumann-like) boundary handling: keep D2[1,1] = -1? We'll keep simple Dirichlet-style here:
+# (current code uses the simple interior stencil and leaves boundaries with fewer neighbors)
+
+I_N <- diag(1, N)
+
+# ----- Helper: build discrete operator A = (kappa^2 I - d2/dx2) -----
+build_A <- function(kappa) {
+  # discrete second derivative is D2 / h^2
+  A <- (kappa^2) * I_N - (D2 / (h^2))
+  # small regularization for numeric stability (optional)
+  A <- A + 1e-10 * I_N
+  return(A)
+}
+
+# ----- Helper: solve (A^m) u = W  for integer m >= 1 (alpha = 2*m) -----
+solve_alpha <- function(A, W, m = 1) {
+  # Solve A^m u = W by sequential solves: A v_1 = W, A v_2 = v_1, ..., u = v_m
+  v <- W
+  for(j in 1:m) {
+    v <- solve(A, v)
+  }
+  return(v)
+}
+
+# ----- Generate one white-noise realization -----
+W <- rnorm(N, mean = 0, sd = 1)  # white noise on the grid
+
+# alpha=2m
+
+u_fix1 <- solve_alpha(build_A(0.5), W, m = 2)  # alpha=2 -> m=1
+u_fix2 <- solve_alpha(build_A(1), W, m = 2)  # alpha=2 -> m=1
+u_fix3 <- solve_alpha(build_A(2), W, m = 2)  # alpha=2 -> m=1
+
+p1 = data.frame(x =x,
+           W = W,
+           u1  = u_fix1,
+           u2  = u_fix2,
+           u3  = u_fix3
+           ) %>%
+  ggplot() + geom_line(aes(x,W), alpha = 0.2) + geom_line(aes(x,u1, color = "k = 0.5")) +
+  geom_line(aes(x,u2, color = "k = 1")) +
+  geom_line(aes(x,u3, color = "k = 2")) + xlab("") + ylab("") + ggtitle("alpha = 2") + coord_cartesian(ylim = c(-1, 1))+scale_color_discrete(name="")
+
+p1 + labs(x="t")
+
+```
+:::
+::::::
+
+::: notes
+Measure the bending at $z_i$ by taking the with respect the average of the neighbours (i.e. $z_i - (z_{i-1}+z_i/2) = z_{i-1} + 2z_i +z_{i+1}$).
+
+-   if $= 0 \rightarrow$ straight
+
+-   if the diff is large $\rightarrow$ sharply bent
+
+-   the sign tells you which way it bends
+
+The curvature need to divide by the spacing $h$ between points (assuming equal spacing), i.e., $(z_{i-1} + 2z_i +z_{i+1}) \times h^{-2}$.
+
+In a continuous space we measured this by taking the second derivative, i.e. the Laplacian operator
+
+As $h\to 0$ we measure the rate of change of slope, i.e. curvature as:
+
+$$(z_{i-1} + 2z_i +z_{i+1}) \times h^{-2}  \to \frac{\partial z}{\partial t^2} = \Delta z$$ Where $z(x)$ is the displacement of the string at position $t$.
+
+Tension ($\kappa$): resists large displacement If a tap pushes part of the string far up or down:
+
+-   tension pulls it back
+-   stronger tension = stronger pull
+
+$$
+\begin{aligned}
+(\color{red}{\kappa^2}-\Delta)Z(t) &= W(t) \\
+\color{red}{\kappa^2}Z(t) - \Delta Z(t) &= W(t)\\
+\text{if } Z(t) \text{ is large then }& \color{tomato}{\kappa^2 Z(t)} \text{ becomes large too} \\
+\text{large pull}-\text{back bending}&=\text{random tap}
+\end{aligned}
+$$ In this case, To balance the equation, $Z(t)$ must be smaller.
+:::
+
+## **One analogy** {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+:::: {.column width="40%"}
+Imagine a guitar string stretched from left to right.
+
+-   The rope has tension and stiffness
+    -   the tension spreads each tap to nearby points
+    -   Sharp jumps are softened.
+
+::: fragment
+-   Stiffness = controls how smooth the field becomes ($\alpha$)
+-   Larger $\alpha$ smoother the process will be
+
+$$
+(\kappa^2-\Delta)^{\color{red}{\alpha}/2}Z(t) = W(t)
+$$
+:::
+::::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 10
+
+set.seed(2026)
+
+# Grid
+N      <- 650
+x_min  <- 0
+x_max  <- 10
+x      <- seq(x_min, x_max, length.out = N)
+h      <- x[2] - x[1]
+
+# Build D2
+D2 <- matrix(0, nrow = N, ncol = N)
+diag(D2) <- -2
+for(i in 1:(N-1)){
+  D2[i, i+1] <- 1
+  D2[i+1, i] <- 1
+}
+I_N <- diag(1, N)
+
+# White noise
+W <- rnorm(N, mean = 0, sd = 1)
+
+# Fix kappa
+kappa_fixed <- 0.5
+
+# alpha = 2  -> m = 1
+u_alpha2 <- solve_alpha(build_A(kappa_fixed), W, m = 1)
+
+# alpha = 4  -> m = 2
+u_alpha4 <- solve_alpha(build_A(kappa_fixed), W, m = 2)
+
+# Plot
+library(ggplot2)
+library(dplyr)
+
+df <- data.frame(
+  x = x,
+  W = W,
+  alpha2 = u_alpha2,
+  alpha4 = u_alpha4
+)
+
+p <- df %>%
+  ggplot() +
+  geom_line(aes(x, W), alpha = 0.2) +
+  geom_line(aes(x, alpha2, color = "alpha = 2")) +
+  geom_line(aes(x, alpha4, color = "alpha = 4")) +
+  labs(
+    x = "t",
+    y = "W"
+  ) +
+  coord_cartesian(ylim = c(-1, 1)) +
+  scale_color_discrete(name = "")
+
+p
+
+
+```
+:::
+::::::
+
+::: notes
+Lastly $\alpha$ controls how *smooth* the final shape. E.g.,
+
+$$
+W(t) = \begin{cases}
+(\kappa^2-\Delta)Z(t) & \text{if } \alpha= 2 \text{ i.e., string resists curvature once}\\
+(\kappa^2-\Delta)^2Z(t) & \text{if } \alpha= 4 \text{ i.e., string resists curvature twice}
+\end{cases}
+$$
+
+Take the white noise $W(t)$ and smooth it once by the operator $(\kappa^2 - \Delta)^{-1}$ so the operator filters the white noise once
+
+-   it reduces sharp spikes
+
+-   but still leaves some visible bumps
+
+At $\alpha=2$ we smooth the result again.. Each pass removes high-frequency components (sharp bumps)
+:::
+
+## Solving the SPDE {.smaller background-color="#FFFFFF" auto-animate="true"}
+
+Ok...but we still need to solve the SPDE to find $Z(t)$!
+
+. . .
+
+Now we need to discretize the domain into T points (we cannot compute on the continuous!)
+
+. . .
+
+::::: columns
+::: {.column width="50%"}
+We represent our solution as
+
+$$
+Z(t) = \sum_{i = 1}^T\psi_i(t)w_i
+$$
+
+Where
+
+-   $\psi_i(t)$ are (known) basis functions for nodes $i=1,\ldots,T$
+
+    -   $\psi_i(t_i)= 1$
+
+    <!-- -->
+
+    -   $\psi_i(t_j) = 0 ~~\forall~~i \neq j$
+
+    <!-- -->
+
+    -   Linear between neighboring nodes
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out-width: 70%
+
+locs = c(-5,10,15,25,40,50,60)
+mesh1d = fm_mesh_1d(locs, degree = 1, boundary = "neumann")
+p1 = ggplot() +
+  geom_fm(data = mesh1d, xlim = c(-10, 70)) +
+  geom_point(data = data.frame(x = locs, y = 0), aes(x,y)) +
+  geom_text(data = data.frame(x = locs + 0.5, y = -0.1), aes(x,y,label = 1:7))
+
+p1
+
+eval = fm_evaluator(mesh1d)
+w = round(runif(7), 3)
+
+ p1 + geom_line(data = data.frame(x = eval$x,
+                           y = fm_evaluate(eval, w)),
+                aes(x,y), size = 2) + ggtitle(paste("w=",paste(round(w,2), collapse = ', ')))
+
+```
+:::
+:::::
+
+::: notes
+-   "solving the SPDE" means Find a random function $Z(t)$ such that the equality $(\kappa^2-\Delta)^{\alpha/2}Z(t) = W(t)$ holds in distribution.
+-   in other words find $Z(s)$ such that when the operator $(\kappa^2-\Delta)^{\alpha/2}$ is applied to it, it produces white noise
+-   OR, The Matérn field is the Gaussian field $Z(s)$ produced by smoothing white noise $W(t)$ through the inverse operator $(\kappa^2-\Delta)^{\alpha/2}$.
+-   The Matérn field is infinite-dimensional so we approximate it using a finite basis expansion
+    -   we want a simple local basis
+    -   each basis only affects neighbors
+    -   so computations become sparse
+-   Each weight $w_i$ is basically the value of the field at node $i$
+-   The basis functions are:
+    -   Height = 1 at node
+    -   Zero at neighboring nodes
+    -   Linear in between
+-   A hat function is not the field. It is a *building block* for the field.
+-   the field between nodes is interpolated linearly so the vector of weights fully defines the approximate field.
+-   Since the SPDE is linear and the white noise is Gaussian, the solution is Gaussian
+:::
+
+## Solving the SPDE {.smaller background-color="#FFFFFF" auto-animate="true"}
+
+Ok...but we still need to solve the SPDE to find $Z(t)$!
+
+Now we need to discretize the domain into T points (we cannot compute on the continuous!)
+
+::::: columns
+::: {.column width="50%"}
+We represent our solution as
+
+$$
+Z(t) = \sum_{i = 1}^T\psi_i(t)w_i
+$$
+
+Where
+
+-   $\psi_i(t)$ are (known) basis functions for nodes $i=1,\ldots,T$
+
+-   $w_i$ are (unknown) weights
+
+    -   the field value $Z(s)$ is a **linear interpolation** between the two neighboring weights
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out-width: 70%
+
+locs = c(-5,10,15,25,40,50,60)
+mesh1d = fm_mesh_1d(locs, degree = 1, boundary = "neumann")
+p1 = ggplot() +
+  geom_fm(data = mesh1d, xlim = c(-10, 70)) +
+  geom_point(data = data.frame(x = locs, y = 0), aes(x,y)) +
+  geom_text(data = data.frame(x = locs + 0.5, y = -0.1), aes(x,y,label = 1:7))
+
+p1
+
+eval = fm_evaluator(mesh1d)
+w = round(runif(7), 3)
+
+ p1 + geom_line(data = data.frame(x = eval$x,
+                           y = fm_evaluate(eval, w)),
+                aes(x,y), size = 2) + ggtitle(paste("w=",paste(round(w,2), collapse = ', ')))
+
+```
+:::
+:::::
+
+::: notes
+-   "solving the SPDE" means Find a random function $Z(t)$ such that the equality $(\kappa^2-\Delta)^{\alpha/2}Z(t) = W(t)$ holds in distribution.
+-   in other words find $Z(s)$ such that when the operator $(\kappa^2-\Delta)^{\alpha/2}$ is applied to it, it produces white noise
+-   OR, The Matérn field is the Gaussian field $Z(s)$ produced by smoothing white noise $W(t)$ through the inverse operator $(\kappa^2-\Delta)^{\alpha/2}$.
+-   The Matérn field is infinite-dimensional so we approximate it using a finite basis expansion
+    -   we want a simple local basis
+    -   each basis only affects neighbors
+    -   so computations become sparse
+-   Each weight $w_i$ is basically the value of the field at node $i$
+-   The basis functions are:
+    -   Height = 1 at node
+    -   Zero at neighboring nodes
+    -   Linear in between
+-   A hat function is not the field. It is a *building block* for the field.
+-   the field between nodes is interpolated linearly so the vector of weights fully defines the approximate field.
+-   Since the SPDE is linear and the white noise is Gaussian, the solution is Gaussian
+:::
+
+## Solving the SPDE {.smaller background-color="#FFFFFF" auto-animate="true"}
+
+Ok...but we still need to solve the SPDE to find $Z(t)$!
+
+Now we need to discretize the domain into T points (we cannot compute on the continuous!)
+
+::::: columns
+::: {.column width="50%"}
+We represent our solution as
+
+$$
+Z(t) = \sum_{i = 1}^T\psi_i(t)w_i
+$$
+
+Where
+
+-   $\psi_i(t)$ are (known) basis functions for nodes $i=1,\ldots,T$
+
+-   $w_i$ are (unknown) weights
+
+-   This solution is then approximated using a finite combination of piece-wise linear basis functions.
+
+-   The solution is completely defined by a Gaussian vector of weights with zero mean and a sparse precision matrix.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out-width: 70%
+
+locs = c(-5,10,15,25,40,50,60)
+mesh1d = fm_mesh_1d(locs, degree = 1, boundary = "neumann")
+p1 = ggplot() +
+  geom_fm(data = mesh1d, xlim = c(-10, 70)) +
+  geom_point(data = data.frame(x = locs, y = 0), aes(x,y)) +
+  geom_text(data = data.frame(x = locs + 0.5, y = -0.1), aes(x,y,label = 1:7))
+
+p1
+
+eval = fm_evaluator(mesh1d)
+w = round(runif(7), 3)
+
+ p1 + geom_line(data = data.frame(x = eval$x,
+                           y = fm_evaluate(eval, w)),
+                aes(x,y), size = 2) + ggtitle(paste("w=",paste(round(w,2), collapse = ', ')))
+
+```
+:::
+:::::
+
+## The SPDE approach on 2D {.smaller auto-animate="true"}
+
+Now we approximate the GRF using a triangulated mesh.
+
+The SPDE approach represents the continuous spatial process as a continuously indexed Gaussian Markov Random Field (GMRF)
+
+-   We construct an appropriate lower-resolution approximation of the surface by sampling it in a set of well designed points and constructing a piece-wise linear interpolant.
+
+![](figures/spde.png){fig-align="center" width="520"}
+
+## The SPDE approach on 2D {.smaller auto-animate="true"}
+
+Now we approximate the GRF using a triangulated mesh.
+
+The SPDE approach represents the continuous spatial process as a continuously indexed Gaussian Markov Random Field (GMRF)
+
+-   We construct an appropriate lower-resolution approximation of the surface by sampling it in a set of well designed points and constructing a piece-wise linear interpolant.
+
+-   Note that $\nu = \alpha - d/2$. For $\alpha=2 \Rightarrow \nu= 1$ since $d=2$ we have that:
+
+::: {.callout-note icon="false"}
+$$
+\begin{aligned}
+Z(s) &= \sum_{i = 1}^K\psi_i(s)w_i \\
+\mathbf{w} &\sim N(\mathbf{0},Q^{-1}) \leftarrow \text{GMRF}\\
+Q^{-1} &= \tau^2(\kappa^4 \mathbf{C} + 2\kappa^2 \mathbf{G}+\mathbf{G}\mathbf{C}^{-1}\mathbf{G})
+\end{aligned}
+$$
+
+-   $\mathbf{C}$ is diagonal with entries $C_{ii} =\int \psi_i(s)\mathrm{d}s$ and measures how much of the domain each basis function covers.
+
+-   $G_{ij} = \int \nabla \psi_i(s) \nabla \psi_j(s) \mathrm{d}s$ reflects the connectivity of the mesh nodes.
+
+-   because each basis function overlaps only with nearby ones, the resulting precision matrix is sparse, meaning each coefficient depends directly only on its neighbors
+:::
+
+::: notes
+we approximate a continuous string/field using local "hat2 shapes;
+
+-   C just measures how much space each hat covers (mass/area),
+-   G measures how strongly neighboring hats resist bending
+:::
+
+## In summary {.smaller}
+
+-   The continuous Matérn GRF is the solution of a SPDE and is represented as
+
+$$
+Z(s) = \sum_{i = 1}^K\psi_i(s)w_i
+$$
+
+-   The weights vector $\mathbf{w} = (w_1,\dots,w_K)$ is Gaussian with a **sparse** precision matrix $\longrightarrow$ Computational convenience
+
+-   The field has two parameters
+
+    -   The range $\rho$
+    -   The marginal variance $\sigma^2$
+
+-   These parameters are linked to the parameters of the SPDE
+
+-   We need to assign prior to them
+
+## Penalized Complexity (PC) priors
+
+Penalized Complexity (PC) priors proposed by Simpson et al. ([2017](https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/Penalising-Model-Component-Complexity--A-Principled-Practical-Approach-to/10.1214/16-STS576.full)) allow us to control the amount of spatial smoothing and avoid overfitting.
+
+-   PC priors shrink the model towards a simpler baseline unless the data provide strong evidence for a more complex structure.
+-   To define the prior for the marginal precision $\sigma^{-2}$ and the range parameter $\rho$, we use the probability statements:
+    -   Define the prior for the range $\text{Prob}(\rho<\rho_0) = p_{\rho}$
+    -   Define the prior for the range $\text{Prob}(\sigma>\sigma_0) = p_{\sigma}$
+
+## Learning about the SPDE approach {.smaller}
+
+::: {style="height: 50px;"}
+:::
+
+-   F. Lindgren, H. Rue, and J. Lindström. An explicit link between Gaussian fields and Gaussian Markov random fields: The SPDE approach (with discussion). In: *Journal of the Royal Statistical Society, Series B* 73.4 (2011), pp. 423–498.
+
+-   H. Bakka, H. Rue, G. A. Fuglstad, A. Riebler, D. Bolin, J. Illian, E. Krainski, D. Simpson, and F. Lindgren. Spatial modelling with R-INLA: A review. In: *WIREs Computational Statistics* 10:e1443.6 (2018). (Invited extended review). DOI: 10.1002/wics.1443.
+
+-   E. T. Krainski, V. Gómez-Rubio, H. Bakka, A. Lenzi, D. Castro-Camilio, D. Simpson, F. Lindgren, and H. Rue. *Advanced Spatial Modeling with Stochastic Partial Differential Equations using R and INLA*. Github version \url{www.r-inla.org/spde-book}. CRC press, Dec. 20
+
+# Modelling Rainfall in Brazil {background-image="figures/parana_state.jpg"}
+
+## Example: Modelling Rainfall in Brazil {background-color="#FFFFFF"}
+
+Lets revisit the Paraná data containing the average rainfall over different years for the period May to June at 123 monitoring stations in Paraná state, Brazil.
+
+![Rainfall values measured at 143 recording stations in Paraná state, Brazil with low values being represented in blue and high values in red.](figures/parana.png){fig-align="center" width="586"}
+
+## The Model {background-color="#FFFFFF" auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Normal}(\mu(s),\sigma^2_e)
+    $$
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \mu(s) = \beta_0 + Z(s)
+    $$
+
+-   **Stage 3** Hyperparameters
+
+## The Model {background-color="#FFFFFF" auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Normal}(\mu(s),\sigma^2_e)
+    $$
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \mu(s) = \beta_0 + Z(s)
+    $$
+
+    -   A global intercept $\beta_0$
+    -   A Gaussian field $Z(s)$
+
+-   **Stage 3** Hyperparameters
+
+## The Model {background-color="#FFFFFF" auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Normal}(\mu(s),\sigma^2_e)
+    $$
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \mu(s) = \beta_0 + Z(s)
+    $$
+
+-   **Stage 3** Hyperparameters
+
+    -   Precision for the observational error $\tau_e = 1/\sigma^{2}_e$
+    -   Range and sd in the Gaussian field $\sigma_{\omega}, \tau_{\omega}$
+
+## Step 1: Define the SPDE representation: The mesh {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+First, we need to create the mesh used to approximate the random field.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(fmesher)
+library(inlabru)
+library(dplyr)
+
+border <- st_as_sf(data.frame(parana$borders),coords =c("east","north")) %>%
+   summarise(geometry = st_combine(geometry)) %>%
+  st_cast("POLYGON")
+
+```
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+library(fmesher)
+library(inlabru)
+library(INLA)
+
+mesh <- fm_mesh_2d(
+  loc = parana_sf, 
+  offset = c(50, 100),
+  cutoff = 1,
+  max.edge = c(30, 60)
+)
+
+```
+
+-   `max.edge` for maximum triangle edge lengths
+-   `offset` for inner and outer extensions (to prevent *edge effects*)
+-   `cutoff` to avoid overly small triangles in clustered areas
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 10
+#| fig-height: 10
+library(viridisLite)
+ggplot() + gg(mesh) +
+  geom_sf(data=border,alpha=0)+
+  geom_sf(data= parana_sf, aes(color = value)) + 
+  xlab("") + ylab("")+scale_color_viridis_b()
+```
+:::
+:::::
+
+## Step 1: Define the SPDE representation: The mesh
+
+::: incremental
+-   All random field models need to be discretised for practical calculations.
+
+-   The SPDE models were developed to provide a consistent model definition across a range of discretisations.
+
+-   We use finite element methods with local, piecewise linear basis functions defined on a triangulation of a region of space containing the domain of interest.
+
+-   Deviation from stationarity is generated near the boundary of the region.
+
+-   The choice of region and choice of triangulation affects the numerical accuracy.
+:::
+
+## Step 1: Define the SPDE representation: The mesh {background-color="#FFFFFF"}
+
+-   If the mesh is too fine $\rightarrow$ heavy computation
+
+-   If the mesh is to coarse $\rightarrow$ not accurate enough
+
+![](figures/mesh_res.png){fig-align="center"}
+
+## Step 1: Define the SPDE representation: The mesh
+
+**Some guidelines**
+
+-   Create triangulation meshes with `fm_mesh_2d()`:
+
+-   edge length should be around a third to a tenth of the spatial range
+
+-   Move undesired boundary effects away from the domain of interest by extending to a smooth external boundary:
+
+-   Use a coarser resolution in the extension to reduce computational cost (`max.edge=c(inner, outer)`), i.e., add extra, larger triangles around the border
+
+## Step 1: Define the SPDE representation: The mesh
+
+-   Use a fine resolution (subject to available computational resources) for the domain of interest (inner correlation range) and avoid small edges ,i.e., filter out small input point clusters (0 $<$ cutoff $<$ inner)
+
+-   Coastlines and similar can be added to the domain specification in `fm_mesh_2d()` through the `boundary` argument.
+
+-   simplify the border
+
+## Step 2: Define the SPDE representation: The SPDE {.smaller background-color="#FFFFFF"}
+
+We use the `inla.spde2.pcmatern` to define the SPDE model using PC priors through the following probability statements.
+
+-   The Paraná state is around 663.8711 kilometers width by 464.7481 kilometers height.
+-   The PC-prior for the practical range is built considering the probability of the practical range being less than a chosen distance.
+-   We chose to set the prior considering the median as 100 kilometers.
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.5),
+                                  prior.range = c(100, 0.5))
+```
+:::
+
+::: {.column width="60%"}
+-   $P(\rho < 100) = 0.5$
+
+-   $P(\sigma > 1) = 0.5$
+:::
+:::::
+
+![](figures/priors.png){fig-align="center"}
+
+## Fit the Model {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y(s)|\eta(s)&\sim\text{Normal}(\mu(s),\sigma^2_e)\\
+\eta(s) &  = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{ Z(s)}}\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+parana_sf %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-3"
+
+# define model component
+cmp = ~ -1 + Intercept(1) + space(geometry, model = spde_model)
+
+# define model predictor
+eta = value ~ Intercept  + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = parana_sf,
+              family = "gaussian")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## Fit the Model {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y(s)|\eta(s)&\sim\text{Normal}(\mu(s),\sigma^2_e)\\
+\color{red}{\boxed{\eta(s)}} &  =\color{red}{\boxed{ \beta_0 + Z(s)}}\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+parana_sf %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "5-6"
+
+# define model component
+cmp = ~ -1 + Intercept(1) + space(geometry, model = spde_model)
+
+# define model predictor
+eta = value ~ Intercept  + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = parana_sf,
+              family = "gaussian")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## Fit the Model {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+\color{red}{\boxed{y(s)|\eta(s)}} &\sim\text{Normal}(\mu(s),\sigma^2_e)\\
+\eta(s) &  =\beta_0 + Z(s)\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+parana_sf %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "8-10"
+
+# define model component
+cmp = ~ -1 + Intercept(1) + space(geometry, model = spde_model)
+
+# define model predictor
+eta = value ~ Intercept  + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = parana_sf,
+              family = "gaussian")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## Fit the Model {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y(s)|\eta(s) &\sim\text{Normal}(\mu(s),\sigma^2_e)\\
+\eta(s) &  =\beta_0 + Z(s)\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+parana_sf %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "12-13"
+
+# define model component
+cmp = ~ -1 + Intercept(1) + space(geometry, model = spde_model)
+
+# define model predictor
+eta = value ~ Intercept  + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = parana_sf,
+              family = "gaussian")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## Results {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+
+|                                        |    Mean|    2.5%|   97.5%|
+|:---------------------------------------|-------:|-------:|-------:|
+|Intercept                               | 249.714| 232.748| 264.983|
+|Precision for the Gaussian observations |   4.482|   3.197|   5.511|
+|Range for space                         |  57.328|  46.234|  70.330|
+|Stdev for space                         |  46.654|  41.222|  52.736|
+
+:::
+
+::: {.column width="60%"}
+-   `Intercept` represents the average rainfall values
+-   `Precision for the Gaussian observations` are the observational errors
+-   `Range for space` is the correlation of the Matérn field
+-   `Stdev for space` is the marginal std deviation of the Matérn field
+:::
+:::::
+
+# Spatial predictions
+
+## How do we predict at unsampled locations? {.smaller}
+
+In geostatistical applications, the main interest resides in the spatial prediction of the spatial latent field or of the response variable in new locations
+
+::: incremental
+-   Suppose we observe a spatial process ${Z(s): s \in \mathcal{D}}$ at locations $s_1,\dots,s_n$.
+
+-   Our goal: **predict the variable of interest at an unobserved location** $s_0 \in \mathcal{D}$.
+
+    > given the data $y = (y_1,\dots,y_n)$, what can we say about $Z(s_0)$?
+
+-   Rather than a single guess, we want a **full uncertainty-aware prediction**.
+
+-   In a Bayesian setting, prediction is a **probabilistic task**.
+:::
+
+## Posterior predictive density {.smaller}
+
+The key lies in the **posterior predictive distribution**
+
+$$
+  \pi(\tilde{Y} \mid y)
+  = \int \pi(\tilde{Y} \mid \Theta, y)\, \pi(\Theta \mid y)\, d\Theta,
+$$ where $\Theta$ denotes *all* latent components and hyperparameters.
+
+::: incremental
+-   The **prediction likelihood** $\pi(\tilde{Y} \mid \Theta, y)$ depends on the task:
+    -   extrapolation(e.g. forecasting of an AR(1)): $\pi(Y_{n+1} \mid \Theta, y_n)$,
+    -   **interporlation**: $\pi(Y_i \mid y_{i-1}, y_{i+1}, \Theta)$,
+-   Spatial prediction fits naturally into this framework:
+    -   $\tilde{Y}$ may represent $Z(s_0)$, $\eta_0$, or the response at $y(s_0)$,
+    -   conditioning reflects the assumed spatial dependence.
+-   INLA approximates $\pi(\Theta \mid y)$ efficiently, enabling **full uncertainty propagation** when predicting over $s_0 \in \mathcal{D}$.
+:::
+
+## Posterior predictive density {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+**Step 0 — Augment the data with prediction locations**
+
+-   Introduce locations where predictions are desired.
+
+-   The response is set to `NA` at these locations.
+
+-   Covariates and spatial coordinates are still provided.
+
+**Step 1 — Build the projector matrix A**
+
+**Step 2 — Joint posterior inference**
+
+**Step 3 — Posterior evaluation at prediction locations**
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+dims = c(150, 150)
+pred.df <- fm_pixels(mesh,dims = dims,mask =border,  format = "sf")
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 6
+#| fig-align: center
+
+ggplot()+geom_sf(data=pred.df,size=0.8)
+
+```
+:::
+:::::
+
+## Posterior predictive density {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+**Step 0 — Augment the data with prediction locations**
+
+**Step 1 — Build the projector matrix A**
+
+-   A projector matrix $A$ linking the latent Gaussian field to the prediction locations.
+
+-   This ensures that the spatial effects and covariates at new locations are properly included in the model.
+
+-   Linear predictors are computed at these new locations
+
+**Step 2 — Joint posterior inference**
+
+**Step 3 — Posterior evaluation at prediction locations**
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+pred <- predict(fit,pred.df,
+                formula ~ data.frame(
+    spde =  space,
+    eta = Intercept + space
+  )
+)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| eval: false
+
+
+library(viridis)
+library(scico)
+pred <- predict(fit,pred.df,
+                formula ~ data.frame(
+    spde =  space,
+    eta = Intercept + space
+  )
+)
+
+ggplot() +  gg(pred$eta, geom = "tile") +
+  geom_sf(data=border,alpha=0) +
+  scale_fill_viridis() +
+  #   guides(fill = guide_colorbar(
+  #   direction = "horizontal",               # horizontal bar
+  #   title.position = "top",                 # title on top of bar
+  #   barwidth = unit(8, "cm"),               # adjust width
+  #   barheight = unit(0.5, "cm")             # adjust height
+  # )) +
+  # theme(
+  #   legend.position = "bottom",             # move legend to bottom
+  #   legend.title = element_text(0.5)
+  # )+
+ggplot() +  gg(pred$eta, geom = "tile",aes(fill=sd)) +
+  geom_sf(data=border,alpha=0) +
+  geom_sf(data=parana_sf,color="white")+
+  scale_fill_viridis(option="B")+
+  #   guides(fill = guide_colorbar(
+  #   direction = "horizontal",               # horizontal bar
+  #   title.position = "top",                 # title on top of bar
+  #   barwidth = unit(8, "cm"),               # adjust width
+  #   barheight = unit(0.5, "cm")             # adjust height
+  # )) +
+  # theme(
+  #   legend.position = "bottom",             # move legend to bottom
+  #   legend.title = element_text(0.5)
+  # )+
+ggplot() +  gg(pred$spde, geom = "tile") +
+  geom_sf(data=border,alpha=0) +
+  scale_fill_scico(name="Z(s)")+ plot_layout(ncol=1)
+  # guides(fill = guide_colorbar(
+  #   direction = "horizontal",               # horizontal bar
+  #   title.position = "top",                 # title on top of bar
+  #   barwidth = unit(8, "cm"),               # adjust width
+  #   barheight = unit(0.5, "cm")             # adjust height
+  # )) +
+  # theme(
+  #   legend.position = "bottom",             # move legend to bottom
+  #   legend.title = element_text(0.5)
+  # )
+   
+```
+:::
+:::::
+
+## Posterior predictive density {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+**Step 0 — Augment the data with prediction locations**
+
+**Step 1 — Build the projector matrix A**
+
+**Step 2 — Joint posterior inference**
+
+-   INLA computes the posterior of:
+
+    -   the latent Gaussian field,
+
+    -   fixed effects,
+
+    -   hyperparameters.
+
+**Step 3 — Posterior evaluation at prediction locations**
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+pred <- predict(fit,pred.df,
+                formula ~ data.frame(
+    spde =  space,
+    eta = Intercept + space
+  )
+)
+```
+:::
+:::::
+
+## Posterior predictive density {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+**Step 0 — Augment the data with prediction locations**
+
+**Step 1 — Build the projector matrix A**
+
+**Step 2 — Joint posterior inference**
+
+**Step 3 — Posterior evaluation at prediction locations**
+
+-   Predictions come from the posterior marginals of the latent field and linear predictor.
+
+-   Outputs include posterior means, variances, and credible intervals.
+:::
+
+::: {.column width="60%"}
+![](figures/parana_pred2.png){fig-align="center" width="324"}
+:::
+:::::
+
+# Modelling Pacific Cod Biomass Density {background-image="cod.jpg"}
+
+## Example: Modelling Pacific Cod Biomass Density {background-color="#FFFFFF"}
+
+In the next example, we will explore data on the Pacific Cod (*Gadus macrocephalus*) from a trawl survey in Queen Charlotte Sound.
+
+-   The dataset the biomass density (kg/km$^2$) of Pacific cod in the area swept for a given survey in 2003 as well as depth covariate information.
+
+```{r}
+#| echo: false
+#| message: false
+#| eval: true
+#| out-width: 100%
+
+library(sdmTMB)
+
+pcod_df = sdmTMB::pcod %>% filter(year==2003)
+qcs_grid = sdmTMB::qcs_grid
+pcod_sf =   st_as_sf(pcod_df, coords = c("lon","lat"), crs = 4326)
+pcod_sf = st_transform(pcod_sf,
+                       crs = "+proj=utm +zone=9 +datum=WGS84 +no_defs +type=crs +units=km" )
+library(terra)
+depth_r <- rast(qcs_grid, type = "xyz")
+crs(depth_r) <- crs(pcod_sf)
+library(tidyterra)
+ggplot()+ 
+  geom_spatraster(data=depth_r$depth)+
+      geom_sf(data=pcod_sf,aes(color=factor(present))) +
+    scale_color_manual(name="Locations where Pacific Cod \nwere caught",
+                     values = c("black","orange"),
+                     labels= c("Absence","Presence"))+
+  scale_fill_scico(name = "Depth",
+                   palette = "nuuk",
+                   na.value = "transparent" ) + xlab("") + ylab("")
+par(mfrow=c(1,1))
+```
+
+## Exploratory plots {.smaller background-color="#FFFFFF" auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 19
+#| fig-width: 16
+
+ggplot(pcod_sf,aes(x=depth_scaled ,y=density))+geom_point() +
+ggplot(pcod_sf,aes(x=log(density+0.000001)))+geom_histogram() + plot_layout(ncol=1)
+
+```
+:::
+
+::: {.column width="50%"}
+Envelope Variogram considering only where biomass $>$ 0
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| fig-height: 10
+vario_binned <- gstat::variogram(log(density) ~ depth_scaled  + depth_scaled2, 
+                                 data = pcod_sf %>% filter(density>0),
+                                 cloud = FALSE,
+                                 cutoff = 300)
+varioEnv <- envelope(vario_binned,
+                     data = pcod_sf %>% filter(density>0),
+                     locations = st_coordinates(pcod_sf %>% filter(density>0)),
+                     formula = log(density) ~ depth_scaled  + depth_scaled2,
+                     nsim = 499)
+envplot(varioEnv)
+```
+:::
+:::::
+
+## Exploratory plots {.smaller background-color="#FFFFFF" auto-animate="true"}
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-height: 12
+
+ggplot(pcod_sf,aes(x=depth_scaled ,y=density))+geom_point() +
+ggplot(pcod_sf,aes(x=log(density+0.000001)))+geom_histogram() + plot_layout(ncol=1)
+
+```
+:::
+
+::: {.column width="60%"}
+Envelope Variogram considering only where biomass $>$ 0
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+vario_binned <- gstat::variogram(log(density) ~ depth_scaled  + depth_scaled2, 
+                                 data = pcod_sf %>% filter(density>0),
+                                 cloud = FALSE,
+                                 cutoff = 300)
+varioEnv <- envelope(vario_binned,
+                     data = pcod_sf %>% filter(density>0),
+                     locations = st_coordinates(pcod_sf %>% filter(density>0)),
+                     formula = log(density) ~ depth_scaled  + depth_scaled2,
+                     nsim = 499)
+envplot(varioEnv)
+```
+:::
+:::::
+
+We thus have a dilemma.
+
+-   If we omit the zeros, we’ll get a good, accurate model fit for non-zero data, but we’ll be throwing away all the data with zeros
+-   If we include the zeros, we won’t be throwing any data away, but we’ll get a strange-fitting model that both under- and over-predicts values.
+-   So what do we do?
+
+## A non-spatial Model {.smaller auto-animate="true"}
+
+-   [**Stage 1** Model for the response]{style="color:#FF6B6B;"} $$
+    y(s)|\eta(s)\sim \text{Tweedie}(p,\mu_i,\phi)
+    $$
+
+    -   Tweedie account for positive continuous density values that also contain zeros
+
+    -   $p$ determines the shape of the variance function (shifts from a Poisson distribution at $p=1$ to a gamma distribution at $p=2$)
+
+    -   $\mu(s) = \exp ⁡\eta (i)$ is the mean linked to linear predictor by the log link.
+
+    -   $\phi$ = dispersion parameter .
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \text{log}(\mu(s)) = \beta_0 + \beta_1 \text{depth} + \beta_2 \text{depth}^2
+    $$
+
+-   **Stage 3** Hyperparameters
+
+## A non-spatial Model {.smaller auto-animate="true"}
+
+-   **Stage 1** Model for the response$$
+    y(s)|\eta(s)\sim \text{Tweedie}(p,\mu_i,\phi)
+    $$
+-   [**Stage 2** Latent field model]{style="color:#FF6B6B;"} $$
+    \eta(s) = \exp(\mu(s)) = \beta_0 + \beta_1 x(s) + \beta_2 x(s)^2
+    $$
+    -   A global intercept $\beta_0$
+    -   A effect of covariate $x(s)$ (depth)
+    -   A quadratic effect of covariate $x(s)$ (depth)
+-   **Stage 3** Hyperparameters
+
+## A non-spatial Model {.smaller auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim \text{Tweedie}(p,\mu_i,\phi)
+    $$
+
+-   **Stage 2** Latent field model$$
+    \eta(s) = \exp(\mu(s)) = \beta_0 + \beta_1 x(s) + \beta_2 x(s)^2
+    $$
+
+-   [**Stage 3** Hyperparameters]{style="color:#FF6B6B;"}
+
+    -   dispersion parameter $\phi$
+    -   power parameter $p$
+
+## A non-spatial Model {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(gt)
+bru_options_set(control.compute = list(dic = TRUE,
+                                       waic = TRUE,
+                                       mlik = TRUE,
+                                       cpo = TRUE))
+
+# define model component
+cmp = ~ -1 + Intercept(1) +   depth(depth_scaled , model = "linear") + 
+  depth2(depth_scaled2 , model = "linear") 
+
+# define model predictor
+eta = density ~ Intercept + depth + depth2 
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = pcod_sf  ,
+              family = "tweedie")
+
+# fit the model
+fit_Tweedie = bru(cmp, lik)
+
+rbind(fit_Tweedie$summary.fixed[,c(1,3,5)],
+fit_Tweedie$summary.hyperpar[,c(1,3,5)]) %>%
+    gt(rownames_to_stub = TRUE) %>%
+  tab_header(
+    title = "INLA Model Results",
+    subtitle = "Posterior summaries of fixed effects and hyperparameters"
+  ) %>%
+  fmt_number(
+    columns = everything(),
+    decimals = 3
+  ) %>%
+  cols_label(
+    mean = "Mean",
+    `0.025quant` = "2.5% Quantile",
+    `0.975quant` = "97.5% Quantile"
+  ) %>%
+  tab_stubhead(label = "Parameter")
+
+```
+:::
+
+::: {.column width="60%"}
+-   $\beta$ coef suggest log-biomass peaks at an intermediate depth within the study range and decreases toward both shallower and deeper extremes.
+-   $\phi>1$ indicates overdispersion relative to the variance function. Potentially caused by Unobserved heterogeneity.
+-   Tweedie models fitted to biomass usually have convergence issues when there are large spatial areas with many zeros.
+-   Is there a better approach?
+:::
+:::::
+
+## A multilikelihood Hurdle Geostatistical Model {.smaller auto-animate="true"}
+
+-   [**Stage 1** Model for the response(s)]{style="color:#FF6B6B;"} $$
+    \begin{aligned}
+    y_i|\eta^{(1)}_i&\sim \text{Binomial}(1,\pi_i)\\
+    \log(z_i)|\eta^{(2)}_i&\sim \text{Normal}(\mu_i,\tau_e^{-1})\\
+    \end{aligned}
+    $$
+
+    -   We then define a likelihood for each outcome.
+
+        -   $y_i =\begin{cases} 1 &\text{if fishes have been caught at location } \mathbf{s}_i  \\ 0 &\text{otherwise}\end{cases}$
+
+        -   $z_i =\begin{cases} NA &\text{if no fish were  caught at location } \mathbf{s}_i  \\ \text{biomass density at location } \mathbf{s}_i &\text{otherwise}\end{cases}$
+
+-   **Stage 2** Latent field model $$
+    \begin{aligned}
+    \eta^{(1)}_i &= \text{logit}(\pi_i) = X'\beta + \xi_i\\
+    \eta^{(2)}_i &= \mu_i = X'\alpha + \omega_i
+    \end{aligned}
+    $$
+
+-   **Stage 3** Hyperparameters
+
+## A multilikelihood Hurdle Geostatistical Model {.smaller auto-animate="true"}
+
+-   **Stage 1** Model for the response(s)\] $$
+    \begin{aligned}
+    y_i|\eta^{(1)}_i&\sim \text{Binomial}(1,\pi_i)\\
+    \log(z_i)|\eta^{(2)}_i&\sim \text{Normal}(\mu_i,\tau_e^{-1})\\
+    \end{aligned}
+    $$
+-   [**Stage 2** Latent field model]{style="color:#FF6B6B;"} $$
+    \begin{aligned}
+    \eta^{(1)}_i &= \text{logit}(\pi_i) = X'\beta + \xi_i\\
+    \eta^{(2)}_i &= \mu_i = X'\alpha + \omega_i
+    \end{aligned}
+    $$
+    -   $\{\alpha,\beta\}$ = Intercepts + covariate effects.
+    -   $\{\xi,\omega\}$ = are the Gaussian fields with Matérn covariance (separate for each outcome).
+-   **Stage 3** Hyperparameters
+
+## A multilikelihood Hurdle Geostatistical Model {.smaller auto-animate="true"}
+
+-   **Stage 1** Model for the response(s) $$
+    \begin{aligned}
+    y_i|\eta^{(1)}_i&\sim \text{Binomial}(1,\pi_i)\\
+    \log(z_i)|\eta^{(2)}_i&\sim \text{Normal}(\mu_i,\tau_e^{-1})\\
+    \end{aligned}
+    $$
+
+-   **Stage 2** Latent field model $$
+    \begin{aligned}
+    \eta^{(1)}_i &= \text{logit}(\pi_i) = X'\beta + \xi_i\\
+    \eta^{(2)}_i &= \mu_i = X'\alpha + \omega_i
+    \end{aligned}
+    $$
+
+-   [**Stage 3** Hyperparameters]{style="color:#FF6B6B;"}
+
+    -   observational error (nugget) $\tau_e$
+    -   Matérn field(s) parameters $\{\rho^{(1)},\rho^{(2)},\tau_{d}^{(1)},\tau_{d}^{(2)}\}$
+
+## Hurdle Model Results {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: false 
+#| warning: false 
+#| message: false  
+
+### Hurdle Model
+
+
+cmp_2 <- ~
+  Intercept_biomass(1) +
+    depth_biomass(depth_scaled, model = "linear") +
+    depth2_biomass(depth_scaled2, model = "linear") +
+    space_biomass(geometry, model = spde_model) +
+    Intercept_caught(1) +
+    depth_caught(depth_scaled, model = "linear") +
+    depth2_caught(depth_scaled2, model = "linear") +
+    space_caught(geometry, model = spde_model) 
+
+
+biomass_obs <- bru_obs(formula = density ~  Intercept_biomass + depth_biomass + depth2_biomass + space_biomass,
+      family = "lognormal",
+      data = pcod_sf  %>% filter(density>0))
+  
+presence_obs <- bru_obs(formula = present ~ Intercept_caught + depth_caught + depth2_caught +
+                          space_caught,
+  family = "binomial",
+  data = pcod_sf,
+)
+
+fit_hurdle <- bru(
+  cmp_2,
+  biomass_obs,
+  presence_obs
+)
+
+par_names_latex <- c(
+  "$$\\alpha_0$$", "$$\\alpha_1$$", "$$\\alpha_2$$", 
+  "$$\\beta_0$$", "$$\\beta_1$$", "$$\\beta_2$$",
+  "$$\\tau_\\epsilon^2$$", "$$\\rho^{[1]}$$", "$$\\tau_{d,1}$$", 
+  "$$\\rho^{[2]}$$", "$$\\tau_{d,2}$$"
+)
+
+rbind(fit_hurdle$summary.fixed[,c(1,3,5)],
+      fit_hurdle$summary.hyperpar[,c(1,3,5)]) %>%
+  `rownames<-`(par_names_latex) %>%
+  gt(rownames_to_stub = TRUE) %>%
+  fmt_markdown(columns = stub()) %>%
+
+  fmt_number(
+    columns = everything(),
+    decimals = 3
+  ) %>%
+  cols_label(
+    mean = "Mean",
+    `0.025quant` = "2.5% Quantile",
+    `0.975quant` = "97.5% Quantile"
+  ) %>%
+  tab_stubhead(label = "Parameter") %>%
+   tab_options(
+    # Reduce overall size
+    table.font.size = "50%",  # or "small", "x-small"
+    data_row.padding = px(3),  # Default is px(8)
+    column_labels.padding = px(3),
+    heading.padding = px(3),
+    
+    # Optional: Compact view
+    table.layout = "auto",  # or "fixed" for more control
+    row_group.padding = px(3)
+  )
+
+  
+```
+:::
+
+:::: {.column width="60%"}
+::: {style="height: 50px;"}
+:::
+
+-   $\alpha_0$ is the baseline catching probability on the logit scale
+-   $\beta_0$ is the predicted log(biomass density at the average depth (since these have been scaled)
+-   Coefficients $\alpha_1,\alpha_2$ refer to the change in the log-odds of catching fish as we increase 1 depth unit and unit$^2$ respectively.
+-   Coefficients $\beta_1, \beta_2$ indicate that the log-biomass decreases with depth.
+-   $\rho^{[1]},\rho^{[2]}$, suggest spatial correlation decays at `r round(fit_hurdle$summary.hyperpar[2,1],2)` and `r round(fit_hurdle$summary.hyperpar[4,1],2)` Km respectively (the extension of the study is approx 46,000 km$^2$)
+-   unstructured  variability is given by  $\tau^{-1}_e$ while ,$\{\tau_{\delta,1}^{-1},\tau^{-1}_{d,2}\}$ represent the spatially structured variability.
+::::
+::::::
+
+## Model comparison {.smaller}
+
+Note that in the hurdle model there is no direct link between the parameters of the two observation parts.
+
+::: incremental
+-   the two likelihoods could share some of the components; for example the Matérn field could be used for both predictors.
+
+-  What does the previous results suggest in terms of the estimated covariance parameters for the two fields? is it sensible to share the same component between the two parts?
+
+-   We will fit a model that estimates this field jointly  and compare it with our two previous models
+:::
+
+::: fragment
+The model being fitted is now:
+
+$$
+\begin{aligned}
+y_i|\eta^{(1)}_i&\sim \text{Binomial}(1,\pi_i)\\
+\eta^{(1)}_i &= \text{logit}(\pi_i) = X'\beta + \color{red}{\xi_i}\\
+\log(z_i)|\eta^{(2)}_i&\sim \text{Normal}(\mu_i,\tau_e^{-1})\\
+\eta^{(2)}_i &= \mu_i = X'\alpha +  \color{red}{\xi_i}
+\end{aligned}
+$$
+:::
+
+## Model comparison {.smaller}
+
+Note that in the hurdle model there is no direct link between the parameters of the two observation parts.
+
+-   the two likelihoods could share some of the components; for example the Matérn field could be used for both predictors.
+
+-  What does the previous results suggest in terms of the estimated covariance parameters for the two fields? is it sensible to share the same component between the two parts?
+
+-   We will fit a model that estimates this field jointly  and compare it with our two previous models
+
+```{r}
+#| echo: false 
+
+cmp3 <- ~
+  Intercept_biomass(1) +
+    depth_biomass(depth_scaled, model = "linear") +
+    depth2_biomass(depth_scaled2, model = "linear") +
+    Intercept_caught(1) +
+    depth_caught(depth_scaled, model = "linear") +
+    depth2_caught(depth_scaled2, model = "linear") +
+    space(geometry, model = spde_model) +
+    space_copy(geometry, copy = "space", fixed = FALSE)
+
+biomass_obs <- bru_obs(formula = density ~  Intercept_biomass + depth_biomass + depth2_biomass + space,
+      family = "lognormal",
+      data = pcod_sf  %>% filter(density>0))
+  
+presence_obs <- bru_obs(formula = present ~ Intercept_caught + depth_caught + depth2_caught +space_copy,
+  family = "binomial",
+  data = pcod_sf,
+)
+
+fit_hurdle_shared <- bru(
+  cmp3,
+  biomass_obs,
+  presence_obs
+)
+
+data.frame( Model = c("Tweedie", "Hurdle", "Hurdle 2" ),
+  DIC = c(fit_Tweedie$dic$dic, fit_hurdle$dic$dic,  fit_hurdle_shared$dic$dic),
+            WAIC = c(fit_Tweedie$waic$waic, fit_hurdle$waic$waic, fit_hurdle_shared$waic$waic),
+            MLIK = c(fit_Tweedie$mlik[1], fit_hurdle$mlik[1], fit_hurdle_shared$mlik[1])) %>%
+  gt() %>% fmt_number(decimals=3)
+
+```
+
+
+
+## Spatial predictions {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+We need to compute:
+
+-   $\pi(s)$ = Catching probability
+
+-   $\mathbb{E}[Z(s)|Y(s)] = \exp\left(\mu(s) + \dfrac{1}{2\tau_{e}}\right)$
+
+-   $\mathbb{E}(Z(s)) =\pi(s)\times \mathbb{E}[Z(s)|Y(s)]$
+:::
+
+::: {.column width="50%"}
+![](figures/predictions_hurdle.png){fig-align="center" width="547"}
+:::
+:::::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false 
+#| eval: false
+library(scales)
+library(tidyterra)
+
+# depth quadratic effect
+pred_depth = predict(fit_hurdle, pcod_sf %>% select(c(density,depth,depth_scaled,depth_scaled2)), ~ (Intercept_biomass + depth_biomass + depth2_biomass),
+               n.samples = 1000)
+
+p1 <- pred_depth %>% ggplot() + 
+  geom_point(aes(depth ,log(density)), alpha = 0.3) +
+  geom_line(aes(depth ,mean)) +
+  geom_line(aes(depth, q0.025), linetype = "dashed")+
+  geom_line(aes(depth, q0.975), linetype = "dashed")+
+  xlab("Depth") + ylab("log-Biomass Density")
+
+
+cmp_2 <- ~
+  Intercept_biomass(1) +
+    depth_biomass(depth_r$depth_scaled, model = "linear") +
+    depth2_biomass(depth_r$depth_scaled2, model = "linear") +
+    space_biomass(geometry, model = spde_model) +
+    Intercept_caught(1) +
+    depth_caught(depth_r$depth_scaled, model = "linear") +
+    depth2_caught(depth_r$depth_scaled2, model = "linear") +
+    space_caught(geometry, model = spde_model) 
+
+
+
+biomass_obs <- bru_obs(formula = density ~  Intercept_biomass + depth_biomass + depth2_biomass + space_biomass,
+      family = "lognormal",
+      data = pcod_sf  %>% filter(density>0))
+  
+presence_obs <- bru_obs(formula = present ~ Intercept_caught + depth_caught + depth2_caught +
+                          space_caught,
+  family = "binomial",
+  data = pcod_sf,
+)
+
+fit_hurdle <- bru(
+  cmp_2,
+  biomass_obs,
+  presence_obs
+)
+
+
+#  inv logit for cathcing probabilities
+inv_logit = function(x) (1+exp(-x))^(-1)
+
+# prediciton data set
+pxl1 = data.frame(crds(depth_r), 
+                  as.data.frame(depth_r)) %>% 
+       filter(!is.na(depth)) %>%
+st_as_sf(coords = c("x","y"),crs=st_crs(pcod_sf)) 
+
+pred <- predict( fit_hurdle , pxl1,
+  ~ {
+    pi <- inv_logit(Intercept_caught + depth_caught + depth2_caught + space_caught)
+    mu_log  <-  Intercept_biomass + depth_biomass + depth2_biomass + space_biomass
+    sd <- sqrt(1/Precision_for_the_lognormal_observations)
+    conditional_mean <- exp(mu_log + 0.5 * sd^2)
+    dens <- pi * conditional_mean
+    list(
+      pi = pi,
+      conditional_mean = conditional_mean,
+      dens = dens)
+  },n.samples = 2500)
+
+
+
+p2 =  ggplot() +
+  gg(pred$pi, geom = "tile",aes(fill = mean)) +
+   scale_fill_scico(direction = -1,palette = "roma",name="Catch probability")+
+  guides(fill = guide_colorbar(
+    direction = "horizontal",               # horizontal bar
+    title.position = "top",                 # title on top of bar
+    barwidth = unit(8, "cm"),               # adjust width
+    barheight = unit(0.5, "cm")             # adjust height
+  )) +
+  theme(
+    legend.position = "bottom",             # move legend to bottom
+    legend.title = element_text(0.5)
+  )
+   
+  
+  
+p3= ggplot() +
+  gg(pred$dens, geom = "tile",aes(fill = mean)) +
+      scale_fill_viridis(name="Biomass Density Kg/Km^2")+
+  guides(fill = guide_colorbar(
+    direction = "horizontal",               # horizontal bar
+    title.position = "top",                 # title on top of bar
+    barwidth = unit(8, "cm"),               # adjust width
+    barheight = unit(0.5, "cm")             # adjust height
+  )) +
+  theme(
+    legend.position = "bottom",             # move legend to bottom
+    legend.title = element_text(0.5)
+  )
+   
+  
+
+p1 / (p2 + p3)
+
+  
+
+```

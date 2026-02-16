@@ -1,0 +1,134 @@
+/*-- scss:defaults --*/
+
+// Glasgow University colors
+$uog-blue: #003366;       // Primary blue
+$uog-light-blue: #0066CC; // Secondary blue
+$uog-gold: #FFCC00;       // Accent gold
+$uog-white: #FFFFFF;      // White
+$uog-light-gray: #F2F2F2; // Light background
+
+$primary-color: #0d3158;
+$presentation-h1-font-size: 2em ;
+$presentation-h2-font-size: 1.25em ;
+$presentation-font-size-root:	34px;
+$body-bg: #ffffff;
+
+$presentation-title-slide-text-align: left !default;
+$presentation-slide-text-align: left !default;
+
+section[data-state="title-slide"] h1 {
+  font-size: 5em !important;
+  font-weight: bold;
+  line-height: 1.1;
+  background-color: red !important; /* Temporary to test */
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: unset !important;
+  right: unset !important;
+  top: 5px;
+  left: 12px;
+  height: 60px !important;
+  width: 60x !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.slide-logo-max-size {
+    bottom: unset !important;
+    left: 12px;
+    height: 80px !important;
+    max-height: unset !important;
+    right: unset !important;
+    top: 5px;
+}
+
+// Expand the clickable area of the footer
+.reveal .slide-footer {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 20px 0 !important;
+  z-index: 1000 !important;
+  pointer-events: all !important;
+}
+
+// Make the link inside larger and more clickable
+.reveal .slide-footer a {
+  display: inline-block !important;
+  padding: 12px 30px !important;
+  margin: -12px -30px !important;
+  color: #ccc !important;
+  text-decoration: none !important;
+  font-size: 1.3em !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 5px !important;
+  transition: all 0.3s ease !important;
+  min-width: 100px !important;
+  text-align: center !important;
+}
+
+.reveal .slide-footer a:hover {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+}
+
+// Ensure the footer container doesn't limit click area
+.reveal .slide-footer span {
+  display: inline-block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+section.slide h1 {
+  color: white !important;
+  background-color: #005C8A !important;
+  width: 200vw;
+  position: relative;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid $uog-gold !important;
+}
+
+section.slide h2 {
+  color: white !important;
+  background-color: #005C8A !important;
+  width: 200vw;
+  position: relative;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 14px !important;
+  left: 50px !important;
+  top: unset !important;
+  color: #777777 !important;
+}
+
+.reveal {
+  font-family: "Times New Roman", "Times", serif !important;
+  font-size: 34px !important;
+  background-color: #ffffff !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: "Times New Roman", "Times", sans-serif !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+  color: #000000 !important;
+}
+

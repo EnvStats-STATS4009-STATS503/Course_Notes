@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+  - index.qmd
+  # - reading_list.qmd
+  # - lab_3.qmd
+  - notes/tutorial_sheet_4.qmd
+  - notes/tutorial_sheet_4_solutions.qmd
+  - notes/notes_7.qmd
+  - notes/notes_8.qmd
+  - notes/notes_9.qmd
+  - slides/slides_7.qmd
+  - slides/slides_8.qmd
+  - slides/slides_9.qmd
+website:
+  title: "Module 3"
+  page-footer:
+    center: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_3/docs/" style="color:#ccc;">Home</a>'
+  navbar:
+    logo: UofG.png
+    right:
+      - text: "Home"
+        href: index.qmd
+    left:
+      - text: "Notes"
+        menu:
+          - text: "Week 7 - Areal Modelling"
+            href:  notes/notes_7.qmd
+          - text: "Week 8 - Geostatistical Modelling"
+            href:  notes/notes_8.qmd
+          - text: "Week 9 - Methods for Point referrenced Data"
+            href:  notes/notes_9.qmd
+      - text: "Slides"
+        menu:
+          - text: "Week 7 - Areal Modelling"
+            href: slides/slides_7.qmd
+          - text: "Week 8 - Geostatistical Modelling"
+            href: slides/slides_8.qmd
+          - text: "Week 9 - Methods for Point referrenced Data"
+            href: slides/slides_9.qmd
+      - text: "Tutorials"
+        menu:
+          - text: "Tutorial sheet 4"
+            href: notes/tutorial_sheet_4.qmd
+      # - text: "Labs"
+      #   menu:
+      #     - text: "Lab 3"
+      #       href: lab_3.qmd
+format:
+  html:
+    embed-resources: false
+    mainfont: serif
+    theme:
+      light: flatly
+      dark: darkly
+    css:
+      - styles.css
+      - include/webex.css
+    toc: true
+    include-after-body: include/webex.js
+editor: visual
+# filters:
+#   - shinylive

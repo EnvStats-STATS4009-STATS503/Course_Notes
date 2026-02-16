@@ -763,6 +763,10 @@ z_p = \begin{cases}
 <li>The <code>fevd()</code> simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.</li>
 </ul>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(extRemes)</span>
+<span id="cb3-2"><a></a>Mn <span class="ot">&lt;-</span> <span class="fu">apply</span>(venice[,<span class="sc">-</span><span class="dv">1</span>],<span class="dv">1</span>,<span class="cf">function</span>(x)<span class="fu">max</span>(x,<span class="at">na.rm =</span> T))</span>
+<span id="cb3-3"><a></a>fit_gev <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Mn,<span class="at">method=</span><span class="st">"MLE"</span>)</span>
+<span id="cb3-4"><a></a>fit_gev<span class="sc">$</span>results<span class="sc">$</span>par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    location        scale        shape 
 111.09726863  17.17910050  -0.07678211 </code></pre>
@@ -789,6 +793,7 @@ z_p = \begin{cases}
 </div>
 </div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">plot</span>(fit_gev, <span class="at">type =</span> <span class="st">"rl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1006,10 +1011,10 @@ u + \sigma \log\left(m P(X&gt;u)\right) &amp; \xi = 0
 <li>The function <code>fevd</code> allows several extreme value distributions (including GEV and GPD) to be fitted, and can also provide return levels.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
-<span id="cb4-2"><a></a>                    <span class="at">time.units=</span><span class="st">"365/year"</span>)</span>
-<span id="cb4-3"><a></a></span>
-<span id="cb4-4"><a></a><span class="fu">return.level</span>(fitGP, <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>), <span class="at">type=</span><span class="st">"GP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>fitGP <span class="ot">&lt;-</span> <span class="fu">fevd</span>(Fort, <span class="at">threshold=</span><span class="fl">1.5</span>, <span class="at">type=</span><span class="st">"GP"</span>,</span>
+<span id="cb6-2"><a></a>                    <span class="at">time.units=</span><span class="st">"365/year"</span>)</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="fu">return.level</span>(fitGP, <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">100</span>), <span class="at">type=</span><span class="st">"GP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <pre><code>[1] "Return Levels for period units in years"
  10-year level  20-year level 100-year level

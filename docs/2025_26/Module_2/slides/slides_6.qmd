@@ -7,6 +7,7 @@ format:
     margin: 0
     logo:  UofG.png
     theme: uofg_theme.scss
+    chalkboard: true
     header-includes: |
       <script src="custom.js" type="application/javascript"></script>
 title-slide-attributes: 
@@ -31,6 +32,7 @@ editor_options:
   chunk_output_type: console
 execute: 
   freeze: auto
+  echo: true
 filters:
   - shinylive
 ---
@@ -43,7 +45,6 @@ filters:
 > Neil deGrasse Tyson
 :::
 
-
 ## Recap
 
 -   For the last two weeks, we have looked at time series, and how appropriate models can be fitted that deal with the temporal structures in the data.
@@ -52,10 +53,12 @@ filters:
 
 ## Extremes
 
+::: incremental
 -   We are trying to model rare events - by their very definition we won't have a lot of data on these.
 -   The bulk of the data in any statistical distribution will be in the centre.
 -   Standard density estimation techniques (e.g., the normal distribution) work well where the data have the greatest density, but that's not what we need here.
 -   We need to use a statistical model which is good at estimating the **tails** of our distribution.
+:::
 
 ## Motivation
 
@@ -82,6 +85,12 @@ etc. will be over some fixed period of future time.
 The only sensible way to do this is to use data on the variable of interest (wind, rain etc.) and fit an appropriate statistical model.
 
 The models themselves are motivated by asymptotic theory, and this is our starting point.
+
+## What are your thoughts?
+
+**Join mentimeter**
+
+![](images/clipboard-2550031199.png)
 
 ## Environmental extremes in our life
 
@@ -347,16 +356,22 @@ Extreme value modelling has a central theoretical result, analogous to the Centr
 
 ## Extreme Value Theory {.smaller}
 
+::: incremental
 -   The true cumulative distribution function, $F(x)$, is unknown.
+
 -   We could replace it with an estimate, but:
+
     -   Any small differences between the estimate and the truth for $F(x)$ could lead to large differences in $F^n(x)$.
     -   As $n \to \infty$ then the value of $F^n(x)$ will be 0 or 1 depending on whether $F(x) <1$ or $F(x)=1$. This means that the limit distribution of the maxima is a degenerate distribution.
+
 -   Instead, we tend to focus on the limiting distribution of $F^n(x)$ as $n \to \infty$, .i.e., the *limiting distribution of the normalized maximum* by introducing some constants to stabilize the maximum as $n$ grows.
+
 -   This is a distribution $G(x)$ such that, for constants $a_n > 0$ and $b_n$,
 
-$$\text{P}\left(\frac{M_n - b_n}{a_n} \leq x\right) = F^n(a_n x + b_n) \to G(x) \text{ as } n \to \infty$$
+    $$\text{P}\left(\frac{M_n - b_n}{a_n} \leq x\right) = F^n(a_n x + b_n) \to G(x) \text{ as } n \to \infty$$
 
-$G$ belongs to the type of one of three distribution functions.
+    $G$ belongs to the type of one of three distribution functions.
+:::
 
 ## Extreme Value Distributions
 
@@ -381,10 +396,12 @@ Here, $a_n$ is a location parameter, $b_n$ is a scale parameter and $\xi$ is a s
 
 ## Block Maxima Approach
 
+::: incremental
 -   Break up our sequence $X_1,X_2,\ldots$ into blocks of size $n$ (with $n$ reasonably large), and extract only the maximum observation from each block.
 -   Now we fit $G(x)$ to the sequence of extracted maxima $M_{(1)},M_{(2)},\ldots , M_{(N)}$ and use this as the basis for statistical inference.
 -   For example, consider the annual maxima of daily rainfall. Here our blocks have $n=365$ observations, which is reasonably large, so we fit our model to $N$ annual maxima (where $N$ is the number of years).
 -   This rough and ready approach has shown itself to be surprisingly robust.
+:::
 
 ## The GEV Distribution
 
@@ -816,10 +833,9 @@ ggplot(venice_long, aes(x = Year, y = value)) +
 
 ![](figures/POT.png){width="100%"}
 
-
 ## Peak Over Threshold
 
-The probability of threshold excess of size $y$ is given by 
+The probability of threshold excess of size $y$ is given by
 
 $$
 \begin{aligned}
@@ -828,8 +844,7 @@ P(X > u+y~|~X > u) &= \frac{P(X>u+y)}{P(X>u)} \quad\text{where } y > 0\\
 \end{aligned}
 $$
 
-![](figures/POT2.png){width="50%" fig-align="center"} 
-
+![](figures/POT2.png){width="50%" fig-align="center"}
 
 ## Generalised Pareto
 

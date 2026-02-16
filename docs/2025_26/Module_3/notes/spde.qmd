@@ -1,0 +1,177 @@
+---
+title: "SPDE"
+---
+
+## The SPDE approach in a nutshell
+
+Recall that, to describe the joint Gaussian distribution for any collection of variables $\mathbf{z}$ we need:
+
+1.  A rule for defining $\mathbb{E}(\mathbf{z})$ for any $\mathbf{z}$.
+2.  A rule for defining the joint covariance (or precision) matrix for any $\mathbf{z}$.
+
+The first rule can be satisfied by considering models with $\mathbb{E}(\mathbf{z}) = 0$ for all $\mathbf{z}$. (This is to avoid identifiability issues with the estimation of other model components since, in many situations, we only observe a single realisation from the field. Without multiple realisations it is impossible to distinguish a spatially varying mean structure from variation due to the covariance of the process).
+
+The second rules wea lready discusssed in terms of to covariance function (e.g, the Matérn $C(i,j) = \text{Cov}(u_i, u_j)$) that gives the covariance between any pair of variables $z_i$ and $z_j$. However, there is an equivalent way to define a GRF, and that is as a solution to a stochastic (partial) differential equation. There is a direct correspondence between the form of the differential equation and the covariance function of solutions to the equation.
+
+This is the key insight that Lindgren et. al. ([2011](https://doi.org/10.1111/j.1467-9868.2011.00777.x)) who showed how to approximate solutions to the SPDE using a finite basis approach (known in the differential equation literature as finite element methods) in a way that results in a sparse precision matrix, which is crucial in order to leverage the computational power of the INLA approach.
+
+## What is an SPDE?
+
+Here we will focus on a non-rigorous description that introduces key concepts needed to understand the spde approach. First, consider a non-stochastic partial differential equation that takes the form $\mathrm{D} f(\mathbf{s}) = g(\mathbf{s})$, where D is a '*differential operator*' that is applied to an unknown, but deterministic, function $f$ which results in a known function $g$. Examples of differential operators include the first-derivative operator, the second-derivative operator and the Laplace operator. Solving differential equation means to find $f$, given that we know $g$ and D.
+
+One way to add stochasticity to this type of problem is to replace the known function $g(.)$ with a stochastic process. Here, we will consider stochastic partial differential equations of the form $$
+    \mathrm{D} f(\mathbf{s}) = \epsilon(\mathbf{s})
+$$ {#eq-general-spde} where $\epsilon(\mathbf{s})$ is a *Gaussian white noise process* with zero-mean and finite variance for every $\mathbf{s}$. Consider D be the first derivative of the function. Then, the SPDE $\mathrm{D}f\mathbf{s} = \epsilon(\mathbf{s})$ states that the first derivative of $f$ has mean zero and finite variance at every location. Furthermore, it states that the value of the derivative at locations $\mathbf{s}_i\perp\mathbf{s}_j~\forall~ i \neq j$. In other words, for a small $h$, $f(\mathbf{s} + h) = f(\mathbf{s})+\xi$ such that $\xi$ is a random normal variable.
+
+::: {#note-weak_SPDE .callout-note}
+## Weak solution of the SPDE
+
+In practice, the SPDE is written in an integral (weak) form since stochastic processes like white noise are well defined when integrated but not when differentiated,
+
+$$
+\int\mathrm{D}f(\mathbf{s}) \phi(\mathbf{s})\mathrm{d}\mathbf{s}= \int \epsilon(\mathbf{s})\phi(\mathbf{s})\mathrm{d}\mathbf{s}
+$$
+
+where $\phi$ is often called a *test* function ( for numerical solution one chooses a finite set of test functions that turns the weak form of the SPDE into a finite-dimensional stochastic linear system that can be solved to find an approximation of $f$). Here we assume that the space of functions for $\phi$ is a suitable space for which the above integrals are well-defined.
+
+For brevity, we use the inner product notation $\langle f, g\rangle = \int f(\mathbf{s})g(\mathbf{s})\mathrm{d} \mathbf{s}$, and so the weak form of the SPDE is represented by
+
+$$
+\langle \mathrm{D}f,\phi\rangle \stackrel{d}{=} \langle \epsilon,\phi \rangle
+$$
+
+for any suitable choice of function $\phi$ and where $\stackrel{d}{=}$ means equal in distribution. This means that for a fixed and known $\phi$ , the right hand side of the equation has a known distribution that follows directly from the definition of the white noise process.
+:::
+
+### From SPDEs to covariance functions
+
+Instead of a deterministic solution for $f$, replacing the right hand side with Gaussian white noise has the effect that the solution to the SPDE is now a Gaussian random field. We know that by chosing a zero-mean white noise process then $f$ has mean zero everywhere, but what about the covariance?
+
+One way to represent a solution to a SPDE of the form in @eq-general-spde is by writing $f$ as a convolution: $f(\mathbf{s}) = \int G(\mathbf{s} - \mathbf{u})\epsilon(\mathbf{u})\mathrm{d} \mathbf{u}$.
+
+If $G$ satisfies $\cD G(\bs-\bm{u}) = \delta(\bs - \bm{u})$, where differentiation is with respect to $\bs$ and $\delta$ is the Dirac delta function, then it is known as a Green's function.
+
+The Dirac delta function is a generalised function which has the property that taking the convolution with the delta function amounts to evaluating the function at a single location. Formally, this can be written as $\int g(\bm{u})\delta(\bs - \bm{u})\intd \bm{u} = g(\bs)$ for any function $g$. This is the key property that means $f$ will solve the SPDE since $$
+\begin{aligned}
+    \epsilon(\bs) &= \int \delta(\bs - \bm{u})\epsilon(\bm{u})\intd \bm{u} \\
+                  &= \int \cD G(\bs - \bm{u})\epsilon(\bm{u})\intd \bm{u} \\
+                  &= \cD \left( \int G(\bs - \bm{u})\epsilon(\bm{u})\intd \bm{u}\right) \\
+                  &= \cD f(\bs).
+\end{aligned}
+$$ Line three follows from Leibniz's rule for integrals since we assume $\cD$ is linear and differentiation is with respect to $\bs$ and not the variable of integration $\bm{u}$.
+
+The question now is how to find a $G$ that satisfies this property. One way to do this is by using Fourier transform methods. This is a useful approach because differentiation and convolution have a simple representations in the frequency domain. Loosely speaking, differentiation corresponds to multiplication by a constant in the frequency domain and the convolution of two functions corresponds to the multiplication of their Fourier transforms. This means that the application of a linear differential operator to a function $f$ can be represented as the Fourier transform of $f$ multiplied by a constant (strictly speaking it is multiplied by a polynomial of the frequency variable, the order and form of which depends on $\cD$). Similarly, the convolution of two functions is the inverse transform of the product of their individual Fourier transforms.
+
+These properties of the Fourier transform can be used to derive the covariance function that is implied by $\cD$. First, note that the Green's function can be derived by taking the Fourier transform of both sides of $\cD G(\bs - \bm{u}) = \delta(\bs - \bm{u})$. The Fourier transform of the Dirac delta function is one everywhere and the Fourier transform of $\cD G$ is the Fourier transform of $G$ multiplied by some known polynomial. Then by rearranging the equation and taking the inverse Fourier transform we can derive an expression for $G$.
+
+The covariance function can also be written in terms of G: $$
+\begin{aligned}
+   \text{Cov}[f(\bs_i), f(\bs_j)] &= \mathbb{E}[f(\bs_i)f(\bs_j)] \\
+   &= \mathbb{E}\left[\int G(\bs_i - \bm{u}) \epsilon(\bm{u})\intd \bm{u} \int G(\bs_j - \bm{u}) \epsilon(\bm{u})\intd \bm{u}\right] \\
+   &= \mathbb{E}\left[ \int G(\bs_i - \bm{u})G(\bs_j - \bm{u}) \intd \bm{u}  \right] \\
+   &= \int G(\bs_i - \bm{u})G(\bs_j - \bm{u}) \intd \bm{u}
+\end{aligned}    
+$$ where the third line follows due to Ito's isometry [@oksendal_StochasticDifferentialEquations_2013]. This derivation means the covariance function $C(\bs_i, \bs_j)$ can be derived directly from the SPDE by taking the convolution of the Green's function with itself. This makes explicit the link between the covariance function of the random field and the differential operator $\cD$. A Gaussian random field may be specified using either a covariance function or via an SPDE. They are equivalent ways to specify the same mathematical structure.
+
+This is a highly technical field and we have just given the barest informal summary of the approaches used. However, the key take away is that any (linear) differential operator implies a particular covariance function and vice versa. The machinery of Fourier transforms and Green's functions is how we can translate between the two. But the crucial idea is that the SPDE is not some magical thing, it's just an alternative way to define the same random field that we coudl otherwise define using the covariance function, which is the presentation of a GRF that most people are first introduced to.
+
+@whittle_StationaryProcessesPlane_1954 applied the approach sketched above to a specific SPDE to show that its stationary solutions have Matérn covariance. This representation of the Matérn field is the basis for later work by @lindgren_explicit_2011 who use this SPDE representation to derive a computationally efficient Gaussian *Markov* random field approximation to the Matérn field. We return to this specific example in Section X. First, we cover the numerical approaches that are used to solve SPDEs.
+
+### Finite element methods
+
+From the above we have seen that to solve the SPDE in practice we consider a finite set of test functions $\{ \phi_1, \ldots, \phi_m \}$ that satisfy the weak formuluation. The test functions we consider here are based on finite element methods. These are a family of related numerical algorithms for solving (S)PDEs. @chen_FiniteElementMethods_2005 presents a wide overview of these methods. For the 2-dimensional examples in this chapter, we consider finite elements that are piece-wise linear functions defined with respect to a triangulation of the spatial domain. This triangulation defines a graph which is the basis for the GMRF approximation (recall from above that the definition of a Markov random field is always with respect to some graph). In the INLA literature this graph is known as a *mesh*.
+
+Each node of the mesh is associated with a basis function which takes the value 1 at the node and decreases linearly to zero at the neighbouring edges. @fig-mesh-basis shows an example mesh with two of the basis functions, in practice every mesh node has a basis functions associated with it so all locations in space (except mesh nodes themselves) are covered by exactly three basis functions.
+
+![An example of two piece-wise linear basis functions with their associated mesh](Figures/mesh-basis-example.png){#fig-mesh-basis}
+
+This approach to choosing test functions is a way to 'cover' the entire spatial domain in such a way that these piece-wise linear basis functions can be used to approximate more complicated non-linear functions. @fig-smooth-approx shows an example of this, using the above example mesh to approximate a smooth trigonometric function.
+
+![Left: A smooth function $\sin(x) - (y/\pi)^3$. Right:} The piecewise-linear approximation of $\sin(x) - (y/\pi)^3$ using the mesh-basis shown in @fig-mesh-basis](Figures/smooth-approx.png){#fig-smooth-approx}
+
+Intuitively we can see that as we increase the resolution of the mesh we will improve the accuracy of the piece-wise linear approximation.
+
+#### From finite elements to joint precision
+
+Now that we have chosen a basis-representation for $f(\bs)$ using finite element methods we can derive the consequence of this choice for the weak formulation of the SPDE. Remember, ultimately, within INLA, all model components ultimately boil down to a Gaussian vector of parameters with an associated prior precision matrix. We have decided on the parameter vector (the coefficients of the finite element basis), the next step is to derive the joint precision for this vector.
+
+The LHS of @eq-general-spde becomes $\cD f(\bs) = \sum_{i=1}^m u_i \cD \phi_i(\bs)$. In other words, the space of derivatives of $f$ has the basis $\{ \cD \phi_1, \ldots, \cD \phi_m \}$. This means that we can represent $\cD f$ by computing the derivatives of each of the fixed basis functions and, given a particular choice of mesh, these only need be computed once.
+
+The weak formulation of the SPDE can be approximated, given our choice of mesh, test functions, and basis functions for $f$, as the matrix-vector equation $$
+    \bm{D}\bu = \bm{e},
+$$ {#eq-spde-approx} where $\bm{D}$ is an $m \times m$ symmetric matrix with entries $\bm{D}_{ij} = \ip{\cD \phi_i}{\phi_j}$, $\bu = [ u_1, \ldots, u_m ]^T$ and $\bm{e}_i = \ip{\epsilon}{\phi_i}$.
+
+We can think of this matrix-vector equation as a finite dimensional discretisation the SPDE. By the properties of the Gaussian white noise process and the fact that $\ip{\phi_i}{\phi_j} = 0$ for $i \neq j$ it follows that $\bm{e} \sim \cN(0, \bQ_{\bm{e}})$ where $\bQ_{\bm{e}}$ is diagonal with entries $(\bQ_{\bm{e}})_{ii} = \norm{\phi_i}$. Since $\bm{D}$ is non-random this also implies that $\bu$ has multivariate Gaussian density with mean zero and precision matrix $\bQ_{\bu} = \bm{D^T}\bQ_{\bm{e}}\bm{D}$. Therefore, given a choice of differential operator, and finite element mesh-basis, the SPDE essentially amounts to placing a multivariate Gaussian prior on the coordinate vector $\bm{u}$. Encoded in the precision matrix $\bQ_{\bu}$ is the covariance structure implied by $\cD$.
+
+### The SPDE approach for the Matérn field
+
+In this section we introduce the SPDE that defines a stationary GRF with Matérn field, which we call a Matérn field for brevity. This chapter summarises the key result in @lindgren_explicit_2011, using the perspective and notation introduced above.
+
+@whittle_StationaryProcessesPlane_1954 showed that the stationary solutions to the SPDE $$
+    (\kappa^2 - \nabla^2)^{\alpha/2}f(\bs) = \frac{\epsilon(\bs)}{\tau}
+$$ {#eq-matern-spde} have Matérn covariance $$
+C(h) = \frac{\sigma^2}{\Gamma(\nu) 2^{\nu-1}}(\kappa h)^\nu K_\nu(\kappa h), \qquad h \geq 0,
+$$ where $K_\nu(\cdot)$ is the modified Bessel function of the second kind, $\nu>0$ is a smoothness (or differentiability) parameter, $\kappa >0$ is a range parameter, and $\sigma^2$ is the marginal variance. The subset of Matérn random fields with efficient piecewise linear representations occur when $\nu + d/2$ is an integer, where $d$ is the dimension of the space (we have $d = 2$ in almost all examples in this book). The operator $\nabla^2$ is the Laplace operator which is defined, for $d = 2$, as $\nabla^2 = \frac{\partial^2}{\partial s_1^2} + \frac{\partial^2}{\partial s_2^2}$. We refer to this SPDE as the *Matérn SPDE*.
+
+For most choices of $\alpha$, the operator $\cD = (\kappa^2 - \nabla)^{\alpha/2}$ is called a fractional differential operator since the exponent is a fraction. Here we investigate the special case where $\alpha = 2$ and so $\cD$ is a linear differential operator. The finite element solutions for cases with a fractional differential operator can be defined using recursive equations based on the finite element solutions for $\alpha = 1$ and $\alpha = 2$ (see Equation 10 in @lindgren_explicit_2011).
+
+The weak solution for the Matérn SPDE with $\alpha = 2$, which is the default value in the INLA software, is $\ip{\kappa^2f}{\phi} - \ip{\nabla^2 f}{\phi} = \ip{\epsilon / \tau}{\phi}$.\
+This equation can be simplified by an application of Green's first identity and Neumann boundary conditions.\
+The Neumann boundary conditions state that the first derivative at the boundary, in the direction orthogonal to the boundary, is zero.\
+In this case, by Green's first identity we have $-\ip{\nabla^2 f}{\phi} = \ip{\nabla f}{\nabla \phi}$ and we can write the weak solution as $\ip{\kappa^2f}{\phi_i} +\ip{\nabla f}{\nabla \phi_i} = \ip{\epsilon / \tau}{\phi_i}$ for test functions $\phi_1, \ldots, \phi_m$.\
+For $f = \sum_j u_j \phi_j$, this can be written as a matrix-vector equation of the form $$
+\kappa^2 \bm{C}\bu + \bm{G}\bu = \bm{e} / \tau ,
+$$ {#eq-matern-spde-fem} where $\bm{C}_{ij} = \ip{\phi_i}{\phi_j}$, $\bm{G}_{ij} = \ip{\nabla \phi_i}{\nabla \phi_j}$ and $\bm{e}_i = \ip{\phi_i}{\epsilon}$.\
+We can write this as $\bm{K}\bu = \bm{e}/ \tau$ where $\bm{K} = \kappa^2\bm{C} + \bm{G}$. The precision matrix $\bQ_{\bu}$ can be derived from this equation, the details of which we omit (see Appendix D.3.1 in @lindgren_explicit_2011), resulting in the following expression for the joint precision: $$
+\bQ_{\bu} = \tau^2 \left( \kappa^4 \bm{C} + 2 \kappa^2 \bm{G} + \bm{G}^T \bm{C}^{-1} \bm{G} \right).
+$$ {#eq-matern-precision} Where the matrices $\bm{C}$ and $\bm{G}$ are sparse but $\bm{C}^{-1}$ is not. @lindgren_explicit_2011 show that $\bm{C}$ can be replaced with a diagonal matrix whose diagonal entries are the row sums of $\bm{C}$ and that this replacement does not affect the rate of convergence of the finite element method to the true solution as the number of mesh nodes tends to infinity.
+
+### How to think of the SPDE approach
+
+The purpose of the above sections is hopefully reassure the reader that the SPDE model component is actually, in many respects, very similar to other model components that we have already used.
+
+### Projection matrices
+
+Explain the A matrix.
+
+## Prexisting text
+
+In order to obtain a spatially continuous representation of the log-Gaussian Cox process we use an approximation of continuous space that we will refer to as the *mesh*. This is a triangulation of the space, based on a regular triangulation or a triangulation that is constructed so that model fitting is computationally efficient. We will see in Section REF that it can be more computationally efficient to use a non-regular triangulation -- for example in cases where data could not be observed in some part of the observation window.
+
+The triangulation as implemented in `R-INLA` (and as described in Lindgren et al. 2011)is based on an initial *Delaunay triangulation* [^1] of an initial set of points. These points may be some or all of the data points, but this is not required or even always desirable as initial points that are strongly clustered can cause numerical problems. Further points are then added successively in additional locations in the observation window to improve the following two criteria until they are fulfilled. These are the maximum edge length and the minimum angle, respectively:
+
+[^1]: A Delaunay triangulation of a given set of points is the triangulation that maximises the smallest angle among all the triangle angles.
+
+1.  `max.edge` = the longest allowed length of any triangle edge,
+
+2.  `min.angle` = the smallest allowed angle in any triangle,
+
+and they are chosen by the user. The maximum edge length is relevant since it determines the minimum spatial scale at which structures are relevant and should typically be chosen to be at least smaller than the spatial correlation range. The second criterion favours near-equilateral triangles over "skinny" triangles. This is useful if triangles of different sizes are used as it facilitates the transition from large to small triangles and vice versa. We will come back to the choice of these values in the examples in Section REF. Figure REF shows an example of a regular mesh.
+
+<!-- ![A regular mesh approximating an observation window. `Probably also plot an irregular grid?`](){#surface_mesh} -->
+
+Based on the triangulation, i.e. the mesh, we now construct an approximation to the smooth, spatially continuous surface by taking true values from the surface in a set of well-designed points and interpolate the surface by **piecewise linear functions**. This is very similar to approximating a curve by a piece-wise linear function (see Figure ???). These are functions that consist of bits of lines that take on exact values and are are glued together in "exact" points. However, recall that we consider the two-dimensional case here. This means this we are approximating a surface by bits of flat planes. These also take on exact values in some points but are glued together along the edges of the mesh. These functions are defined over out triangular mesh, which gives us more geometric flexibility than a traditional grid-based method.
+
+The most intuitive way to think about this is as trying to approximate smooth surface by a piece of crumpled -- and unfolded -- paper. A realisation from the spatially continuous Gaussian field that we would like to approximate is similar to a piece of fabric and we approximate this by a (very nicely and cleverly) crumbled paper. Figure REF shows a sketch of what this looks like.
+
+<!-- ![An example of a piecewise linear approximation to a surface.  The grey pyramid is a representative basis function](){#surface_reconstruction} -->
+
+### Matérn fields on the mesh -- motivation
+
+Through the triangulation and the linear functions we now have a continuous representation of the continuous surface -- but this is just a representation, not a stochastic model that governs the surface. In other words, what we need now is a structure that is similar to the random walk and Matérn random field models in Chapter 3 -- but not operating on the grid but on the triangulation.
+
+This structure is a specific subset of the Matérn random fields (technical details of the subset are given in Section REF). These stochastic fields have parameters that govern the strength and range of spatial autocorrelations. However, unlike in the gridding approach where we approximate a (spatially continuous) Gaussian field by Gauss Markov random field without explicitly linking the GMRV to a specific GF we now have an explicit link. This link is constructed by interpreting the Gaussian field as the solution to a stochastic differential equation and then approximating the SPDE by a GMRV.
+
+This implies that the parameters of the Gaussian field translate into the parameters of the SPDE and model interpretation may be done on the basis of the SPDE -- potentially facilitating model construction and intuition. Further, this also comes with the benefit that we do not have define the GF directly (which can be hard!) but can construct more complex spatial fields through the SPDE (see Section (@sec-benefit)). It also implies that, like the Gauss Markov random fields we have seen above, the new GMRF also has a local dependence structure with a sparse precision matrix making the approach computationally efficient.
+
+### Matérn fields on the mesh -- technical details
+
+Technically speaking, the subset of the Matérn random fields we mention above are zero-mean Gaussian stationary, isotropic random fields with covariance function $$
+c(h) = \frac{\sigma^2}{\Gamma(\nu) 2^{\nu-1}}(\kappa h)^\nu K_\nu(\kappa h), \qquad h \geq 0,
+$$ where $K_\nu(\cdot)$ is the modified Bessel function of the second kind, $\nu>0$ is the smoothing parameter, $\kappa >0$ is the range parameter, and $\sigma^2$ is the variance. The subset of Matérn random fields with efficient piecewise linear representations occur when $\nu + d/2$ is an integer, where $d$ is the dimension of the space.
+
+When $\nu + d/2$ is an integer, a computationally efficient piecewise linear representation can be constructed by using a different representation of the Matérn field $x(s)$, namely as the stationary solution to the stochastic partial differential equation (SPDE)
+
+$$ 
+(\kappa^2 - \Delta)^{\alpha/2} x(s) = W(s),
+$$ {#eq-SPDE}

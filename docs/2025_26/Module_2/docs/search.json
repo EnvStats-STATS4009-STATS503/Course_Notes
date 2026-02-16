@@ -228,14 +228,14 @@
     "href": "slides/slides_6.html#fitting-the-gev-in-r",
     "title": "Modelling Environmental Extremes",
     "section": "Fitting the GEV in R",
-    "text": "Fitting the GEV in R\n\nWe use the extRemes package to fit a GEV distribution in R\nThe fevd() simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.\n\n\n\n    location        scale        shape \n111.09726863  17.17910050  -0.07678211 \n\n\n\nFrom the output we can see that \\(\\mu = 111.1\\), \\(\\sigma = 17.2\\) and \\(\\xi = -0.077\\)."
+    "text": "Fitting the GEV in R\n\nWe use the extRemes package to fit a GEV distribution in R\nThe fevd() simply takes a data vector of the annual maxima and provides parameter estimates using maximum likelihood estimation.\n\n\nlibrary(extRemes)\nMn &lt;- apply(venice[,-1],1,function(x)max(x,na.rm = T))\nfit_gev &lt;- fevd(Mn,method=\"MLE\")\nfit_gev$results$par\n\n    location        scale        shape \n111.09726863  17.17910050  -0.07678211 \n\n\n\nFrom the output we can see that \\(\\mu = 111.1\\), \\(\\sigma = 17.2\\) and \\(\\xi = -0.077\\)."
   },
   {
     "objectID": "slides/slides_6.html#return-level-plot",
     "href": "slides/slides_6.html#return-level-plot",
     "title": "Modelling Environmental Extremes",
     "section": "Return Level Plot",
-    "text": "Return Level Plot\n\nWe can assess the suitability of the GEV distribution using a return level plot.\nThis involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV.\n\n\n\n\n\nThe observed points lie along the theoretical line.\nOur proposed GEV distribution is appropriate.\nThe Venice maxima follow a Gumbel distribution."
+    "text": "Return Level Plot\n\nWe can assess the suitability of the GEV distribution using a return level plot.\nThis involves commuting the return level at various return periods, and comparing it to the theoretical result under the GEV.\n\n\n\n\n\nThe observed points lie along the theoretical line.\nOur proposed GEV distribution is appropriate.\nThe Venice maxima follow a Gumbel distribution.\n\n\n\n\nplot(fit_gev, type = \"rl\")"
   },
   {
     "objectID": "slides/slides_6.html#extending-block-maxima---k-largest",
