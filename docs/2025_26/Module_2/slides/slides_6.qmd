@@ -634,7 +634,7 @@ shinyApp(ui = iu, server = server)
 -   Here, we have return period $\frac{1}{50}=0.02$ and return level $z_p=20$.
 :::
 
-## Return Levels and the GEV
+## Return Levels and the GEV {auto-animate=true}
 
 -   The return level $z_p$ is the $(1-\frac{1}{p})$ quantile of the GEV distribution, since we have a probability $\frac{1}{p}$ of the maximum exceeding that value, i.e., $P(M_n > z_p) = \frac{1}{p}$.
 -   Recall that the GEV takes the form $$
@@ -646,6 +646,16 @@ shinyApp(ui = iu, server = server)
     G(z_p) &= P(M_n \leq z_p) = 1 - P(M_n > z_p)
     \end{aligned}
     $$
+
+## Return Levels and the GEV {auto-animate=true}
+
+-   The return level $z_p$ is the $(1-\frac{1}{p})$ quantile of the GEV distribution, since we have a probability $\frac{1}{p}$ of the maximum exceeding that value, i.e., $P(M_n > z_p) = \frac{1}{p}$.
+-   Recall that the GEV takes the form $$
+    \begin{aligned}
+    G(z_p) &= P(M_n \leq z_p) = 1 - P(M_n > z_p)
+    \end{aligned}
+    $$
+
 -   Therefore the return level can be obtained by inverting this distribution to obtain $$
     z_p = \begin{cases}
       \mu - \frac{\sigma}{\xi}\left[ 1 - \{ -\log(1-\frac{1}{p}) \}^\xi \right] & \xi \neq 0\\

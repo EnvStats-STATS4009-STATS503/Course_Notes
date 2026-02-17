@@ -207,7 +207,14 @@
     "href": "slides/slides_6.html#return-levels-and-the-gev",
     "title": "Modelling Environmental Extremes",
     "section": "Return Levels and the GEV",
-    "text": "Return Levels and the GEV\n\nThe return level \\(z_p\\) is the \\((1-\\frac{1}{p})\\) quantile of the GEV distribution, since we have a probability \\(\\frac{1}{p}\\) of the maximum exceeding that value, i.e., \\(P(M_n &gt; z_p) = \\frac{1}{p}\\).\nRecall that the GEV takes the form \\[\n\\begin{aligned}\nG(z_p) &= \\begin{cases}\n  \\exp \\left( - \\left[ 1 + \\frac{\\xi (z_p - \\mu)}{\\sigma} \\right]^{-\\frac{1}{\\xi}} \\right) &, \\xi \\neq 0 \\\\\n  \\exp\\left(-\\exp\\left(-\\frac{z_p-\\mu}{\\sigma}\\right)\\right) &, \\xi = 0\n\\end{cases}\\\\\nG(z_p) &= P(M_n \\leq z_p) = 1 - P(M_n &gt; z_p)\n\\end{aligned}\n\\]\nTherefore the return level can be obtained by inverting this distribution to obtain \\[\nz_p = \\begin{cases}\n  \\mu - \\frac{\\sigma}{\\xi}\\left[ 1 - \\{ -\\log(1-\\frac{1}{p}) \\}^\\xi \\right] & \\xi \\neq 0\\\\\n  \\mu - \\sigma \\log\\{ -\\log(1-\\frac{1}{p})\\} & \\xi = 0\n\\end{cases}\n\\]"
+    "text": "Return Levels and the GEV\n\nThe return level \\(z_p\\) is the \\((1-\\frac{1}{p})\\) quantile of the GEV distribution, since we have a probability \\(\\frac{1}{p}\\) of the maximum exceeding that value, i.e., \\(P(M_n &gt; z_p) = \\frac{1}{p}\\).\nRecall that the GEV takes the form \\[\n\\begin{aligned}\nG(z_p) &= \\begin{cases}\n  \\exp \\left( - \\left[ 1 + \\frac{\\xi (z_p - \\mu)}{\\sigma} \\right]^{-\\frac{1}{\\xi}} \\right) &, \\xi \\neq 0 \\\\\n  \\exp\\left(-\\exp\\left(-\\frac{z_p-\\mu}{\\sigma}\\right)\\right) &, \\xi = 0\n\\end{cases}\\\\\nG(z_p) &= P(M_n \\leq z_p) = 1 - P(M_n &gt; z_p)\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "slides/slides_6.html#return-levels-and-the-gev-1",
+    "href": "slides/slides_6.html#return-levels-and-the-gev-1",
+    "title": "Modelling Environmental Extremes",
+    "section": "Return Levels and the GEV",
+    "text": "Return Levels and the GEV\n\nThe return level \\(z_p\\) is the \\((1-\\frac{1}{p})\\) quantile of the GEV distribution, since we have a probability \\(\\frac{1}{p}\\) of the maximum exceeding that value, i.e., \\(P(M_n &gt; z_p) = \\frac{1}{p}\\).\nRecall that the GEV takes the form \\[\n\\begin{aligned}\nG(z_p) &= P(M_n \\leq z_p) = 1 - P(M_n &gt; z_p)\n\\end{aligned}\n\\]\nTherefore the return level can be obtained by inverting this distribution to obtain \\[\nz_p = \\begin{cases}\n  \\mu - \\frac{\\sigma}{\\xi}\\left[ 1 - \\{ -\\log(1-\\frac{1}{p}) \\}^\\xi \\right] & \\xi \\neq 0\\\\\n  \\mu - \\sigma \\log\\{ -\\log(1-\\frac{1}{p})\\} & \\xi = 0\n\\end{cases}\n\\]"
   },
   {
     "objectID": "slides/slides_6.html#example---venice-sea-levels",
