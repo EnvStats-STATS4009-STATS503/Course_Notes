@@ -4,7 +4,7 @@ project:
   render:
   - index.qmd
   # - reading_list.qmd
-  # - lab_3.qmd
+  - lab_3.qmd
   - notes/tutorial_sheet_4.qmd
   - notes/tutorial_sheet_4_solutions.qmd
   - notes/notes_7.qmd
@@ -43,10 +43,10 @@ website:
         menu:
           - text: "Tutorial sheet 4"
             href: notes/tutorial_sheet_4.qmd
-      # - text: "Labs"
-      #   menu:
-      #     - text: "Lab 3"
-      #       href: lab_3.qmd
+      - text: "Labs"
+        menu:
+          - text: "Lab 3"
+            href: lab_3.qmd
 format:
   html:
     embed-resources: false
