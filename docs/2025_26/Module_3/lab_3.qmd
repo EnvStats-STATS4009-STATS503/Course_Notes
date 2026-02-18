@@ -95,7 +95,7 @@ The `scotland_sf` data is a Simple Features (`sf`) object containing the spatial
 The dataset contains the following variables of interest:
 
 | Variable | Meaning |
-|------------------|------------------------------------------------------|
+|----|----|
 | `county.names` | Scotland County name |
 | `cases` | Number of Lip Cancer cases per county |
 | `expected` | Expected number of lip cancer cases |

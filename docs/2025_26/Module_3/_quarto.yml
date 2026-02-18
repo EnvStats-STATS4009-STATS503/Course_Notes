@@ -3,7 +3,7 @@ project:
   output-dir: docs
   render:
   - index.qmd
-  # - reading_list.qmd
+  - reading_list.qmd
   - lab_3.qmd
   - notes/tutorial_sheet_4.qmd
   - notes/tutorial_sheet_4_solutions.qmd
@@ -47,6 +47,8 @@ website:
         menu:
           - text: "Lab 3"
             href: lab_3.qmd
+      - text: "Reading List"
+        href: reading_list.qmd
 format:
   html:
     embed-resources: false
