@@ -972,9 +972,8 @@ For the occurrence of fish, the linear predictor gets mapped to the logit of the
 
 The hyperparameter for the model are:
 
-  -   observational error (nugget) $\tau_e$
-  -   Matérn field(s) parameters $\{\rho^{(1)},\rho^{(2)},\tau_{d}^{(1)},\tau_{d}^{(2)}\}$
-
+-   observational error (nugget) $\tau_e$
+-   Matérn field(s) parameters $\{\rho^{(1)},\rho^{(2)},\tau_{d}^{(1)},\tau_{d}^{(2)}\}$
 
 ## Posterior summaries
 
@@ -983,7 +982,15 @@ The hyperparameter for the model are:
 #| warning: false
 #| message: false
 
+mesh = fm_mesh_2d(loc = pcod_sf,           # Build the mesh
+                  cutoff = 2,
+                  max.edge = c(10,20),     # The largest allowed triangle edge length.
+                  offset = c(5,50))       # The automatic extension distance
 
+
+spde_model =  inla.spde2.pcmatern(mesh,
+                                   prior.sigma = c(1, 0.5),
+                                   prior.range = c(100, 0.5))
 cmp_2 <- ~
   Intercept_biomass(1) +
     depth_biomass(depth_scaled, model = "linear") +
@@ -1120,5 +1127,3 @@ Lastly we can compute the spatial prediction for the biomass density. To do so w
 -   $\mathbb{E}(Z(s)) =\pi(s)\times \mathbb{E}[Z(s)|Y(s)]$
 
 ![](images/predictions_hurdle.png){fig-align="center" width="547"}
-
-

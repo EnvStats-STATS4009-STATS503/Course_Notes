@@ -4,6 +4,7 @@ project:
   render:
   - index.qmd
   - reading_list.qmd
+  - Bayesian_computing.qmd
   - lab_3.qmd
   - notes/tutorial_sheet_4.qmd
   - notes/tutorial_sheet_4_solutions.qmd
@@ -47,6 +48,10 @@ website:
         menu:
           - text: "Lab 3"
             href: lab_3.qmd
+      - text: "Supplementary material"
+        menu:
+           - text: "INLA"
+             href: Bayesian_computing.qmd
       - text: "Reading List"
         href: reading_list.qmd
 format:

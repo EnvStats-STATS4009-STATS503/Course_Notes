@@ -45,7 +45,7 @@ The data for this session is available throughout different packages, if you can
 load("lab_3_DataFiles.RData")
 ```
 
-{{< downloadthis lab_3_DataFiles.RData dname="lab_3_data" label = "Download Lab 3 Data Sets" icon="database-fill-down" type="success" >}}
+{{< downloadthis lab_3_DataFiles.RData dname="lab_3_DataFiles" label = "Download Lab 3 Data Sets" icon="database-fill-down" type="success" >}}
 
 First lets load the `R` libraries we will use during this session:
 
@@ -60,17 +60,18 @@ library(terra)
 
 # Libraries for producing maps
 library(ggplot2)
-library(scico)
+library(viridis)
 library(tidyterra)
 library(mapview)
 library(patchwork)
 
 # Libraries for the Analysis
+library(INLA)
+library(inlabru)
 library(spdep) 
 library(gstat)
 library(variosig)
-library(INLA)
-library(inlabru)
+
 ```
 
 # Disease risk modelling {#sec-areal}
@@ -95,7 +96,7 @@ The `scotland_sf` data is a Simple Features (`sf`) object containing the spatial
 The dataset contains the following variables of interest:
 
 | Variable | Meaning |
-|----|----|
+|-------------------|-----------------------------------------------------|
 | `county.names` | Scotland County name |
 | `cases` | Number of Lip Cancer cases per county |
 | `expected` | Expected number of lip cancer cases |
@@ -124,11 +125,11 @@ scotland_sf <- scotland_sf %>% mutate(
 
 ```
 
-Now we use `ggplot` to visualize our data by adding a `geom_sf` layer and coloring it according to our variable of interest (i.e., SMR) choosing an appropriate color palette using the `scale_fill_scico` from the `scico` package:
+Now we use `ggplot` to visualize our data by adding a `geom_sf` layer and coloring it according to our variable of interest (i.e., SMR) choosing an appropriate color palette using the `scale_fill_viridis` from the `viridis` package:
 
 ```{r}
 # Visualize the regions colored by the SMR
-ggplot()+geom_sf(data=scotland_sf,aes(fill=SMR))+scale_fill_scico(direction = -1)
+ggplot()+geom_sf(data=scotland_sf,aes(fill=SMR))+scale_fill_viridis(direction = -1,option = "magma")
 ```
 
 We can see that higher lip cancer risks occurs in the north of Scotland.
@@ -147,7 +148,7 @@ Produce a map that shows the spatial distribution of the proportion of the popul
 #| fig-height: 6
 #| fig-align: center
 
-ggplot()+geom_sf(data=scotland_sf,aes(fill=AFF))+scale_fill_scico(direction = -1)
+ggplot()+geom_sf(data=scotland_sf,aes(fill=AFF))+scale_fill_viridis(direction = -1,option = "magma")
 
 ```
 :::
@@ -186,7 +187,7 @@ We can use Moran's $I$ as a measure of global spatial autocorrelation based on a
 
 $$ w_{ij} = \begin{cases} 1 & \text{if areas } (B_i, B_j) \text{ are neighbours.}\\ 0 & \text{otherwise.} \end{cases} $$
 
-In `R` we can use the `nb2listw` function to create $w$ while specifying `zero.policy = TRUE` as we have some regions with no neighbours.
+In `R` we can use the `nb2listw` function to create $w$ while specifying `zero.policy = TRUE` as we have some regions with no neighbors.
 
 ```{r}
 # neighbors list 
@@ -381,7 +382,8 @@ $$
 predict_result <- predict(fit, scotland_sf,formula ~ exp(Intercept+beta_1+u_i+z_i))
 
 ggplot() +  geom_sf(data=predict_result,aes(fill=mean))+
-  scale_fill_scico(name="Relative Risks",direction = -1)
+  scale_fill_viridis(name="Relative Risks",direction = -1,option = "magma")
+
 
 
 ```
@@ -402,7 +404,9 @@ Let's create an initial `sf` spatial object using the standard geographic coordi
 #| message: false
 #| warning: false
 library(sdmTMB)
-pcod = sdmTMB::pcod %>% filter(year==2003)
+pcod = sdmTMB::pcod 
+
+pcod = pcod %>% filter(year==2003)
 pcod_sf =   st_as_sf(pcod, coords = c("lon","lat"), crs = 4326)
 ```
 
@@ -486,8 +490,7 @@ ggplot()+
     scale_color_manual(name="Occupancy status for the Pacific Cod",
                      values = c("black","orange"),
                      labels= c("Absence","Presence"))+
-  scale_fill_scico(name = "Depth",
-                   palette = "nuuk",
+  scale_fill_viridis(name = "Depth",
                    na.value = "transparent" )
 
 ```
@@ -544,6 +547,8 @@ varioEnv <- envelope(vario_binned,
                      formula = log(density) ~ depth_scaled  + depth_scaled2,
                      nsim = 499)
 envplot(varioEnv)
+
+
 
 ```
 
@@ -799,11 +804,11 @@ pred <- predict( fit_hurdle , pxl1,
 Finally, we can plot the maps
 
 ```{r}
-ggplot() + gg(pred$pi, geom = "tile",aes(fill = mean)) + scale_fill_scico(palette = "roma") + ggtitle("Posterior mean for catch probability")
+ggplot() + gg(pred$pi, geom = "tile",aes(fill = mean)) +  scale_fill_viridis() + ggtitle("Posterior mean for catch probability")
 
-ggplot() + gg(pred$dens, geom = "tile",aes(fill = mean))+ scale_fill_scico(palette="lapaz") + ggtitle("Posterior mean of biomass density ")
+ggplot() + gg(pred$dens, geom = "tile",aes(fill = mean))+  scale_fill_viridis(option = "G")+ ggtitle("Posterior mean of biomass density ")
 
-ggplot() + gg(pred$dens, geom = "tile",aes(fill = sd)) + scale_fill_scico(palette = "tokyo") + ggtitle("Posterior sd biomass density")
+ggplot() + gg(pred$dens, geom = "tile",aes(fill = sd)) + scale_fill_viridis(option = "B") + ggtitle("Posterior sd biomass density")
 ```
 
 **Note** The posterior sd is lowest at the observation points. Note how the posterior sd is inflated around the border, this is the "border effect" due to the SPDE representation.
@@ -847,7 +852,7 @@ ggplot() +
   gg(elev) +
   gg(boundary, alpha = 0.2) +
   gg(nests, color = "white", cex = 0.5)+
-  scale_fill_scico(palette = "lisbon")
+  scale_fill_viridis(option = "F")
 
 ```
 
@@ -901,7 +906,7 @@ ips = fm_int(mesh, samplers = boundary)
 
 ggplot() + geom_sf(data = ips, aes(color = weight)) +
   gg(mesh) +
-   scale_color_scico(palette = "roma")
+   scale_color_viridis()
 
 ```
 

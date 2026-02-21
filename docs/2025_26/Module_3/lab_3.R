@@ -14,17 +14,18 @@ library(terra)
 
 # Libraries for producing maps
 library(ggplot2)
-library(scico)
+library(viridis)
 library(tidyterra)
 library(mapview)
 library(patchwork)
 
 # Libraries for the Analysis
+library(INLA)
+library(inlabru)
 library(spdep) 
 library(gstat)
 library(variosig)
-library(INLA)
-library(inlabru)
+
 
 
 ## -----------------------------------------------------------------------------
@@ -46,7 +47,7 @@ scotland_sf <- scotland_sf %>% mutate(
 
 ## -----------------------------------------------------------------------------
 # Visualize the regions colored by the SMR
-ggplot()+geom_sf(data=scotland_sf,aes(fill=SMR))+scale_fill_scico(direction = -1)
+ggplot()+geom_sf(data=scotland_sf,aes(fill=SMR))+scale_fill_viridis(direction = -1,option = "magma")
 
 
 
@@ -131,7 +132,8 @@ summary(fit)
 predict_result <- predict(fit, scotland_sf,formula ~ exp(Intercept+beta_1+u_i+z_i))
 
 ggplot() +  geom_sf(data=predict_result,aes(fill=mean))+
-  scale_fill_scico(name="Relative Risks",direction = -1)
+  scale_fill_viridis(name="Relative Risks",direction = -1,option = "magma")
+
 
 
 
@@ -140,7 +142,9 @@ ggplot() +  geom_sf(data=predict_result,aes(fill=mean))+
 #| message: false
 #| warning: false
 library(sdmTMB)
-pcod = sdmTMB::pcod %>% filter(year==2003)
+pcod = sdmTMB::pcod 
+
+pcod = pcod %>% filter(year==2003)
 pcod_sf =   st_as_sf(pcod, coords = c("lon","lat"), crs = 4326)
 
 
@@ -188,8 +192,7 @@ ggplot()+
     scale_color_manual(name="Occupancy status for the Pacific Cod",
                      values = c("black","orange"),
                      labels= c("Absence","Presence"))+
-  scale_fill_scico(name = "Depth",
-                   palette = "nuuk",
+  scale_fill_viridis(name = "Depth",
                    na.value = "transparent" )
 
 
@@ -228,6 +231,8 @@ varioEnv <- envelope(vario_binned,
                      formula = log(density) ~ depth_scaled  + depth_scaled2,
                      nsim = 499)
 envplot(varioEnv)
+
+
 
 
 
@@ -336,11 +341,11 @@ pred <- predict( fit_hurdle , pxl1,
 
 
 ## -----------------------------------------------------------------------------
-ggplot() + gg(pred$pi, geom = "tile",aes(fill = mean)) + scale_fill_scico(palette = "roma") + ggtitle("Posterior mean for catch probability")
+ggplot() + gg(pred$pi, geom = "tile",aes(fill = mean)) +  scale_fill_viridis() + ggtitle("Posterior mean for catch probability")
 
-ggplot() + gg(pred$dens, geom = "tile",aes(fill = mean))+ scale_fill_scico(palette="lapaz") + ggtitle("Posterior mean of biomass density ")
+ggplot() + gg(pred$dens, geom = "tile",aes(fill = mean))+  scale_fill_viridis(option = "G")+ ggtitle("Posterior mean of biomass density ")
 
-ggplot() + gg(pred$dens, geom = "tile",aes(fill = sd)) + scale_fill_scico(palette = "tokyo") + ggtitle("Posterior sd biomass density")
+ggplot() + gg(pred$dens, geom = "tile",aes(fill = sd)) + scale_fill_viridis(option = "B") + ggtitle("Posterior sd biomass density")
 
 
 ## -----------------------------------------------------------------------------
@@ -361,7 +366,7 @@ ggplot() +
   gg(elev) +
   gg(boundary, alpha = 0.2) +
   gg(nests, color = "white", cex = 0.5)+
-  scale_fill_scico(palette = "lisbon")
+  scale_fill_viridis(option = "F")
 
 
 
@@ -382,7 +387,7 @@ ips = fm_int(mesh, samplers = boundary)
 
 ggplot() + geom_sf(data = ips, aes(color = weight)) +
   gg(mesh) +
-   scale_color_scico(palette = "roma")
+   scale_color_viridis()
 
 
 
