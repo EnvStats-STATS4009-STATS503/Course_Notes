@@ -1,0 +1,36 @@
+---
+title: "Reading list"
+format:
+  html:    
+    fontsize: "12"
+    mainfont: serif
+    code-link: true
+    code-fold: true
+    code-tools:
+      source: false
+      toggle: true
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    number-sections: true
+  PrettyPDF-pdf:
+    number-sections: true
+embed-resources: true
+execute: 
+  freeze: auto
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+-   Coles, S., Bawa, J., Trenner, L., & Dorazio, P. (2001). *An introduction to statistical modeling of extreme values* (Vol. 208, p. 208). London: Springer.
+
+-   Cowpertwait, P. S., & Metcalfe, A. V. (2009). *Introductory time series with R*. Springer Science & Business Media.
+
+-   Reeves, J., Chen, J., Wang, X. L., Lund, R., & Lu, Q. Q. (2007). A review and comparison of changepoint detection techniques for climate data. *Journal of applied meteorology and climatology*, *46*(6), 900-915.
+
+-   Sharma, S., Swayne, D. A., & Obimbo, C. (2016). Trend analysis and change point techniques: a survey. *Energy, ecology and environment*, *1*(3), 123-130.
+
+-   Shunway, R. H., & Stoffer, D. S. (2019). *Time series: a data analysis approach using R*. Chapman and Hall/CRC.
+
+-   Wood, S. N. (2017). *Generalized additive models: an introduction with R*. chapman and hall/CRC.

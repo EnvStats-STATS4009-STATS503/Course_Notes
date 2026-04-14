@@ -1,0 +1,64 @@
+---
+title: "Tutorial Sheet 2"
+format: 
+  html:
+    number-sections: true
+    toc: true
+  PrettyPDF-pdf:
+    keep-tex: true
+    number-sections: true
+engine: knitr
+execute: 
+  freeze: auto
+css: styles.css
+---
+
+# Journal club activity
+
+This week we will focus on a reading group to discuss the following paper:
+
+-   Linder, H. L., & Horne, J. K. (2018). Evaluating statistical models to measure environmental change: A tidal turbine case study. *Ecological Indicators*, *84*, 765-792.
+    -   The paper can be accesses through the following DOI: <https://doi.org/10.1016/j.ecolind.2017.09.041>
+    -   Or downloaded using the following link:
+
+{{< downloadthis Linder_2018.pdf dname="Linder_2018" label="Download Linder & Horne (2018) paper" icon="database-fill-down" type="info" >}}
+
+This week, we will focus on how to read a methodological paper in applied ecological & environmental statistics. The **Goal of the Session** is to evaluate and critique the *statistical methods, results & recommendations* presented in a scientific paper related to an environmental problem. We will focus on *understanding* the author's framework, assessing the practical *implications* of their findings, and identifying the validity of the conclusions drawn from the study.
+
+::: callout-note
+This tutorial is designed as direct practice for your final exam, which will require you to write a critical essay on a given scientific topic. The skills practiced here (e.g., deconstructing a paper's core argument, evaluating its methodology, and synthesizing its contributions) are precisely the skills that will help you with that task. Think of this as a collaborative training session.
+:::
+
+## ☑️ Pre-session work
+
+**Your Preparation (Please complete BEFORE the session):**
+
+1.  **Read Strategically:** Don't get bogged down in every statistical detail on the first pass. Focus on understanding the **narrative**.
+
+    -   **Abstract & Introduction:** What is the context of the problem? What is the core problem they are solving, and why is it important?
+
+    -   **Section 2 (Data):** Why have the authors selected this specific case study? How is data been collected and can you identify any potential sources of bias?
+
+    -   **Section 2 (Methods):** What models have the authors used and why? how are these methods being compared? Understand the principles of the intervention analysis and how the model's ability to detect change has been measured? Can you think of any caveats on the usage of these metrics?
+
+    -   **Section 3 (Results):** Focus on the **take-home messages** from tables and figures. How would you summaries the paper key findings?
+
+    -   **Discussion & Conclusion:** What do the authors claim is their key contribution? What are the broader implications? Have you identified any limitations with the study?
+
+2.  **Take Notes on These Four Key Questions:**
+
+    -   **The Core Problem:** In your own words, what is the "gap" in standard monitoring practices that this paper addresses?
+
+    -   **The Evaluation Framework:** How did the authors test the models? What were the criteria for "best"?
+
+    -   **Main Recommendation:** What is the "best practice" they propose, and does it vary by objective (detect, quantify, forecast)?
+
+    -   **Your Critical Assessment:** What is one major strength of this study's approach? What is one potential limitation or remaining question you have?
+
+3.  **Bring:** Your annotated copy of the paper and your prepared notes.
+
+## 👥 **In-Person Group Activity: Paper Discussion & Critical Review**
+
+**Activity Goal:** To collaboratively break down the paper's core components, evaluate its methodological framework, and share your insights with the whole class.
+
+Work in small groups to tackle key questions about the paper's argument and methods. Your tutor will lead the session by posing specific questions, giving your group time to discuss, and then facilitating a class-wide conversation to compare insights.

@@ -1,0 +1,2157 @@
+---
+title: "Methods for Point referrenced Data"
+format:
+  revealjs:
+    embed-resources: true
+    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_3/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
+    margin: 0
+    logo:  UofG.png
+    theme: uofg_theme.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+  data-background-color: "#FFFFFF"
+slide-number: true
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+execute: 
+  freeze: auto
+chalkboard: false
+---
+
+```{r setup}
+#| include: false
+
+knitr::opts_chunk$set(echo = FALSE,  
+                      message=FALSE, 
+                      warning=FALSE, 
+                      strip.white=TRUE, 
+                      prompt=FALSE,
+                      fig.align="center",
+                       out.width = "60%")
+
+library(knitr)    # For knitting document and include_graphics function
+library(ggplot2)  # For plotting
+library(png) 
+library(tidyverse)
+library(INLA)
+library(BAS)
+library(patchwork)
+library(inlabru)
+library(scico)
+library(gt)
+
+```
+
+# Point Processes
+
+## Point process data {.smaller background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+Many of the ecological and environmental processes of interest can be represented by a spatial point process or can be viewed as an aggregation of one.
+
+![](figures/frompontsto.png){fig-align="center" width="600"}
+
+-   Many contemporary data sources collect georeferenced information about the location where an event has occur (e.g., species occurrence, wildfire, flood events).
+-   This point-based information provides valuable insights into ecosystem dynamics.
+
+## Defining a Point Process
+
+-   Consider a fixed geographical region $A$.
+
+-   The set of locations at which events occur are denoted by $\mathbf{s} = (\mathbf{s}_1, \ldots, \mathbf{s}_n)$.
+
+-   We let $N(A)$ be a random variable which represents the total number of events in every subset of region $A$.
+
+-   Our primary interest is in measuring where events occur, so the **locations are our data**.
+
+## Spatial point patterns {.smaller background-color="#FFFFFF"}
+
+-   There are three broad types of spatial Spatial point patterns which can be explored, each representing a different type of spatial dependence.
+
+    -   **Complete spatial randomness (CSR)** - events occur at random, and independently of each other.
+
+    -   **Clustered process** - events occur *close to* existing events.
+
+    -   **Regular process** - events occur *away from* existing events.
+
+    ![](figures/spp.png){fig-align="center" width="60%"}
+
+## The closer you look the less you see {auto-animate="true" background-color="#FFFFFF"}
+
+Locations of isopods burrows in the northern Negev Desert, Israel
+
+![](figures/isopods_b.jpg){fig-align="center" width="60%"}
+
+## The closer you look the less you see {auto-animate="true"}
+
+Locations of isopods burrows in the northern Negev Desert, Israel
+
+![](images/clipboard-927944928.png){fig-align="center"}
+
+## Example: Spatial scales and point patterns {background-color="#FFFFFF"}
+
+Locations of isopods burrows in the northern Negev Desert, Israel.
+
+If we look at the complete data set we can see a strong aggregation pattern
+
+![Isopod burrow data with $n=2015$ individual burrows in a study area with an extent of 75,600 m$^2$. Inset maps show two subsets with reduced extent of 6.4 m$^2$ each. Source: (Dungan et al. 2002).](figures/isopods.png){width="60%"}
+
+# Quantifying Point patterns
+
+## Summarising a point process
+
+::: incremental
+-   We can define the (first order) **intensity** of a point process as the **expected number of events per unit area**.
+
+-   This can also be thought of as a measure of the density of our points.
+
+-   In some cases, the intensity will be constant over space (homogeneous), while in other cases it can vary by location (inhomogeneous or heterogenous).
+
+-   If our intensity is homogeneous, we can define it as
+
+    $$
+    \lambda(s) = \frac{\mathbb{E}[N(A)]}{|A|} = \frac{\lambda |A|}{|A|} \lambda.
+    $$
+:::
+
+## Complete spatial randomness {.smaller}
+
+We can use the concept of intensity to help us define **complete spatial randomness (CSR)**.
+
+-   For any spatial region $A$, CSR requires that:
+
+::: incremental
+1.  *Uniformity and Independent scattering* : Given the number of events $N(A) = n$ in a region, the $n$ events are independently and uniformly distributed over space (i.e., each event has an equal probability of occurring anywhere in the study area).
+
+2.  *Poisson distribution of point counts*: The number of points in any set $A_i$ follows a Poisson distribution with mean $\lambda|A_i|$, that is $$N(A_i) \sim \text{Poisson}(\lambda|A_i|).$$
+:::
+
+<!--  1. **Independent scattering**: The number of points in $k$ disjoint sets are independent of each other. -->
+
+::: fragment
+-   If these conditions are satisfied, we can describe our process as a **homogeneous Poisson process**.
+:::
+
+::: notes
+-   CSR describes a point pattern that is "completely random".
+
+-   conditional on the number of points $N(A) = n$, the $n$ points are independently and uniformly distributed over $A$ i.e., each event has an equal probability of occurring anywhere in the study areaNOT that the Point form an uniform spatial patter
+
+-   Thus, a realization of a HPP is a PP described by CSR.
+:::
+
+## Homogeneous Poisson Process {.smaller background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+-   A simplest point process model is the homogeneous Poisson process (HPP).
+
+-   The likelihood of a point pattern $\mathbf{y} = \left[ \mathbf{s}_1, \ldots, \mathbf{s}_n \right]^\intercal$ distributed as a HPP with intensity $\lambda$ and observation window $\Omega$ is
+
+    $$
+    p(\mathbf{y} | \lambda) \propto \lambda^n e^{ \left( - |\Omega| \lambda \right)} ,
+    $$
+
+    -   $|\Omega|$ is the size of the observation window.
+
+    -   $\lambda$ is the expected number of points per unit area.
+
+    -   $|\Omega|\lambda$ the total expected number of points in the observation window.
+
+::: {style="height: 50px;"}
+:::
+
+-   A key property of a Poisson process is that the number of points within any subset $A_i$ of region $A$ is Poisson distributed with constant rate $|A_i|\lambda$.
+
+## Ripley's K function {.smaller background-color="#FFFFFF"}
+
+-   We can contrast the observed point pattern against a point pattern generated from this CSR model to determine whether a HPP is appropriate for our data.
+
+-   To do this, we calculate what is known as **Ripley's K-function**.
+
+::::: columns
+::: {.column width="65%"}
+-   Ripley's K is a function of distance $r$, and is given by
+
+    $$
+    K(r) = \frac{E[N(\mathbf{s}_0, r)]}{\lambda}
+    $$
+
+-   $N(\mathbf{s}_0, r)$ denotes the number of events that occur within distance $r$ of an event $\mathbf{s}_0$.
+
+-   Clearly, as $r$ increases, so too will $K(r)$.
+:::
+
+::: {.column width="35%"}
+![](figures/ripleysk.png){width="80%"}
+:::
+:::::
+
+## Ripley's K function {background-color="#FFFFFF"}
+
+Ripley's $K$ can be estimated as:
+
+$$
+\hat{K}(r) = \color{tomato}{\frac{1}{n}\sum_{i=1}^n\sum_{i\neq j}I(||s_i-s_j||<r)} \times \color{purple}{\lambda^{-1}}
+$$
+
+-   This [first part]{style="color:tomato;"} of the equation corresponds to the expected number of events that occur within a buffer of radius $r$
+-   The [second part]{style="color:purple;"} of the equation corresponds to the density of events estimated $\lambda = n/|A|$.
+-   The idea is to compare $\hat{K}(r)$ against the expected $K(r)$ under CSR, i.e. $K_{CSR}(r)$
+
+## Using the K function to assess CSR {auto-animate="true"}
+
+::: incremental
+-   If we have a homogeneous Poisson process, we would expect that
+
+    -   The expected number of points in any area is $\lambda \times |A|$
+
+    -   Therefore: $E[\text{points within } r] = \lambda \times \pi r^2$
+
+        $$
+        K_{CSR}(r) = \lambda \times (\pi  r^2) \times \lambda^{-1} = \pi \times r^2
+        $$
+
+-   That is, under CSR we would expect that the K function is equal to the area of the circle with radius $r$.
+:::
+
+## Using the K function to assess CSR
+
+-   When working with real data, some natural variation is to be expected even when CSR holds.
+
+-   We therefore need an approach which accounts for this when assessing for CSR.
+
+::: incremental
+-   We can estimate $\hat{K}(r)$ across a set of distances $r$ for our set of observed events.
+
+-   Our $\hat{K}(r)$ can then be compared to the theoretical function under CSR, $K_{CRS}(r) = \pi r^2$.
+
+-   If the two functions are similar, then CSR is reasonable.
+:::
+
+## Using the K function to assess CSR {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="33.33%"}
+**Spatial clustering**
+
+![People sitting in a Park](figures/ParkK.png){fig-align="center" width="442"}
+:::
+
+::: {.column width="33.33%"}
+**CSR**
+
+![Japanese Pines in a Forest](figures/PinesK.png){fig-align="center" width="452"}
+:::
+
+::: {.column width="33.33%"}
+**Regular pattern**
+
+![Cells in Petri dish](figures/CellsK_env.png){fig-align="center" width="452"}
+:::
+:::::: 
+
+## Using the K function to assess CSR {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="60%"}
+**Spatial clustering**
+
+-   If $\hat{K}(r) > K_{CSR}(r)$ it means that more points are found within a radius $r$ than what would be expected under CSR, suggesting a clustering pattern.
+
+    -   E.g., tree seedlings often cluster near parent trees due to seed dispersal limitations.
+
+![People sitting in a Park](figures/ParkK.png){fig-align="center" width="442"}
+:::
+
+::: {.column width="20%"}
+**CSR**
+
+![Japanese Pines in a Forest](figures/PinesK.png){fig-align="center" width="452"}
+:::
+
+::: {.column width="20%"}
+**Regular pattern**
+
+![Cells in Petri dish](figures/CellsK_env.png){fig-align="center" width="452"}
+:::
+::::::
+
+## Using the K function to assess CSR {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="20%"}
+**Spatial clustering**
+
+![People sitting in a Park](figures/ParkK.png){fig-align="center" width="442"}
+:::
+
+::: {.column width="60%"}
+**CSR**
+
+If $\hat{K}(r) = K_{CSR}(r)$ then our PP is a realization of an HPP.
+
+![Japanese Pines in a Forest](figures/PinesK.png){fig-align="center" width="452"}
+:::
+
+::: {.column width="20%"}
+**Regular pattern**
+
+![Cells in Petri dish](figures/CellsK_env.png){fig-align="center" width="452"}
+:::
+::::::
+
+## Using the K function to assess CSR {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="20%"}
+**Spatial clustering**
+
+![People sitting in a Park](figures/ParkK.png){fig-align="center" width="442"}
+:::
+
+::: {.column width="20%"}
+**CSR**
+
+![Japanese Pines in a Forest](figures/PinesK.png){fig-align="center" width="452"}
+:::
+
+::: {.column width="60%"}
+**Regular pattern**
+
+-   If $\hat{K}(r) < K_{CSR}(r)$, it indicates that the pattern is more regular since we observe fewer neighboring points within a distance $r$ than expected under CSR.
+
+    -   E.g., territorial animals (e.g., nesting birds) often exhibit regular spacing due to competition for space.
+
+![Cells in Petri dish](figures/CellsK_env.png){fig-align="center" width="452"}
+:::
+::::::
+
+## Limitations
+
+While Ripley's $K$ function is widely used in environmental and ecological studies it has some caveats.
+
+-   $K(s)$ is a cumulative function, where all points less than $r$ are also used.
+
+-   *Edge effects*. This occurs because points near the boundaries of the study area have fewer neighboring points within distance $r$, leading to underestimation of $K(r)$
+
+::: notes
+-   So, if there is a strong clustering patter at 5m but no pattern at larger distances, then Ripley's $K$ could still indicate a strong clustering at larger scales due to the data $<$ 5m still being used.
+
+-   The $K(r)$ function can be adjusted for edge effects by including some weights $w$. E.g., if half of a point's search area lies within the study area then the point will receive a weight $w=2$, meaning it contributes twice as much to compensate for the missing area.
+:::
+
+# Inhomogeneous Poisson process
+
+## Inhomogeneous Poisson process
+
+So far we have assumed that the point process is stationary and isotropic.
+
+-   These assumption rarely hold true in real-data
+-   *inhomogeneous Poisson process* (IPP) models are often used for inference prediction and mapping spatial patterns
+
+The IPP has a spatially varying intensity $\lambda(\mathbf{s})$ defined in terms of spatially varying covariates that are available across the whole study area:
+
+$$
+\lambda(s) = \mathrm{exp}(\alpha+\beta x(s) +\ldots )
+$$
+
+## Inhomogeneous Poisson process {.smaller auto-animate="true"}
+
+Let $\mathbf{y} = s_1,\ldots,s_n$ the $n$ number of observed events/points in an observation window $\Omega$
+
+For an IPP with an intensity $\lambda(s)$, the likelihood is given by:
+
+$$
+p(\mathbf{y} | \lambda) \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i).
+$$
+
+::: incremental
+-   If the case of an **HPP** the integral in the likelihood can easily be computed as $\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} =|\Omega|\lambda$
+
+-   For an **HPP** with an intensity $\lambda$, the log-likelihood is given by: $$
+    l(\beta;\mathbf{y}) = n\log(\lambda) -\lambda|\Omega|,
+    $$
+
+-   The maximum likelihood estimators is $\hat{\lambda} = n/|\Omega|$.
+
+-   For **IPP**, the integral in the likelihood has to be approximateda as a weighted sum.
+:::
+
+<!-- ## The Grid approach -->
+
+<!-- -  A common approach to approximate these models is by discretizing the study area into a regular grid  -->
+
+<!-- -  then calculate the number of events $N_{ij}$ observed in each grid cell $s_{ij}$. -->
+
+<!-- ![](figures/grid2.png){fig-align="center" width="452"} -->
+
+<!-- ## The Grid approach {.smaller} -->
+
+<!-- - The observed number of events $N_ij$ in grid cell $s_{ij}$ is modelled as $N_{ij}\sim \mathrm{Pois}(\Lambda_{ij})$ where $\Lambda_{ij} = \int_{ij}\lambda(s)ds$ -->
+
+<!-- - the mean number of events in cell $s_{ij}$ is given by the integral of the intensity over the cell - approximated by  -->
+
+<!-- $$\int_{s_{ij}}\lambda(s)ds \approx |s_{ij}|\lambda_{ij}$$ -->
+
+<!-- - It can be shown that as the size of the cells decreases to zero, this approximation method converges to the true process. -->
+
+<!-- - Discretization of the domain can significantly impact results:  -->
+
+<!--     -  coarse lattice loses information about precise locations -->
+
+<!--     -  a fine lattice increases computational costs -->
+
+<!--     -  accounting for spatial dependece is difficult (e.g., Constructing a CAR model on an irregular lattice while maintaining resolution consistency is difficult) -->
+
+## Inhomogeneous Poisson process
+
+This integral is approximated as $\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \approx \sum_{j=1}^J w_j \lambda(\mathbf{s}_j)$
+
+-   $w_j$ are the integration weights
+
+-   $\mathbf{s}_j$ are the quadrature locations.
+
+This serves two purposes:
+
+1.  Approximating the integral
+
+2.  re-writing the inhomogeneous Poisson process likelihood as a regular Poisson likelihood.
+
+## Inhomogeneous Poisson process {.smaller}
+
+The idea behind the trick to rewrite the approximate likelihood is to introduce a dummy vector $\mathbf{z}$ and an integration weights vector $\mathbf{w}$ of length $J + n$
+
+::::: columns
+::: {.column width="50%"}
+$$\mathbf{z} = \left[\underbrace{0_1, \ldots,0_J}_\text{quadrature locations}, \underbrace{1_1, \ldots ,1_n}_{\text{data points}} \right]^\intercal$$
+:::
+
+::: {.column width="50%"}
+$$\mathbf{w} = \left[ \underbrace{w_1, \ldots, w_J}_\text{quadrature locations}, \underbrace{0_1, \ldots, 0_n}_\text{data points} \right]^\intercal$$
+:::
+:::::
+
+Then the approximate likelihood can be written as
+
+$$
+\begin{aligned}
+p(\mathbf{z} | \lambda) &\propto \prod_{i=1}^{J + n} \eta_i^{z_i} \exp\left(-w_i \eta_i \right) \\
+\eta_i &= \log\lambda(\mathbf{s}_i) = \mathbf{x}(s)'\beta
+\end{aligned}
+$$
+
+-   This is similar to a product of Poisson distributions with means $\eta_i$, exposures $w_i$ and observations $z_i$.
+
+## Limitations with IPP
+
+::: {style="height: 50px;"}
+:::
+
+::: incremental
+-   IPP models assume that data points are conditionally independent given the covariates, meaning that any spatial variation is fully explained by environmental and sampling factors.
+-   Unmeasured endogenous and exogenous factors can create spatial dependence.
+-   Ignoring them can lead to bias in our conclusions.
+:::
+
+## The Log-Gaussian Cox Process {.smaller}
+
+::: {style="height: 50px;"}
+:::
+
+-   Log-Gaussian Cox processes (LGCP) extend the IPP by allowing the intensity function to vary spatially according to a structured spatial random effect, i.e. the intensity is random
+
+$$
+\log~\lambda(s)= \mathbf{x}(s)'\beta + \xi(s)
+$$
+
+-   The events are then assumed to be independent given the covariates and $\xi(s)$ - a GRF with Matérn covariance.
+
+::: fragment
+How do we model $\xi(s)$ ?
+:::
+
+::: fragment
+-   We use an SPDE model!
+-   The software `inlabru` has implemented some integration schemes that are especially well suited to integrating the intensity in models with an SPDE effect.
+:::
+
+::: aside
+See for further reference: Simpson, Daniel, Janine B. Illian, Finn Lindgren, Sigrunn H. Sørbye, and Håvard Rue. 2016. "Going off grid: computationally efficient inference for log-Gaussian Cox processes." *Biometrika* 103 (1): 49–70.
+:::
+
+# Example: Forest fires {background-image="figures/wildfire.jpg" background-color="#FFFFFF"}
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+-   In this example we model the location of forest fires in the Castilla-La Mancha region of Spain between 1998 and 2007.
+
+-   We are now going to use the elevation as a covariate to explain the variability of the intensity $\lambda(s)$ over the domain of interest and a spatially structured SPDE model.
+
+$$
+\log\lambda(s) = \beta_0 + \beta_1 \text{elevation}(s) + \xi(s)
+$$
+
+```{r}
+#| fig-align: center
+#| fig-width: 6
+#| fig-height: 6
+#| message: false
+#| warning: false
+
+library(spatstat)
+library(tidyverse)
+library(terra)
+library(sf)
+library(ggplot2)
+library(tidyterra)
+data("clmfires")
+pp = st_as_sf(as.data.frame(clmfires) %>%
+                mutate(x = x, 
+                       y = y),
+              coords = c("x","y"),
+              crs = NA) %>%
+  filter(cause == "lightning",
+         year(date) == 2004)
+
+poly = as.data.frame(clmfires$window$bdry[[1]]) %>%
+  mutate(ID = 1)
+
+region = poly %>% 
+  st_as_sf(coords = c("x", "y"), crs = NA) %>% 
+  dplyr::group_by(ID) %>% 
+  summarise(geometry = st_combine(geometry)) %>%
+  st_cast("POLYGON") 
+  
+elev_raster = rast(clmfires.extra[[2]]$elevation)
+elev_raster = scale(elev_raster)
+
+ggplot() + geom_spatraster(data = elev_raster) +  geom_sf(data = region, col = "black", alpha = 0,linewidth =0.75) + geom_sf(data = pp) + scale_fill_scico(name= "Elevation")
+
+```
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+:::::: columns
+::: {.column width="50%"}
+**The IPP Model** $$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) \\
+\eta(s) &  = \log ~\lambda(s) = \beta_0 +  x(s) 
+\end{aligned}
+$$ **The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_raster, model = "linear") 
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev 
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+:::
+
+:::: {.column width="50%"}
+::: panel-tabset
+## Regular Grid
+
+```{r}
+#| echo: true
+n.int = 1000
+ips = st_sf(geometry = st_sample(region,
+            size = n.int,
+            type = "regular"))
+
+ips$weight = st_area(region) / n.int
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+ggplot() + geom_sf(data = ips, aes(color = weight)) + geom_sf(data= region, alpha = 0)
+```
+
+## `fm_int`
+
+```{r}
+#| echo: true
+
+# The mesh
+mesh = fm_mesh_2d(boundary = region,
+                  max.edge = c(5, 10),
+                  cutoff = 4, crs = NA)
+
+# build integration scheme
+ips = fm_int(mesh,
+             samplers = region)
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+
+
+ggplot() + geom_sf(data = ips, aes(color = weight),size=0.5) + 
+   scale_color_scico(palette = "roma") + gg(mesh)
+
+
+```
+:::
+::::
+::::::
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) \\
+\eta(s) &  = \log(\lambda(s)) = \color{#FF6B6B}{\boxed{\beta_0}} + \color{#FF6B6B}{\boxed{ x(s)}} + \color{#FF6B6B}{\boxed{ \omega(s)}}\\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-3"
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_raster, model = "linear") +
+  space(geometry, model = spde_model) 
+
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev + space
+
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+# The mesh
+mesh = fm_mesh_2d(boundary = region,
+                  max.edge = c(5, 10),
+                  cutoff = 4, crs = NA)
+
+# The SPDE model
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.5),
+                                  prior.range = c(100, 0.5))
+
+# build integration scheme
+ips = fm_int(mesh,
+             samplers = region)
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 6
+
+
+ggplot() + geom_sf(data = ips, aes(color = weight),size=0.5) + 
+   scale_color_scico(palette = "roma") + gg(mesh)
+
+
+```
+:::
+:::::
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) \\
+\color{#FF6B6B}{\boxed{\eta(s)}} &  = \log(\lambda(s)) = \color{#FF6B6B}{\boxed{\beta_0 +  x(s) + \omega(s)}}\\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "6-7"
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_raster, model = "linear") +
+  space(geometry, model = spde_model) 
+
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev + space
+
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+# The mesh
+mesh = fm_mesh_2d(boundary = region,
+                  max.edge = c(5, 10),
+                  cutoff = 4, crs = NA)
+
+# The SPDE model
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.5),
+                                  prior.range = c(100, 0.5))
+
+# build integration scheme
+ips = fm_int(mesh,
+             samplers = region)
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 6
+
+
+ggplot() + geom_sf(data = ips, aes(color = weight),size=0.5) + 
+   scale_color_scico(palette = "roma") + gg(mesh)
+
+
+```
+:::
+:::::
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+\color{#FF6B6B}{\boxed{p(\mathbf{y} | \lambda)}}  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) \\
+\eta(s) &  = \log(\lambda(s)) = \beta_0 +  x(s) + \omega(s)\\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "10-14"
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_raster, model = "linear") +
+  space(geometry, model = spde_model) 
+
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev + space
+
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+# The mesh
+mesh = fm_mesh_2d(boundary = region,
+                  max.edge = c(5, 10),
+                  cutoff = 4, crs = NA)
+
+# The SPDE model
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.5),
+                                  prior.range = c(100, 0.5))
+
+# build integration scheme
+ips = fm_int(mesh,
+             samplers = region)
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 6
+
+
+ggplot() + geom_sf(data = ips, aes(color = weight),size=0.5) + 
+   scale_color_scico(palette = "roma") + gg(mesh)
+
+
+```
+:::
+:::::
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="50%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) \\
+\eta(s) &  = \log(\lambda(s)) = \beta_0 +  x(s) + \omega(s)\\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "17-18"
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_raster, model = "linear") +
+  space(geometry, model = spde_model) 
+
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev + space
+
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+
+# The mesh
+mesh = fm_mesh_2d(boundary = region,
+                  max.edge = c(5, 10),
+                  cutoff = 4, crs = NA)
+
+# The SPDE model
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.5),
+                                  prior.range = c(100, 0.5))
+
+# build integration scheme
+ips = fm_int(mesh,
+             samplers = region)
+
+```
+
+```{r}
+#| echo: false
+#| fig-width: 6
+#| fig-height: 6
+
+
+ggplot() + geom_sf(data = ips, aes(color = weight),size=0.5) + 
+   scale_color_scico(palette = "roma") + gg(mesh)
+
+
+```
+:::
+:::::
+
+## Example: Forest fires in Castilla-La Mancha {.smaller background-color="#FFFFFF"}
+
+**Model Predictions**
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(viridis)
+
+#eval_spatial(elev_raster,pp) %>% is.na() %>% any()
+#eval_spatial(elev_raster,ips) %>% is.na() %>% any()
+#eval_spatial(elev_raster,ips[3525,]) %>% is.na() %>% which()
+
+# ggplot()+tidyterra::geom_spatraster(data=elev_raster)+
+#   geom_sf(data=ips[3525,])
+
+# Extend raster ext by 5 % of the original raster
+re <- extend(elev_raster, ext(elev_raster)*1.05)
+# Convert to an sf spatial object
+re_df <- re %>% stars::st_as_stars() %>%  st_as_sf(na.rm=F)
+# fill in missing values using the original raster 
+re_df$lyr.1 <- bru_fill_missing(elev_raster,re_df,re_df$lyr.1)
+# rasterize
+elev_rast_p <- stars::st_rasterize(re_df) %>% rast()
+# visualize
+
+# ggplot()+tidyterra::geom_spatraster(data=elev_rast_p)+
+#   geom_sf(data=ips[3525,])
+
+
+# define model component
+cmp = ~ Intercept(1) + elev(elev_rast_p, model = "linear") +
+  space(geometry, model = spde_model) 
+
+
+# define model predictor
+eta  = geometry ~ Intercept +  elev + space
+
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = pp,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+
+# Predictions
+elev_crop <- terra::crop(x = elev_raster,y = region,mask=TRUE)
+
+pxl1 = data.frame(crds(elev_crop), 
+                  as.data.frame(elev_crop$lyr.1)) %>% 
+       filter(!is.na(lyr.1)) %>%
+st_as_sf(coords = c("x","y")) %>%
+  dplyr::select(-lyr.1)
+
+
+lgcp_pred <- predict(
+  fit,
+  pxl1,
+  ~ data.frame(
+    lambda = exp(Intercept + elev + space), # intensity
+    loglambda = Intercept + elev +space,  #log-intensity
+    GF = space # matern field
+  )
+)
+
+ggplot() +
+  gg(lgcp_pred$loglambda, geom = "tile") + 
+  scale_fill_viridis(name=expression(log(lambda)))+
+  ggplot() +
+  gg(lgcp_pred$loglambda, geom = "tile",aes(fill=sd)) + 
+  scale_fill_viridis(name=expression(stdev-log(lambda)),option = "B")+
+  ggplot() +
+  gg(lgcp_pred$lambda, geom = "tile") + scale_fill_viridis(name=expression(lambda))+
+  ggplot() +
+  gg(lgcp_pred$GF, geom = "tile") + scico::scale_fill_scico(name="Spatial effect")+
+  plot_layout(ncol=2)
+
+
+
+```
+
+## Incomplete Detection
+
+We do not always observed all the events. Specially in Ecology!
+
+::::: columns
+::: {.column width="40%"}
+-   Uneven sampling effort
+-   Observer errors/detectability
+-   Accessibility constraints
+-   Population density
+:::
+
+::: {.column width="60%"}
+![](figures/leopard.jpg){fig-align="center" width="623"}
+:::
+:::::
+
+## Incomplete Detection
+
+**Implications:**
+
+-   Incomplete detection (points missing from our sample)
+-   Biased patterns may distort the true distribution.
+-   If we account for these biases, then we can estimate the underlying pattern across the entire region by making use of covariates that are available for the whole area
+
+# Distance Sampling
+
+## Overview of Distance Sampling {.smaller background-color="#FFFFFF"}
+
+-   Distance sampling is a family of related methods for estimating the abundance and spatial distribution of wild populations.
+
+-   Distance sampling is based on the idea that animals further away from observers are harder to detect than animals that are nearer.
+
+::::: columns
+::: {.column width="40%"}
+-   This idea is implemented in the model as a detection function that depends on distance.
+
+    -   Animals at greater distances are harder to detect and the detection function therefore declines as distance increases.
+:::
+
+::: {.column width="60%"}
+![](figures/distance-animation.gif){fig-align="center" width="623"}
+:::
+:::::
+
+## Density surface models {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+Coupling distance sampling data with spatial modelling allows maps of spatially varying density to be produced.
+
+-   Traditionally, this is achieved in a two-stages approach by (i) using a detectability point estimates to create an offset vector to (ii) use within GLM or GAM for count response data.
+
+![](figures/dsm_approach.png){fig-align="center"}
+
+## Density surface models {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+Coupling distance sampling data with spatial modelling allows maps of spatially varying density to be produced.
+
+-   Traditionally, this is achieved in a two-stages approach by (i) using a detectability point estimates to create an offset vector to (ii) use within GLM or GAM for count response data.
+
+-   This requires binning the data into counts based on some discretisation of space.
+
+![](figures/discrete_DS.png){fig-align="center" width="544"}
+
+## Density surface models {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+Coupling distance sampling data with spatial modelling allows maps of spatially varying density to be produced.
+
+-   Traditionally, this is achieved in a two-stages approach by (i) using a detectability point estimates to create an offset vector to (ii) use within GLM or GAM for count response data.
+
+-   A major downside to this approach is the **propagation of uncertainty** from the detection model to the second-stage spatial model.
+
+::: fragment
+-   **The goal**: one-stage distance sampling model, simultaneously estimating the detectability and the spatial distribution of animals using a *point process framework*.
+
+![](figures/inlabru_DS.png){fig-align="center" width="500"}
+:::
+
+# Thinned Point Process
+
+## Thinned Point Process {.smaller}
+
+::: {style="height: 50px;"}
+:::
+
+The LGCP is a flexible approach that can include spatial covariates to model the mean intensity and a mean-zero spatially structured random effect to account for unexplained heterogeneity not captured by the covariates.
+
+-   To account for the imperfect detection of points we specify a thinning probability function $$g(s) = \mathbb{P}(\text{a point at s is detected}|\text{a point is at s})$$
+
+-   A key property of LGCP is that a realisation of a point process with intensity $\lambda(s)$ that is thinned by probability function $g(s)$, follows also a LGCP with intensity:
+
+$$
+\underbrace{\tilde{\lambda}(s)}_{\text{observed process}} = \underbrace{\lambda(s)}_{\text{true process}} \times \underbrace{g(s)}_{\text{thinning probability}}
+$$
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+Lets visualize this on 1D: Intensity function with [points]{style="color:grey;"}
+
+![](figures/densityrug-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+Intensity (density) function with [points]{style="color:grey;"} and transect locations
+
+![](figures/densityrugtrans-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: incremental
+-   Detection function $\color{red}{g(s)}$
+
+-   Here $\color{red}{g(s) =1}$ on the transects (at x = 10,30 and 50).
+:::
+
+![](figures/detfun-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+-   Detection function $\color{red}{g(s)}$ and [detected points]{style="color:grey;"}
+
+![](figures/detfundets-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+![](figures/thinning1-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+![](figures/thinning2-1.png){fig-align="center"} The detection function describes the probability $\color{red}{p(s)}$ that an point is detected
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+![](figures/thinning3-1.png){fig-align="center"}
+
+## Thinned Point Process {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+![](figures/thinning4-1.png){fig-align="center"}
+
+Observations are from a thinned Poisson process with intensity $\lambda(s) \color{red}{p(s)}$
+
+## Detection Function {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+-   Standard distance sampling approaches specify $g(s)$ as a function that declines with increasing distance
+    -   horizontal distance to the observer for *point transects*
+    -   perpendicular distance to the transect line for *line transects*
+
+![](figures/whale_watch.png){fig-align="center" width="398"}
+
+## Detection Function {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+-   Standard distance sampling approaches specify $g(s)$ as a function that declines with increasing distance
+    -   horizontal distance to the observer for *point transects*
+    -   [perpendicular distance to the transect line for *line transects*]{style="color:red;"}
+
+![](figures/whale_watch.png){fig-align="center" width="448"}
+
+## Detection Function {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+-   Standard distance sampling approaches specify $g(s)$ as a function that declines with increasing distance
+    -   horizontal distance to the observer for *point transects*
+    -   perpendicular distance to the transect line for *line transects*
+-   The thinning probability function is specified as a parametric family of functions.
+
+::::: columns
+::: {.column width="40%"}
+**Half-normal**: $g(\mathbf{s}|\sigma) = \exp(-0.5 (d(\mathbf{s})/\sigma)^2)$
+
+**Hazard-rate** :$g(\mathbf{s}|\sigma) = 1 - \exp(-(d(\mathbf{s})/\sigma)^{-1})$
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.6
+#| fig-height: 3.5
+
+
+library(ggplot2)
+# Parameters
+sigma <- 50
+b <- 2
+distances <- seq(0, 150, length.out = 200)
+
+# Create data
+df <- data.frame(
+  distance = rep(distances, 2),
+  probability = c(exp(-distances^2 / (2 * sigma^2)),
+                  1 - exp(-(distances/sigma)^(-b))),
+  type = rep(c("Half-normal", "Hazard-rate"), each = 200)
+)
+
+# Simple plot with linetypes
+ggplot(df, aes(x = distance, y = probability, color = type, linetype = type)) +
+  geom_line(size = 1) +
+  labs(
+    x = "Distance",
+    y = "Detection Probability",
+    color = "Type",
+    linetype = "Type"
+  ) +
+  scale_color_manual(values = c("#2E86AB", "#E76F51")) +
+  scale_linetype_manual(values = c("solid", "dashed")) +
+  theme_minimal()
+```
+:::
+:::::
+
+## Detection Function {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::: {style="height: 50px;"}
+:::
+
+-   Standard distance sampling approaches specify $g(s)$ as a function that declines with increasing distance
+    -   horizontal distance to the observer for *point transects*
+    -   perpendicular distance to the transect line for *line transects*
+-   The thinning probability function is specified as a parametric family of functions.
+-   The thinned-LGCP likelihood is given by:
+
+$$
+\pi(\mathbf{s_1},\ldots,\mathbf{s_m}) = \exp\left( |\Omega| - \int_{\mathbf{s}\in\Omega}\lambda(s)g(s)\text{d}s \right) \prod_{i=1}^m \lambda(\mathbf{s}_i)g(\mathbf{s}_i)
+$$
+
+-   To make $g(s)$ and $\lambda(s)$ identifiable, we assume intensity is constant with respect to distance from the observer.
+
+    -   In practice this means we assume animals are uniformly distributed with respect to distance from the line
+
+## Putting all the pieces together {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+![](figures/thinweeds0-1.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+-   The true point pattern $Y = \mathbf{s}_1,\ldots,\mathbf{s}_n$ are a realization of a Point process with intensity $\lambda(s)$
+:::
+:::::
+
+## Putting all the pieces together {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+![](figures/thinweeds1-1.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+-   The true point pattern $Y = \mathbf{s}_1,\ldots,\mathbf{s}_n$ are a realization of a Point process with intensity $\lambda(s)$
+-   We design a sampling survey to collect the data along transects
+:::
+:::::
+
+## Putting all the pieces together {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+![](figures/thinweeds2-1.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+-   The true point pattern $Y = \mathbf{s}_1,\ldots,\mathbf{s}_n$ are a realization of a Point process with intensity $\lambda(s)$
+-   We design a sampling survey to collect the data along transects
+-   [detected points]{style="color:grey;"} are generated from the thinned PP with intensity $\color{red}{\tilde{\lambda}(s)}= \lambda(s)\color{red}{g(d(s))}$
+    -   The **log intensity** $\log \color{red}{\tilde{\lambda}(s)} = \overbrace{\log \lambda (s)}^{\mathbf{x}'\beta + \xi(s)} + \overbrace{\log \color{red}{g(d(s))}}^{-0.5~d(\mathbf{s})^2\sigma^{-2}}$
+:::
+:::::
+
+## Putting all the pieces together {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+![](figures/thinweeds2-1.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+-   The true point pattern $Y = \mathbf{s}_1,\ldots,\mathbf{s}_n$ are a realization of a Point process with intensity $\lambda(s)$
+-   We design a sampling survey to collect the data along transects
+-   [detected points]{style="color:grey;"} are generated from the thinned PP with intensity $\color{red}{\tilde{\lambda}(s)}= \lambda(s)\color{red}{g(d(s))}$
+    -   The **log intensity** $\log \color{red}{\tilde{\lambda}(s)} = \overbrace{\log \lambda (s)}^{\mathbf{x}'\beta + \xi(s)} + \overbrace{\log \color{red}{g(d(s))}}^{-0.5~d(\mathbf{s})^2\sigma^{-2}}$
+    -   The **encounter rate**, i.e. the number of observed animals within a distance $W$ follows $m \sim \text{Poisson} \left(\int_0^W \tilde{\lambda}(d)\text{d}d\right)$
+:::
+:::::
+
+-   The pdf of detected *distances* is $\pi(d_1,\ldots,d_m|m) \propto \prod_{i=1}^m\dfrac{\tilde{\lambda}(d_i)}{\int_0^W \tilde{\lambda}(d)\text{d}d}$
+
+## Putting all the pieces together {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="40%"}
+![](figures/thinweeds2-1.png){fig-align="center"}
+:::
+
+::: {.column width="60%"}
+-   The true point pattern $Y = \mathbf{s}_1,\ldots,\mathbf{s}_n$ are a realization of a Point process with intensity $\lambda(s)$
+-   We design a sampling survey to collect the data along transects
+-   [detected points]{style="color:grey;"} are generated from the thinned PP with intensity $\color{red}{\tilde{\lambda}(s)}= \lambda(s)\color{red}{g(d(s))}$
+    -   The **log intensity** $\log \color{red}{\tilde{\lambda}(s)} = \overbrace{\log \lambda (s)}^{\mathbf{x}'\beta + \xi(s)} + \overbrace{\log \color{red}{g(d(s))}}^{-0.5~d(\mathbf{s})^2\sigma^{-2}}$
+    -   The **encounter rate**, i.e. the number of observed animals within a distance $W$ follows $m \sim \text{Poisson} \left(\int_0^W \tilde{\lambda}(d)\text{d}d\right)$
+:::
+:::::
+
+-   The pdf of detected *distances* is $\pi(d_1,\ldots,d_m|m) \propto \prod_{i=1}^m\dfrac{ g(d_i)}{\int_o^W g(d) \text{d}d}$ if $\color{red}{\tilde{\lambda}(d_i)} = \lambda \color{red}{g(d_i)}$
+
+## Putting all the pieces together {.smaller}
+
+-   If the strips width ( $2W$ ) is narrow compared to study region ($\Omega$) we can treat them as lines.
+
+-   Define the Poisson process likelihood along the kronecker spaces (line $\times$ distance)
+
+-   Accounting for imperfect detection the thinned Poisson process model on (space, distance) along the transects becomes:
+
+$$
+\begin{aligned}
+\log \tilde{\lambda}(s,\text{distance}) &= \overbrace{\mathbf{x}'\beta + \xi(s)}^{\log \lambda(s)} + \log \mathbb{P}(\text{detection at }s|\text{distance},\sigma) + \log(2)\\
+\mathbb{P}(\text{detection}) &=1-\exp\left(-\frac{\sigma}{\text{distance}}\right)
+\end{aligned}
+$$
+
+::: incremental
+-   Here $\log 2$ accounts for the two-sided detection.
+
+-   Typically $\mathbb{P}(distance)$ is a non-linear function, that is where `inlabru` can help via a **Fixed point iteration scheme** (further details available in this [vignette](https://cran.r-project.org/web/packages/inlabru/vignettes/method.html))
+
+-   we define $\log (\sigma)$ as a latent Gaussian variable and iteratively linearise it.
+:::
+
+# Example: Dolphins in Mexico {background-image="figures/dolphins.jpeg"}
+
+## Example: Dolphins in the Gulf of Mexico {.smaller}
+
+In the next example, we will explore data from a combination of several NOAA shipboard surveys conducted on pan-tropical spotted dolphins in the Gulf of Mexico.
+
+-   A total of 47 observations of groups of dolphins were detected. The group size was recorded, as well as the Beaufort sea state at the time of the observation.
+
+-   Transect width is 16 km, i.e. maximal detection distance 8 km (transect half-width 8 km).
+
+```{r}
+#| echo: false
+#| message: false
+#| eval: true
+#| out-width: 100%
+
+library(mapview)
+mapviewOptions(basemaps = c( "OpenStreetMap.DE"))
+mexdolphin <- mexdolphin_sf
+
+mapview(mexdolphin$points,zcol="size")+
+  mapview(mexdolphin$samplers)+
+ mapview(mexdolphin$ppoly )
+
+mesh = fm_mesh_2d(boundary = mexdolphin$ppoly,
+                    max.edge = c(30, 150),
+                    cutoff = 15,
+                    crs = fm_crs(mexdolphin$points))
+
+```
+
+## Step 1: Define the SPDE representation: The mesh {.smaller auto-animate="true" background-color="#FFFFFF"}
+
+First, we need to create the mesh used to approximate the random field. We can either:
+
+2.  Use a pre-define `sf` boundary and specify this directly into the mesh construction via the `fm_mesh_2d` function
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: true
+library(fmesher)
+
+mesh_1 = fm_mesh_2d(boundary = mexdolphin$ppoly,
+                    max.edge = c(30, 150),
+                    cutoff = 15,
+                    crs = fm_crs(mexdolphin$points))
+
+```
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: false
+  ggplot() + gg(mesh_1) +geom_sf(data=mexdolphin$points)
+```
+:::
+
+::: {.column width="40%"}
+-   `max.edge` for maximum triangle edge lengths
+-   `cutoff` to avoid overly small triangles in clustered areas
+:::
+:::::
+
+## Step 1: Define the SPDE representation: The SPDE {background-color="#FFFFFF"}
+
+We use the `inla.spde2.pcmatern` to define the SPDE model using PC priors through the following probability statements
+
+::::: columns
+::: {.column width="40%"}
+-   $P(\rho < 50) = 0.1$
+
+-   $P(\sigma > 2) = 0.1$
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+spde_model =  inla.spde2.pcmatern(
+  mexdolphin$mesh,
+  prior.sigma = c(2, 0.1),
+  prior.range = c(50, 0.1)
+)
+```
+:::
+:::::
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+
+
+dens_prior_range = function(rho_0, p_alpha)
+{
+  # compute the density of the PC prior for the
+  # range rho of the Matern field
+  # rho_0 and p_alpha are defined such that
+  # P(rho<rho_0) = p_alpha
+  rho = seq(0, rho_0*10, length.out =100)
+  alpha1_tilde = -log(p_alpha) * rho_0
+  dens_rho =  alpha1_tilde / rho^2 * exp(-alpha1_tilde / rho)
+  return(data.frame(x = rho, y = dens_rho))
+}
+
+dens_prior_sd = function(sigma_0, p_sigma)
+{
+  # compute the density of the PC prior for the
+  # sd sigma of the Matern field
+  # sigma_0 and p_sigma are defined such that
+  # P(sigma>sigma_0) = p_sigma
+  sigma = seq(0, sigma_0*5, length.out =100)
+  alpha2_tilde = -log(p_sigma)/sigma_0
+  dens_sigma = alpha2_tilde* exp(-alpha2_tilde * sigma) 
+  return(data.frame(x = sigma, y = dens_sigma))
+}
+
+ggplot() + geom_line(data = dens_prior_range(50,.1), aes(x,y))+ labs(y="",x="range",title="Prior for the range") +
+ggplot() + geom_line(data = dens_prior_sd(1,.1), aes(x,y)) + labs(y="",x="sd",title="Prior for the sd")
+
+```
+
+## Step 2: Define the Detection function {.smaller background-color="#FFFFFF"}
+
+We start by plotting the distances and histogram of frequencies in distance intervals.
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-height: 3.5
+#| fig-width: 4
+W <- 8
+ggplot(mexdolphin$points) +
+  geom_histogram(aes(x = distance),
+    breaks = seq(0, W, length.out = 9),
+    boundary = 0, fill = NA, color = "black"
+  ) +
+  geom_point(aes(x = distance), y = 0, pch = "|", cex = 4)
+
+```
+
+Then, we need to define a half-normal detection probability function. This must take distance as its first argument and the linear predictor of the sigma parameter as its second:
+
+```{r}
+#| echo: true
+# define detection function
+hn <- function(distance, sigma) {
+  exp(-0.5 * (distance / sigma)^2)
+}
+```
+
+::: {style="height: 50px;"}
+:::
+
+## Example: Dolphins in the Gulf of Mexico {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="60%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) p(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) p(\mathbf{s}_i)) \\
+\eta(s) &  = \color{#FF6B6B}{\boxed{\beta_0}} + \color{#FF6B6B}{\boxed{ \omega(s)}} + \color{#FF6B6B}{\boxed{ \log p(s)}} \\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-7"
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+# fit the model
+fit = bru(cmp, lik)
+```
+:::
+
+::: {.column width="40%"}
+The **integration scheme**
+
+```{r}
+#| echo: true
+
+# build integration scheme
+distance_domain <-  fm_mesh_1d(seq(0, 8,
+                              length.out = 30))
+ips = fm_int(list(geometry = mesh,
+                  distance = distance_domain),
+             samplers = mexdolphin$samplers)
+```
+
+```{r}
+#| echo: false
+#| fig-height: 12
+
+ips_area = fm_int(mesh,
+                  samplers = mexdolphin$ppoly)
+
+ips_line = fm_int( mesh,
+                   samplers = mexdolphin$samplers)
+
+p3 = ggplot()  +geom_sf(data=mexdolphin$ppoly)+
+  geom_sf(data = ips_area, aes(color = weight),size=0.8)+
+  ggtitle("Area integration") +
+  scale_color_scico(palette = "roma")
+p2 = ggplot()  + geom_sf(data=mexdolphin$ppoly)+ 
+  geom_sf(data = ips_line, aes(color =  16*weight),size=0.8) + geom_sf(data=mexdolphin$samplers) +
+  ggtitle("Line integration") +
+   scale_color_scico(palette = "roma")
+
+((p2 / p3 + plot_layout(guides = 'keep')) ) 
+```
+:::
+:::::
+
+::: notes
+The samplers in this dataset are lines, not polygons, so we need to tell `inlabru` about the strip half-width, W, which in the case of these data is 8.
+
+To control the prior distribution for the $\sigma$ parameter, we use a transformation mapper that converts a latent variable into an exponentially distributed variable with expectation 8
+
+The `marginal` argument in the sigma component specifies the transformation function taking N(0,1) to Exponential(1/8).
+:::
+
+## Example: Dolphins in the Gulf of Mexico {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="60%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+p(\mathbf{y} | \lambda)  & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) p(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) p(\mathbf{s}_i)) \\
+\color{#FF6B6B}{\boxed{\eta(s)}} &  = \color{#FF6B6B}{\boxed{\beta_0 +  \omega(s) +  \log p(s)}}\\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "9-12"
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+:::
+
+::: {.column width="40%"}
+The **integration scheme**
+
+```{r}
+#| echo: true
+
+# build integration scheme
+distance_domain <-  fm_mesh_1d(seq(0, 8,
+                              length.out = 30))
+ips = fm_int(list(geometry = mesh,
+                  distance = distance_domain),
+             samplers = mexdolphin$samplers)
+```
+
+```{r}
+#| echo: false
+#| fig-height: 12
+
+ips_area = fm_int(mesh,
+                  samplers = mexdolphin$ppoly)
+
+ips_line = fm_int( mesh,
+                   samplers = mexdolphin$samplers)
+
+p3 = ggplot()  +geom_sf(data=mexdolphin$ppoly)+
+  geom_sf(data = ips_area, aes(color = weight),size=0.8)+
+  ggtitle("Area integration") +
+  scale_color_scico(palette = "roma")
+p2 = ggplot()  + geom_sf(data=mexdolphin$ppoly)+ 
+  geom_sf(data = ips_line, aes(color =  16*weight),size=0.8) + geom_sf(data=mexdolphin$samplers) +
+  ggtitle("Line integration") +
+   scale_color_scico(palette = "roma")
+
+((p2 / p3 + plot_layout(guides = 'keep')) ) 
+
+```
+:::
+:::::
+
+::: notes
+we need an offset due to the unknown direction of the detections
+:::
+
+## Example: Dolphins in the Gulf of Mexico {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="60%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+\color{#FF6B6B}{\boxed{p(\mathbf{y} | \lambda)}} & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) p(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) p(\mathbf{s}_i)) \\
+\eta(s) &  = \beta_0 +  \omega(s) +  \log p(s) \\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "13-18"
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+:::
+
+::: {.column width="40%"}
+The **integration scheme**
+
+```{r}
+#| echo: true
+
+# build integration scheme
+distance_domain <-  fm_mesh_1d(seq(0, 8,
+                              length.out = 30))
+ips = fm_int(list(geometry = mesh,
+                  distance = distance_domain),
+             samplers = mexdolphin$samplers)
+```
+
+```{r}
+#| echo: false
+#| fig-height: 12
+
+ips_area = fm_int(mesh,
+                  samplers = mexdolphin$ppoly)
+
+ips_line = fm_int( mesh,
+                   samplers = mexdolphin$samplers)
+
+p3 = ggplot()  +geom_sf(data=mexdolphin$ppoly)+
+  geom_sf(data = ips_area, aes(color = weight),size=0.8)+
+  ggtitle("Area integration") +
+  scale_color_scico(palette = "roma")
+p2 = ggplot()  + geom_sf(data=mexdolphin$ppoly)+ 
+  geom_sf(data = ips_line, aes(color =  16*weight),size=0.8) + geom_sf(data=mexdolphin$samplers) +
+  ggtitle("Line integration") +
+   scale_color_scico(palette = "roma")
+
+((p2 / p3 + plot_layout(guides = 'keep')) ) 
+```
+:::
+:::::
+
+## Example: Dolphins in the Gulf of Mexico {.smaller background-color="#FFFFFF"}
+
+::::: columns
+::: {.column width="60%"}
+**The LGCP Model**
+
+$$
+\begin{aligned}
+\color{#FF6B6B}{\boxed{p(\mathbf{y} | \lambda)}} & \propto \exp \left( -\int_\Omega \lambda(\mathbf{s}) p(\mathbf{s}) \mathrm{d}\mathbf{s} \right) \prod_{i=1}^n \lambda(\mathbf{s}_i) p(\mathbf{s}_i)) \\
+\eta(s) &  = \beta_0 +  \omega(s) +  \log p(s) \\
+\end{aligned}
+$$
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "20-21"
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+:::
+
+::: {.column width="40%"}
+The **integration scheme**
+
+```{r}
+#| echo: true
+
+# build integration scheme
+distance_domain <-  fm_mesh_1d(seq(0, 8,
+                              length.out = 30))
+ips = fm_int(list(geometry = mesh,
+                  distance = distance_domain),
+             samplers = mexdolphin$samplers)
+```
+
+```{r}
+#| echo: false
+#| fig-height: 12
+ips_area = fm_int(mesh,
+                  samplers = mexdolphin$ppoly)
+
+ips_line = fm_int( mesh,
+                   samplers = mexdolphin$samplers)
+
+p3 = ggplot()  +geom_sf(data=mexdolphin$ppoly)+
+  geom_sf(data = ips_area, aes(color = weight),size=0.8)+
+  ggtitle("Area integration") +
+  scale_color_scico(palette = "roma")
+p2 = ggplot()  + geom_sf(data=mexdolphin$ppoly)+ 
+  geom_sf(data = ips_line, aes(color =  16*weight),size=0.8) + geom_sf(data=mexdolphin$samplers) +
+  ggtitle("Line integration") +
+   scale_color_scico(palette = "roma")
+
+((p2 / p3 + plot_layout(guides = 'keep')) ) 
+
+```
+:::
+:::::
+
+# Results
+
+## Results: posterior summaries {.smaller background-color="#FFFFFF"}
+
+```{r}
+#| echo: false
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+::::: columns
+::: {.column width="40%"}
+We can to obtain posterior summaries of the model parameters.
+
+```{r}
+#| echo: false
+rbind(fit$summary.fixed[,c(1,3,5)],
+      fit$summary.hyperpar[,c(1,3,5)]) %>% gt(rownames_to_stub = TRUE) %>% fmt_number(decimals=2)
+
+```
+:::
+
+::: {.column width="60%"}
+We can also to plot the posterior density of the Matérn field parameters
+
+```{r}
+#| echo: true
+spde.posterior(fit, "space", what = "range") %>% plot()
+```
+:::
+:::::
+
+## Results: posterior summaries {.smaller background-color="#FFFFFF"}
+
+```{r}
+#| echo: false
+
+# define model component
+cmp = ~ Intercept(1) + 
+  space(main = geometry, model = spde_model) +
+  sigma(1,
+    prec.linear = 1,
+    marginal = bru_mapper_marginal(qexp, pexp, dexp, rate = 1 / 8)
+  ) 
+
+# define model predictor
+eta  = geometry + distance ~ space +
+  log(hn(distance, sigma)) +
+  Intercept + log(2)
+
+# build the observation model
+lik = bru_obs("cp",
+              formula = eta,
+              data = mexdolphin$points,
+              ips = ips)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+:::: columns
+
+::: {.column width="40%"}
+We can to obtain posterior summaries of the model parameters.
+
+```{r}
+#| echo: false
+rbind(fit$summary.fixed[,c(1,3,5)],
+      fit$summary.hyperpar[,c(1,3,5)]) %>% gt(rownames_to_stub = TRUE) %>% fmt_number(decimals=2)
+
+```
+:::
+
+::: {.column width="60%"}
+We can also to plot the posterior density of the Matérn field parameters
+```{r}
+#| echo: true
+spde.posterior(fit, "space", what = "log.variance") %>% plot()
+```
+:::
+
+::::
+
+
+## Results: predicted densities {.smaller background-color="#FFFFFF"}
+
+::::: columns
+
+::: {.column width="40%"}
+To map the spatial intensity we first need to define a grid of points where we want to predict.
+
+-   We do this using the function `fm_pixel()` which creates a regular grid of points covering the mesh
+-   Then, we use the `predict` function which takes as input
+    -   the fitted model (`fit`)
+    -   the prediction points (`pxl`)
+    -   the model components we want to predict (e.g., $e^{\beta_0 + \xi(s)}$)
+-   To plot this you can use `ggplot` and add a `gg()` layer with your output of interest (E.g., `pr.int$spatial`)
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: true
+library(patchwork)
+pxl <- fm_pixels(mesh, dims = c(200, 100), mask = mexdolphin$ppoly)
+pr.int <- predict(fit, pxl, ~ data.frame(spatial = space,
+                                      loglambda = Intercept + space,
+                                      lambda = exp(Intercept + space)))
+```
+
+```{r}
+#| eval: false
+ggplot() +
+  gg(pr.int$spatial, geom = "tile")
+```
+
+```{r}
+#| echo: false
+#| fig-height: 12
+ggplot() +
+  gg(pr.int$spatial, geom = "tile") +
+  scale_fill_scico(palette = "roma")+
+ggplot() +
+  gg(pr.int$loglambda, geom = "tile") +
+  scale_fill_scico(palette="imola",name=expression(log(lambda)))+
+ggplot() +
+gg(pr.int$loglambda, geom = "tile",aes(fill = sd)) +
+  scale_fill_scico(name=expression(sd~log(lambda)))+
+ggplot() +
+  gg(pr.int$lambda, geom = "tile") +
+  scale_fill_scico(name=expression(lambda))+ plot_layout(ncol=1)+ 
+  plot_layout(ncol=2)
+```
+
+:::
+
+:::::
+
+## Results: predicted densities {.smaller background-color="#FFFFFF"}
+
+We can also use the `predict` function to predict the detection probabilities:
+
+```{r}
+#| echo: true
+distdf <- data.frame(distance = seq(0, 8, length.out = 100))
+dfun <- predict(fit, distdf, ~ hn(distance, sigma))
+plot(dfun)
+```
+
+## Results: Data level prediction {.smaller}
+
+47 groups were seen. How many would be seen along the transects under perfect detection?
+
+```{r}
+#| echo: true
+predpts_transect <- fm_int(mexdolphin$mesh, mexdolphin$samplers)
+Lambda_transect <- predict(fit,
+                           predpts_transect,~ 16 * sum(weight * exp(space + Intercept)))
+```
+
+```{r}
+#| echo: false
+Lambda_transect %>% gt() %>% fmt_number()
+
+```
+
+How many would be seen under perfect detection across the whole study area (i.e., the **mean** expected number of dolphins)?
+
+```{r}
+#| echo: true
+predpts <- fm_int(mexdolphin$mesh, mexdolphin$ppoly)
+Lambda <- predict(fit, predpts, ~ sum(weight * exp(space + Intercept)))
+```
+
+```{r}
+#| echo: false
+Lambda %>%  gt() %>% fmt_number()
+```
+
+## Results: predicted expected counts {.smaller background-color="#FFFFFF"}
+
+What’s the predictive distribution of group counts?
+
+We can also get Monte Carlo samples for the expected number of dolphins as follows:
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: true
+Ns <- seq(50, 450, by = 1)
+
+Nest <- predict(fit, predpts,
+  ~ data.frame(
+    N = Ns,
+    density = dpois(
+      Ns,
+      lambda = sum(weight * exp(space + Intercept))
+    )
+  ),
+  n.samples = 2000
+)
+
+Nest <- dplyr::bind_rows(
+  cbind(Nest, Method = "Posterior"),
+  data.frame(
+    N = Nest$N,
+    mean = dpois(Nest$N, lambda = Lambda$mean),
+    mean.mc_std_err = 0,
+    Method = "Plugin"
+  )
+)
+```
+:::
+
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-height: 8
+ggplot(data = Nest) +
+  geom_line(aes(x = N, y = mean, colour = Method)) +
+  geom_ribbon(
+    aes(
+      x = N,
+      ymin = mean - 2 * mean.mc_std_err,
+      ymax = mean + 2 * mean.mc_std_err,
+      fill = Method,
+    ),
+    alpha = 0.2
+  ) +
+  geom_line(aes(x = N, y = mean, colour = Method)) +
+  ylab("Probability mass function")
+
+```
+:::
+:::::
+
+## Summary of points
+
+::: incremental
+-   Point process are a stochastic processes that describe the locations where events occur
+
+-   Unlike geostatistical data where the locations are fixed, here the locations have a stochastic nature *the locations are our data*!
+
+-   CSR as a realisation of an HPP that describe events that occur independently and uniformly at random across space, such that the number of events in any region follows a Poisson distribution with mean $\lambda \times \text{area}$.
+
+-   K functions can be used to distinguish between CSR, spatial clustering or regular point patterns.
+:::
+
+## Summary of points
+
+::: incremental
+-   IPP allows the intensity of the point process to vary across space through spatially varying covariates.
+
+-   Numerical integration schemes are required to estimate the parameters of an IPP
+
+-   LGCP are a double stochastic process that extend IPP models by allowing the intensity function to vary spatially according to a structured spatial random effect
+
+-   Thinned Point Processes offer improved accuracy by accounting the observational process of how individuals are detected
+:::
+
+## The End {background-image="river.png"}
+
+::: {.blockquote style="color: #FFFFFF; background-color:rgb(38, 38, 38,0.8); font-size: 1.25em; padding: 20px; border-radius: 5px;"}
+> "*It is that range of biodiversity that we must care for — the whole thing — rather than just one or two stars*"
+>
+> Sir David Attenborough
+:::
+

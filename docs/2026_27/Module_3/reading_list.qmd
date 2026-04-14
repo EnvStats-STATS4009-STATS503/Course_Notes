@@ -1,0 +1,46 @@
+---
+title: "Reading list"
+format:
+  html:    
+    fontsize: "12"
+    mainfont: serif
+    code-link: true
+    code-fold: true
+    code-tools:
+      source: false
+      toggle: true
+    toc: true
+    toc-location: left
+    toc-title: Contents
+    number-sections: true
+  PrettyPDF-pdf:
+    number-sections: true
+embed-resources: true
+execute: 
+  freeze: auto
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+-   Blangiardo, M., & Cameletti, M. (2015). *Spatial and spatio-temporal Bayesian models with R-INLA*. John Wiley & Sons.
+
+-   Gómez-Rubio, V. (2020). *Bayesian inference with INLA*. Chapman and Hall/CRC.
+
+-   Krainski, E., Gómez-Rubio, V., Bakka, H., Lenzi, A., Castro-Camilo, D., Simpson, D., ... & Rue, H. (2018). *Advanced spatial modeling with stochastic partial differential equations using R and INLA*. Chapman and Hall/CRC.
+
+-   Lindgren, F., Lindström, J., & Rue, H. (2010). An explicit link between gaussian fields and gaussian markov random fields; the spde approach.
+
+-   Lindgren, F., Bolin, D., & Rue, H. (2022). The SPDE approach for Gaussian and non-Gaussian fields: 10 years and still running. *Spatial Statistics*, *50*, 100599.
+
+-   Miller, D. L., Glennie, R., & Seaton, A. E. (2020). Understanding the stochastic partial differential equation approach to smoothing. *Journal of Agricultural, Biological and Environmental Statistics*, *25*(1), 1-16.
+
+-   Moraga, P. (2023). *Spatial statistics for data science: theory and practice with R*. Chapman and Hall/CRC.
+
+-   Rue, H., Riebler, A., Sørbye, S. H., Illian, J. B., Simpson, D. P., & Lindgren, F. K. (2017). Bayesian computing with INLA: a review. *Annual Review of Statistics and Its Application*, *4*, 395-421.
+
+-   Simpson, D., Illian, J. B., Lindgren, F., Sørbye, S. H., & Rue, H. (2016). Going off grid: Computationally efficient inference for log-Gaussian Cox processes. *Biometrika*, *103*(1), 49-70.
+
+-   Simpson, D., Rue, H., Riebler, A., Martins, T. G., & Sørbye, S. H. (2017). Penalising model component complexity: A principled, practical approach to constructing priors.
+
+-   Van Niekerk, J., Krainski, E., Rustand, D., & Rue, H. (2023). A new avenue for Bayesian inference with INLA. *Computational Statistics & Data Analysis*, *181*, 107692.
