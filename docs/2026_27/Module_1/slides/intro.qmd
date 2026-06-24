@@ -1,0 +1,165 @@
+---
+title: "Environmental and Ecological Statistics"
+embed-resources: true
+format:
+  revealjs:
+    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2025_26/Module_1/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
+    margin: 0
+    logo:  UofG.png
+    theme: uofg_theme.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+  data-background-color: "#f1f1f1"
+slide-number: true
+include-in-header:
+  text: |
+    <style>
+      .custom-small table {
+        font-size: .8em
+      }
+      .custom-tiny table {
+        font-size: .6em
+      }
+    </style>
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+execute: 
+  eval: true
+  echo: true
+  allow-html: true
+  freeze: auto
+---
+
+## Welcome to Environmental and Ecological Statistics
+
+-   **Environmental & Ecological Statistics** is an incredibly broad term covering any form of statistics applied to environmental issues.
+
+-   Key themes include climate change, environmental regulation (eg water and air quality), biodiversity monitoring and ecosystem assessment.
+
+-   This course focuses on this theme rather than a particular type of statistical methodology.
+
+-   We will look at a variety of statistical methods, some of which you will know, and some which will be new.
+
+## The Course Structure {.smaller}
+
+::: custom-small
+```{=html}
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-if4e{background-color:#f9f9f9;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-ntwq{background-color:#003865;border-color:inherit;color:#ffffff;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-ffq4{background-color:#003865;border-color:inherit;color:#ffffff;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-abip{background-color:#f9f9f9;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+  <tr>
+    <th class="tg-ffq4">Module</th>
+    <th class="tg-ntwq">Week</th>
+    <th class="tg-ffq4">Topic</th>
+    <th class="tg-ffq4">Activities</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td class="tg-if4e" rowspan="3"><br><br><br>Environmental Monitoring &amp; Data processing<br><br><br></td>
+    <td class="tg-abip">1</td>
+    <td class="tg-btxf">Introduction to Environmental and Ecological Statistics</td>
+    <td class="tg-btxf"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">2</td>
+    <td class="tg-0pky">Monitoring and Data mining</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-abip">3</td>
+    <td class="tg-btxf">Sampling and Monitoring Networks</td>
+    <td class="tg-btxf">Lab 1 + Tutorial 1</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr" rowspan="3"><br><br><br>Measuring Environmental Change<br><br><br></td>
+    <td class="tg-c3ow">4</td>
+    <td class="tg-0pky">Assessing Change Over Time</td>
+    <td class="tg-0pky">Tutorial 2</td>
+  </tr>
+  <tr>
+    <td class="tg-abip">5</td>
+    <td class="tg-btxf">Temporal Correlation and Changepoints</td>
+    <td class="tg-btxf"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">6</td>
+    <td class="tg-0pky">Modelling Environmental Extremes</td>
+    <td class="tg-0pky">Lab 2 + Tutorial 3</td>
+  </tr>
+  <tr>
+    <td class="tg-if4e" rowspan="3"><br><br><br>Environmental and Ecological Spatial Statistics<br><br><br></td>
+    <td class="tg-abip">7</td>
+    <td class="tg-btxf">Modelling Areal Data </td>
+    <td class="tg-btxf">Tutorial 4</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">8</td>
+    <td class="tg-0pky">Modelling Geostatistical Data</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-abip">9</td>
+    <td class="tg-btxf">Methods for Point referrenced Data</td>
+    <td class="tg-btxf">Lab 3</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Special Lecture</td>
+    <td class="tg-c3ow">10</td>
+    <td class="tg-0pky">TBC</td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody></table>
+```
+:::
+
+## Timetable
+
+Lectures: 2 hours per week
+
+Tutorials: 1 hour fortnightly
+
+Practical: 2 hours three times throughout the semester
+
+## Assessments
+
+Assessment in this course includes continuous assessment and a final exam. The exam will take place in April/May.
+
+::: panel-tabset
+# Level (4-H) STATS4009
+
+-   Written Exam (75%) - Degree exam in the exam diet
+
+-   Group Report (25%) - Group project
+
+# Level (M) **STATS5031**
+
+-   Written Exam (65%) - Degree exam in the exam diet
+
+-   Group Report (25%) - Group project
+
+-   Set Exercise (10%) - Critical review of published research
+:::
+
+Students must submit at least 75% by weight of the components (including examinations) of the course's summative assessment.
+
+# Questions?

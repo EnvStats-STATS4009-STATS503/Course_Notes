@@ -3,17 +3,18 @@ project:
   output-dir: docs
   render:
   - index.qmd
-  - reading_list.qmd
-  - lab_1.qmd
-  - tutorial_sheet_1.qmd
-  - tutorial_sheet_1_solutions.qmd
-  - notes/notes_1.qmd
-  - notes/notes_2.qmd
-  - notes/notes_3.qmd
-  - supplementary/supl_1.qmd
-  - slides/slides_1.qmd
+  # - reading_list.qmd
+  # - lab_1.qmd
+  # - tutorial_sheet_1.qmd
+  # - tutorial_sheet_1_solutions.qmd
+  # - notes/notes_1.qmd
+  # - notes/notes_2.qmd
+  # - notes/notes_3.qmd
+  # - supplementary/supl_1.qmd
+  - slides/Intro_EnvEco.qmd
   - slides/slides_2.qmd
-  - slides/slides_3.qmd
+  - slides/Policy_Legislation.qmd
+  # - slides/slides_3.qmd
 website:
   title: "Module 1"
   page-footer:
@@ -35,7 +36,7 @@ website:
       - text: "Slides"
         menu:
           - text: "Week 1 - Introduction"
-            href: slides/slides_1.qmd
+            href: slides/Intro_EnvEco.qmd
           - text: "Week 2 - Understanding our Data"
             href: slides/slides_2.qmd
           - text: "Week 3 - Sampling & Monitoring"

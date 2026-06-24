@@ -16,6 +16,16 @@ format:
   PrettyPDF-pdf:
     number-sections: true
 embed-resources: true
+include-in-header: 
+  text: |
+    <style>
+      .custom-small table {
+        font-size: .8em
+      }
+      .custom-tiny table {
+        font-size: .6em
+      }
+    </style>
 execute: 
   freeze: auto
 editor: visual
@@ -33,7 +43,9 @@ library(webexercises)
 
 **Environmental and Ecological Statistics** is an incredibly broad term covering any form of statistics applied to environmental and ecological issues. Key themes include climate change, environmental regulation (e.g. water and air quality) and biodiversity monitoring. This course focuses on this theme rather than a particular type of statistical methodology. We will look at a variety of statistical methods, some of which you will know, and some which will be new.
 
-The environment is (sometimes literally) a burning issue in the 21st century. This brings increased focus and interest in statistics as a subject, and how we are working to handle topics like climate change. Below, we see some examples of how climate change reporting can be presented.
+Environmental and Ecological problems are complex. Complex questions must be answered with data, but environmental and ecological data are difficult and expensive to collect and gather. For example, we might be interested in understanding if precipitation will change in the next 100 years, an if so how? We might also be interested in mapping the soil nutrients or determining the air/soil/water pollution levels. We might be asked about the population size of elephants in a given region and what environmental conditions makes them thrive or assessing if a specific bird meets the criteria for an endangered species. Answering these questions takes a whole plethora of skills ranging from extreme value analysis, surveying and sampling, spatial and spatiotemporal modelling, remote sensing analysis, animal movement model, point-process models, detection methods, etc.
+
+Very often we will be working together in multidisciplinary teams to answer these big questions. Environmental & Ecological statistician focuses then on extracting meaningful information from the data and convey this with subject experts and policy makers.
 
 ::: {.callout-note icon="false"}
 ## {{< bi newspaper color=#003865 >}} BBC News article on climate change
@@ -41,26 +53,8 @@ The environment is (sometimes literally) a burning issue in the 21st century. Th
 On 14th January 2020, BBC News published an article titled "Climate change: Where we are in seven charts and what you can do to help". You can read this by clicking the link below:
 
 <https://www.bbc.co.uk/news/science-environment-46384067>
-:::
-
-::: {.callout-tip icon="false"}
-## {{< bi card-checklist color=#6dc83c >}} Exercise 1
 
 Please read the BBC News article linked to above, and consider critically how the information is presented. Specifically, what are the good and bad aspects of the graphs in the article? Does the article make you think about climate change any differently?
-:::
-
-::: {.callout-note icon="false"}
-## {{< bi camera-reels color=#003865 >}} Channel 4 programme "2022: The Year from Space"
-
-The Channel 4 programme "2022: The Year from Space" was first broadcast in 2022 and contains some useful illustrations of environment-related news stories.
-
-<https://www.channel4.com/programmes/2022-the-year-from-space/on-demand/74702-001>
-:::
-
-::: {.callout-tip icon="false"}
-## {{< bi card-checklist color=#6dc83c >}} Exercise 2
-
-Please watch the Channel 4 video from 38:41 to 44:00 minutes in. What type of data are being generated here? How might they be analysed? How might the results of these analyses be presented to governments and other stakeholders?
 :::
 
 ## Where's the statistics?
@@ -79,20 +73,9 @@ Our skills in presenting and communicating data are also crucial. We need to be 
 On 20th October 2023, The Courier published an article titled "Storm Babet: Timeline of devastating rainfall in charts and maps". This contains some interesting examples of the use of plots to tell a developing environmental story. You can read this by clicking the link below:
 
 <https://www.thecourier.co.uk/fp/news/4788874/storm-babet-timeline-of-devastating-rainfall-in-charts-and-maps/>
-:::
-
-::: {.callout-tip icon="false"}
-## {{< bi card-checklist color=#6dc83c >}} Exercise 3
 
 Please read the Courier article on Storm Babet linked to above and think about the way that the information is presented.
 :::
-
-Some examples of environmental & ecological statistics include:
-
--   **Decision making:** Is it safe to eat fish from a particular river?
--   **Prediction:** What is the trend in temperature? Can we predict its level in 2060?
--   **Regulation:** Have emission control agreements reduced air pollutants?
--   **Understanding:** How did sea levels change over the past 100 years?
 
 ::: {.callout-important icon="false"}
 ## {{< bi box color=#005C8A >}} Example: Air quality
@@ -119,7 +102,7 @@ The data from these monitors can be used to estimate the pollution levels across
 :::
 
 ::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 4
+## {{< bi question-octagon color=#6dc83c >}} Exercise
 
 The example above shows a map of estimated PM$_{10}$ levels across Scotland. What information do we not have, which we would normally expect to see here?
 

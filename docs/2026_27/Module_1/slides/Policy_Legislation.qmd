@@ -1,0 +1,284 @@
+---
+title: "Environmental and Ecological Statistics"
+embed-resources: true
+format:
+  revealjs:
+    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2026_27/Module_1/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
+    logo:  UofG.png
+    theme: uofg_theme.scss
+    header-includes: |
+      <script src="custom.js" type="application/javascript"></script>
+title-slide-attributes: 
+  data-background-image: uog_cloistures2.jpg
+  data-background-color: "#f1f1f1"
+slide-number: true
+author:
+  - name: Jafet Belmont 
+    email: jafet.BelmontOsuna@glasgow.ac.uk 
+    affiliations: School of Mathematics and Statistics
+editor_options: 
+  chunk_output_type: console
+execute: 
+  eval: true
+  echo: true
+  allow-html: true
+  freeze: auto
+---
+
+# Policy, legislation and monitoring
+
+## Policy
+
+-   A great deal of environmental statistical research is funded by governments and regulatory bodies.
+-   They need to know where the biggest challenges lie so that they can allocate their resources appropriately.
+-   Evidence-based policy relies on measuring changes and also evaluating the impacts of existing policies.
+-   However, the environment will be one of many competing policy areas, and every government will prioritise it differently.
+
+## Policy {.smaller}
+
+::::: columns
+::: {.column width="40%"}
+-   Policies made in context of multinational agreements.
+-   Held annually, COP is the United Nations Climate Change Conference.
+-   Aim to limit global temperature rise and achieve net zero emissions.
+:::
+
+::: {.column width="60%"}
+![](figures/COP28.jpg){fig-align="center" width="346"}
+:::
+:::::
+
+-   Key achievement of 2024's COP29: wealthier countries to pay US\$300 billion/year to less wealthy countries to finance climate change mitigation measures.
+-   [Report from UK's Climate Change Committee (clickable)](https://www.theccc.org.uk/publication/cop29-key-outcomes-and-next-steps-for-the-uk/)
+
+## Policy
+
+-   Environmental policy tends to use very specific language - *objectives, targets, guide values, standards, reductions relative to a baseline*
+
+-   Policy often prescribes monitoring quantities of interest over space and/or time.
+
+-   Quantities of interest will include *water, air and noise pollution, waste management, radioactive substances, biodiversity and animal and plant species*
+
+## Legislation
+
+-   Legislation is the legal framework used to implement policy.
+
+-   Most legislation focuses on setting targets or safe levels for the pollutants.
+
+-   A number of regulatory bodies exist specifically to monitor such things, e.g. [Scottish Environment Protection Agency (SEPA, Scotland)](https://beta.sepa.scot/about-sepa/who-we-are/), [the Environment Agency (EA, England)](https://www.gov.uk/government/organisations/environment-agency/about) and [the European Environment Agency (EEA, EU)](%7Bhttps://www.eea.europa.eu/en).
+
+## Routine Monitoring
+
+::: incremental
+-   Monitoring requirements may be prescribed in policy.
+-   Much of our data come from routine monitoring of our environmental quantities of interest.
+-   Government agencies often make these data available to researchers and/or the public.
+-   These data are used to assess compliance with legislation as well as to identify environmental trends and their potential impacts on society.
+-   We have already seen monitoring data in the air pollution and water quality examples.
+:::
+
+## Evidence from routine monitoring
+
+::: incremental
+-   Assessment of long-term changes in **natural conditions**.
+
+-   Assessment of long-term changes resulting from **anthropogenic activities**.
+
+-   Ascertaining the **magnitude** and **impacts** of accidental pollution.
+
+-   Assessing compliance with the **standards** and **objectives** of protected areas.
+
+-   Quantifying **reference conditions**.
+:::
+
+## Policy, legislation and monitoring {auto-animate="true"}
+
+::::: columns
+::: {.column width="40%"}
+```{mermaid}
+%%| echo: false
+flowchart TB
+  A(Policy) --> B(Legislation)
+  B --> C(Monitoring)
+  C --> D(Analysis)
+  D --> A
+```
+:::
+
+::: {.column width="60%"}
+-   Statistical analyses and reporting is important for ensuring compliance with legislation.
+-   Understanding trends, spatial and temporal patterns, and impacts is important for informing policy: *evidence-based policy making*.
+    -   E.g. Evaluating effectiveness of current policy, e.g. measurement of change before/after implementation.
+:::
+:::::
+
+## Policy, legislation and monitoring {auto-animate="true"}
+
+::::: columns
+::: {.column width="40%"}
+```{mermaid}
+%%| echo: false
+flowchart TB
+  A(Policy) --> B(Legislation)
+  B --> C(Monitoring)
+  C --> D(Analysis)
+  D --> A
+  
+```
+:::
+
+::: {.column width="60%"}
+-   *Good policy needs a foundation in good science*'' [(Wallstr"om, 2005](https://www.eea.europa.eu/media/speeches/29-11-2005_2)
+-   Agencies can be *data rich and information poor*
+-   Other (often short-term) factors play a role in policy making (e.g. news coverage)
+-   So, **timely** findings of **practical relevance** are important.
+:::
+:::::
+
+## Informing policy and legislation
+
+::::: columns
+::: {.column width="40%"}
+![](figures/ec_directive.png)
+:::
+
+::: {.column width="60%"}
+-   What defines "good'' status?
+-   How could we assess this using statistics?
+:::
+:::::
+
+## The framework for environmental policy
+
+-   Environmental policy is set at various levels:
+    -   Internationally (Kyoto Convention, European Union)
+    -   Nationally, by politicians
+-   Environmental policy is implemented and monitored by regulators. In the UK this includes:
+-   National Environment Agencies,
+-   Government departments.\
+-   Other parties/stakeholders:
+    -   Industrialists (extra cost), economists, special interest groups and organisations (Greenpeace, WWF etc.), the public.
+
+## Case Study: Havant River Reservoir
+
+![](figures/clipboard-282887045.png){fig-align="center" width="438"}
+
+*The Challenge - Keep dry conditions to build the reservoir*
+
+## Addressing the Challenge 
+
+::::: columns
+
+::: {.column width="50%"}
+-   Portsmouth Water is creating a new reservoir in Hampshire to protect world-renowned rivers- The river Test and River Itchen
+
+-   Lots of things happen when building a reservoir but lets focus on **One Big Challenge**:
+
+    -   *How do we keep the construction dry when rivers and groundwater naturally flow through it?*
+:::
+
+::: {.column width="50%"}
+What would you do to keep the site dry enough for excavation?
+
+![](figures/clipboard-282887045.png){fig-align="center" width="390"}
+:::
+
+:::::
+
+## Addressing the Challenge {auto-animate="true}
+
+
+![](figures/policy1.png){fig-align="center" }
+
+## Addressing the Challenge {auto-animate="true}
+
+
+![](figures/policy2.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy3.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy4.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy5.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy6.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy7.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy8.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy9.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy10.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy11.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy12.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy13.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy14.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy15.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy16.png){fig-align="center"}
+
+## Addressing the Challenge {auto-animate="true}
+
+![](figures/policy17.png){fig-align="center"}
+
+## Theory into Reality
+
+
+::::: columns
+
+::: {.column width="60%"}
+
+- Multidisciplinary Team work: working with engineers, ecologists, statisticians, planning specialists and the construction team to design solutions that are **safe**, **legal** and **environmentally acceptable**.
+
+- This is how all the theory - the science, the systems, the stakeholders - become real in a project.
+
+-  One practical problem $\rightarrow$ multiple permits $\rightarrow$ multidisciplinary collaboration
+:::
+
+::: {.column width="40%"}
+![](figures/policy_end.jpg){fig-align="center"}
+:::
+
+:::::
+
+## Summary points
+
+-   We need to understand the policy and legislative context:
+    -   International agreements $\rightarrow$ National-level policies $\rightarrow$ Legislation.
+    -   Legislation is the legal framework used to implement policy.
+    -   Regulatory bodies monitor compliance with legislation through collecting routine monitoring data.
+-   Our work can inform policy decisions through ensuring that representative data are collected, and that results are appropriately interpreted and understood.
