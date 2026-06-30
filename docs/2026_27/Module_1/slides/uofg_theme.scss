@@ -13,7 +13,7 @@ $uog-light-gray: #F2F2F2;
 
 
 $primary-color: $uog-blue !default;
-$body-bg: #f1f1f1 !default;
+$body-bg: #FFFFFF !default;
 $link-color: #3b759e !default;
 $link-color-hover: lighten($link-color, 30%) !default;
 $code-color: $uog-light-blue !default;
@@ -34,6 +34,27 @@ $presentation-slide-text-align: left !default;
 
 
 /*-- scss:rules --*/
+
+
+.custom-small table { font-size: 0.8em; }
+.custom-tiny table  { font-size: 0.6em; }
+
+.quote-gold {
+  background-color: rgba(38, 38, 38, 0.8) !important;
+  font-size: 1.25em;
+  padding: 20px;
+  border-radius: 5px;
+  
+  p, blockquote, blockquote p {
+    color: #FFCC00 !important;
+  }
+  
+  /* Last paragraph = attribution line */
+  p:last-child {
+    color: #FFFFFF !important;
+  }
+}
+
 
 
 .reveal .slides section .fragment.blur {
@@ -68,13 +89,20 @@ $presentation-slide-text-align: left !default;
  .institute,
  .quarto-title-affiliation {
   font-style: italic;
-  font-size: 0.5em !important;
+  font-size: 0.65em !important;
  }
 
- .quarto-title-author-email {
-  font-style: italic;
-  font-size: 0.5em !important;
- }
+
+.reveal .quarto-title-author-email a {
+  color: $uog-blue !important;
+  font-family: "Fira Code", monospace;
+}
+
+.quarto-title-author-email {
+  font-style: normal;
+  font-size: 0.65em !important;
+}
+
 
 .date {
   font-size: 0.75em;

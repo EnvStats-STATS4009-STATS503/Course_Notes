@@ -300,7 +300,7 @@
 \@ifundefined{codebgcolor}{\definecolor{codebgcolor}{named}{light}}{}
 \makeatother
 \makeatletter
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, colback={codebgcolor}, enhanced, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, colback={codebgcolor}, enhanced, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
 \makeatother
 \makeatletter
 \@ifpackageloaded{sidenotes}{}{\usepackage{sidenotes}}
@@ -331,10 +331,161 @@
 \pagestyle{mystyle}
 
 
-\section{Part A: Censoring and uncertainty
-calculations.}\label{part-a-censoring-and-uncertainty-calculations.}
+\section{Part A: Inference \& Uncertainty
+quantification}\label{part-a-inference-uncertainty-quantification}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 1}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 1}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
+
+A single 1-hectare plot in a forest is surveyed and \(Y = 80\) birds are
+counted. We can assume that the count
+\(Y \sim \text{Poisson}(\lambda)\), where \(\lambda\) is the
+\textbf{expected number of birds per hectare}, so that
+\(\hat\lambda = Y = 80\) and \(\operatorname{Var}(Y) = \lambda\). Derive
+a 95\% Wald confidence interval for \(\lambda\) and comment.
+
+Solution
+
+Since \(\operatorname{Var}(Y) = \lambda\), then a 95\% interval is given
+by \(\hat\lambda \pm 1.96\sqrt{\hat\lambda}\):
+
+\[
+80 \pm 1.96\sqrt{80} =  (62.47,\;97.53).
+\] On average, the expected number of species in the forest is likely to
+lie somewhere between 62.47 and 97.53 with a confidence level of 95\%.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 2}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
+
+A great crested newt eDNA survey checks \(n = 20\) ponds and detects the
+species at \(y = 3\) of them. Assuming \(Y \sim \text{Binomial}(n, p)\),
+where \(p\) is the probability occurrence with a MLE estimate
+\(\hat p = y/n = 0.15\).
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Derive \(\text{Var}(\hat p)\) and compute a 95\% (Wald) confidence
+  interval for \(\hat p\) (tip: recall that if
+  \(X\sim\text{Bin}(n,p); \operatorname{Var}(X)=np(1-p)\).
+\item
+  what do you notice about this interval?
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  \[
+  \text{Var}(\hat p) = \text{Var}(y/n) = \frac{1}{n^2}\text{Var}(y) = \frac{np(1-p)}{n^2} = \frac{p(1-p)}{n}
+  \]
+\end{enumerate}
+
+we plug in the estimate \(\hat p\) to compute the standard error:
+
+\[
+\text{se}(\hat p) = \sqrt{\frac{\hat p(1-\hat p)}{n}}
+= \sqrt{\frac{0.15 \times 0.85}{20}} = \sqrt{0.006375} = 0.0798,
+\]
+
+Then, a 95\% CI assuming normality is
+\(\hat p\pm 1.96 \times \text{se}(\hat p)\) :
+
+\[
+0.15 \pm 1.96 \times 0.0798 = 0.15 \pm 0.1565 = (-0.006,\; 0.306).
+\]
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  The lower limit is \textbf{negative}, which is impossible for a
+  probability. The Wald interval is symmetric by construction and has no
+  knowledge of the boundary at \(0\), so for small \(n\) or \(\hat p\)
+  near \(0\) or \(1\) it can produces invalid limits.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-warning-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, coltitle=black, toptitle=1mm, title={Task 3}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
+
+Occupancy models are widely used in ecology to model species presence
+while accounting for the fact that a species might present but
+undetected during a survey. Let \(z\) denote whether a site is truly
+occupied (\(z = 1\)) or not (\(z = 0\)), with \textbf{occupancy
+probability} \(\Pr(z = 1) = \psi\). Each site is visited on multiple
+occasions. On each visit we record a detection (\(y = 1\)) or
+non-detection (\(y = 0\)), and we detect the species --- \emph{if it is
+present} --- with \textbf{detection probability}
+\(\Pr(y = 1 \mid z = 1) = p\). We assume that if the species is truly
+absent we cannot detect it, \(\Pr(y = 1 \mid z = 0) = 0\).
+
+A site is surveyed \(J\) independent times and the species is
+\textbf{never detected}. A non-detection does not prove absence, so we
+quantify our belief that the site is occupied with the posterior
+probability \(\Pr(z = 1 \mid y_1 = 0, \dots, y_J = 0)\).
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\tightlist
+\item
+  Write \(\Pr(\text{not detected in } J \text{ visits} \mid z = 1)\) and
+  \(\Pr(\text{not detected in } J \text{ visits} \mid z = 0)\).
+\item
+  Use the \textbf{law of total probability} to write
+  \(\Pr(\text{not detected})\) (i.e., the probability that species is
+  never detected)
+\item
+  Use Bayes' rule to obtain \(\Pr(z = 1 \mid y_1 = 0, \dots, y_J = 0)\).
+\item
+  A wetland is surveyed \(J = 2\) times for a species of frog that was
+  not detected in neither of the surveys. Suppose that we know from
+  previous studies that \(\psi = 0.8\) and \(p = 0.5\). Compute the
+  posterior probability that frog is present at that site.
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  If the site is occupied, each visit independently fails to detect with
+  probability \(1 - p\), so over \(J\) visits \[
+  \Pr(y_1 = 0, \dots, y_J = 0 \mid z = 1) = (1-p)^{J}.
+  \] If the site is unoccupied, the species is never detectable, so
+  non-detection is certain: \[
+  \Pr(y_1 = 0, \dots, y_J = 0 \mid z = 0) = 1.
+  \]
+\item
+  A detection history where the species is never detected can arise in
+  two ways (a) the species is truly there but never detected, or (2) the
+  species is truly absent with a probability (\(1-\psi\)).
+
+  \[\Pr(y = 0) = \underbrace{(1-p)^{J}\,\psi}_{\text{present but undetected}}
+      + \underbrace{(1-\psi)}_{\text{absent}}.
+  \]
+\item
+  Using Bayes theorem, the posterior is given by
+  \[\Pr(z = 1 \mid y = 0)= \frac{\Pr(y = 0 \mid z = 1)\,\Pr(z = 1)}{\Pr(y = 0)}= \frac{(1-p)^{J}\,\psi}{(1-p)^{J}\,\psi + (1-\psi)}.\]
+\item
+  Plugin in the values for \(psi\) and \(p\) yields \[
+      \Pr(z = 1 \mid y = 0)
+  = \frac{(1-0.5)^{2}\,(0.8)}{(1-0.5)^{2}\,(0.8) + (1-0.8)}
+      = \frac{0.25 \times 0.8}{0.25 \times 0.8 + 0.2}
+  = \frac{0.2}{0.4} = 0.50.
+  \]
+
+  That is, there is a 50\% chance that the site is occupied despite the
+  fact that the frog was never detected.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 4}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 Several methods for dealing with values marked as being at the limit of
 detection within the paper by Eastoe et al (2006). Read the paper
@@ -380,242 +531,7 @@ of estimating a trend.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 2}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
-
-The Shannon index (or Shannon-Wiener diversity index) is widely used in
-Ecology to quantify the diversity of a biological community by
-considering both species richness and evenness. It is calculated as:
-
-\[
-H = -\sum_{i=1}^S p_i \log (p_i)
-\]
-
-where \(p_i\) is the proportion of species \(i\) in the community
-computed as the ratio between the num. of individuals of a given species
-\(n_i\) and total number of individual across all species \(N\).
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Suppose a fixed number of individuals \(N\) are sampled and that the
-  proportion of each species is estimated with some uncertainty
-  \(u(p_i)\). Provide the general form for the uncertainty propagation
-  of these proportions on the calculation of \(H\).
-\item
-  Imagine you go to your garden an find out there are \(S=3\) different
-  species of arthropods living there. Then you go out one day and sample
-  \(N=100\) individuals and end up collecting \(n_1 = 50 \text{ ants}\),
-  \(n_2 = 30 \text{ beetles}\) and \(n_3 = 20 \text{ spiders}\).
-  Assuming that number of individuals of a given species follows
-  \(n_i \sim \text{Binomial}(N,\theta_i)\), and let
-  \(\hat{\theta_i} = \frac{n_i}{N} = p_i\) be the estimator of
-  \(\theta_i\) show that \(u(p_i)^2 = p_i(1-p_i)/N\) and then compute
-  the uncertainty propagation for the Shannon Index.
-\end{enumerate}
-
-Solution
-
-\[
-\begin{aligned}
-u(H) = \sqrt{\sum_i^S \left(\dfrac{\partial H}{\partial p_i} \right)^2u(p_i)^2}
-\end{aligned}
-\]
-
-Let
-
-\[
-\begin{aligned}
-f(p_i) &= - p_i \log p_i \\
-f'(p_i) &= -\left(\frac{d}{d p_i} ( p_i \log p_i)\right)
-\end{aligned}
-\] Applying product rule (i.e., \([f(x)g(x)]'=f'(x)g(x) +f(x)g'(x)\)
-
-\[
-f'(p_i) = - (\log(p_i)+1)
-\]
-
-\[ \Rightarrow \dfrac{\partial H}{\partial p_i} = - (\log(p_i) +1)\]
-
-\[\therefore u(H) = \sqrt{\sum_i^S \left(-\log (p_i)-1 \right)^2u(p_i)^2}\]
-
-Assuming \(n_i \sim \text{Binomial}(100,p_i)\) for \(i = 1,2,3\) where
-\(p_1 = 50/100; p_2 = 0.3; p_3 = 20/100\). The partial derivatives are
-given by
-
-\[
-\begin{aligned}\frac{\partial H}{\partial p_1} &= -(\log 0.5 + 1) \approx -0.307 \\\frac{\partial H}{\partial p_2} &= -(\log 0.3 + 1) \approx 0.204 \\\frac{\partial H}{\partial p_3} &= -(\log 0.2 + 1) \approx 0.609\end{aligned}
-\]
-
-First, the variance of \(p_i\) (i.e., \(u(p_i)^2\)) is given by:
-
-\[
-\begin{aligned}
-\text{Var}(p_i) &= \text{Var}\left(\frac{n_i}{N}\right) \\
-&= \frac{1}{N^2}\text{Var}(n_i)\\
-&= \frac{N p_i(1 - p_i)}{N^2} = \dfrac{p_i(1-p_i)}{N}
-\end{aligned}
-\]
-
-Thus,
-
-\[
-\begin{aligned}
-u(p_1)^2 &= \frac{0.5 \times 0.5}{100} = 0.0025 \\
-u(p_2)^2 &= \frac{0.3 \times 0.7}{100} = 0.0021 \\
-u(p_3)^3 &= \frac{0.2 \times 0.8}{100} = 0.0016
-\end{aligned}
-\]
-
-Then,
-
-\[
-u(H)  = \sqrt{0.0025 \times (-0.307)^2 + 0.0021 \times (0.204)^2 + 0.0016 \times (0.609)^2} \approx 0.03
-\]
-
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 3}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
-
-Waves have a major influence on the marine environment and ultimately on
-the planet's climate and so are often studied by oceanographers. The
-period of a particular wave oscillation is measured to be
-\(T=(2\pm0.1)s\). What is the uncertainty associated with the frequency,
-\(f\), of the wave, where \(f=1/T\)?
-
-Solution
-
-The estimated frequency is:
-
-\[\hat{f}=\frac{1}{\hat{T}} = \frac{1}{2s}=0.5s^{-1}\]
-
-The estimated uncertainty \(u(f)\) is:
-
-\[u(f)= \sqrt{\left.\left(\frac{\delta f}{\delta T}\right)^2\right|_{T=2} u(T)^2}\]
-
-\[\left(\frac{\delta f}{\delta T}\right) = -T^{-2} = \frac{-1}{T^2}\]
-
-\[\left(\frac{\delta f}{\delta T}\right)^2 = \left(\frac{-1}{T^2}\right)^2 = \left(\frac{1}{T^4}\right)\]
-
-\[u(T)=0.1s^{-1}\]
-
-\[\therefore u(f)= \sqrt{\left(\frac{1}{2^4}\right)(0.1)^2} = \sqrt{0.000625} = 0.025\]
-
-So, for the frequency of the wave, we have: \[f=(0.5\pm0.025)s^{-1}\]
-
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 4}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
-
-10 sets of data (N=13) have been collected. Within each there is a
-number of (suspected) outliers.
-
-\begin{verbatim}
-     mean median    sd   MAD Nout?
-s1  23.82  10.31 33.21 13.98     2
-s2  17.72  10.90 24.88  7.64     1
-s3  16.58   9.83 25.05  7.52     1
-s4  24.13  10.63 33.56 14.13     2
-s5  30.68  10.24 39.37 21.07     3
-s6  30.82  10.64 39.04 21.08     3
-s7  23.79  10.01 33.91 14.47     2
-s8  23.95  10.05 34.01 14.39     2
-s9  30.96  10.50 39.40 21.33     3
-s10 24.31  10.52 33.79 14.32     2
-\end{verbatim}
-
-The data for the first sample are shown below:
-
-\begin{verbatim}
-9.89, 10.55, 9.67, 10.62, 10.31, 10.21, 10.92, 98.25, 99.03, 9.33, 11.17, 9.78, 9.90
-\end{verbatim}
-
-The R code/output below shows the results of various outlier tests.
-Comment on this output.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Chauvenet’s test for outliers}
-
-\NormalTok{P }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{pnorm}\NormalTok{(s1[}\DecValTok{9}\NormalTok{],}\FunctionTok{mean}\NormalTok{(s1), }\FunctionTok{sd}\NormalTok{(s1))}
-\NormalTok{P}\SpecialCharTok{*}\FunctionTok{length}\NormalTok{(s1)}
-\NormalTok{[}\DecValTok{1}\NormalTok{] }\FloatTok{0.152972}
-
-\CommentTok{\# Grubbs test for one outlier}
-
-\NormalTok{data}\SpecialCharTok{:}\NormalTok{  s1}
-\NormalTok{G }\OtherTok{=} \FloatTok{2.2647}\NormalTok{, U }\OtherTok{=} \FloatTok{0.5370}\NormalTok{, p}\SpecialCharTok{{-}}\NormalTok{value }\OtherTok{=} \FloatTok{0.06811}
-\NormalTok{alternative hypothesis}\SpecialCharTok{:}\NormalTok{ highest value }\FloatTok{99.03}\NormalTok{ is an outlier}
-
-\CommentTok{\# Dixon test for outliers}
-
-\NormalTok{data}\SpecialCharTok{:}\NormalTok{  s1}
-\NormalTok{Q }\OtherTok{=} \FloatTok{0.98321}\NormalTok{, p}\SpecialCharTok{{-}}\NormalTok{value }\SpecialCharTok{\textless{}} \FloatTok{2.2e{-}16}
-\NormalTok{alternative hypothesis}\SpecialCharTok{:}\NormalTok{ highest value }\FloatTok{99.03}\NormalTok{ is an outlier}
-\end{Highlighting}
-\end{Shaded}
-
-Solution
-
-There is a lot of variability in the means of each of the samples than
-there is in the median. The medians are all close to 10, indicating that
-this is likely close of the mean of the data if it was not influenced by
-large/outlier values. We could not confirm this without observing all
-data, however.
-
-The median absolute difference provides a more robust estimate of the
-spread of the data if outliers are present. The MAD values are all much
-lower than the variance estimates provided. The greater the number of
-suspected outliers, the higher the MAD.
-
-In terms of the sample data, there are two values which are much larger
-than the others (observations 8 and 9). We would need to go back to how
-the data has been collected and recorded before we assess whether or not
-these are truly `outliers' but they may be identified as such using the
-statistical test results presented.
-
-\textbf{Chauvenet's Criterion}
-
-This is assessing if observation 9 can be termed an `outlier'. As the
-value of P multiplied by n (=13) is less than 0.5 (0.15) this indicates
-there is evidence that observation 9 is an outlier by Chauvenet's
-criterion.
-
-\textbf{Grubbs Test}
-
-Here we are testing the null hypothesis that the maximum value is not an
-outlier against the alternative that it is an outlier. As the p value is
-0.06 it is just above the significance level of 0.05 (5\%) and so the
-maximum is not deemed to be an outlier using this test. The output for
-the test with the second highest value is presented below -- in this
-case the highest value is deemed to be an outlier. This indicates that
-Grubbs test may be better suited to cases where there is only a single
-suspected outlier.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{grubbs.test}\NormalTok{(s1[}\SpecialCharTok{{-}}\DecValTok{8}\NormalTok{])}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-  Grubbs test for one outlier
-
-data:  s1[-8]
-G = 3.17470000, U = 0.00043801, p-value < 2.2e-16
-alternative hypothesis: highest value 99.03 is an outlier
-\end{verbatim}
-
-\textbf{Dixon's Criterion}
-
-Again we are testing the null hypothesis that the maximum value is not
-an outlier against the alternative that it is an outlier. As the p value
-is \textless0.05 it is much less than the significance level of 0.05
-(5\%). Hence we can reject the null hypothesis and accept that the
-maximum value (observation 9) is an outlier using this test.
-
-\end{tcolorbox}
-
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 5}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 5}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -650,7 +566,7 @@ Solution
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 6}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 6}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -691,10 +607,113 @@ Solution
 
 \end{tcolorbox}
 
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-important-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-important-color!10!white, coltitle=black, toptitle=1mm, title={Level M Extra Question}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
+
+A pilot survey at a comparable site detected the newt in \textbf{2 of
+10} ponds. Use this as prior information in a Bayesian analysis and
+update it based on the information from the \textbf{task 2} (i.e.,
+\(y = 3\) detections in \(n = 20\) ponds). To do so follow the next
+steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Write the likelihood of the pilot study and show it has the form of a
+  Beta distribution where the general Beta density
+  \(\pi(p) \propto p^{a-1}(1-p)^{b-1}\).
+\item
+  Identify the likelihood and the prior for the main survey (recall that
+  we assume the main survey follows a binomial density such that
+  \(\pi(y \mid p) \propto  p^{y}(1-p)^{n-y}\) for \(y=3\) and \(n=20\).)
+\item
+  Derive the posterior distribution by multiplying the likelihood by the
+  prior. What family results?
+\item
+  Compute the posterior mean of \(p\) using the fact that if
+  \(X\sim\text{Beta}(a,b); \mathbb{E}(X) =\frac{a}{a+b}\)
+\item
+  Compute a 95\% credible intervals for \(p\) and comment (you can use
+  \texttt{R} to compute the quantiles directly)
+\end{enumerate}
+
+Solution
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The likelihood of the pilot study \(y_{0}\sim\text{Bin}(n_0,p)\) with
+  \(y_0=2\) and \(n_0=10\) is
+\end{enumerate}
+
+\[
+L(p) \;\propto\; p^{\,y_0}(1-p)^{\,n_0 - y_0} = p^{2}(1-p)^{8}.
+\] Comparing this with the general Beta density
+\(\pi(p) \propto p^{a-1}(1-p)^{b-1}\) where the shapes match with
+\(a - 1 = 2 \Rightarrow a = 3\) and \(b - 1 = 8  \Rightarrow b = 9\). So
+the pilot information, expressed as Beta density is
+
+\[
+p \;\sim\; \text{Beta}(3, 9),
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  We now use this result as the \textbf{prior} for the main survey which
+  has a binomial likelihood \(y \sim \text{Binomial}(n, p)\), i.e.,
+
+  \begin{itemize}
+  \item
+    Prior :\(p \;\sim\; \text{Beta}(3, 9)\)
+  \item
+    Likelihood: \(\pi(y \mid p) \;\propto\; p^{3}(1-p)^{17}\)
+  \end{itemize}
+\item
+  Multiplying the two kernels and adding exponents, \[
+  \pi(p \mid y) \;\propto\;
+  \underbrace{p^{3}(1-p)^{17}}_{\text{likelihood, } p^{y}(1-p)^{n-y}}\;
+  \underbrace{p^{2}(1-p)^{8}}_{\text{prior, } p^{a-1}(1-p)^{b-1}}
+  = p^{\,(a+y)-1}\,(1-p)^{\,(b+n-y)-1}
+  = p^{5}(1-p)^{25},
+  \] which is the kernel of another Beta, so \[
+  p \mid y \;\sim\; \text{Beta}(a + y,\; b + n - y) = \text{Beta}(6, 26).
+  \]
+\item
+  Posterior mean \(= \dfrac{a+y}{a+b+n} = \dfrac{6}{32} = 0.1875\).
+\item
+  The 95\% credible interval can be computed as follows:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qbeta}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{), }\DecValTok{6}\NormalTok{, }\DecValTok{26}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.0745199 0.3372716
+\end{verbatim}
+
+A 95\% credible interval is about \((0.07,\ 0.34)\): given the prior and
+the data, there is a 95\% posterior probability that \(p\) lies in this
+range.
+
+Unlike the Wald interval from the \textbf{task 2}, which had a negative
+lower limit, this interval stays inside {[}0,1{]} and is asymmetric.
+Note too that the posterior mean (0.1875) lies between the prior mean
+(3/12=0.25) and the data estimate (\(\hat p = 0.15\)) , the pilot and
+the new survey have been pooled.
+
+\end{tcolorbox}
+
 \section{Part B: Sampling and
 monitoring}\label{part-b-sampling-and-monitoring}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 7}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 7}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 In the case of a simple random sample \(x_1,..., x_n\) of a random
 variable, \(X\), assuming the observations are independent,
@@ -734,7 +753,7 @@ Solution
 \[=\frac{1}{n-1}E\left(\sum X_i^2 - 2\sum X_i \bar{X} + \sum\bar{X}^2\right)\]
 \[=\frac{1}{n-1}E\left(\sum X_i^2 - 2 \bar{X}\sum X_i + n\bar{X}^2\right)\]
 Remember that
-{\marginnote{\begin{footnotesize}\end{footnotesize}}}{\marginnote{\begin{footnotesize}\(2 \bar{x} \sum x_i = 2\bar{x}\cdot n\bar{x} = 2n\bar{x}^2\)\end{footnotesize}}}
+{\marginnote{\begin{footnotesize}\(2 \bar{x} \sum x_i = 2\bar{x}\cdot n\bar{x} = 2n\bar{x}^2\)\end{footnotesize}}}
 
 \[=\frac{1}{n-1}\left(E\left(\sum X_i^2\right) - E\left(n\bar{X}^2\right)\right)\]
 \[=\frac{1}{n-1}\left(\sum E\left(X_i^2\right) - nE\left(\bar{X}^2\right)\right)\]
@@ -744,7 +763,7 @@ Remember that
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 8}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 8}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 \href{https://go.exlibris.link/DnZPRrww}{Gilbert (1977)} reports results
 of soil sampling at a nuclear weapons test area obtained using
@@ -790,6 +809,11 @@ Variance \(s^2_l\)
 3 & 26,200 & 13 & 270 & 127,413 \\
 4 & 11,000 & 20 & 260 & 84,500 \\
 \end{longtable}
+
+TIP: The stratified estimator of the population total is
+\(\hat{I} = \sum_{l=1}^{L} N_l \, \bar{y}_l\), and variance for the mean
+of \(l\)-th strata is given by
+\(\text{Var}(\bar{y}_l)= \left( 1 - \frac{n_l}{N_l} \right)\frac{s_l^2}{n_l}\).
 
 Solution
 
@@ -870,7 +894,7 @@ Neyman allocation \(n_l=n \frac{W_l s_l}{\sum_{l=1}^L W_l s_l}\)
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 9}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 9}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 Discuss the advantages and disadvantages of the three sampling methods
 below for mapping a pollutant field:
@@ -905,7 +929,7 @@ two methods.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 10}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 10}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 The Water Framework Directive states:
 
@@ -959,7 +983,7 @@ So, for population discussed we have:
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 11}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 11}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 Read pages 17--23 of the Analytical Laboratories for the Measurement of
 Environmental Radioactivity (ALMERA) report on soil sampling (available
@@ -996,7 +1020,7 @@ analytical laboratories.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, opacitybacktitle=0.6, left=2mm, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, breakable, title={Task 12}, colback=white, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, bottomtitle=1mm, arc=.35mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-tip-color-frame, opacityback=0, colback=white, rightrule=.15mm, breakable, arc=.35mm, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, coltitle=black, toptitle=1mm, title={Task 12}, opacitybacktitle=0.6, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm, leftrule=.75mm]
 
 Read the SEPA survey of business waste (available below) and describe
 briefly the sampling strategy you would propose. Discuss its advantages

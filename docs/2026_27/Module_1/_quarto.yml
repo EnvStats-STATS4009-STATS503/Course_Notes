@@ -3,18 +3,18 @@ project:
   output-dir: docs
   render:
   - index.qmd
-  # - reading_list.qmd
-  # - lab_1.qmd
-  # - tutorial_sheet_1.qmd
-  # - tutorial_sheet_1_solutions.qmd
-  # - notes/notes_1.qmd
-  # - notes/notes_2.qmd
-  # - notes/notes_3.qmd
-  # - supplementary/supl_1.qmd
+  - reading_list.qmd
+  - lab_1.qmd
+  - tutorial_sheet_1.qmd
+  - tutorial_sheet_1_solutions.qmd
+  - notes/notes_1.qmd
+  - notes/notes_2.qmd
+  - notes/notes_3.qmd
+  - notes/supl_1.qmd
+  - notes/Bayesian_computing.qmd
   - slides/Intro_EnvEco.qmd
-  - slides/slides_2.qmd
-  - slides/Policy_Legislation.qmd
-  # - slides/slides_3.qmd
+  - slides/Understanding_Data.qmd
+  - slides/Sampling.qmd
 website:
   title: "Module 1"
   page-footer:
@@ -38,13 +38,15 @@ website:
           - text: "Week 1 - Introduction"
             href: slides/Intro_EnvEco.qmd
           - text: "Week 2 - Understanding our Data"
-            href: slides/slides_2.qmd
+            href: slides/Understanding_Data.qmd
           - text: "Week 3 - Sampling & Monitoring"
-            href: slides/slides_3.qmd
+            href: slides/Sampling.qmd
       - text: "Supplementary Notes"
         menu:
           - text: "Properties of estimators"
-            href:  supplementary/supl_1.qmd
+            href:  notes/supl_1.qmd
+          - text: "Bayesian computational methods"
+            href:  notes/Bayesian_computing.qmd"
       - text: "Tutorials"
         menu:
           - text: "Tutorial sheet 1"

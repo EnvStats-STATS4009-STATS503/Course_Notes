@@ -13,77 +13,35 @@ execute:
 css: styles.css
 ---
 
-# Part A: Censoring and uncertainty calculations.
+# Part A: Inference & Uncertainty quantification
 
 ## Task 1 {.unnumbered}
+
+A single 1-hectare plot in a forest is surveyed and $Y = 80$ birds are counted. We can assume that the count  $Y \sim \text{Poisson}(\lambda)$, where $\lambda$ is the **expected number of birds per hectare**, so that $\hat\lambda = Y = 80$ and $\operatorname{Var}(Y) = \lambda$. Derive a 95% Wald confidence interval for $\lambda$ and comment.
+
+## Task 2 {.unnumbered}
+
+A great crested newt eDNA survey checks $n = 20$ ponds and detects the species at $y = 3$ of them. Assuming $Y \sim \text{Binomial}(n, p)$, where $p$ is the probability occurrence with a MLE estimate $\hat p = y/n = 0.15$.
+
+(a)  Derive $\text{Var}(\hat p)$ and compute a 95% (Wald) confidence interval for $\hat p$ (tip: recall that if $X\sim\text{Bin}(n,p); \operatorname{Var}(X)=np(1-p)$.
+(b)  what do you notice about this interval?
+
+## Task 3 {.unnumbered}
+
+Occupancy models are widely used in ecology to model species presence while accounting for the fact that a species might present but undetected during a survey. Let $z$ denote whether a site is truly occupied ($z = 1$) or not ($z = 0$), with **occupancy probability** $\Pr(z = 1) = \psi$. Each site is visited on multiple occasions. On each visit we record a detection ($y = 1$) or non-detection ($y = 0$), and we detect the species — *if it is present* — with **detection probability** $\Pr(y = 1 \mid z = 1) = p$. We assume that if the species is truly absent we cannot detect it, $\Pr(y = 1 \mid z = 0) = 0$.
+
+A site is surveyed $J$ independent times and the species is **never detected**. A non-detection does not prove absence, so we quantify our belief that the site is occupied with the posterior probability $\Pr(z = 1 \mid y_1 = 0, \dots, y_J = 0)$.
+
+(a) Write $\Pr(\text{not detected in } J \text{ visits} \mid z = 1)$ and $\Pr(\text{not detected in } J \text{ visits} \mid z = 0)$.
+(b) Use the **law of total probability** to write $\Pr(\text{not detected})$ (i.e., the probability that species is never detected)
+(c) Use Bayes' theorem to obtain $\Pr(z = 1 \mid y_1 = 0, \dots, y_J = 0)$.
+(d) A wetland is surveyed $J = 2$ times for a species of frog that was not detected in neither of the surveys. Suppose that we know from previous studies that $\psi = 0.8$ and $p = 0.5$. Compute the posterior probability that frog is present at that site.
+
+## Task 4 {.unnumbered}
 
 Several methods for dealing with values marked as being at the limit of detection within the paper by Eastoe et al (2006). Read the paper (available below), summarise the different methods compared by the authors and comment on what the conclusions were.
 
 {{< downloadthis EastoeCensoredData.pdf dname="EastoeCensoredData" label="Download Eastoe et al. paper" icon="database-fill-down" type="info" >}}
-
-## Task 2 {.unnumbered}
-
-The Shannon index (or Shannon-Wiener diversity index) is widely used in Ecology to quantify the diversity of a biological community by considering both species richness and evenness. It is calculated as:
-
-$$
-H = -\sum_{i=1}^S p_i \log (p_i)
-$$
-
-where $p_i$ is the proportion of species $i$ in the community computed as the ratio between the num. of individuals of a given species $n_i$ and total number of individual across all species $N$.
-
-1.  Suppose a fixed number of individuals $N$ are sampled and that the proportion of each species is estimated with some uncertainty $u(p_i)$. Provide the general form for the uncertainty propagation of these proportions on the calculation of $H$.
-
-2.  Imagine you go to your garden an find out there are $S=3$ different species of arthropods living there. Then you go out one day and sample $N=100$ individuals and end up collecting $n_1 = 50 \text{ ants}$, $n_2 = 30 \text{ beetles}$ and $n_3 = 20 \text{ spiders}$. Assuming that number of individuals of a given species follows $n_i \sim \text{Binomial}(N,\theta_i)$, and let $\hat{\theta_i} = \frac{n_i}{N} = p_i$ be the estimator of $\theta_i$ show that $u(p_i)^2 = p_i(1-p_i)/N$ and then compute the uncertainty propagation for the Shannon Index.
-
-## Task 3 {.unnumbered}
-
-Waves have a major influence on the marine environment and ultimately on the planet's climate and so are often studied by oceanographers. The period of a particular wave oscillation is measured to be $T=(2\pm0.1)s$. What is the uncertainty associated with the frequency, $f$, of the wave, where $f=1/T$?
-
-## Task 4 {.unnumbered}
-
-10 sets of data (N=13) have been collected. Within each there is a number of (suspected) outliers.
-
-```         
-     mean median    sd   MAD Nout?
-s1  23.82  10.31 33.21 13.98     2
-s2  17.72  10.90 24.88  7.64     1
-s3  16.58   9.83 25.05  7.52     1
-s4  24.13  10.63 33.56 14.13     2
-s5  30.68  10.24 39.37 21.07     3
-s6  30.82  10.64 39.04 21.08     3
-s7  23.79  10.01 33.91 14.47     2
-s8  23.95  10.05 34.01 14.39     2
-s9  30.96  10.50 39.40 21.33     3
-s10 24.31  10.52 33.79 14.32     2
-```
-
-The data for the first sample are shown below:
-
-```         
-9.89, 10.55, 9.67, 10.62, 10.31, 10.21, 10.92, 98.25, 99.03, 9.33, 11.17, 9.78, 9.90
-```
-
-The R code/output below shows the results of various outlier tests. Comment on this output.
-
-```{r, eval=FALSE}
-# Chauvenet’s test for outliers
-
-P <- 1-pnorm(s1[9],mean(s1), sd(s1))
-P*length(s1)
-[1] 0.152972
-
-# Grubbs test for one outlier
-
-data:  s1
-G = 2.2647, U = 0.5370, p-value = 0.06811
-alternative hypothesis: highest value 99.03 is an outlier
-
-# Dixon test for outliers
-
-data:  s1
-Q = 0.98321, p-value < 2.2e-16
-alternative hypothesis: highest value 99.03 is an outlier
-```
 
 ## Task 5 {.unnumbered}
 
@@ -96,6 +54,18 @@ alternative hypothesis: highest value 99.03 is an outlier
 (a) Suppose that chlorophyll data in a freshwater loch are collected twice a week, but the equipment needs to be removed for maintenance once a month, so that there are around 12 missing values per year. Can we assume that these values are missing at random?
 
 (b) Suppose that in another loch, the data are also collected twice a week, but the monitoring device there only needs to be maintained once a year. If this is removed every December, so that there are no values for that month, can we assume that these data are missing at random? Might we need to impute the data?
+
+::: {.callout-important icon="false"}
+## Level M Extra Question
+
+A pilot survey at a comparable site detected the newt in **2 of 10** ponds. Use this as prior information in a Bayesian analysis and update it based on the information from the previous task (i.e., $y = 3$ detections in $n = 20$ ponds). To do so follow the next steps:
+
+1.  Write the likelihood of the pilot study and show it has the form of a Beta distribution where the general Beta density $\pi(p) \propto p^{a-1}(1-p)^{b-1}$.
+2.  Identify the likelihood and the prior for the main survey (recall that we assume the main survey follows a binomial density such that $\pi(y \mid p) \propto  p^{y}(1-p)^{n-y}$ for $y=3$ and $n=20$.)
+3.  Derive the posterior distribution by multiplying the likelihood by the prior. What family results?
+4.  Compute the posterior mean of $p$ using the fact that if $X\sim\text{Beta}(a,b); \mathbb{E}(X) =\frac{a}{a+b}$)
+5.  Compute a 95% credible intervals for $p$ and comment (you can use `R` to compute the quantiles directly)
+:::
 
 # Part B: Sampling and monitoring
 
@@ -126,19 +96,17 @@ In the case of a simple random sample $x_1,..., x_n$ of a random variable, $X$, 
 | 3 | 26,200 | 13 | 270 | 127,413 |
 | 4 | 11,000 | 20 | 260 | 84,500 |
 
-:::{.callout-tip}
-
+::: callout-tip
 The stratified estimator of the population total is
 
 $$
 \hat{I} = \sum_{l=1}^{L} N_l \, \bar{y}_l .
-$$
-You may use the fact that the variance for the mean of $l$-th strata is given by 
+$$ 
+You may use the fact that the variance for the mean of $l$-th strata is given by
 
 $$
 \text{Var}(\bar{y}_l)= \left( 1 - \frac{n_l}{N_l} \right)\frac{s_l^2}{n_l}
 $$
-
 :::
 
 ## Task 9 {.unnumbered}

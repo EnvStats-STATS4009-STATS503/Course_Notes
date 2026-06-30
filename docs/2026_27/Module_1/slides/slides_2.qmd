@@ -1,2415 +1,2043 @@
 ---
-title: "Understanding our Data"
-embed-resources: true
+title: "Lecture 1"
+from: markdown+emoji
+subtitle: "Introduction" 
 format:
   revealjs:
-    footer: '<a href="https://envstats-stats4009-stats503.github.io/Course_Notes/2026_27/Module_1/docs/" style="color:#ccc; padding:20px 30px; display:inline-block; margin:-20px -30px;">Home</a>'
-    logo:  UofG.png
+    margin: 0
+    logo:  NTNU_UofG.png
     theme: uofg_theme.scss
     header-includes: |
       <script src="custom.js" type="application/javascript"></script>
-title-slide-attributes: 
-  data-background-image: uog_cloistures2.jpg
-  data-background-color: "#FFFFFF"
-slide-number: true
-include-in-header: 
-  text: |
-    <style>
-      .custom-small table {
-        font-size: .8em
-      }
-      .custom-tiny table {
-        font-size: .6em
-      }
-    </style>
+slide-number: "c/t"
+title-slide-attributes:
+#    data-background-image: images/trondheim3.png
+    data-background-size: cover
+    data-background-opacity: "0.55"
 author:
-  - name: Jafet Belmont 
-    email: jafet.BelmontOsuna@glasgow.ac.uk 
-    affiliations: School of Mathematics and Statistics
-editor_options: 
-  chunk_output_type: console
-execute: 
-  eval: true
-  echo: true
+  - name: Sara Martino
+    #orcid: 0000-0002-6879-4412
+    email: sara.martino@ntnu.no
+    affiliations: Dept. of Mathematical Science, NTNU
+  - name: Janine Illian
+    #orcid: 0000-0002-6879-4412
+    email: Janine.Illian@glasgow.ac.uk
+    affiliations: University of Glasgow 
+  - name: Jafet Belmont
+    #orcid: 0000-0002-6879-4412
+    email: Jafet.Belmont@glasgow.ac.uk
+    affiliations: University of Glasgow   
+        
+# date: May 22, 2025
+# bibliography: references.bib
+embed-resources: true
+execute:
   allow-html: true
   freeze: auto
-bibliography: references.bib
 ---
 
-# Ecological and Environmental Data
-
-## The new era of environmental and ecological data {.smaller background-color="#FFFFFF"}
-
--   Over the last decade, the information available for surveying and monitoring ecological and environmental resources has changed radically.
-
--   The rise of new technologies facilitates the access to large volumes of environmental and ecological data.
-
-![](figures/NBN_Trust_Growth.gif){fig-align="center" width="635"}
-
-## The new era of environmental and ecological data {.smaller}
-
-Today's ecological and environmental data landscape is overwhelmingly vast - far too extensive to cover comprehensively in one session!
-
-Instead, we'll focus on key data sources
-
-{{< video https://www.youtube.com/watch?v=7MywGLpOBWs title="Environmental monitoring over the year (UKCEH)" >}}
-
-## Institutional Monitoring Programmes {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-::: incremental
--   primary source of information for long-term environmental assessment, producing **structured datasets**
-
--   *field surveys* conducted on established *monitoring networks* to track trends in species populations, habitat quality, and ecosystem processes
-
--   Planned Surveys produce **structured data** which involves constant monitoring schemes using standardised methods at sites on a regular basis.
-
--   Minimizing observational error & sampling biases.
-:::
-
-![](figures/survey_data.png){fig-align="center"}
-
-## Institutional Monitoring Programmes {.smaller auto-animate="true" background-color="#FFFFFF"}
-
--   primary source of information for long-term environmental assessment, producing **structured datasets**
-
--   *field surveys* conducted on established *monitoring networks* to track trends in species populations, habitat quality, and ecosystem processes
-
--   Planned Surveys produce **structured data** which involves constant monitoring schemes using standardised methods at sites on a regular basis.
-
--   Minimizing observational error & sampling biases.
-
--   These are **expensive** to collect and tend to be geographically and temporally restricted.
-
-![](figures/meme1.png){fig-align="center"}
-
-## Institutional Monitoring Programmes
-
-::: custom-tiny
-| Monitoring Scheme | Description |
-|------------------------------------|------------------------------------|
-| United Kingdom Butterfly Monitoring Scheme ([UKBMS](https://ukbms.org/)) | Protocolized sampling scheme run by butterfly conservation that has monitored changes in the abundance of butterflies throughout the United Kingdom since 1976. |
-| UK Environmental Change Network ([ECN](https://ecn.ac.uk/)) | UK's long-term ecosystem monitoring and research programme that has produced a large collection of publicly available data sets including meteorological, biogeochemistry and biological data for different taxonomic groups [@rennie2020]. |
-| National Hydrological Monitoring Programme ([NHMP](https://nrfa.ceh.ac.uk/nhmp)) | The NHMP, particulalry the National River Flow Archive conveys a national scale management of hydrological data within the UK hosted by the UKCEH since 1982 collating hydrometric data from gauging station networks operated by multiple agencies. |
-| Natural Capital and Ecosystem Assessment ([NCEA](https://environment.data.gov.uk/natural-capital-ecosystem-assessment/about)) | Long-term environmental monitoring of natural capital including data from freshwater Surveillance Networks, ecosystem condition & soil health, forest inventory, estuary and coast surveillance, etc. |
-| Breeding Bird Survey ([BBS](https://www.bto.org/)) | Main scheme for monitoring the population changes of the UK's common breeding birds. It covers all habitat types and monitors 110 common and widespread breeding birds using a randomised site selection. |
-:::
-
-## Citizen Science Programmes & Platforms {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-**Unstructured data** constitute the majority of available information.
-
--   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
-
-![](figures/CS_apps.png){fig-align="center"}
-
-## Citizen Science Programmes & Platforms {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-**Unstructured data** constitute the majority of available information.
-
--   **Citizen science** projects offer a cost-effective solution to investigate species distributions at large spatial and temporal scales.
--   Harnessing the power of CS data is not an easy task!
-
-| Advantages 😄👍 | Disadvantages 😔👎 |
-|------------------------------------|------------------------------------|
-| Extensive taxonomic, spatial and temporal coverage. | Under-reporting of rare and inconspicuous species. |
-| Eye-catching species that are easily identifiable by participants. | Varying recording skills and uneven sampling effort. |
-
-## Sampling Bias in CS opportunistic data {.smaller}
-
-Large volumes of CS data come from **Opportunistic surveys** where sampling effort is **biased** across space and time.
-
--   People visit more certain places than others.
-
-![Elevation versus sampling effort (obtained through the Pl\@net Net App) in the French mediterranean region (Figure taken from [@botella2020]).](figures/sampling_eff_ex.png){fig-align="center"}
-
-::: incremental
--   Small populations at lower elevation could be over-sampled.
-
--   If we assume sampling is evenly distributed, species distribution at higher elevation would be under-estimated
-:::
-
-## Biological Collections {.smaller}
-
-:::::: columns
-:::: {.column width="40%"}
-::: incremental
--   Oldest form of historical data reservoirs driven originally by personal interest but provedn to be a key source of information for addressing modern global challenges
-
--   The Natural History Museum in London safeguards a collection of over 80 million specimens, spanning 4.5 billion years of Earth's history to the present.
-
--   Most historic collection were obtained in an opportunistic manner - largely dependent on the particular interests of the collector)
-
--   The information associated with each collection or specimen vary widely, limiting the environmental context.
-:::
-::::
-
-::: {.column width="60%"}
-![](figures/NH_collect.jpg){fig-align="center"}
-:::
-::::::
-
-## Data Repositories & Portals {.smaller}
-
-**Centralized, curated platforms** that aggregate, preserve, and disseminate environmental data
-
-**Examples:**
-
--   Global Biodiversity Information Facility (GBIF)
-
--   National Biodiversity Network (NBN) Atlas
-
--   UK-SCAPE plant diversity trends
-
--   UK Lakes portal
-
-**Key Features:**
-
--   Standardize heterogeneous datasets
-
--   Enable cross-disciplinary data sharing
-
--   Often include interactive **data portals** with:
-
-    -   Visualization tools
-
-    -   Web applications
-
-    -   Programming interfaces (APIs)
-
-    -   Data catalogues
-
-## Processed information products {.smaller}
-
-Processed information products transform raw measurements into refined, analysis-ready resources tailored for decision-makers and researchers.
-
-Unlike primary data repositories, these products undergo rigorous calibration, integration, and modelling to generate authoritative maps, indicators, and synthesized datasets.
-
-::: {.callout-note appearance="simple" icon="false"}
-## Example: Worlclim
-
--   [WorldClim](https://www.worldclim.org/) is a widely used set of global, high-resolution climate surfaces (raster maps) that provide interpolated estimates of historical and future projections of temperature, precipitation, and other bioclimatic variables.
-
--   These surfaces serve as the foundational data for species distribution modeling, ecological forecasting, and a vast range of other environmental research applications.
-
-![](figures/worldclim.jpeg){fig-align="center" width="450"}
-:::
-
-## Remote sensing {.smaller}
-
-:::::: columns
-:::: {.column width="60%"}
-Remote sensing refer the process of obtaining information of an object from a distance, typically from aircraft or satellites
-
-::: incremental
--   Enables non-invasive monitoring of Earth's environment across vast scales, generating products like land cover maps and vegetation indices
-
--   Provides systematic, near-real-time data but has substantial uncertainties from sensor calibration, resolution constraints, and lower accuracy than field measurements
-
--   Requires validation with in-situ data to assess and ensure accuracy of remote sensing products
-:::
-::::
-
-::: {.column width="40%"}
-![](figures/dem.jpeg){fig-align="center"}
-:::
-::::::
-
-## Remote sensing examples {.smaller}
-
-::: {.callout-note icon="false"}
-## Digital Elevation Models (DEMs) {{< fa mountain >}}
-
-DEMs are digital representations of the earth's topographic surface providing a continuous and quantitative model of terrain morphology.
-
-The accuracy of DEMs is determined primarily by the resolution of the model (the size of the area represented by each individual grid cell in a raster).
-
-**Example**: Shuttle RaDAR Topography Mission (SRTM), aquired by NASA using a Synthetic Aperture Radar (SAR) instrument, provide elevation data for any country
-:::
-
-::: {.callout-note icon="false"}
-## Land Cover Maps {{< fa mountain-city >}}
-
-Land cover maps describe the physical material on the Earth's surface.
-
-They are created by applying automated algorithms to satellite or aerial imagery to identify features such as grassland, woodland, rivers & lakes or man-made structures such as roads and buildings.
-
-**Example**: UK CEH [Land Cover Maps](https://www.ceh.ac.uk/data/ukceh-land-cover-maps) provide consistent national-scale representations of surface vegetation and land use classes.
-:::
-
-::: {.callout-note icon="false"}
-## NDVI Vegetation Index {{< fa seedling >}}
-
-Vegetation indeces derived from remote sensing utilize spectral data from satellite or aerial sensors to quantify and monitor plant health, structure, and function across landscapes.
-
-The Normalized Difference Vegetation Index (NDVI ranges from -1 to +1, where positive values indicating healthier, denser vegetation and negative values indicating surfaces like water, snow, or bare ground.
-:::
-
-## Research-Generated Data {.smaller}
-
-Research-generated data repositories, such as [Dryad](https://datadryad.org/about) and [Zenodo](https://zenodo.org/), are cornerstone platforms in the modern scientific workflow, explicitly designed to uphold the principles of transparency, reproducibility, and open data access.
-
-::::: columns
-::: {.column width="50%"}
-**Core Features:**
-
--   Researchers **actively deposit** datasets, code, and scripts
-
--   Assign **persistent DOIs** for citation and access
-
--   Enable **verification** and **replication** of findings
-:::
-
-::: {.column width="50%"}
-**Impact:**
-
--   Detects errors & reduces redundancy
-
--   Accelerates scientific discovery
-
--   Transforms single studies into community resources
-
--   Safeguards scientific integrity
-:::
-:::::
-
-# Data Quality
-
-## Quantification
-
--   Understanding and measuring quantities is a fundamental part of all science, not just statistics.
--   As scientists, we use data to understand the process which we are investigating.
--   These data have two main sources of uncertainty or error:
-    -   **Inherent variability** of the process itself (the thing we are measuring is variable).
-    -   **Imprecise knowledge** of the process (our measurements may not be accurate).
-
-## Example: Climate change trends {background-color="#FFFFFF"}
-
--   These plots illustrate the trends in several climate change measures.
--   Both sources of variability will be present, but how much of each?
-
-::: {layout-ncol="2"}
-![](figures/TempAndSea.png){width="422"}
-
-![](figures/GreenhouseCO2.png){width="541"}
-:::
-
-## Observational Error in Environmental Measurements
-
-**Observational Error** in a measurement is the difference between the measured value and the true value.
-
--   This error may include both **random** and **systematic** components.
-
-**Random error**: Variation observed randomly over repeat measurements.
-
-→ With more measurements, these errors average out (improves accuracy).
-
-## Systematic Error
-
-**Systematic error**: Variation that remains constant over repeated measures.
-
--   Typically due to some feature of the measurement process.
--   Making more measurements **will not improve accuracy** (all affected equally).
--   Can only be eliminated by identifying and correcting the cause.
-
-## Error Identification Exercise {.smaller background-color="#FFFFFF"}
-
-For each example, identify whether the error is **random** or **systematic**:
-
-::::: columns
-::: {.column width="40%"}
-1.  **A meter reads 0.01 even when measuring no sample.**
-
-2.  **An old thermometer can only measure to the nearest 0.5 degrees.**
-
-3.  **A poorly designed rainfall monitor often leaks water on windy days.**
-
-4.  **To estimate the abundance of a fish species in a lake, scientists use a net with a mesh size equal to the average fish length**
-:::
-
-::: {.column width="60%"}
-![](figures/clipboard-2021835673.png){fig-align="center" width="405"}
-:::
-:::::
-
-## Measuring the quality of measurement {.smaller}
-
--   We often talk about the *quality of a measurement process* (or an associated estimate) in terms of **accuracy**, **bias** and **precision**.
-
--   **Bias**:
-
-    -   *Measurement bias*: is the difference between the *average* of a series of measurements and the true value - mainly due to faulty measuring devices of procedures (systematic error).
-
-    -   *Sampling bias*: Under-representative sample of the target population (systematic error).
-
-    -   *Estimation bias*: Relates to the property of an estimator, i.e., $E(\hat{\theta})-\theta = 0$, for unbiased estimators, the bias (random error) decreases with increased sampling effort (*See supplementary material for more details).*
-
--   **Precision** is the closeness of agreement between independent measurements. Precision does **NOT** relate to the true value.
-
--   **Accuracy** overall *distance* between the estimated (or observed) values and the **true** value. There are several definition of what this *distance* mean some of which include the precision (see @walther2005)
-
-## Measuring the quality of measurement {background-color="#FFFFFF"}
-
-![](figures/AccuracyPrecision.jpg){fig-align="center"}
-
-# Dealing with observational errors
-
-## Common issues with Environmental data
-
--   Environmental and Ecological systems are inherently complex due to the large number of interrelated biological, physical, and social components
-
--   Adding to this complexity, analyzing these systems becomes a challenging task due to the heterogeneity of available data.
-
--   We often have to deal with issues such as **outliers**, **missing values**, and highly **uncertain** information.
-
-## Censored Data {auto-animate="true"}
-
--   **Censored data** are data where [we are restricted in our knowledge about them]{style="filter: blur(5px);"} in some way or other.
-
--   Often this will be because [we only know that]{style="filter: blur(5px);"} the data value lies below a certain [minimum value]{style="filter: blur(5px);"} (or [above]{style="filter: blur(5px);"} a certain maximum).
-
--   For example, [if we had scales which only]{style="filter: blur(5px);"} weighed up to [10kg, we would not know]{style="filter: blur(5px);"} the exact weight [of any object greater than]{style="filter: blur(5px);"} 10kg.
-
-## Censored Data {auto-animate="true"}
-
--   **Censored data** are data where we are restricted in our knowledge about them in some way or other.
-
--   Often this will be because we only know that the data value lies below a certain minimum value (or above a certain maximum).
-
--   For example, if we had scales which only weighed up to 10kg, we would not know the exact weight of any object greater than 10kg.
-
-## Limits of Detection {.smaller}
-
--   For environmental data, it is more common to have data which are censored at some minimum value.
-
--   This is because many pieces of measuring equipment will have an analytical **limit of detection**.
-
--   A limit of detection is the lowest concentration that can be distinguished with reasonable confidence from a "blank", i.e. a hypothetical sample with a value of zero.
-
--   The limit of detection is often denoted $c_L$.
-
-:::: {.callout-note icon="false"}
-## Example
-
-Your environmental monitoring device measures a pollutant concentration of 0.05 ppm, but the instrument's Limit of Detection (LoD, $c_L$) is 0.1 ppm. Is this 0.05 ppm a measurement of real pollution?
-
-::: fragment
--   We can't say with confidence. The LoD of 0.1 ppm represents the lowest concentration that can be reliably distinguished from a blank sample.
-
--   At 0.05 ppm (below LoD), we cannot confidently tell if it's real pollution at a low level or just measurement noise
-:::
-::::
-
-## Impact of Censoring {.smaller auto-animate="true" background-color="#FFFFFF"}
-
--   Censoring has a huge impact on how we interpret our data.
-
--   The two plots below show the same data, but the right panel is 'censored' with two different limits of detection (some with an LOD of 0.5, others with an LOD of 1.5).
-
-::: {layout-ncol="2"}
-![](figures/ConcUncensored.png)
-
-![](figures/ConcCensored.png)
-:::
-
-## Dealing with LODs
-
--   Censored observations are not completely without information. We still know they are equal to or more extreme than the limit.
-
--   For a LOD, we might therefore report the datapoint as either "not detected" or "$< c_L$".
-
--   Removing them from our study would not be sensible, since this would lead to us overestimating the mean and probably also underestimating the variance.
-
--   We need to find a way to incorporate these censored datapoints into our analysis.
-
-## Dealing with LODs (Continued) {background-color="#FFFFFF"}
-
--   We can't simply use the minimum value of the LOD. This would ignore the fact that the values are often *below* this.
-
--   In the plot below, the LOD reduces after every 100 observations (e.g. because of better quality equipment), and this leads to an artificial trend.
-
-![](figures/TSM1.png){fig-align="center" width="70%"}
-
-## Simple Substitution
-
--   The simplest approach for dealing with LODs is via **simple substitution**.
-
--   This involves taking the LOD value and multiplying it by a fixed constant, e.g. replacing all $<c_L$ values with $0.5c_L$.
-
--   This approach is fairly popular because it is simple and easy to implement.
-
--   However, this approach only works if there is a small proportion of censored data (maximum 10–15%). If there is a higher proportion, it tends to overestimate the mean.
-
-## Distribution-based Approaches
-
--   It is generally preferable to use a more statistics-based approach which accounts for the data distribution.
-
--   The basic idea is that we estimate the statistical distribution of the data in a way that takes into account the censoring.
-
--   We can then use this estimated distribution to simulate values for our censored points.
-
--   Commonly used distribution-based approaches are **Maximum Likelihood**, **Kaplan-Meier** and **Regression on Order Statistics**.
-
-## Maximum Likelihood Approach
-
--   The maximum likelihood (ML) approach is a *parametric* approach, i.e. it requires us to specify a statistical **distribution** that is a close fit to the data.
-
--   We then identify the **parameters** of this distribution that maximise the likelihood of obtaining a dataset like ours.
-
--   This ML approach has to take into account the likelihood of obtaining:
-
-    -   the observed values in our dataset.
-    -   the correct proportion of data being censored, i.e. falling below our detection limit(s).
-
-## Maximum Likelihood Approach (Visualization) {background-color="#FFFFFF"}
-
-![](figures/MLEcensoring.png){fig-align="center" width="90%"}
-
-## Maximum Likelihood Approach: Pros and Cons
-
-::::: columns
-::: {.column width="50%"}
-**Advantages**
-
--   Able to handle multiple limits of detection.
-
--   Good for estimating summary statistics with a suitably large sample size.
-
--   MLE explicitly accounts for the underlying distribution of the data (if known).
-:::
-
-::: {.column width="50%"}
-**Disadvantages**
-
--   More applicable to larger datasets (n \> 50).
-
--   Reliant on specifying the correct distribution, otherwise estimates can be incorrect.
-
--   Transforming data to fit a distribution can potentially cause biased estimators.
-:::
-:::::
-
-## Kaplan-Meier Approach
-
--   The Kaplan-Meier approach is a *nonparametric* approach, i.e. it doesn't require a distributional assumption.
-
--   It's often used in survival analysis for estimating summary statistics for right-censored data.
-
--   However, it can be applied to left-censored data by 'flipping' the data and subtracting from a fixed constant.
-
--   In survival analysis, Kaplan-Meier estimates the probability that an observation will survive past a certain time.
-
--   In our 'flipped' context, it gives the probability that an observation will fall below the limit of detection.
-
-## Example: Cadmium in Fish {background-color="#FFFFFF"}
-
-::::: columns
-::: {.column width="70%"}
--   Cadmium is a heavy metal identified as having potential health risks.
-
--   We observed cadmium levels in fish livers in two different regions of the Rocky Mountains.
-
--   Due to variation in data collection, there are four different LODs (0.2, 0.3, 0.4 and 0.6 µg per litre).
-
-![](figures/Blinky.png){fig-align="center" width="250"}
-:::
-
-::: {.column width="30%"}
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(gt)
+```{r setup}
+#| include: false
+
+knitr::opts_chunk$set(echo = FALSE,  
+                      message=FALSE, 
+                      warning=FALSE, 
+                      strip.white=TRUE, 
+                      prompt=FALSE,
+                      fig.align="center",
+                       out.width = "60%")
+
+library(knitr)    # For knitting document and include_graphics function
+library(ggplot2)  # For plotting
+library(png) 
+library(tidyverse)
+library(INLA)
+library(BAS)
 library(patchwork)
-library(dplyr)
-library(NADA)
-library(ggplot2)
-cad_data <-data.frame(Cd=
-                        c(81.3,3.5,4.6,0.6,2.9,3,4.9,0.6,3.4,0.4,0.8,0.3,0.4,0.4,0.4,1.4,0.6,0.7,0.2),
- Region = as.factor(c(rep(2,9),rep(1,9),2)),
- CdCen = c(rep(FALSE,11),TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE))
-data(Cadmium)
-gt(Cadmium)
+library(inlabru)
+
 ```
+
+## Outline
+
+-   What are INLA and `inlabru`?
+-   Why the Bayesian framework?
+-   Which model are `inlabru`-friendly?
+-   What are Latent Gaussian Models?
+-   How are they implemented in `inlabru`?
+
+## What is INLA? What is `inlabru`? {.smaller}
+
+**The short answer:**
+
+> INLA is a fast method to do Bayesian inference with latent Gaussian models and `inlabru` is an `R`-package that implements this method with a flexible and simple interface.
+
+\pause
+
+**The (much) longer answer:**
+
+-   Rue, H., Martino, S. and Chopin, N. (2009), Approximate Bayesian inference for latent Gaussian models by using integrated nested Laplace approximations. *Journal of the Royal Statistical Society: Series B (Statistical Methodology)*, 71: 319-392.
+-   Van Niekerk, J., Krainski, E., Rustand, D., & Rue, H. (2023). A new avenue for Bayesian inference with INLA. *Computational Statistics & Data Analysis*, 181, 107692.
+-   Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A. E. (2024). inlabru: software for fitting latent Gaussian models with non-linear predictors. *arXiv preprint* arXiv:2407.00791.
+-   Lindgren, F., Bolin, D., & Rue, H. (2022). The SPDE approach for Gaussian and non-Gaussian fields: 10 years and still running. *Spatial Statistics*, 50, 100599.
+
+## Where? {.smaller}
+
+::: {.callout-warning icon="false"}
+## {{< bi globe2 color=#ff7226 >}} Website-tutorials
+
+`inlabru` <https://inlabru-org.github.io/inlabru/>
+
+`R-INLA` <https://www.r-inla.org/home>
 :::
-:::::
 
-## Example: Cadmium in Fish (Visualization) {background-color="#FFFFFF"}
+::: {.callout-tip icon="false"}
+## {{< bi chat-left-quote color=#0c7c0c >}} Discussion forums
 
--   Plotting the data shows the potential impact of censoring.
+`inlabru` <https://github.com/inlabru-org/inlabru/discussions>
 
--   The left panel shows all the data (plotting censored values as equal to the LOD), while the right panel excludes those which have been censored.
+`R-INLA` <https://groups.google.com/g/r-inla-discussion-group>
+:::
+
+::: {.callout-note icon="false"}
+## {{< bi book color=#4f11eb >}} Books
+
+-   Blangiardo, M., & Cameletti, M. (2015). Spatial and spatio-temporal Bayesian models with R-INLA. John Wiley & Sons.
+
+-   Gómez-Rubio, V. (2020). Bayesian inference with INLA. Chapman and Hall/CRC.
+
+-   Krainski, E., Gómez-Rubio, V., Bakka, H., Lenzi, A., Castro-Camilo, D., Simpson, D., ... & Rue, H. (2018). Advanced spatial modeling with stochastic partial differential equations using R and INLA. Chapman and Hall/CRC.
+
+-   Wang, X., Yue, Y. R., & Faraway, J. J. (2018). Bayesian regression modeling with INLA. Chapman and Hall/CRC.
+:::
+
+## So... Why should you use `inlabru`? {auto-animate="true"}
+
+::: incremental
+-   What type of problems can we solve?
+-   What type of models can we use?
+-   When can we use it?
+:::
+
+## So... Why should you use `inlabru`? {auto-animate="true"}
+
+-   What type of problems can we solve?
+-   What type of models can we use?
+-   When can we use it \`inlabru'?
+
+> To give proper answers to these questions, we need to start at the very beginning...
+
+## The core {auto-animate="true"}
+
+-   We have observed something.
 
 ```{r}
+#| warning: false
+#| message: false
 #| echo: false
-#| fig-align: center
-Cadmium %>% filter(Cd<80)%>%
-  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
-  geom_boxplot() +
-  labs(y = "Cadmium Concentration", x= "Regions", title = "Censored + Uncensored")+
-  theme(legend.position = "none") + 
-Cadmium %>% filter(CdCen == FALSE&Cd<80) %>%
-  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
-  geom_boxplot() +
-  labs(y = "Cadmium Concentration", x= "Regions", title = "Uncensored")+
-  theme(legend.position = "none")
+
+library(cowplot) # needs install.packages("magick") to draw images
+library(FSAdata)
+
+sturgeon <- readPNG("figures/pallid-sturgeon.png", native = TRUE)
+
+
+Pallid = Pallid %>% mutate(w = w/1000,tl=tl/10) %>% select(w,tl)
+p1 = Pallid %>% ggplot() + geom_point(aes(x=tl,y=w)) + labs(y="Weight (Kg)",x="Total Length (cm)") + ggtitle("Lengths and weights for Pallid Sturgeon in the Missouri River")
+  
+ggdraw() +  draw_plot(p1) + draw_image(sturgeon, scale = .7,y=0.25) 
 
 ```
 
-## Using the Kaplan-Meier Approach in R
+## The core {auto-animate="true"}
 
--   We can use the `NADA` (Nondetects and Data Analysis) package in R.
+-   We have observed something.
+-   We have questions.
 
--   The `cenfit` function applies the Kaplan-Meier method. This package automatically 'flips' the data, since it is designed for environmental data.
+```{r}
+my_image <- readPNG("figures/question.png", native = TRUE)
+
+ggdraw() +  draw_plot(p1  +
+  annotate("text", x=120, y=10, label="Does the weight of pallid sturgeon vary\n with body length??", size = 6,
+              color="red")) +
+  draw_image(my_image, scale = .5,y=0.25)
+  
+# inset_element(p = my_image,
+#                 left = 0.95,
+#                 bottom = 0.55,
+#                 right = 0.55,
+#                 top = 0.95)
+```
+
+## The core {auto-animate="true"}
+
+-   We have observed something.
+-   We have questions.
+-   We want answers!
+
+## How do we find answers? {auto-animate="true"}
+
+We need to make choices:
+
+> -   Bayesian or frequentist?
+> -   How do we model the data?
+> -   How do we compute the answer?
+
+## How do we find answers? {auto-animate="true"}
+
+We need to make choices:
+
+-   Bayesian or frequentist?
+-   How do we model the data?
+-   How do we compute the answer?
+
+These questions are **not** independent.
+
+## Bayesian or frequentist? {auto-animate="true"}
+
+In this course we embrace the Bayesian perspective
+
+-   There are no "*true but unknown*" parameters !
+
+```{r}
+temp <-expression(y == paste(beta[0], " + ", beta[1], "x"))
+p2 = p1 +  annotate(geom="text", x=120, y=20, parse = T, label = as.character(temp),
+              size=12)
+
+p2
+```
+
+## Bayesian or frequentist? {auto-animate="true"}
+
+In this course we embrace the Bayesian perspective
+
+-   There are no "*true but unknown*" parameters!
+-   Every parameter is described by a probability distribution!
+
+```{r}
+set.seed(100)
+b0 = rnorm(100, -22, 0.05)
+b1 = rnorm(100, 0.25, 0.01)
+
+
+temp <-expression(y == paste(alpha, " + ", beta, "x"))
+p3 = p2  +  geom_abline( slope = b1, intercept = b0, color = "grey", alpha = 0.5) + geom_point(aes(tl,w))
+p3
+
+```
+
+## Bayesian or frequentist? {auto-animate="true"}
+
+In this course we embrace the Bayesian perspective
+
+-   There are no "*true but unknown*" parameters!
+-   Every parameter is described by a probability distribution!
+-   Evidence from the data is used to update the belief we had before observing the data!
 
 ```{r}
 #| message: false
-#| warning: false
 
-library(NADA)
-cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
-```
 
--   There are clear differences between the locations in terms of both median and standard deviation.
+temp <-expression(y == paste(alpha, " + ", beta, "x"))
 
-## Statistical Testing with Kaplan-Meier {.smaller}
-
--   The `cendiff` function tests for significant differences between the groups.
-
--   This uses a chi-squared hypothesis test:
-
-    -   $H_0$: Median cadmium levels are the same in Region 1 and Region 2
-
-    -   $H_1$: Median cadmium levels are different in Region 1 and Region 2
-
-```{r}
-cendiff(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
+p3 + geom_smooth(aes(tl, w), method = "lm", fill = "red")
 
 ```
 
--   The p-value is very small, so there is a statistically significant difference between the groups.
+## Some more details I {.smaller auto-animate="\"true"}
 
-## ECDF Plot
-
--   We can also plot the empirical cumulative distribution function (ECDF), taking into account the LODs.
-
--   Note that this works in the opposite direction from regular survival plots due to the 'flipping' of the data.
+We define as the `linear predictor` the mean (or a function of the mean) of our observations `given` the model components.
 
 ```{r}
-#| echo: false
-#| fig-align: center
-plot(cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region))
-legend("bottomright",c("Region 1","Region 2"),lty = 1:2)
-```
-
-## Kaplan-Meier Approach: Pros and Cons
-
-::::: columns
-::: {.column width="50%"}
-**Advantages**
-
--   Nonparametric — no need to assume underlying distribution.
-
--   Can easily account for multiple LODs.
-
--   Works for large numbers of censored datapoints (\>50%).
-:::
-
-::: {.column width="50%"}
-**Disadvantages**
-
--   Quite simplistic — identical to simple substitution if we only have one LOD.
-
--   Less reliable for values near and below the LOD.
-
--   The mean tends to be overestimated — need to rely on median.
-:::
-:::::
-
-## Regression on Order Statistics (ROS)
-
--   Regression on Order Statistics is a *semi-parametric* approach, i.e. it combines elements of parametric and nonparametric models.
-
--   It follows a two-step approach:
-
-    1.  Plot the uncensored values on a probability plot (QQ plot) and use linear regression to approximate the parameters of the underlying data distribution.
-
-    2.  Use this fitted distribution to impute estimates for the censored values.
-
--   There is an assumption that the censored measures are normally (or lognormally) distributed.
-
-## ROS: Implementation {background-color="#FFFFFF"}
-
-::::: columns
-::: {.column width="60%"}
--   The plot shows the uncensored points and their probability plot regression model.
-
--   The `NADA` package in R uses lognormal as default. The plot suggests that this is sensible.
-
--   We then use this fitted model to estimate the values of the censored observations, based on their normal quantiles.
-:::
-
-::: {.column width="40%"}
-![](figures/ROSQQ.png){fig-align="center"}
-:::
-:::::
-
-## ROS vs Simple Substitution {background-color="#FFFFFF"}
-
--   We can compare our ROS approach to simple substitution for the bathing water example used earlier.
-
--   The left panel (ROS) shows no trend present; the right panel (simple substitution) has an artificial trend.
-
-::: {layout-ncol="2"}
-![](figures/ROSEstimates.png)
-
-![](figures/TSM1.png)
-:::
-
-## ROS: Pros and Cons
-
-::::: columns
-::: {.column width="50%"}
-**Advantages**
-
--   Can be applied to a wide variety of environmental datasets.
-
--   Works with multiple LODs, but still not too simplistic with a single LOD.
-
--   Can be used with up to 80% censored datapoints.
-:::
-
-::: {.column width="50%"}
--   **Disadvantages**
-
--   Semiparametric approach — requires a distributional model to be assumed.
-
--   Specifically requires normality (or lognormality) for estimation of parameters.
-
--   Two-stage model introduces extra source of variability.
-:::
-:::::
-
-# Missing Data
-
-## Missing Data {background-color="#FFFFFF"}
-
-::::: columns
-::: {.column width="50%"}
--   Environmental & Ecological data are very prone to missing values.
-
--   Data can be missing for any number of reasons.
-
--   There's a whole discipline of statistics related to this. We will focus on specific methods commonly used in environmental and ecological statistics.
-:::
-
-::: {.column width="50%"}
-Environmental and ecological data can have gaps in different dimensions
-
-![Illustration of different types of data gaps within biodiversity data (Taken from @bowler2024)](figures/clipboard-1808788170.png){fig-align="center"}
-:::
-:::::
-
-## Causes of Missing Data
-
-Considering why these gaps arise can help us understand their likely impact.
-
-::: incremental
--   Adverse weather (e.g., rainfall, snow, drought and wind) can affect measuring equipment or prevent access to the location.
-
--   Failure of scientific equipment.
-
--   Samples being lost or damaged.
-
--   Monitoring networks change in size over time. (Data are "missing" before the site is introduced or after it is removed.)
-
--   Uneven sampling effort (see @hossie2021)
-:::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="33.33%"}
-**Missing Completely at Random** (MCAR)
-
-![](figures/mcar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="33.33%"}
-**Missing at Random** (MAR)
-
-![](figures/mar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="33.33%"}
-**Missing Not at Random** (MNAR)
-
-![](figures/mnar_dag.png){fig-align="center" width="350"}
-:::
-::::::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="60%"}
-**Missing Completely at Random** (MCAR)
-
--   Data missingness is independent of both observed and unobserved data.
-
--   For example, factors affecting sampling, and causing missingness, are independent of those affecting the environmental process of interest.
-
-![](figures/mcar_dag.png){fig-align="center" width="250"}
-:::
-
-::: {.column width="20%"}
-**Missing at Random** (MAR)
-
-![](figures/mar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="20%"}
-**Missing Not at Random** (MNAR)
-
-![](figures/mnar_dag.png){fig-align="center" width="350"}
-:::
-::::::
-
-::: notes
-**Example**
-
--   Y = abundance of birds
-
--   X = Precipitation
-
--   $R_i = \begin{cases}1 & \text{if site is surveyed}\\ 0 & \text{if site is missed}\end{cases}$
-
--   Z = closeness to primary road
-
-Under MCAR we want to know if $R$ depends on the data $Y,X$, so we marginalize over $Z$
-
-$$
-\begin{aligned}
-Pr(R=0\mid Y,X) &= \int Pr(R=0\mid Y,X,Z)Pr(Z\mid Y,X)dZ \quad \text{since } R \perp (Y,X) \mid Z\\
- &= \int Pr(R=0\mid Z)Pr(Z\mid Y,X)dZ \quad \text{since } Z \perp (Y,X) \Rightarrow Pr(Z\mid Y,X) = Pr(Z)  \\
-&=\int Pr(R=0|Z)Pr(Z)dZ \quad \text{apply law of total probability} \\
-&= Pr(R=0)
-\end{aligned}
-$$
-:::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="20%"}
-**Missing Completely at Random** (MCAR)
-
-![](figures/mcar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="60%"}
-**Missing at Random** (MAR)
-
--   *Known Unknowns*: Data missingness depends on one or more observed variables and do not depend on the value of the missing observations themselves.
-
--   Covariates that affect sampling probability also affect the process of interest, but data are available on all these covariates . (MAR $\neq$ random sampling effort)
-
-![](figures/mar_dag.png){fig-align="center" width="250"}
-:::
-
-::: {.column width="20%"}
-**Missing Not at Random** (MNAR)
-
-![](figures/mnar_dag.png){fig-align="center" width="350"}
-:::
-::::::
-
-::: notes
-MAR in biodiversity monitoring does not mean that sampling effort is randomly distributed in the landscape. Rather, it means that the covariates affecting sampling are known and that there are available covariate data to explain fully the differences between sampled and non-sampled sites/times. If any of the relevant factors affecting sampling and species are unknown, unavailable or not modelled, the missing data become MNAR
-
-**Example**
-
--   Y= abundance of birds
-
--   X = elevation
-
--   Z = Closeness to primary road
-
-    Elevation affects both the abundance but also can causes missingness (people do not survey high-elevation regions)
-
-MAR does **not** require that you measure **all** variables that affect R. It only requires that, **conditional on what you observe**, missingness does not depend on missing Y.
-
-$$
-\begin{aligned}
-Pr(R=0\mid Y,X) &= \int Pr(R=0\mid X, Z)Pr(Z\mid Y,X)dZ \\
-\quad \text{since } Z \perp (Y,X) &\Rightarrow Pr(Z\mid Y,X) = Pr(Z \mid X)  \\
-&=\int Pr(R=0|X,Z)Pr(Z\mid X)dZ \quad \text{law of total probability for the conditional} \\
-&= Pr(R=0 \mid X) \neq Pr(R=0)
-\end{aligned}
-$$
-:::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="20%"}
-**Missing Completely at Random** (MCAR)
-
-![](figures/mcar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="20%"}
-**Missing at Random** (MAR)
-
-![](figures/mar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="60%"}
-**Missing Not at Random** (MNAR)
-
--   Data missingness depends on either (i) unobserved variables (*Unknown unknowns*) or (ii) the missing values themselves.
-
-![](figures/mnar_dag.png){fig-align="center" width="250"}
-:::
-::::::
-
-::: notes
-**Example** $R \not\perp Y |(X,Z)$
-
--   Y= abundance of birds
-
--   X = elevation
-
--   Z = Closeness to primary road
-
--   At low bird abundance, birds are harder to detect, so you mistakenly record the site as “unsampled” or missing.
-:::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="20%"}
-**Missing Completely at Random** (MCAR)
-
-![](figures/mcar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="20%"}
-**Missing at Random** (MAR)
-
-![](figures/mar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="60%"}
-**Missing Not at Random** (MNAR)
-
--   Data missingness depends on either (i) **unobserved variables** (*Unknown unknowns*) or (ii) the missing values themselves.
-
--   E.g., when factors affecting sampling and the process of interest are unknown, unavailable or not modelled .
-
-![](figures/mnar_dag2.png){fig-align="center" width="300"}
-:::
-::::::
-
-::: notes
-**Example** $R \not\perp Y |(X,Z)$ if $Z$ is unknown.
-
--   Y= abundance of birds
-
--   X = elevation
-
--   Z = Closeness to primary road
-
--   Birds avoid roads due to traffic levels.
-:::
-
-## Classes of missing data {.smaller auto-animate="true"}
-
-Missing data theory categorizes missing data into three classes.
-
-:::::: columns
-::: {.column width="20%"}
-**Missing Completely at Random** (MCAR)
-
-![](figures/mcar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="20%"}
-**Missing at Random** (MAR)
-
-![](figures/mar_dag.png){fig-align="center" width="350"}
-:::
-
-::: {.column width="60%"}
-**Missing Not at Random** (MNAR)
-
--   Data missingness depends on either (i) unobserved variables (*Unknown unknowns*) or (ii) **the missing values themselves**.
-
--   E.g., when the process of ecological process interest itself affect the sampling.
-
-![](figures/mnar_dag.png){fig-align="center" width="250"}
-:::
-::::::
-
-::: notes
-**Example** $R \not\perp Y |(X,Z)$ if $Z$ is unknown.
-
--   Y= abundance of birds
-
--   X = elevation
-
--   Z = Closeness to primary road
-
--   At low bird abundance, birds are harder to detect, so you mistakenly record the site as “unsampled” or missing.
-:::
-
-## Implication of missing Data in Ecology {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-The consequences for inference depend on the missingness mechanism
-
-:::::: columns
-::: {.column width="33.33%"}
-**MCAR**
-
-![](figures/MCAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="33.33%"}
-**MAR**
-
-![](figures/MAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="33.33%"}
-**MNAR**
-
-![](figures/MNAR.png){fig-align="center" width="442"}
-:::
-::::::
-
-## Implication of missing Data in Ecology {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-The consequences for inference depend on the missingness mechanism
-
-:::::: columns
-::: {.column width="60%"}
-**MCRS**
-
--   Unbiased estimated effect of the covariate(s) on the response.
-
--   Strong assumption that rarely is valid for real datasets.
-
-![Blue points are observations whereas red points are observation missing randomly (taken from @nakagawa2008)](figures/MCAR.png){fig-align="center" width="300"}
-:::
-
-::: {.column width="20%"}
-**MAR**
-
-![](figures/MAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="20%"}
-**MNAR**
-
-![](figures/MNAR.png){fig-align="center" width="442"}
-:::
-::::::
-
-::: notes
--   Strong assumption that rarely is valid for real datasets where observer error, natural variation, collinearity, and serial autocorrelation are common.
-:::
-
-## Implication of missing Data in Ecology {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-The consequences for inference depend on the missingness mechanism
-
-:::::: columns
-::: {.column width="20%"}
-**MCAR**
-
-![](figures/MCAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="60%"}
-**MAR**
-
--   Unbiased estimated effect of the covariate(s) on the response, provided the correct functional form.
-
--   Assume that these variables are known and explain fully the differences between sampled and non-sampled sites/times.
-
-![Blue points are observations whereas red points are missing observation for $x < 0$ (taken from @nakagawa2008)](figures/MAR.png){fig-align="center" width="300"}
-:::
-
-::: {.column width="20%"}
-**MNAR**
-
-![](figures/MNAR.png){fig-align="center" width="442"}
-:::
-::::::
-
-## Implication of missing Data in Ecology {.smaller auto-animate="true" background-color="#FFFFFF"}
-
-The consequences for inference depend on the missingness mechanism
-
-:::::: columns
-::: {.column width="20%"}
-**MCAR**
-
-![](figures/MCAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="20%"}
-**MAR**
-
-![](figures/MAR.png){fig-align="center" width="442"}
-:::
-
-::: {.column width="60%"}
-**MNAR**
-
--   **Biased** estimated effect of the covariate(s) on the response.
-
--   **Loss of Power:** Reduced sample size leads to larger standard errors and weaker statistical significance.
-
-![Blue points are observations whereas red points are missing observation for $y > 0$ (taken from @nakagawa2008)](figures/MNAR.png){fig-align="center" width="300"}
-:::
-::::::
-
-## Examples of missing data
-
-Let's go over some examples
-
-![](figures/clipboard-150583925.png){fig-align="center"}
-
-## Dealing with Missing Data
-
--   The technique we use to deal with missing data depends on the **type of missingness**.
-
--   **complete-case analysis:**
-
-    -   If there are a handful of datapoints (e.g., $\approx 5\%$) MCAR we can essentially ignore this and carry out our analysis as usual.
-    -   It is simple to implement but if data are not MCAR it can underestimates sample variability and produces biased results .
-
--   Most solutions are only appropriate for MCAR or MAR - being MNAR the most challenging class of missing data to deal with. Thus, we will focus our attention to the other two classes.
-
-## Dealing with Missing Data {background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/missing_analysis.png)
-:::
-
-:::: {.column width="40%"}
-Imagine that the landscape is divided into four quarters.
-
--   Suppose that the sites on top right quarter are easier to survey. What would happen if we conducted a complete case analysis?
-
-::: fragment
-- We would overrepresent sites that are easy to survey.
-:::
-::::
-::::::
-
-## Dealing with Missing Data {.smaller background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/missing_analysis.png)
-
-:::{.fragment}
-- **Subsampling**: Subsample units to reduce the unevenness of sampling effort across space or time.
-:::
-
-:::
-
-:::: {.column width="40%"}
-
-
-> The aim is to improve the representativeness of the sample for statistical inference at the population level.
-
-::: incremental
-
--   Different sub-sampling schemes can be implemented to reduce the missing data cuased by uneven sampling (e.g, environmental and geographical stratified sampling)
--   Assumes large sample size that can be subsampled and can fail to account for patterns in dataset.
-:::
-::::
-::::::
-
-::: notes
--   In random subsampling, two sites are randomly subsampled from the oversampled quarter to create a data set with an even sampling coverage across quarters.
-:::
-
-
-
-
-## Dealing with Missing Data {.smaller background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/missing_analysis.png)
-
--   **Weighting**: assign weights to spatial-temporal units to achieve improved sample representativeness of some target population.
-
-:::
-
-:::: {.column width="40%"}
-
-
-::: incremental
-
--   Inverse-probability weighting (IPW)
-
-1.  Estimate the probability that each unit is surveyed. i.e, $\pi_i = \mathrm{Pr}(R\mid X,Z,\ldots)$ 
-2.  Weight each observed unit by the inverse of that probability $1/\pi_i$. For example:
-    -   Hard-to-survey sites $\rightarrow$ small $\pi_i$ $\rightarrow$ large weight
-    -   Easy-to-survey sites $\rightarrow$ large $\pi_i$ $\rightarrow$ small weight
-3.  Fit a model like weighted regression using these weights.
-
-:::
-::::
-::::::
-
-::: notes
-
--   In weighting, data from the oversampled quarter are down-weighted in the statistical model so data from all quarters similarly influence the modelled results. (This model must include all variables that make missingness MAR.)
-:::
-
-
-
-## Dealing with Missing Data {.smaller background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/missing_analysis.png)
-
--   **Weighting**: assign weights to spatial-temporal units to achieve improved sample representativeness of some target population.
-
-:::
-
-:::: {.column width="40%"}
-
-Inverse-probability weighting (IPW):
-
-::: incremental
--   information in the incomplete cases is only used to determine the weights (no contribution of to the likelihood)
--   weighted estimates can have high variance since extreme weights (small probabilities) can dominate estimates.
--   Ignoring uncertainty in estimated weights leads to overly conservative standard errors.
-:::
-
-::::
-::::::
-
-
-
-## Dealing with Missing Data {.smaller background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/missing_analysis.png)
-
--   **Imputation**: Imputation is a process that involves predicting the missing values via some form of statistical method.
-
-:::
-
-:::: {.column width="40%"}
-
-::: {.fragment}
--   There are two main forms of imputation:
-
-:::
-
-::::
-::::::
-
-
-
-## Dealing with Missing Data {.smaller background-color="#FFFFFF" auto-animate="true"}
-
-:::::: columns
-::: {.column width="60%"}
-![](figures/imputation.jpg)
-
--   **Imputation**: Imputation is a process that involves predicting the missing values via some form of statistical method.
-
-:::
-
-:::: {.column width="40%"}
-
-
-
--   There are two main forms of imputation:
-
-
-
-::: incremental
-
--   **Single imputation** involves generating one value in place of each missing value.
-
-    -   Single imputation has the advantage of being simpler, and allows straightforward analysis once the missing values have been estimated.
-
--   **Multiple imputation** generate random draws from the observed data distribution. Each full dataset is then analyzed separately, and the results are combined
-
-    -   Multiple imputation does a better job of accounting for the uncertainty of the imputation process, but makes the final analysis more complex.
-:::
-::::
-::::::
-
-
-
-
-## How Do We Impute?
-
--   Our approach for generating the imputed value will vary depending on the context.
-
--   In the simplest case, we may replace missing values with the overall mean (usually only if we have very limited information).
-
--   More commonly, we may use neighbouring values, or some form of seasonal mean.
-
--   A more complex approach is to fit a more general statistical model, perhaps taking account of other variables and/or using random components.
-
-    -    Bayesian framework is especially useful for dealing with missing values, as theese  are treated as "unknown" parameters in our model.
-
-
-
-
-
-# Outliers
-
-## What is an Outlier?
-
--   An outlier is an extreme or unusual observation in our dataset.
-
--   These will often (but not always) have a large influence on the outcomes of our analysis.
-
--   We have to find ways to identify and deal with outliers.
-
--   Can you think of any examples of outliers?
-
-## Types of Outliers
-
-There are two main categories of outlier:
-
-1.  **Genuine but extreme values**
-    -   Accommodate these in our analysis
-    -   Ignoring them would mean ignoring a real feature of our data
-    -   Robust modeling techniques can incorporate outliers
-2.  **Data errors**
-    -   Try to correct (where possible) or remove
-    -   Do not reflect real observations
-
-## Finding Outliers
-
--   It is often helpful to **plot your data**
-    -   Sometimes outliers are very obvious in boxplots or scatterplots
--   Elk's animal track with two unusual observations, how can we assess if these are outliers?
-
-[![Elk tracking data in southwestern Alberta. The Blue line indicates the tracking for one individual with blue and red crosses showing the start and end point of the track respectively.](figures/outlier_animal.png){#fig-movebank fig-align="center" width="340"}](https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map)
-
-## Finding Outliers
-
--   It is often helpful to **plot your data**
-    -   Sometimes outliers are very obvious in boxplots or scatterplots
--   **Statistical approaches** for identifying datapoints significantly different from the rest:
-    -   Tests of discordancy
-    -   Chauvenet's criterion
-    -   Grubbs's test
-    -   Dixon's test
-
-::: callout-note
-Check notes material for a more detailed description of these tests
-:::
-
-## Understanding our Data
-
--   Last week we introduced some of the key motivations behind Environmental Statistics.
-
--   The course will cover a number of statistical ideas around the general theme of environmental data.
-
--   This week we will be looking at uncertainty and variability, and how we can measure these and incorporate them into our conclusions.
-
--   We will then look at a number of important features of environmental data --- censoring, outliers and missing data.
-
-# Uncertainty and Variability
-
-## Uncertainty and Error {.smaller}
-
--   We often talk about uncertainty and error as though they are interchangeable, but this is not quite correct.
-
--   **Error** is the difference between the measured value and the "*true value*" of the thing being measured.
-
--   **Uncertainty** is a quantification of the variability of the measurement result.
-
--   Practically speaking, we make use of common statistical distributions to account for uncertainty.
-
-![](figures/system_vsranerr.png){fig-align="center" width="693"}
-
-## Recap: Continuous Distributions {.smaller background-color="#FFFFFF"}
-
-::::::::: panel-tabset
-## Normal density
-
-::::: columns
-::: {.column width="40%"}
-A continuous random variable $X$ follows a normal distribution with mean $\mu$ and standard deviation $\sigma$ if its probability density function (pdf) is:
-
-$$
-        f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-$$
-
-We denote this as:
-
-$$
-        X \sim \mathcal{N}(\mu, \sigma^2), ~\text{where} ~ -\infty < X < +\infty
-$$
-:::
-
-::: {.column width="60%"}
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
-library(ggplot2)
-set.seed(123)
-
-data <- data.frame(x = rnorm(1000, mean = 200, sd = 10))
-
-p <- ggplot(data, aes(x = x)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 30, 
-                 fill = "lightblue", color = "black", alpha = 0.7) +
-  stat_function(fun = dnorm, args = list(mean = 200, sd = 10),
-                color = "navy", linewidth = 1) +
-  labs(x = "Temperature", y = "Density") +
-  theme_minimal(base_size = 14) +
-  theme(plot.title = element_text(hjust = 0.5))
-
-p
-```
-:::
-:::::
-
-*Why can't we just use normal distributions for all environmental data?*
-
-## log-Normal density
-
-A random variable $X$ follows a log-normal distribution if $\ln(X)$ follows a normal distribution,i.e.
-
-$$
-        Y = \ln(X) \sim \mathcal{N}(\mu, \sigma^2) \quad  \text{where}~ Y\in (0, +\infty)
-$$
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| fig-height: 4
-#| fig-width: 8
-#| fig-align: center
-library(ggplot2)
-library(patchwork)
-set.seed(123)
-conc <- exp(rnorm(200, mean = 2, sd = 0.7))
-# Minimal plot 1
-ggplot(data.frame(x = conc), aes(x = x)) +
-  geom_histogram(aes(y = ..density..), bins = 25, 
-                 fill = "skyblue", alpha = 0.6) +
-  labs(x = "Concentration", y = "Density") +
-  theme_minimal(base_size = 11) +
-
-# Minimal plot 2
-ggplot(data.frame(x = log(conc)), aes(x = x)) +
-  geom_histogram(aes(y = ..density..), bins = 25, 
-                 fill = "lightgreen", alpha = 0.6) +
-  stat_function(fun = dnorm, args = list(mean = 2, sd = 0.7),
-                color = "darkgreen", size = 1) +
-  labs( x = "ln(Concentration)", y = "Density") +
-  theme_minimal(base_size = 11)
-
-```
-
-## Exponential
-
-::::: columns
-::: {.column width="40%"}
-A random variable $X$ follows an exponential distribution with rate parameter $\lambda >0$ if its probability density function (pdf) is:
-
-$$
-f(x; \lambda) = 
-\begin{cases} 
-\lambda e^{-\lambda x} & \text{for } x \geq 0 \\ 
-0 & \text{for } x < 0 
-\end{cases}
-$$
-
-$\lambda$ describes the rate of events, i.e., the no. of events per unit time/distance
-
--   Higher $\lambda$ = more frequent events
--   Mean waiting time: $E[X] = \frac{1}{\lambda}$ (e.g., $\lambda = 0.2$ rainfall events/hour $\rightarrow$ Mean time between events = 5 hours)
--   Variance: $Var(X) = \frac{1}{\lambda^2}$
-:::
-
-::: {.column width="60%"}
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-df <- data.frame(
-  x = seq(0, 8, length.out = 200)
-)
-df$y1 <- dexp(df$x, rate = 0.5)  # mean = 2
-df$y2 <- dexp(df$x, rate = 1)    # mean = 1
-df$y3 <- dexp(df$x, rate = 2)    # mean = 0.5
+# | fig-width: 10
+# | fig-height: 6
+
+# Simulated model (you can skip actual data)
+intercept <- 0
+slope <- 1
+sigma <- 0.6
+
+# Choose some x-values to place the distributions
+x_vals <- c(1, 2, 3)
+x_labels <- c("x[1]", "x[2]", "x[k]")
+
+# Build the distributions
+dist_data <- lapply(seq_along(x_vals), function(i) {
+  x0 <- x_vals[i]
+  y_hat <- intercept + slope * x0
+  y_seq <- seq(y_hat - 3 * sigma, y_hat + 3 * sigma, length.out = 100)
+  dens <- dnorm(y_seq, mean = y_hat, sd = sigma)
+  scaled_dens <- dens / max(dens) * 0.4  # Controls width of the curves
+
+  data.frame(
+    x = x0 + scaled_dens,
+    x_mirror = x0 - scaled_dens,
+    y = y_seq,
+    group = i,
+    x_label = x_labels[i],
+    y_hat = y_hat
+  )
+}) %>% bind_rows()
+
+# Extract points for mean markers
+means_df <- dist_data %>%
+  group_by(group) %>%
+  summarize(
+    x = mean(x),
+    x0 = mean((x + x_mirror) / 2),
+    y = mean(y),
+    x_label = first(x_label)
+  ) %>%
+  mutate(labels =  c(
+  "eta[1] == beta[0] + beta[1]*x[1]",
+  "eta[2] == beta[0] + beta[1]*x[2]",
+  "eta[k] == beta[0] + beta[1]*x[k]"
+))
 
 # Plot
-p <- ggplot(df, aes(x = x)) +
-  geom_line(aes(y = y1, color = "λ = 0.5"), size = 1.5) +
-  geom_line(aes(y = y2, color = "λ = 1"), size = 1.5) +
-  geom_line(aes(y = y3, color = "λ = 2"), size = 1.5) +
-  labs(
-    x = "x (time/distance)",
-    y = "f(x; λ)",
-    color = "Rate (λ)"
-  ) +
-  scale_color_manual(values = c(
-    "λ = 0.5" = "steelblue",
-    "λ = 1" = "darkorange", 
-    "λ = 2" = "forestgreen"
-  )) +
-  theme_minimal(base_size = 14) +
+p1 = ggplot() +
+  # Left and right sides of the Gaussian "violins"
+  #geom_path(data = dist_data, aes(x = x, y = y, group = group), color = "steelblue", linewidth = 0.6) +
+  geom_path(data = dist_data, aes(x = x_mirror, y = y, group = group), color = "steelblue", linewidth = 0.6) +
+
+  # Dashed regression line
+  geom_abline(intercept = intercept, slope = slope, linetype = "dashed") +
+
+  geom_vline(xintercept = x_vals) +
+
+  geom_point(data = data.frame(x = runif(50,0,4)) %>%
+               mutate(y = intercept + slope * x + rnorm(50)),
+             aes(x,y), alpha = 0.3) +
+
+  # Red points at mean
+  geom_point(data = means_df, aes(x = x0, y = y), color = "darkred", size = 3) +
+
+  # Red horizontal segments from point to left tail of density
+  geom_segment(data = means_df, aes(x = x0 - 0.4, xend = x0, y = y, yend = y),
+               color = "darkred", linewidth = 0.7) +
+
+  # X-axis labels
+  scale_x_continuous(breaks = x_vals, labels = parse(text = x_labels), expand = expansion(mult = c(0.1, 0.1))) +
+  labs(x = "x", y = "y") +
+  coord_cartesian(ylim = c(-1, 6),
+                  xlim = c(0.5, 3.5)) +
   theme(
-    legend.position = c(0.85, 0.85),
-    legend.background = element_rect(fill = "white", color = "gray")
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 13),
+    panel.grid = element_blank()
   ) +
-  scale_x_continuous(expand = c(0, 0)) +
-  scale_y_continuous(expand = c(0, 0))
+  geom_segment(data = means_df,
+               aes(x = x0 + 0.6, xend = x0 + 0.05,
+                   y = y - 0.8, yend = y + 0.05),
+               arrow = arrow(length = unit(0.2, "cm")),
+               color = "black",
+               linewidth = 0.5) +
+  geom_text(data = means_df,
+            aes(x = x0 + 0.2, y = y - 1.1, label = labels),
+            parse = TRUE,
+            hjust = 0,
+            size = 6)
 
-p
+p1
+
 ```
-:::
-:::::
-:::::::::
 
-## Recap: Discrete Distributions {.smaller background-color="#FFFFFF"}
+In this case $E(y_i|\beta_0, \beta_i) = \eta_i = \beta_0 + \beta_1 x_i$
 
-:::::::::::: panel-tabset
-## Poisson density
+## Some more details I {.smaller auto-animate="\"true"}
 
-::::: columns
-::: {.column width="50%"}
-A discrete random variable $X$ follows a Poisson distribution with rate parameter $\lambda > 0$ if its probability mass function (PMF) is:
+We define as the **linear predictor** the mean (or a function of the mean) of our observations **given** the model components.
 
-$$
-P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, ~ k = 0, 1, \dots
-$$
-
-We denote this as $X \sim Po(\lambda)$ where $\lambda$ describes:
-
--   Expected number of events in a fixed interval
--   Mean events per unit time/area/volume
--   Example: $\lambda = 3.2$ means 3.2 events expected on average
-:::
-
-::: {.column width="50%"}
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
+# | fig-width: 10
+# | fig-height: 6
 
-# Create Poisson PMF for two lambda values
-k <- 0:10
-df <- data.frame(
-  k = rep(k, 2),
-  lambda = rep(c(2, 5), each = length(k)),
-  prob = c(dpois(k, lambda = 2), dpois(k, lambda = 5))
-)
-df$lambda_label <- paste0("λ = ", df$lambda)
+# Simulated model (you can skip actual data)
+intercept <- 0
+slope <- 1
+sigma <- 0.6
+
+# Choose some x-values to place the distributions
+x_vals <- c(1, 2, 3)
+x_labels <- c("x[1]", "x[2]", "x[k]")
+
+# Build the distributions
+dist_data <- lapply(seq_along(x_vals), function(i) {
+  x0 <- x_vals[i]
+  y_hat <- intercept + slope * x0
+  y_seq <- seq(y_hat - 3 * sigma, y_hat + 3 * sigma, length.out = 100)
+  dens <- dnorm(y_seq, mean = y_hat, sd = sigma)
+  scaled_dens <- dens / max(dens) * 0.4  # Controls width of the curves
+
+  data.frame(
+    x = x0 + scaled_dens,
+    x_mirror = x0 - scaled_dens,
+    y = y_seq,
+    group = i,
+    x_label = x_labels[i],
+    y_hat = y_hat
+  )
+}) %>% bind_rows()
+
+# Extract points for mean markers
+means_df <- dist_data %>%
+  group_by(group) %>%
+  summarize(
+    x = mean(x),
+    x0 = mean((x + x_mirror) / 2),
+    y = mean(y),
+    x_label = first(x_label)
+  ) %>%
+  mutate(labels =  c(
+  "eta[1] == beta[0] + beta[1]*x[1]",
+  "eta[2] == beta[0] + beta[1]*x[2]",
+  "eta[k] == beta[0] + beta[1]*x[k]"
+))
 
 # Plot
-p <- ggplot(df, aes(x = k, y = prob, fill = lambda_label)) +
-  geom_col(width = 0.6, alpha = 0.8, color = "black") +
-  facet_wrap(~ lambda_label, ncol = 2, scales = "free_y") +
-  scale_fill_manual(values = c("λ = 2" = "steelblue", "λ = 5" = "darkorange")) +
-  labs(    x = "Number of events (k)",
-    y = "Probability P(X = k)"
-  ) +
-  theme_minimal(base_size = 16) +
+p1 = ggplot() +
+  # Left and right sides of the Gaussian "violins"
+  #geom_path(data = dist_data, aes(x = x, y = y, group = group), color = "steelblue", linewidth = 0.6) +
+  geom_path(data = dist_data, aes(x = x_mirror, y = y, group = group), color = "steelblue", linewidth = 0.6) +
+
+  # Dashed regression line
+  geom_abline(intercept = intercept, slope = slope, linetype = "dashed") +
+
+  geom_vline(xintercept = x_vals) +
+
+  geom_point(data = data.frame(x = runif(50,0,4)) %>%
+               mutate(y = intercept + slope * x + rnorm(50)),
+             aes(x,y), alpha = 0.3) +
+
+  # Red points at mean
+  geom_point(data = means_df, aes(x = x0, y = y), color = "darkred", size = 3) +
+
+  # Red horizontal segments from point to left tail of density
+  geom_segment(data = means_df, aes(x = x0 - 0.4, xend = x0, y = y, yend = y),
+               color = "darkred", linewidth = 0.7) +
+
+  # X-axis labels
+  scale_x_continuous(breaks = x_vals, labels = parse(text = x_labels), expand = expansion(mult = c(0.1, 0.1))) +
+  labs(x = "x", y = "y") +
+  coord_cartesian(ylim = c(-1, 6),
+                  xlim = c(0.5, 3.5)) +
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),
-    legend.position = "none",
-    strip.text = element_text(face = "bold", size = 14),
-    panel.spacing = unit(2, "lines")
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 13),
+    panel.grid = element_blank()
   ) +
-  scale_x_continuous(breaks = 0:10) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+  geom_segment(data = means_df,
+               aes(x = x0 + 0.6, xend = x0 + 0.05,
+                   y = y - 0.8, yend = y + 0.05),
+               arrow = arrow(length = unit(0.2, "cm")),
+               color = "black",
+               linewidth = 0.5) +
+  geom_text(data = means_df,
+            aes(x = x0 + 0.2, y = y - 1.1, label = labels),
+            parse = TRUE,
+            hjust = 0,
+            size = 6)
 
-p
+p1
+
 ```
-:::
-:::::
 
-## Binomial density
+In this case $E(y_i|\beta_0, \beta_i) =\eta_i =  \color{red}{\boxed{\beta_0}} +  \color{red}{\boxed{\beta_1 x_i}}$
 
-::::: columns
-::: {.column width="55%"}
-A discrete random variable $X$ follows a binomial distribution with parameters $n$ and $p$ if:
+This model has two components!
 
-$$
-P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, 2, \dots, n
-$$
+## Some more details II {.smaller}
 
-We denote this as $X \sim Bi(n, p)$ where:
+Given the **linear predictor** $\eta$ the observations are independent of each other!
 
--   $n$ = number of independent trials
-
--   $p$ = probability of success in each trial
-
--   $k$ = number of successes observed
-
-**Survival studies:** $n$ animals, each with survival probability $p$
-
-**Detection/non-detection:** $n$ surveys, probability $p$ of detecting species
-:::
-
-::: {.column width="45%"}
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
-#| fig-height: 5.5
-#| fig-width: 4
+# Calculate inflection y positions
+inflection_points <- means_df %>%
+  mutate(y_inflect = x0 + sigma) %>%
+  mutate(x_inflect = x0 - dnorm( y_inflect, x0, sigma))
 
-# Plot 1: Animal survival study
-n1 <- 12  # 12 animals tracked
-p1 <- 0.7 # 70% survival probability per animal
-
-df1 <- data.frame(
-  survivors = 0:n1,
-  probability = dbinom(0:n1, size = n1, prob = p1)
+arrow_tip_labels <- c(
+  "y[1]~'|'~eta[1]~`~`~N(eta[1],sigma^2)",
+  "y[2]~'|'~eta[2]~`~`~N(eta[2],sigma^2)",
+  "y[k]~'|'~eta[k]~`~`~N(eta[k],sigma^2)"
 )
 
-p1_plot <- ggplot(df1, aes(x = survivors, y = probability)) +
-  geom_col(fill = "steelblue", width = 0.7, alpha = 0.8, color = "black") +
-  geom_vline(xintercept = n1 * p1, color = "red", linetype = "dashed", linewidth = 1) +
-  annotate("text", x = n1 * p1 - 3.5, y = max(df1$probability) * 0.9,
-           label = paste("Expected:", n1 * p1, "survivors"),
-           color = "red", hjust = 0, size = 3.5) +
-  labs(
-    subtitle = paste("n =", n1, "animals, p =", p1, "survival probability"),
-    x = "Number of surviving animals",
-    y = "Probability"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5)
-  ) +
-  scale_x_continuous(breaks = 0:n1) +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+inflection_points = inflection_points %>%
+  mutate(arrow_tips = arrow_tip_labels)
 
-# Plot 2: Species detection surveys
-n2 <- 8   # 8 surveys
-p2 <- 0.3 # 30% detection probability per survey
-
-df2 <- data.frame(
-  detections = 0:n2,
-  probability = dbinom(0:n2, size = n2, prob = p2)
-)
-
-p2_plot <- ggplot(df2, aes(x = detections, y = probability)) +
-  geom_col(fill = "darkorange", width = 0.7, alpha = 0.8, color = "black") +
-  geom_vline(xintercept = n2 * p2, color = "red", linetype = "dashed", linewidth = 1) +
-  annotate("text", x = n2 * p2 + 0.5, y = max(df2$probability) * 0.9,
-           label = paste("Expected:", n2 * p2, "detections"),
-           color = "red", hjust = 0, size = 3.5) +
-  labs(
-    subtitle = paste("n =", n2, "surveys, p =", p2, "detection probability"),
-    x = "Number of surveys with detection",
-    y = "Probability"
-  ) +
-  theme_minimal(base_size = 12) +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(hjust = 0.5)
-  ) +
-  scale_x_continuous(breaks = 0:n2) +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
-
-# Display side by side
-p1_plot + p2_plot + plot_layout(ncol = 1)
+p1 + geom_segment(data = inflection_points,
+                  aes(x = x0 - 0.6, xend = x_inflect,
+                      y = y + 1.5, yend = y_inflect),
+                  arrow = arrow(length = unit(0.2, "cm")),
+                  color = "steelblue",
+                  linewidth = 0.5) +
+  geom_text(data = inflection_points,
+            aes(x = x0 - 0.7, y = y + 1.7, label = arrow_tips),
+            parse = TRUE,
+            hjust = 0,
+            nudge_x = -0.05,
+            color = "steelblue",
+            size = 6)
 ```
-:::
-:::::
 
-## Negative-Binomial density
+This means that **all dependencies** in the observations are accounted for by the components!
 
-::::: columns
-::: {.column width="55%"}
-A discrete random variable $X$ follows a negative binomial distribution with parameters $r$ and $p$ if:
+## Some more details II {.smaller}
 
-$$
-P(X = k) = \binom{k + r - 1}{k} (1-p)^r p^k, ~ k = 0, 1, \dots
-$$
+Given the **linear predictor** $\eta$ the observations are independent of each other!
 
-The distribution of the number of trials until the $r$th success is denoted by $X\sim \mathrm{NegBi}(r,p)$ Where
-
--   $r$ = number of failures
--   $p$ = probability of success on each trial
--   $k$ = number of successes
-:::
-
-::: {.column width="45%"}
 ```{r}
-#| echo: false
-#| message: false
-#| warning: false
-# Load MASS for negative binomial functions
-library(MASS)
+# Calculate inflection y positions
+inflection_points <- means_df %>%
+  mutate(y_inflect = x0 + sigma) %>%
+  mutate(x_inflect = x0 - dnorm( y_inflect, x0, sigma))
 
-# Simple negative binomial plot
-k <- 0:20
-mu <- 5  # Mean count
-theta <- 2  # Dispersion parameter
-
-df <- data.frame(
-  count = k,
-  probability = dnbinom(k, size = theta, mu = mu)
+arrow_tip_labels <- c(
+  "y[1]~'|'~eta[1]~`~`~N(eta[1],sigma^2)",
+  "y[2]~'|'~eta[2]~`~`~N(eta[2],sigma^2)",
+  "y[k]~'|'~eta[k]~`~`~N(eta[k],sigma^2)"
 )
 
-ggplot(df, aes(x = count, y = probability)) +
-  geom_col(fill = "steelblue", width = 0.7, alpha = 0.8, color = "black") +
-  geom_vline(xintercept = mu, color = "red", linetype = "dashed", linewidth = 1) +
-  labs(
-    x = "Number of counts (k)",
-    y = "Probability P(X = k)"
-  ) +
-  theme_minimal(base_size = 14) +
-  theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5)
-  ) +
-  scale_x_continuous(breaks = seq(0, 20, by = 2)) +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1))
+inflection_points = inflection_points %>%
+  mutate(arrow_tips = arrow_tip_labels)
+
+p1 + geom_segment(data = inflection_points,
+                  aes(x = x0 - 0.6, xend = x_inflect,
+                      y = y + 1.5, yend = y_inflect),
+                  arrow = arrow(length = unit(0.2, "cm")),
+                  color = "steelblue",
+                  linewidth = 0.5) +
+  geom_text(data = inflection_points,
+            aes(x = x0 - 0.7, y = y + 1.7, label = arrow_tips),
+            parse = TRUE,
+            hjust = 0,
+            nudge_x = -0.05,
+            color = "steelblue",
+            size = 6)
 ```
-:::
-:::::
-::::::::::::
 
-## Example: Bathing Water Quality
+The observation model (likelihood) can be written as: 
 
--   All bathing water sites in Scotland are classified [**by SEPA**](https://bathingwaters.sepa.scot/) as "Excellent", "Good", "Sufficient" or "Poor" in terms of how much faecal bacteria (from sewage) they contain.
+$$
+\pi(\mathbf{y}|\eta,\sigma^2) = \prod_{i = 1}^n\pi(y_i|\eta_i,\sigma^2)
+$$
 
--   The minimum standard all beaches or bathing water must meet is "Sufficient".
+## Let's formalize this a bit... {auto-animate="true"}
 
--   The sites are classified based on the 90th and 95th percentiles of samples taken over the four most recent bathing seasons.
+The elements of an `inlabru`-friendly statistical model are:
 
-::: notes
-Note: SEPA = Scottish Environment Protection Agency The classification uses percentiles because water quality can be highly variable - we care about the worst-case scenarios (90th/95th percentiles), not just average conditions.
-:::
+1.  The observational model 
+$$
+\begin{aligned}
+    y_i|\eta_i, \sigma^2 & \sim\mathcal{N}(\eta_i,\sigma^2),\qquad i = 1,\dots,n\\
+    E(y_i|\eta_i, \sigma^2) & = \eta_i
+    \end{aligned}
+$$ 
+    **Note**: We assume that, given the *linear predictor* $\eta$, the data are independent of each other! Data dependence is expressed through the *components* of the linear predictor.
 
-## Example: Bathing Water Quality
+## Let's formalize this a bit... {auto-animate="true"}
 
-![Green is [excellent]{style="color:green;"} , [blue]{style="color:blue;"} is good, red is [sufficient]{style="color:red;"}](figures/BathingWater.png){fig-align="center"}
+The elements of an `inlabru`-friendly statistical model are:
 
-## Example: bathing water quality
+1.  The observational model $y_i|\eta_i,\sigma^2\sim\mathcal{N}(\eta_i,\sigma^2),\qquad i = 1,\dots,n$
 
--   The classification system assumes that bacterial concentrations at each site follow a **log-normal distribution**.
+2.  A model for the *linear predictor* $$
+    E(y_i|\eta_i,\sigma^2) = \eta_i = \beta_0 + \beta_1x_i
+    $$
 
--   If this assumption does **not** hold, the classifications would **not be accurate**.
+## Let's formalize this a bit... {auto-animate="true"}
 
--   Therefore, it is **crucial** that we regularly assess this assumption to ensure the safety of our bathing water.
+The elements of a `inlabru` friendly statistical model are:
 
-## Example: bathing water quality
+1.  The observational model $y_i|\eta_i,\sigma^2\sim\mathcal{N}(\eta_i,\sigma^2),\qquad i = 1,\dots,n$
+
+2.  A model for the *linear predictor*
+
+$$
+E(y_i|\eta_i,\sigma^2) = \eta_i = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{\beta_1x_i} }
+$$
+
+**Note 1:** These are the *components* of our model! These explain the *dependence structure* of the data.
+
+## Let's formalize this a bit... {auto-animate="true"}
+
+The elements of a `inlabru` friendly statistical model are:
+
+1.  The observational model $y_i|\eta_i,\sigma^2\sim\mathcal{N}(\eta_i,\sigma^2),\qquad i = 1,\dots,n$
+
+2.  A model for the *linear predictor* $\eta_i = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{\beta_1x_i} }$
+
+3.  A prior for the model components $\textbf{u}$ $$
+    \mathbf{u} = \{\beta_0, \beta_1\}\sim\mathcal{N}(0,\mathbf{Q}^{-1})
+    $$ **Note:** These always have a Gaussian prior and are used to explain the dependencies among observations!
+
+## Let's formalize this a bit... {auto-animate="true"}
+
+The elements of a `inlabru` friendly statistical model are:
+
+1.  The observational model $y_i|\eta_i,\sigma^2\sim\mathcal{N}(\eta_i,\sigma^2),\qquad i = 1,\dots,n$
+
+2.  A model for the *linear predictor* $\eta_i = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{\beta_1x_i} }$
+
+3.  A prior for the model components $\mathbf{u} = \{\beta_0, \beta_1\}\sim\mathcal{N}(0,\mathbf{Q}^{-1})$
+
+4.  A prior for the non-Gaussian parameters $\theta$ $$
+    \theta = \sigma^2
+    $$
+
+## Latent Gaussian Models (LGM) {auto-animate="true"}
 
 ::::: columns
-::: {.column width="60%"}
-![](figures/WaterNormality1.png){fig-align="center" width="500"}
+::: {.column width="50%"}
+1.  [The observation model: $$
+    \pi(\mathbf{y}|\eta,\theta) = \prod_{i=1}^{n}\pi(y_i|\eta_i,\theta)
+    $$]{style="color: red;"}
 
-![](figures/WaterNormality2.png){fig-align="center" width="500"}
+2.  Linear predictor $\eta_i = \beta_0 + \beta_1 x_i$
+
+3.  Latent Gaussian field $\pi(\mathbf{u}|\theta)$
+
+4.  The hyperparameters: $\pi(\theta)$
 :::
 
-::: {.column width="40%"}
--   We can use our standard residual plots to assess log-normality.
-
--   The top plots show the standard residuals and the bottom plots show the residuals for the log-transformed data.
-
--   There is **no strong** evidence to suggest we have breached our assumptions.
+::: {.column width="50%"}
+-   [**Stage 1** The data generating process]{style="color: red;"}
 :::
 :::::
 
-## Quantifying uncertainty
+## Latent Gaussian Models (LGM) {auto-animate="true"}
 
--   When presenting our results, it is important that we are clear about the uncertainty associated with them.
+::::: columns
+::: {.column width="50%"}
+1.  The observation model: $$
+    \pi(\mathbf{y}|\eta,\theta) = \prod_{i=1}^{n}\pi(y_i|\eta_i,\theta)
+    $$
 
-::: content-left
--   A common approach is to use a **standard uncertainty** ($u$), which is just the standard deviation, reported as:
+2.  [Linear predictor $\eta_i = \beta_0 + \beta_1 x_i$]{style="color: red;"}
 
-$$\text{estimated value } \pm \text{ standard uncertainty}$$
+3.  [Latent Gaussian field $\pi(\mathbf{u}|\theta)$]{style="color: red;"}
 
--   The standard uncertainty, $u(\bar{\mathbf{x}})$, for the mean of a vector $\mathbf{x}$ of length $n$ is computed as follows: $$u(\bar{\mathbf{x}}) = \frac{sd(\mathbf{x})}{\sqrt{(n)}}$$
+4.  The hyperparameters: $\pi(\theta)$
 :::
 
-------------------------------------------------------------------------
+::: {.column width="50%"}
+-   **Stage 1** The data generating process
 
-## Expanded uncertainty
+-   [**Stage 2** The dependence structure]{style="color: red;"}
+:::
+:::::
 
-::: incremental
--   More generally, we can use an **expanded uncertainty**, which is obtained by multiplying the standard uncertainty by a factor $k$.
--   You have already seen this in statistics as the key building block of a confidence interval.
--   The value of $k$ is chosen based on the quantiles of a standard normal distribution, with a value of $k=1.96$ (or $k=2$) giving a 95% confidence interval.
--   The 95% CI for the mean of **x** is given as $\bar{\mathbf{x}} \pm 1.96 \times u(\bar{\mathbf{x}}).$
+## Latent Gaussian Models (LGM) {auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+1.  The observation model: $$
+    \pi(\mathbf{y}|\eta,\theta) = \prod_{i=1}^{n}\pi(y_i|\eta_i,\theta)
+    $$
+
+2.  Linear predictor $\eta_i = \beta_0 + \beta_1 x_i$
+
+3.  Latent Gaussian field $\pi(\mathbf{u}|\theta)$
+
+4.  [The hyperparameters: $\pi(\theta)$]{style="color: red;"}
 :::
 
-## Example: bathing water quality
+::: {.column width="50%"}
+-   **Stage 1** The data generating process
 
--   In the bathing water example, we have 80 measurements of log(FS), with a mean of 3.861 and a standard deviation of 1.427.
+-   **Stage 2** The dependence structure
 
-::: incremental
-1.  We can use these to compute the standard uncertainty of the mean log(FS) as $$u = \frac{1.427}{\sqrt{80}} = 0.160.$$
-
-2.  This would therefore give a 95% confidence interval for the mean of log(FS) of $$3.861 \pm 1.96 \times 0.160 = (3.574, 4.175).$$
+-   [**Stage 3** The hyperparameters]{style="color: red;"}
 :::
+:::::
 
-# Uncertainty propagation
-
-## Uncertainty propagation
-
--   Sometimes, we have a result $Y$ that is obtained from the values of $n$ other quantities $X_1, \dots, X_n$.
-
--   The **combined uncertainty** $u(Y)$ of a linear combination $Y = a + b_1X_1 + \dots + b_nX_n$ (where $a, b_1, \dots, b_n$ are constants) is calculated as follows:
-
-::: {.callout-caution icon="false"}
-## Combined uncertainty
-
-$$u(Y) = \sqrt{\sum_{i=1}^{n}\sum_{j=1}^{n}\left(u(X_i)\times u(X_j) \times b_i \times b_j \times \rho_{ij}\right)}$$
-
-where $u(X_i)$ and $u(X_j)$ are the standard uncertainties of $X_i$ and $X_j$, respectively, and $\rho_{ij}$ is the correlation between $X_i$ and $X_j$.
-:::
-
-## Uncertainty propagation
-
--   If $X_1, ..., X_n$ are independent, the combined uncertainty $u(Y)$ of $Y = a + b_1X_1 + \dots + b_nX_n$ reduces to:
-
-::: {.callout-caution icon="false"}
-## Combined uncertainty (independence)
-
-$$u(Y) = \sqrt{\sum_{i=1}^{n}\left(u(X_i)^2 \times b_i^2\right)}$$
-:::
-
-## Uncertainty propagation
-
--   The **general uncertainty propagation formula** is as follows:
-
-::: {.callout-caution icon="false"}
-## General uncertainty propagation formula
-
-The standard uncertainty of $Y = f (X_1, ..., X_n)$ is:
-
-$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
-
-where $f \ '(\mu_i)$ is the partial derivative of $Y$ with respect to $X_i$ evaluated at its mean $\mu_i$.
-:::
-
-## Example: Area of a rectangle {auto-animate="true"}
-
--   The area $A$ of a rectangle with height $h$ and width $w$ is $A = h \times w$.
-
--   Height and width are measured with uncertainty, $u(h)$ and $u(w)$, respectively.
-
--   Evaluate the uncertainty on the area $A$.
-
-$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
-
-## Example: Area of a rectangle {auto-animate="true"}
-
--   The area $A$ of a rectangle with height $h$ and width $w$ is $A = h \times w$.
-
--   Height and width are measured with uncertainty, $u(h)$ and $u(w)$, respectively.
-
--   Evaluate the uncertainty on the area $A$.
+## Latent Gaussian Models (LGM) {auto-animate="true"}
 
 ::::::: columns
 :::: {.column width="50%"}
-::: {.callout-caution appearance="minimal"}
-$$u(Y) = \sqrt{\sum_{i=1}^n f \ '(\mu_i)^2u(X_i)^2}$$
+::: {.r-stack .smaller style="font-size: 0.9em;"}
+1.  The observation model: $$
+    \pi(\mathbf{y}|\eta,\theta) = \prod_{i=1}^{n}\pi(y_i|\eta_i,\theta)
+    $$
+
+2.  Linear predictor $\eta_i = \beta_0 + \beta_1 x_i$
+
+3.  Latent Gaussian field $\pi(\mathbf{u}|\theta)$
+
+4.  The hyperparameters: $\pi(\theta)$
 :::
 ::::
 
 :::: {.column width="50%"}
-::: incremental
--   $u(A) = u(h \times w)$
+::: {.r-stack .smaller style="font-size: 0.9em;"}
+-   **Stage 1** The data generating process
 
--   $\frac{df}{dh} = w \ \ \text{and} \ \ \frac{df}{dw} = h$
+-   **Stage 2** The dependence structure
 
--   $\therefore u(A) = \sqrt{w \ ^2 u(h)^2 + h \ ^2 u(w)^2}$
+-   **Stage 3** The hyperparameters
 :::
 ::::
 :::::::
 
-## Measuring the quality of measurement {.smaller}
-
--   We often talk about the *quality of a measurement process* (or an associated estimate) in terms of **accuracy**, **bias** and **precision**.
-
--   **Bias**:
-
-    -   *Measurement bias*: is the difference between the *average* of a series of measurements and the true value - mainly due to faulty measuring devices of procedures (systematic error).
-
-    -   *Sampling bias*: Under-representative sample of the target population (systematic error).
-
-    -   *Estimation bias*: Relates to the property of an estimator, i.e., $E(\hat{\theta})-\theta = 0$, for unbiased estimators, the bias (random error) decreases with increased sampling effort (*See supplementary material for more details).*
-
--   **Precision** is the closeness of agreement between independent measurements. Precision does **NOT** relate to the true value.
-
--   **Accuracy** overall *distance* between the estimated (or observed) values and the **true** value. There are several definition of what this *distance* mean some of which include the precision (see @walther2005)
-
-## Measuring the quality of measurement {background-color="#FFFFFF"}
-
-![](figures/AccuracyPrecision.jpg){fig-align="center"}
-
-# Data Preprocessing
-
-## Data Preprocessing {.smaller}
-
--   Environmental and Ecological systems are inherently complex due to the large number of interrelated biological, physical, and social components
-
--   Adding to this complexity, analyzing these systems becomes a challenging task due to the heterogeneity of available data and the different sources of uncertainty that impact the quality of the data
-
--   Data collection methods vary widely and spatial and temporal sampling schemes may be too sparse to fully capture overall system behavior. Consequently, we often have to deal with issues such as **outliers**, **missing values**, and highly **uncertain** information.
-
--   Many of these data quality issues can be addressed through a rigorous data *pre-processing* and through statistical models that explicitly account for the observational process.
-
-::: callout-important
-Data pre-processing is crucial stage in any sort of ecological or environmental data analysis and it includes data cleaning, outlier detection, missing value treatment, handling censored data, transformation, and the creation of new derived variables.
-
-The **goal** is to create a robust, consistent dataset ready for analysis while carefully documenting all changes to preserve the integrity of the original information.
+::: {.r-stack .larger style="font-size: 1.5em;"}
+**Q**: What are we interested in?
 :::
 
-## Censored Data {auto-animate="true"}
+## The posterior distribution {.small auto-animale="true"}
 
--   **Censored data** are data where [we are restricted in our knowledge about them]{style="filter: blur(5px);"} in some way or other.
+```{dot}
+//| fig-width: 4
 
--   Often this will be because [we only know that]{style="filter: blur(5px);"} the data value lies below a certain [minimum value]{style="filter: blur(5px);"} (or [above]{style="filter: blur(5px);"} a certain maximum).
+digraph posterior {
 
--   For example, [if we had scales which only]{style="filter: blur(5px);"} weighed up to [10kg, we would not know]{style="filter: blur(5px);"} the exact weight [of any object greater than]{style="filter: blur(5px);"} 10kg.
+    node[style = filled]
 
-## Censored Data {auto-animate="true"}
+    A[label="Prior\l belief\l" fillcolor = green fontcolor = white]
+    B[label="Observation\l model\l" fillcolor = blue fontcolor = white]
+    C[label="Bayes Theorem\n &\n Bayesian Computations\n" ]
+    D[label="Posterior\n distribution\n" fillcolor = red fontcolor = white]
 
--   **Censored data** are data where we are restricted in our knowledge about them in some way or other.
+    {A,B} -> {C} -> {D}
+}
+```
 
--   Often this will be because we only know that the data value lies below a certain minimum value (or above a certain maximum).
+$$
+\color{red}{\pi(\mathbf{u},\theta|\mathbf{y})}\propto \color{blue}{\pi(\mathbf{y}|\mathbf{u},\theta)}\color{green}{\pi(\mathbf{u}|\theta)\pi(\theta)}
+$$
 
--   For example, if we had scales which only weighed up to 10kg, we would not know the exact weight of any object greater than 10kg.
+## The posterior distribution {.small auto-animale="true"}
 
-## Limits of Detection {.smaller}
+```{dot}
+//| fig-width: 10
+//| fig-height: 4
 
--   For environmental data, it is more common to have data which are censored at some minimum value.
+digraph posterior {
 
--   This is because many pieces of measuring equipment will have an analytical **limit of detection**.
+    node[style = filled]
+     { rank=same C E }
+    A[label="Prior\l belief\l" fillcolor = green fontcolor = white]
+    B[label="Observation\l model\l" fillcolor = blue fontcolor = white]
+    C[label="Bayes Theorem\n &\n Bayesian Computations\n" ]
+    D[label="Posterior\n distribution\n" fillcolor = red fontcolor = white]
+    E[label="Bayesian Computation are hard!!\n Here is where\n INLA\n comes in!!!\n" fontcolor = red]
 
--   A limit of detection is the lowest concentration that can be distinguished with reasonable confidence from a "blank", i.e. a hypothetical sample with a value of zero.
+    {A,B} -> {C} -> {D}
+    E -> C
+}
+```
 
--   The limit of detection is often denoted $c_L$.
-
-:::: {.callout-note icon="false"}
-## Example
-
-Your environmental monitoring device measures a pollutant concentration of 0.05 ppm, but the instrument's Limit of Detection (LoD, $c_L$) is 0.1 ppm. Is this 0.05 ppm a measurement of real pollution?
-
-::: fragment
--   We can't say with confidence. The LoD of 0.1 ppm represents the lowest concentration that can be reliably distinguished from a blank sample.
-
--   At 0.05 ppm (below LoD), we cannot confidently tell if it's real pollution at a low level or just measurement noise
-:::
-::::
-
-## Impact of Censoring {.smaller auto-animate="true" background-color="#FFFFFF"}
-
--   Censoring has a huge impact on how we interpret our data.
-
--   The two plots below show the same data, but the right panel is 'censored' with two different limits of detection (some with an LOD of 0.5, others with an LOD of 1.5).
-
-::: {layout-ncol="2"}
-![](figures/ConcUncensored.png)
-
-![](figures/ConcCensored.png)
-:::
-
-## Dealing with LODs
-
--   Censored observations are not completely without information. We still know they are equal to or more extreme than the limit.
-
--   For a LOD, we might therefore report the datapoint as either "not detected" or "$< c_L$".
-
--   Removing them from our study would not be sensible, since this would lead to us overestimating the mean and probably also underestimating the variance.
-
--   We need to find a way to incorporate these censored datapoints into our analysis.
-
-## Dealing with LODs (Continued) {background-color="#FFFFFF"}
-
--   We can't simply use the minimum value of the LOD. This would ignore the fact that the values are often *below* this.
-
--   In the plot below, the LOD reduces after every 100 observations (e.g. because of better quality equipment), and this leads to an artificial trend.
-
-![](figures/TSM1.png){fig-align="center" width="70%"}
-
-## Simple Substitution
-
--   The simplest approach for dealing with LODs is via **simple substitution**.
-
--   This involves taking the LOD value and multiplying it by a fixed constant, e.g. replacing all $<c_L$ values with $0.5c_L$.
-
--   This approach is fairly popular because it is simple and easy to implement.
-
--   However, this approach only works if there is a small proportion of censored data (maximum 10–15%). If there is a higher proportion, it tends to overestimate the mean.
-
-## Distribution-based Approaches
-
--   It is generally preferable to use a more statistics-based approach which accounts for the data distribution.
-
--   The basic idea is that we estimate the statistical distribution of the data in a way that takes into account the censoring.
-
--   We can then use this estimated distribution to simulate values for our censored points.
-
--   Commonly used distribution-based approaches are **Maximum Likelihood**, **Kaplan-Meier** and **Regression on Order Statistics**.
-
-## Maximum Likelihood Approach
-
--   The maximum likelihood (ML) approach is a *parametric* approach, i.e. it requires us to specify a statistical **distribution** that is a close fit to the data.
-
--   We then identify the **parameters** of this distribution that maximise the likelihood of obtaining a dataset like ours.
-
--   This ML approach has to take into account the likelihood of obtaining:
-
-    -   the observed values in our dataset.
-    -   the correct proportion of data being censored, i.e. falling below our detection limit(s).
-
-## Maximum Likelihood Approach (Visualization) {background-color="#FFFFFF"}
-
-![](figures/MLEcensoring.png){fig-align="center" width="90%"}
-
-## Maximum Likelihood Approach: Pros and Cons
+## `inlabru` for linear regression {auto-animate="true"}
 
 ::::: columns
 ::: {.column width="50%"}
-**Advantages**
-
--   Able to handle multiple limits of detection.
-
--   Good for estimating summary statistics with a suitably large sample size.
-
--   MLE explicitly accounts for the underlying distribution of the data (if known).
+**The Model** $$
+\begin{aligned}
+y_i|\eta_i, \sigma^2 & \sim \mathcal{N}(\eta_i,\sigma^2)\\
+\eta_i & = \beta_0 + \beta_i x_i
+\end{aligned}
+$$
 :::
 
 ::: {.column width="50%"}
-**Disadvantages**
-
--   More applicable to larger datasets (n \> 50).
-
--   Reliant on specifying the correct distribution, otherwise estimates can be incorrect.
-
--   Transforming data to fit a distribution can potentially cause biased estimators.
+```{r}
+#| echo: true
+library(inlabru)
+Pallid[1:3,c("w","tl")]
+```
 :::
 :::::
 
-## Kaplan-Meier Approach
+**The code**
 
--   The Kaplan-Meier approach is a *nonparametric* approach, i.e. it doesn't require a distributional assumption.
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
 
--   It's often used in survival analysis for estimating summary statistics for right-censored data.
+# define model components
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
 
--   However, it can be applied to left-censored data by 'flipping' the data and subtracting from a fixed constant.
+# define model predictor
+eta = w ~ beta0 + beta1
 
--   In survival analysis, Kaplan-Meier estimates the probability that an observation will survive past a certain time.
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
 
--   In our 'flipped' context, it gives the probability that an observation will fall below the limit of detection.
+# fit the model
+fit = bru(cmp, lik)
 
-## Example: Cadmium in Fish {background-color="#FFFFFF"}
+```
+
+## `inlabru` for linear regression {auto-animate="true"}
 
 ::::: columns
-::: {.column width="70%"}
--   Cadmium is a heavy metal identified as having potential health risks.
-
--   We observed cadmium levels in fish livers in two different regions of the Rocky Mountains.
-
--   Due to variation in data collection, there are four different LODs (0.2, 0.3, 0.4 and 0.6 µg per litre).
-
-![](figures/Blinky.png){fig-align="center" width="250"}
+::: {.column width="50%"}
+**The Model** $$
+\begin{aligned}
+y_i|\eta_i, \sigma^2 & \sim \mathcal{N}(\eta_i,\sigma^2)\\
+\eta_i & = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{\beta_i x_i}}
+\end{aligned}
+$$
 :::
 
-::: {.column width="30%"}
+::: {.column width="50%"}
+```{r}
+#| echo: true
+Pallid[1:3,c("w","tl")]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-3"
+# define model components
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
+
+# define model predictor
+eta = w ~ beta0 + beta1
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## `inlabru` for linear regression {auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model** $$
+\begin{aligned}
+y_i|\eta_i, \sigma^2 & \sim \mathcal{N}(\eta_i,\sigma^2)\\
+\eta_i & = \color{red}{\boxed{\beta_0 + \beta_i x_i}}
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+library(inlabru)
+Pallid[1:3,c("w","tl")]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "4-6"
+
+# define model components
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
+
+# define model predictor
+eta = w ~ beta0 + beta1
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for linear regression {auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model** $$
+\begin{aligned}
+\color{red}{\boxed{y_i|\eta_i, \sigma^2}} & \color{red}{\boxed{\sim \mathcal{N}(\eta_i,\sigma^2)}}\\
+\eta_i & = \beta_0 + \beta_i x_i
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+library(inlabru)
+Pallid[1:3,c("w","tl")]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "7-10"
+
+# define model components
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
+
+# define model predictor
+eta = w ~ beta0 + beta1
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for linear regression {auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model** $$
+\begin{aligned}
+y_i|\eta_i, \sigma^2 & \sim \mathcal{N}(\eta_i,\sigma^2)\\
+\eta_i & = \beta_0 + \beta_i x_i
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+library(inlabru)
+Pallid[1:3,c("w","tl")]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "12-13"
+
+# define model components
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
+
+# define model predictor
+eta = w ~ beta0 + beta1
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for linear regression
+
 ```{r}
 #| echo: false
-#| message: false
-#| warning: false
+#| eval: true
+#| cache: true
 
-library(gt)
+# define model components
+library(inlabru)
+library(ggplot2)
+library(tidyverse)
 library(patchwork)
-library(dplyr)
-library(NADA)
-cad_data <-data.frame(Cd=
-                        c(81.3,3.5,4.6,0.6,2.9,3,4.9,0.6,3.4,0.4,0.8,0.3,0.4,0.4,0.4,1.4,0.6,0.7,0.2),
- Region = as.factor(c(rep(2,9),rep(1,9),2)),
- CdCen = c(rep(FALSE,11),TRUE,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE))
-data(Cadmium)
-gt(Cadmium)
+
+cmp =  ~ -1 + beta0(1) + beta1(tl, model = "linear")
+
+# define model predictor
+eta = w ~ beta0 + beta1
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "gaussian",
+              data = Pallid)
+
+# fit the model
+fit = bru(cmp, lik)
+
+prior = data.frame(x = seq(-50,50)) %>%
+  mutate(y = dnorm(x,0,sqrt(1/0.001)))
+p_int = fit$marginals.fixed$beta0 %>% ggplot() + geom_line(aes(x,y)) +
+  geom_line(data = prior, aes(x,y), linetype= "dashed") + xlab("") + ylab("") +
+  ggtitle("Intercept")
+
+
+p_cov = fit$marginals.fixed$beta1 %>% ggplot() + geom_line(aes(x,y)) +
+  geom_line(data = prior, aes(x,y), linetype= "dashed") + xlab("") + ylab("") +
+  ggtitle("Covariate") + coord_cartesian(xlim = c(0.5,0.8))
+
+
+preds = predict(fit, data.frame(tl = seq(90,165)), ~ beta0 + beta1)
+
+
+p_pred = preds %>% ggplot() +
+  geom_point(data = Pallid, aes(tl, w)) +
+  geom_line(aes(tl, mean), color = "blue") +
+  geom_ribbon(aes(tl, ymin = q0.025, ymax = q0.975), alpha = 0.5, fill = "blue")
+
+
+ff = generate(fit,
+        data.frame(tl = seq(90,165)),
+        ~ data.frame(mean = beta0 + beta1,
+                     sd = sqrt(1/Precision_for_the_Gaussian_observations)),
+        n.samples = 5000)
+
+ff1 = sapply(ff, function(xx) rnorm(76, mean = xx[,1], sd = xx[,2]))
+
+
+pred_int = data.frame(tl = seq(90,165),
+                      mean = apply(ff1,1,mean),
+                      q1 = apply(ff1, 1, quantile,probs =  0.025),
+                      q2 = apply(ff1, 1, quantile, 0.975)
+                      )
+p3 = p_pred +
+   geom_ribbon(data = pred_int, aes(tl, ymin = q1, ymax = q2), alpha = 0.5, fill = "red") + ggtitle("Credible and Prediction Interval") + labs(y="Weight (Kg)",x="Total Length (cm)")
 ```
-:::
-:::::
-
-## Example: Cadmium in Fish (Visualization) {background-color="#FFFFFF"}
-
--   Plotting the data shows the potential impact of censoring.
-
--   The left panel shows all the data (plotting censored values as equal to the LOD), while the right panel excludes those which have been censored.
 
 ```{r}
 #| echo: false
-#| fig-align: center
-Cadmium %>% filter(Cd<80)%>%
-  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
-  geom_boxplot() +
-  labs(y = "Cadmium Concentration", x= "Regions", title = "Censored + Uncensored")+
-  theme(legend.position = "none") + 
-Cadmium %>% filter(CdCen == FALSE&Cd<80) %>%
-  ggplot(aes(y=Cd,x=as.factor(Region),fill=as.factor(Region))) +
-  geom_boxplot() +
-  labs(y = "Cadmium Concentration", x= "Regions", title = "Uncensored")+
-  theme(legend.position = "none")
+#| eval: true
+
+(p_int | p_cov) / p3
 
 ```
 
-## Using the Kaplan-Meier Approach in R
+## Real datasets are more complicated! {.small}
 
--   We can use the NADA (Nondetects and Data Analysis) package in R.
+Data can have several dependence structures: temporal, spatial,...
 
--   The `cenfit` function applies the Kaplan-Meier method. This package automatically 'flips' the data, since it is designed for environmental data.
+**Using a Bayesian framework**:
+
+-   Build (hierarchical) models to account for potentially complicated dependency structures in the data.
+
+-   Attribute uncertainty to model parameters and latent variables using priors.
+
+**Two main challenges**:
+
+-   Need computationally efficient methods to calculate posteriors (this is where INLA helps!).
+-   Select priors in a sensible way (we'll talk about this)
+
+## The good news!! {.smaller auto-animate="true"}
+
+In many cases complicated spatio-temporal models are *just* special cases of the same model structure!! :smiley:
+
+-   **Stage 1**: What is the distribution of the responses?
+
+-   **Stage 2**: What are the model components? and what is their distribution?
+
+-   **Stage 3**: What are our prior beliefs about the parameters controlling the components in the model?
+
+## The good news!! {.smaller auto-animate="true"}
+
+In many cases complicated spatio-temporal models are *just* special cases of the same model structure!! :smiley:
+
+-   **Stage 1**: What is the distribution of the responses?
+
+    -   Gaussian response? (temperature, rainfall, fish weight …)
+    -   Count data? (people infected with a disease in each area)
+    -   Point pattern? (locations of trees in a forest)
+    -   Binary data? (yes/no response, binary image)
+    -   Survival data? (recovery time, time to death)
+    -   ... (many more examples!!)
+
+-   **Stage 2**: What are the model components? and what is their distribution?
+
+-   **Stage 3**: What are our prior beliefs about the parameters controlling the components in the model?
+
+## The good news!! {.smaller auto-animate="true"}
+
+In many cases complicated spatio-temporal models are *just* special cases of the same model structure!! :smiley:
+
+-   **Stage 1**: What is the distribution of the responses?
+
+    -   We assume data to be *conditionally* independent given the model components and some hyperparameters
+    -   This means that all dependencies in data are explained in Stage
+        2.  
+
+-   **Stage 2**: What are the model components? and what is their distribution?
+
+-   **Stage 3**: What are our prior beliefs about the parameters controlling the components in the model?
+
+## The good news!! {.smaller auto-animate="true"}
+
+In many cases complicated spatio-temporal models are *just* special cases of the same model structure!! :smiley:
+
+-   **Stage 1**: What is the distribution of the responses?
+
+-   **Stage 2**: What are the model components? and what is their distribution?
+
+Here we can have:
+
+-   Fixed effects for covariates
+-   Unstructured random effects (individual effects, group effects)
+-   Structured random effects (AR(1), regional effects, )
+-   ...
+
+These are linked to the responses in the likelihood through *linear predictors*.
+
+-   **Stage 3**: What are our prior beliefs about the parameters controlling the components in the model?
+
+## The good news!! {.smaller auto-animate="true"}
+
+In many cases complicated spatio-temporal models are *just* special cases of the same model structure!! :smiley:
+
+-   **Stage 1**: What is the distribution of the responses?
+
+-   **Stage 2**: What are the model components? and what is their distribution?
+
+-   **Stage 3**: What are our prior beliefs about the parameters controlling the components in the model?
+
+    The likelihood and the latent model typically have hyperparameters that control their behavior.
+
+    They can include:
+
+    -   Variance of observation noise
+    -   Dispersion parameter in the negative binomial model
+    -   Variance of unstructured effects
+    -   ...
+
+## The second good news!
+
+No matter how complicated your model is, the `inlabru` workflow is *always* the same :smiley:
 
 ```{r}
-#| message: false
+#| echo: true
+#| eval: false
 #| warning: false
+#| message: false
+#| code-line-numbers: "1-3|5-7|9-13|15-16"
 
-library(NADA)
-cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
+
+# Define model components
+comps <- component_1(...) +
+  component_2(...) + ...
+
+# Define the model predictor
+pred <- linear_function(component_1,
+                            component_2, ...)
+
+# Build the observation model
+lik <- bru_obs(formula = pred,
+               family = ... ,
+               data = ... ,
+                ...)
+
+# Fit the model
+fit <- bru(comps, lik, ...)
 ```
 
--   There are clear differences between the locations in terms of both median and standard deviation.
+## The second good news!
 
-## Statistical Testing with Kaplan-Meier {.smaller}
-
--   The `cendiff` function tests for significant differences between the groups.
-
--   This uses a chi-squared hypothesis test:
-
-    -   $H_0$: Median cadmium levels are the same in Region 1 and Region 2
-
-    -   $H_1$: Median cadmium levels are different in Region 1 and Region 2
+No matter how complicated your model is, the `inlabru` workflow is *always* the same :smiley:
 
 ```{r}
-cendiff(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region)
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "5-7"
 
+
+# Define model components
+comps <- component_1(...) +
+  component_2(...) + ...
+
+# Define the model predictor
+pred <- linear_function(component_1,
+                            component_2, ...)
+
+# Build the observation model
+lik <- bru_obs(formula = pred,
+               family = ... ,
+               data = ... ,
+                ...)
+
+# Fit the model
+fit <- bru(comps, lik, ...)
 ```
 
--   The p-value is very small, so there is a statistically significant difference between the groups.
+**NOTE** we will see later that this function can also be non-linear....:grin:
 
-## ECDF Plot
+# Examples
 
--   We can also plot the empirical cumulative distribution function (ECDF), taking into account the LODs.
+## The Tokyo rainfall data
 
--   Note that this works in the opposite direction from regular survival plots due to the 'flipping' of the data.
+One example with time series: Rainfall over 1 mm in the Tokyo area for each calendar day during two years (1983-84)
 
 ```{r}
 #| echo: false
-#| fig-align: center
-plot(cenfit(obs = Cadmium$Cd,censored = Cadmium$CdCen,groups = Cadmium$Region))
-legend("bottomright",c("Region 1","Region 2"),lty = 1:2)
+#| eval: true
+#| warning: false
+#| message: false
+
+data("Tokyo")
+pTokyo = ggplot() + geom_point(data = Tokyo, aes(time, y)) +
+  ylab("") + xlab("")
+
+cmp= ~ -1 + Intercept(1) + time(time, model ="rw2")
+formula = y ~ Intercept + time
+lik = bru_obs(formula = formula,
+              data = Tokyo,
+              Ntrials = n,
+              family = "binomial")
+fit = bru(cmp, lik)
+
+
+dd = data.frame(ii = 1:366,fit$summary.fitted.values[1:366,c(1,3,5)])
+pTokyo +
+   # Custom the Y scales:
+  scale_y_continuous(
+    # Features of the first axis
+    name = "",
+    # Add a second axis and specify its features
+    sec.axis = sec_axis( transform=~./2, name="Probability")
+  )  + geom_line(data = dd, aes(ii, mean*2)) +
+  geom_ribbon(data = dd, aes(ii, ymin = X0.025quant*2,
+                             ymax = 2 *X0.975quant), alpha = 0.5)
+
 ```
 
-## Kaplan-Meier Approach: Pros and Cons
+## The model {auto-animate="true"}
+
+**Stage 1** The observation model
+
+$$
+y_t|\eta_t\sim\text{Bin}(n_t, p_t),\qquad \eta_t = \text{logit}(p_t),\qquad i = 1,\dots,366
+$$ 
+$$
+n_t = \left\{
+ \begin{array}{lr}
+1, & \text{for}\; 29\; \text{February}\\
+2, & \text{other days}
+\end{array}\right.
+$$ 
+$$
+y_t =
+\begin{cases}
+\{0,1\}, & \text{for}\; 29\; \text{February}\\
+\{0,1,2\}, & \text{other days}
+ \end{cases}
+$$
+
+-   the likelihood has no hyperparameters
+
+## The model {auto-animate="true"}
+
+**Stage 1** The observation model
+
+$$
+y_t|\eta_t\sim\text{Bin}(n_t, p_t),\qquad \eta_t = \text{logit}(p_t),\qquad i = 1,\dots,366
+$$
+
+**Stage 2** The latent field 
+$$
+\eta_t = \beta_0 + f(\text{time}_t)
+$$
+
+-   probability of rain depends on the day of the year $t$
+
+-   $\beta_0$ is an intercept
+
+-   $f(\text{time}_t)$ is a RW2 model (this is just a smoother). The smoothness is controlled by a hyperparameter $\tau_f$
+
+## The model {auto-animate="true"}
+
+**Stage 1** The observation model
+
+$$
+y_t|\eta_t\sim\text{Bin}(n_t, p_t),\qquad \eta_t = \text{logit}(p_t),\qquad i = 1,\dots,366
+$$
+
+**Stage 2** The latent field $$
+\eta_t = \beta_0 + f(\text{time}_t)
+$$
+
+**Stage 3** The hyperparameters
+
+-   The structured time effect is controlled by one parameter $\tau_f$.
+
+-   We assign a prior to $\tau_f$ to finalize the model.
+
+## `inlabru` for time series {auto-animate="true"}
 
 ::::: columns
 ::: {.column width="50%"}
-**Advantages**
+**The Model**
 
--   Nonparametric — no need to assume underlying distribution.
-
--   Can easily account for multiple LODs.
-
--   Works for large numbers of censored datapoints (\>50%).
+$$
+\begin{aligned}
+y_t|\eta_t & \sim \text{Binomial}(n_t,p_t)\\
+\text{logit}(p_t) = \eta_i & = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{f(\text{time}_t)}}
+\end{aligned}
+$$
 :::
 
 ::: {.column width="50%"}
-**Disadvantages**
-
--   Quite simplistic — identical to simple substitution if we only have one LOD.
-
--   Less reliable for values near and below the LOD.
-
--   The mean tends to be overestimated — need to rely on median.
+```{r}
+#| echo: true
+Tokyo[1:3,]
+```
 :::
 :::::
 
-## Regression on Order Statistics (ROS)
+**The code**
 
--   Regression on Order Statistics is a *semi-parametric* approach, i.e. it combines elements of parametric and nonparametric models.
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-2"
 
--   It follows a two-step approach:
+# define model component
+cmp =  ~ -1 + beta0(1) + time_effect(time, model = "rw2", cyclic = TRUE)
 
-    1.  Plot the uncensored values on a probability plot (QQ plot) and use linear regression to approximate the parameters of the underlying data distribution.
+# define model predictor
+eta = y ~ beta0 + time_effect
 
-    2.  Use this fitted distribution to impute estimates for the censored values.
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "binomial",
+              Ntrials = n,
+              data = Tokyo)
 
--   There is an assumption that the censored measures are normally (or lognormally) distributed.
+# fit the model
+fit = bru(cmp, lik)
 
-## ROS: Implementation {background-color="#FFFFFF"}
+```
 
-::::: columns
-::: {.column width="60%"}
--   The plot shows the uncensored points and their probability plot regression model.
-
--   The NADA package in R uses lognormal as default. The plot suggests that this is sensible.
-
--   We then use this fitted model to estimate the values of the censored observations, based on their normal quantiles.
-:::
-
-::: {.column width="40%"}
-![](figures/ROSQQ.png){fig-align="center"}
-:::
-:::::
-
-## ROS vs Simple Substitution {background-color="#FFFFFF"}
-
--   We can compare our ROS approach to simple substitution for the bathing water example used earlier.
-
--   The left panel (ROS) shows no trend present; the right panel (simple substitution) has an artificial trend.
-
-::: {layout-ncol="2"}
-![](figures/ROSEstimates.png)
-
-![](figures/TSM1.png)
-:::
-
-## ROS: Pros and Cons
+## `inlabru` for time series {auto-animate="true"}
 
 ::::: columns
 ::: {.column width="50%"}
-**Advantages**
+**The Model**
 
--   Can be applied to a wide variety of environmental datasets.
-
--   Works with multiple LODs, but still not too simplistic with a single LOD.
-
--   Can be used with up to 80% censored datapoints.
+$$
+\begin{aligned}
+y_t|\eta_t & \sim \text{Binomial}(n_t,p_t)\\
+\text{logit}(p_t) = \color{red}{\boxed{\eta_i}} & = \color{red}{\boxed{\beta_0 + f(\text{time}_t)}}
+\end{aligned}
+$$
 :::
 
 ::: {.column width="50%"}
--   **Disadvantages**
-
--   Semiparametric approach — requires a distributional model to be assumed.
-
--   Specifically requires normality (or lognormality) for estimation of parameters.
-
--   Two-stage model introduces extra source of variability.
+```{r}
+#| echo: true
+Tokyo[1:3,]
+```
 :::
 :::::
 
-# Outliers
+**The code**
 
-## What is an Outlier?
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "4-5"
 
--   An outlier is an extreme or unusual observation in our dataset.
+# define model component
+cmp =  ~ -1 + beta0(1) + time_effect(time, model = "rw2", cyclic = TRUE)
 
--   These will often (but not always) have a large influence on the outcomes of our analysis.
+# define model predictor
+eta = y ~ beta0 + time_effect
 
--   We have to find ways to identify and deal with outliers.
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "binomial",
+              Ntrials = n,
+              data = Tokyo)
 
--   Can you think of any examples of outliers?
+# fit the model
+fit = bru(cmp, lik)
 
-## Types of Outliers
+```
 
-There are two main categories of outlier:
-
-1.  **Genuine but extreme values**
-    -   Accommodate these in our analysis
-    -   Ignoring them would mean ignoring a real feature of our data
-    -   Robust modeling techniques can incorporate outliers
-2.  **Data errors**
-    -   Try to correct (where possible) or remove
-    -   Do not reflect real observations
-
-## Finding Outliers
-
--   It is often helpful to **plot your data**
-    -   Sometimes outliers are very obvious in boxplots or scatterplots
--   Elk's animal track with two unusual observations, how can we assess if these are outliers?
-
-[![Elk tracking data in southwestern Alberta. The Blue line indicates the tracking for one individual with blue and red crosses showing the start and end point of the track respectively.](figures/outlier_animal.png){fig-align="center" width="340"}](https://www.movebank.org/cms/webapp?gwt_fragment=page=search_map)
-
-## Finding Outliers
-
--   It is often helpful to **plot your data**
-    -   Sometimes outliers are very obvious in boxplots or scatterplots
--   **Statistical approaches** for identifying datapoints significantly different from the rest:
-    -   Tests of discordancy
-    -   Chauvenet's criterion
-    -   Grubbs's test
-    -   Dixon's test
-
-::: callout-note
-Check notes material for a more detailed description of these tests
-:::
-
-# Missing Data
-
-## Missing Data
+## `inlabru` for time series {auto-animate="true"}
 
 ::::: columns
 ::: {.column width="50%"}
--   Environmental data are very prone to missing values.
+**The Model**
 
--   Data can be missing for any number of reasons.
-
--   There's a whole discipline of statistics related to this. We will just touch on the topic.
+$$
+\begin{aligned}
+\color{red}{\boxed{y_t|\eta_t}} & \color{red}{\boxed{\sim \text{Binomial}(n_t,p_t)}}\\
+\text{logit}(p_t) = \eta_i & = \beta_0 + f(\text{time}_t)
+\end{aligned}
+$$
 :::
 
 ::: {.column width="50%"}
-![](figures/MissingData.png){width="90%"}
+```{r}
+#| echo: true
+Tokyo[1:3,]
+```
 :::
 :::::
 
-## Causes of Missing Data
+**The code**
 
--   Adverse weather (e.g., rainfall, snow, drought and wind) can affect measuring equipment or prevent access to the location.
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "7-11"
 
--   Failure of scientific equipment.
+# define model component
+cmp =  ~ -1 + beta0(1) + time_effect(time, model = "rw2", cyclic = TRUE)
 
--   Samples being lost or damaged.
+# define model predictor
+eta = y ~ beta0 + time_effect
 
--   Monitoring networks change in size over time. (Data are "missing" before the site is introduced or after it is removed.)
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "binomial",
+              Ntrials = n,
+              data = Tokyo)
 
-## Dealing with Missing Data
+# fit the model
+fit = bru(cmp, lik)
 
--   The technique we use to deal with missing data depends on the **type of missingness**.
+```
 
--   If there are a handful of datapoints missing at random, we can essentially ignore this and carry out our analysis as usual.
+## `inlabru` for time series {auto-animate="true"}
 
--   However, if they are missing in some sort of systematic way (e.g., a whole month missing due to bad weather), we may instead look at some form of **imputation**.
+::::: columns
+::: {.column width="50%"}
+**The Model**
 
--   Imputation is a process that involves predicting the missing values via some form of statistical method.
-
-## Imputation
-
--   There are two main forms of imputation:
-
-    -   **Single imputation** involves generating one value in place of each missing value.
-    -   **Multiple imputation** involves generating several values in place of each missing value.
-
--   Single imputation has the advantage of being simpler, and allows straightforward analysis once the missing values have been estimated.
-
--   Multiple imputation does a better job of accounting for the uncertainty of the imputation process, but makes the final analysis more complex.
-
-## How Do We Impute?
-
--   Our approach for generating the imputed value will vary depending on the context.
-
--   In the simplest case, we may replace missing values with the overall mean (usually only if we have very limited information).
-
--   More commonly, we may use neighbouring values, or some form of seasonal mean.
-
--   These will usually work reasonably well as long as we do not have too much missing data.
-
--   A more complex approach is to fit a more general statistical model, perhaps taking account of other variables and/or using random components.
-
-# Summary Points
-
-
-## Summary points
-
--   To understand quantities, we need to understand the process.
--   We need to quantify the uncertainty and error, which have multiple sources:
-    -   Inherent variability of the process.
-    -   Imprecise knowledge of the process.
--   We must collaborate with subject-matter experts, to ensure that we understand e.g. how the data were collected, are our model's predictions sensible?
-
-
-## Error, Uncertainty, and Their Components {.smaller}
-
--   **Error** is the difference between the measured value and the "true value" of the quantity being measured.
-
--   **Uncertainty** is a quantification of the variability of the measurement result.
-
--   **Error includes two components:**
-
-    -   **Random error:** variation observed randomly over a set of measurements.
-    -   **Systematic error:** variation that remains constant over repeated measurements.
-
--   **Uncertainty can be expressed as:**
-
-    -   **Standard uncertainty:** a function of the standard deviation.
-    -   **Expanded uncertainty:** $k \times$ the standard uncertainty (used in confidence intervals).
-
-## Accuracy, Bias, and Precision
-
--   **Bias** is the difference between the average of a series of measurements and the true value.
-
--   **Precision** is the closeness of agreement between independent measurements.
-
--   **Accuracy** is the *distance* between the estimated (or observed) values and the **true** value.
-
-## Ecological and Environmental data sets {.scrollable}
-
-::: custom-tiny
-| Source 📅 | Advantages 😀 | Disadvantages 😒 |
-|------------------------|------------------------|------------------------|
-| Monitoring programmes | Minimises sources of bias through design | Costly and temporally and geographically restricted |
-| Citizen Science | Cost effective, large spatio-temporal coverage | Biased towards certain species and places that are easy to access or of public interest. |
-| Biological collections | Large historical collections preserved in collections. | The data associated with each collection varies widely. Also, information about the sampling is often missing and there are also important sources of spatial and taxonomic bias. |
-| Data repositories | Store large collection of data sources which are often publicly available. | Data are often standardized (losing information) or summarised to a particular spatial resolution. Contain varying data source some of which can be biased. |
-| Processed products | Undergo rigorous calibration, integration, and modelling to generate high quality data. | Not always licence-free or publicly available. |
-| Research Generated Data | If available, they provide high quality data,scripts and code that can be cited and provides transparency and reproducibility. | *If available* sometimes is a big *If*. Also, sometimes code gets outdated or developers do not longer maintain it. |
+$$
+\begin{aligned}
+y_t|\eta_t & \sim \text{Binomial}(n_t,p_t)\\
+\text{logit}(p_t) = \eta_i & = \beta_0 + f(\text{time}_t)
+\end{aligned}
+$$
 :::
 
-## Censored Data and Limits of Detection
+::: {.column width="50%"}
+```{r}
+#| echo: true
+Tokyo[1:3,]
+```
+:::
+:::::
 
--   We are restricted in our knowledge about **censored data**.
+**The code**
 
--   The **limit of detection (LoD)** $c_L$ is the lowest concentration that can be distinguished with reasonable confidence from a "blank" (a hypothetical sample with a value of zero).
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "13-14"
 
--   We can address LoDs through:
+# define model component
+cmp =  ~ -1 + beta0(1) + time_effect(time, model = "rw2", cyclic = TRUE)
 
-    -   Simple substitution
-    -   Distribution-based approaches like:
-        -   Maximum Likelihood
-        -   Kaplan-Meier
-        -   Regression on Order Statistics
+# define model predictor
+eta = y ~ beta0 + time_effect
 
-## Outliers
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "binomial",
+              Ntrials = n,
+              data = Tokyo)
 
--   An **outlier** is an extreme or unusual observation in our dataset.
+# fit the model
+fit = bru(cmp, lik)
 
--   Can be identified via:
+```
 
-    -   Examining plots of the data
-    -   Test of discordancy
-    -   Chauvenet's criterion
-    -   Grubbs' test
-    -   Dixon's test
+## Example: disease mapping
 
-## Missing Data (Summary)
+We observed larynx cancer mortality counts for males in 544 district of Germany from 1986 to 1990 and want to make a model.
 
--   **Missing data** can be missing at random, or systematically.
+::::: columns
+::: {.column width="50%"}
+-   $y_i$: The count at location $i$.
 
--   Systematic missingness may require imputation, e.g.:
+-   $E_i$: An offset; expected number of cases in district $i$.
 
-    -   **Single imputation:** generating one value in place of each missing value.
-    -   **Multiple imputation:** generating several values in place of each missing value.
+-   $c_i$: A covariate (level of smoking consumption) at $i$
 
-## References
+-   $\boldsymbol{s}_i$: spatial location $i$ .
+:::
 
+::: {.column width="50%"}
+```{r, out.width = "110%"}
+
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#|
+my.germany.map = function(data, cutpoints=seq(min(data),max(data),length=256), autoscale=FALSE, legend=TRUE, append=FALSE)
+{
+  if (autoscale)
+  {
+    data = (data-min(data))/(max(data)-min(data)+1e-8)
+  }
+  #cutpoints = c(-1e9,cutpoints, 1e9)
+
+  # farben <- rainbow(as.numeric(cut(data,cutpoints,include.lowest=T))/length(cutpoints))
+  cols =  hcl.colors(256)
+  farben <- cols[as.numeric(cut(data,cutpoints,include.lowest=T))]
+
+  xmin <- 1:length(germany)
+  xmax <- 1:length(germany)
+  ymin <- 1:length(germany)
+  ymax <- 1:length(germany)
+
+  for(i in 1:length(germany))
+  {
+    xmin[i] <- min(germany[[i]][,2],na.rm=T)
+    xmax[i] <- max(germany[[i]][,2],na.rm=T)
+    ymin[i] <- min(germany[[i]][,3],na.rm=T)
+    ymax[i] <- max(germany[[i]][,3],na.rm=T)
+  }
+
+  breite <- c(min(xmin),max(xmax))
+  hoehe <- c(min(ymin),max(ymax))
+
+  if (!append) plot(breite,hoehe,type="n",axes=F, xlab=" ", ylab=" ", asp = 1)
+
+
+  for(k in length(germany):1)
+  {
+    polygon(germany[[k]][,2],germany[[k]][,3],col=farben[k])
+  }
+
+
+}
+source(system.file("demodata/Bym-map.R", package="INLA"))
+data(Germany)
+# Load data
+Germany$region.struct = Germany$region
+g <- system.file("demodata/germany.graph" , package = "INLA")
+my.germany.map(Germany$Y/Germany$E, autoscale = F)
+```
+:::
+:::::
+
+## Bayesian disease mapping {.small}
+
+-   **Stage 1:** We assume the responses are Poisson distributed: $$
+    y_i \mid \eta_i \sim \text{Poisson}(E_i\exp(\eta_i)))
+    $$
+
+-   **Stage 2:** $\eta_i$ is a linear function of three components: an intercept, a covariate $c_i$, a spatially structured effect $\omega$ likelihood by $$
+    \eta_i = \beta_0 + \beta_1\ c_i + \omega_i
+    $$
+
+-   **Stage 3:**
+
+    -   $\tau_{\omega}$: Precisions parameter for the random effects
+
+. . .
+
+The latent field is $\boldsymbol{u} = (\beta_0, \beta_1, \omega_1, \omega_2,\ldots, \omega_n)$, the hyperparameters are $\boldsymbol{\theta} = (\tau_{\omega})$, and must be given a prior.
+
+## `inlabru` for disease mapping {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y_i|\eta_t & \sim \text{Poisson}(E_i\lambda_i)\\
+\text{log}(\lambda_i) = \eta_i & = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{\beta_1\ c_i}} + \color{red}{\boxed{\omega_i}}
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+g = system.file("demodata/germany.graph",
+                package="INLA")
+Germany[1:3,]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-3"
+
+# define model component
+cmp =  ~ -1 + beta0(1) + beta1(x, model = "linear") +
+  space(region, model = "besag", graph = g)
+
+# define model predictor
+eta = Y ~ beta0 + beta1 + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "poisson",
+              E = E,
+              data = Germany)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for disease mapping {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y_i|\eta_t & \sim \text{Poisson}(E_i\lambda_i)\\
+\text{log}(\lambda_i) = \color{red}{\boxed{\eta_i}} & = \color{red}{\boxed{\beta_0 + \beta_1\ c_i + \omega_i}}
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+g = system.file("demodata/germany.graph",
+                package="INLA")
+Germany[1:3,]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "5-6"
+
+# define model component
+cmp =  ~ -1 + beta0(1) + beta1(x, model = "linear") +
+  space(region, model = "bym2", graph = g)
+
+# define model predictor
+eta = Y ~ beta0 + beta1 + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "poisson",
+              E = E,
+              data = Germany)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for disease mapping {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+\color{red}{\boxed{y_i|\eta_t}} & \color{red}{\boxed{\sim \text{Poisson}(E_i\lambda_i)}}\\
+\text{log}(\lambda_i) = \eta_i & = \beta_0 + \beta_1\ c_i + \omega_i
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+g = system.file("demodata/germany.graph",
+                package="INLA")
+Germany[1:3,]
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "8-12|14-15"
+
+# define model component
+cmp =  ~ -1 + beta0(1) + beta1(x, model = "linear") +
+  space(region, model = "bym2", graph = g)
+
+# define model predictor
+eta = Y ~ beta0 + beta1 + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "poisson",
+              E = E,
+              data = Germany)
+
+# fit the model
+fit = bru(cmp, lik)
+
+```
+
+## `inlabru` for disease mapping {.smaller auto-animate="true"}
+
+```{r}
+#| echo: false
+#| layout: [[100], [100]]
+
+g = system.file("demodata/germany.graph",
+                package="INLA")
+
+
+
+# define model component
+cmp =  ~ -1 + beta0(1) + beta1(x, model = "linear") +
+  space(region, model = "besag", graph = g)
+
+# define model predictor
+eta = Y ~ beta0 + beta1 + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              family = "poisson",
+              E = E,
+              data = Germany)
+
+# fit the model
+fit = bru(cmp, lik)
+
+
+p1 = fit$marginals.fixed$beta0 %>% ggplot() +
+  geom_line(aes(x,y)) + xlab("") + ylab("") +
+  ggtitle("Intercept (posterior distribution)")
+
+p2= fit$marginals.fixed$beta1 %>% ggplot() +
+  geom_line(aes(x,y)) + xlab("") + ylab("") +
+  ggtitle("Covariate Effect (posterior distribution)")
+
+p1 + p2
+
+my.germany.map(fit$summary.random$space$mean, autoscale = F)
+
+```
+
+## Bayesian Geostatistics
+
+Encounter probability of Pacific Cod (*Gadus macrocephalus*) from a trawl survey.
+
+```{r}
+#| echo: false
+library(sf)
+library(tidyverse)
+library(inlabru)
+library(INLA)
+library(patchwork)
+library(mapview)
+
+```
+
+```{r}
+#| echo: false
+
+
+
+df = sdmTMB::pcod
+qcs_grid = sdmTMB::qcs_grid
+df =   st_as_sf(df, coords = c("lon","lat"), crs = 4326)
+df = st_transform(df, crs = "+proj=utm +zone=9 +datum=WGS84 +no_defs +type=crs +units=km" )
+
+
+depth_sf = st_as_sf(qcs_grid %>% select(X,Y,depth), coords = c("X","Y"), crs = "+proj=utm +zone=9 +datum=WGS84 +no_defs +type=crs +units=km" )
+
+
+mapview(df, zcol = "present")
+```
+
+```{r}
+#| echo: false
+
+mesh = fm_mesh_2d(df,
+                  cutoff = 2,
+                  max.edge = c(7,20),
+                  offset = c(5,50))
+ggplot() + gg(mesh) + geom_sf(data= df, aes(color = factor(present)))
+
+
+spde_model =  inla.spde2.pcmatern(mesh,
+                                  prior.sigma = c(1, 0.01),
+                                  prior.range = c(30, 0.01)
+)
+
+depth_mapper <- bru_mapper(inla.mesh.1d(sort(unique(inla.group(log(depth_sf$depth),
+                                                                   method = "quantile", n=25)))),
+                           indexed = FALSE)
+cmp = ~ -1 + Intercept(1) +
+  depth_smooth(log(depth), model='rw2',
+               mapper = depth_mapper,
+               scale.model=TRUE,
+               hyper = list(prec = list(prior='pc.prec', param=c(1, 0.01))) ) +
+  space(geometry, model = spde_model)
+
+formula = present ~ Intercept + depth_smooth + space
+
+lik = bru_obs(formula = formula,
+              data = df,
+              family = "binomial")
+
+fit = bru(cmp, lik)
+```
+
+$y(s)$ Presence or absence in location $s$
+
+## Bayesian Geostatistics {auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Binom}(1, p(s))
+    $$
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \text{logit}(p(s)) = \beta_0 + f( x(s)) + \omega(s)
+    $$
+
+-   **Stage 3** Hyperparameters
+
+## Bayesian Geostatistics {auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Binom}(1, p(s))
+    $$
+-   **Stage 2** Latent field model $$
+    \eta(s) = \text{logit}(p(s)) = \beta_0 + f( x(s)) + \omega(s)
+    $$
+    -   A global intercept $\beta_0$
+    -   A smooth effect of covariate $x(s)$ (depth)
+    -   A Gaussian field $\omega(s)$ (will discuss this later..)
+-   **Stage 3** Hyperparameters
+
+## Bayesian Geostatistics {auto-animate="true"}
+
+-   **Stage 1** Model for the response $$
+    y(s)|\eta(s)\sim\text{Binom}(1, p(s))
+    $$
+
+-   **Stage 2** Latent field model $$
+    \eta(s) = \text{logit}(p(s)) = \beta_0 + \beta_1 x(s) + \omega(s)
+    $$
+
+-   **Stage 3** Hyperparameters
+
+    -   Precision for the smooth function $f(\cdot)$
+    -   Range and sd in the Gaussian field $\sigma_{\omega}, \tau_{\omega}$
+
+## `inlabru` for geostatistics {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y(s)|\eta(s) & \sim\text{Binom}(1, p(s))\\
+\eta(s) &  = \color{red}{\boxed{\beta_0}} + \color{red}{\boxed{ f(x(s))}} + \color{red}{\boxed{ \omega(s)}}\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+df %>% select(depth, present) %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "1-3"
+
+# define model component
+cmp = ~ -1 + Intercept(1) +  depth_smooth(log(depth), model='rw2') +
+  space(geometry, model = spde_model)
+
+# define model predictor
+eta = present ~ Intercept + depth_smooth + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = df,
+              family = "binomial")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## `inlabru` for geostatistics {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+y(s)|\eta(s) & \sim\text{Binom}(1, p(s))\\
+\color{red}{\boxed{\eta(s)}} &  = \color{red}{\boxed{\beta_0 +  f(x(s)) +  \omega(s)}}\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+df %>% select(depth, present) %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "5-6"
+
+# define model component
+cmp = ~ -1 + Intercept(1) +  depth_smooth(log(depth), model='rw2') +
+  space(geometry, model = spde_model)
+
+# define model predictor
+eta = present ~ Intercept + depth_smooth + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = df,
+              family = "binomial")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## `inlabru` for geostatistics {.smaller auto-animate="true"}
+
+::::: columns
+::: {.column width="50%"}
+**The Model**
+
+$$
+\begin{aligned}
+\color{red}{\boxed{y(s)|\eta(s)}} & \sim \color{red}{\boxed{\text{Binom}(1, p(s))}}\\
+\eta(s) &  = \beta_0 +  f(x(s)) +  \omega(s)\\
+\end{aligned}
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+df %>% select(depth, present) %>% print(n = 3)
+```
+:::
+:::::
+
+**The code**
+
+```{r}
+#| echo: true
+#| eval: false
+#| warning: false
+#| message: false
+#| code-line-numbers: "8-11|13-14"
+
+# define model component
+cmp = ~ -1 + Intercept(1) +  depth_smooth(log(depth), model='rw2') +
+  space(geometry, model = spde_model)
+
+# define model predictor
+eta = present ~ Intercept + depth_smooth + space
+
+# build the observation model
+lik = bru_obs(formula = eta,
+              data = df,
+              family = "binomial")
+
+# fit the model
+fit = bru(cmp, lik)
+```
+
+## `inlabru` for geostatistics
+
+```{r}
+library(scico)
+fit$summary.random$depth_smooth %>%
+  ggplot() + geom_line(aes(ID, mean)) +
+  geom_ribbon(aes(ID, ymin = `0.025quant`,
+                  ymax = `0.975quant`), alpha = 0.5) +
+  geom_point(data = df, aes(x = log(depth), y =-12), shape  = "|") +
+  xlab("Depth") + ylab("") + ggtitle("Smooth effect of depth")
+
+
+
+preds = predict(fit, depth_sf, ~ data.frame(cov = depth_smooth,
+                                            space = space,
+                                            lp = Intercept + space + depth_smooth,
+                                            prob = inla.link.logit(Intercept + space + depth_smooth,
+                                                                   inverse = T)))
+
+ggplot() +
+  geom_tile(data = preds$prob, aes(x = st_coordinates(depth_sf)[,1],
+                            y = st_coordinates(depth_sf)[,2],
+                            fill = mean))+ scale_fill_scico(direction = -1)+
+  geom_sf(data = df, pch = ".") +
+  xlab("") + ylab("") + ggtitle("Predicted probability")
+
+
+
+```
+
+## Take home message!
+
+-   Many of the models you have used (and some you have never used but will learn about) are *just* special cases of the large class of Latent Gaussian models
+
+-   *inlabru* provides an efficient and unified way to fit all these models!

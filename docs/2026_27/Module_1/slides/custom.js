@@ -16,10 +16,10 @@ function updateLogoSizePosition() {
         logo.style.cssText = `
             display: block !important;           /* Ensure logo is visible */
             position: fixed !important;          /* Fixed positioning relative to viewport */
-            top: 5px !important;                 /* 5px from top of screen */
-            left: 12px !important;               /* 12px from left edge (top left corner) */
+            top: 5% !important;                 /* 5px from top of screen */
+            left: 5% !important;               /* 12px from left edge (top left corner) */
             right: auto !important;              /* Override any right positioning */
-            height: 80px !important;            /* Set height to 100px for larger size */
+            height: 13% !important;            /* Set height to 100px for larger size */
             width: auto !important;              /* Let width adjust automatically to maintain aspect ratio */
             max-width: none !important;          /* Remove any maximum width constraints */
             object-fit: contain !important;      /* Ensure image maintains aspect ratio without distortion */
@@ -32,7 +32,7 @@ function updateLogoSizePosition() {
             top: 3px !important;                 /* 5px from top of screen (same vertical position) */
             left: auto !important;               /* Override any left positioning */
             right: 12px !important;              /* 12px from right edge (top right corner) */
-            height: 40px !important;             /* Set height to 60px for smaller size */
+            height: 5% !important;             /* Set height to 60px for smaller size */
             width: auto !important;              /* Let width adjust automatically to maintain aspect ratio */
             max-width: none !important;          /* Remove any maximum width constraints */
             object-fit: contain !important;      /* Ensure image maintains aspect ratio without distortion */

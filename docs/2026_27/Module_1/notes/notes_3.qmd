@@ -142,8 +142,8 @@ As well as estimating the population mean and variance, we also have to think ab
 
 Our sample of size $n$ is just one of many possible samples of size $n$ which we could have obtained. We must take this into account when considering the uncertainty associated with our sample mean. This is known as **sampling variability**. We can compute this as: $$Var({\bar{y}}) = \frac{s^2}{n}\left(1 - \frac{n}{N}\right).$$ Here, $(1 - \frac{n}{N})$ is what is known as a **finite population correction** (FPC), which accounts for the proportion of the data that remains unknown.
 
-::: {.callout-important icon="false"}
-## {{< bi pencil-square color=#c8793c >}} Task 1
+::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#d95a00 >}} Task 1
 
 To monitor patterns of weekly water consumption, a town conducted a SRS of $n=100$ homes. The town records showed that there were $N=5392$ residential dwellings with water meter in town. Water consumption was recorded in 100-gallon units. The sample average consumption was $\bar{y} = 12.5$ 100-gallons units per week and the sample variance was $s^2 = 1352$ (100-gallon units)$^2$. The local authority is interested in estimating the town's total weekly residential water usage. An unbiased estimator of a population total under SRS was given by Horvitz-Thompson (1963) as:
 
@@ -448,10 +448,7 @@ It is generally very difficult to untangle the effects of a single event. Even i
 
 However, this challenge is not unique to environmental data. We face it regularly in statistics. Often, we are only interested in the effect of one particular variable, but we have to account for other nuisance variables via regression or other techniques. We can also sometimes account for other unmeasured variability through random effects. The key is to acknowledge what you do and don't know, and to account properly for uncertainty.
 
-::: {.callout-important icon="false"}
-## {{< bi box color=#005C8A >}} Examples: Before-After Designs
-
-1.  **Before-After Single Site**
+###  Before-After Single Site
 
 Often, we wish to assess the impact of an intervention on a site, but we only have data for that site.
 
@@ -461,7 +458,7 @@ We can fit a statistical model, such as: $$X_{ik} = \mu + \alpha_i + \tau_{k(i)}
 
 This is not an ideal design, since we have no control to compare to.
 
-2.  **Before-After Multiple Sites**
+### Before-After Multiple Sites
 
 We can sometimes improve upon the Before-After Single Site design, if we can collect data at multiple $j=1,\ldots,M$ sites that are likely to be impacted by the intervention. We can fit a statistical model, such as:
 
@@ -475,7 +472,7 @@ where $\mu$ is the overall mean; $\alpha_i$ is the effect of period (before/afte
 
 Treating the sites as *subsamples* allows the sites to be used to improve estimation of the effect's magnitude, compared to a single site design.
 
-3.  **Before-After Control-Impact (BACI)**
+### Before-After Control-Impact (BACI)
 
 BACI is a common design, where one or more potentially impacted sites, and one or more sites that are thought not vulnerable to impact, are sampled before and after the time of the intervention.
 
@@ -484,4 +481,4 @@ BACI is a common design, where one or more potentially impacted sites, and one o
 We can fit a statistical model, such as: $$X_{ij} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ij}$$ with $\mu$ representing the overall mean, $\alpha_i$ the effect of period (before/after), $\beta_j$ the effect of location (control/impact), and $\varepsilon_{ik}$ the errors.
 
 Having the control sites allows us to better assess whether any impacts are *caused by* the intervention.
-:::
+
