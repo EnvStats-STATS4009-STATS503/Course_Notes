@@ -204,12 +204,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Contents</h2>
    
   <ul>
-<li>
-<a href="#estimator-properties" id="toc-estimator-properties" class="nav-link active" data-scroll-target="#estimator-properties"><span class="header-section-number">1</span> Estimator properties</a>
-  <ul class="collapse">
-<li><a href="#maximum-likelihood-estimators-mles" id="toc-maximum-likelihood-estimators-mles" class="nav-link" data-scroll-target="#maximum-likelihood-estimators-mles"><span class="header-section-number">1.1</span> Maximum likelihood Estimators (MLEs)</a></li>
-  </ul>
-</li>
+<li><a href="#estimator-properties" id="toc-estimator-properties" class="nav-link active" data-scroll-target="#estimator-properties"><span class="header-section-number">1</span> Estimator properties</a></li>
+  <li><a href="#maximum-likelihood-estimators-mles" id="toc-maximum-likelihood-estimators-mles" class="nav-link" data-scroll-target="#maximum-likelihood-estimators-mles"><span class="header-section-number">2</span> Maximum likelihood Estimators (MLEs)</a></li>
   </ul><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="supl_1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -389,8 +385,8 @@ Figure&nbsp;3: Illustration of bias and precision of an estimator. The red dashe
 <figure class="figure"><p><img src="images/bias_prec2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="413"></p>
 </figure>
 </div>
-<section id="maximum-likelihood-estimators-mles" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="maximum-likelihood-estimators-mles">
-<span class="header-section-number">1.1</span> Maximum likelihood Estimators (MLEs)</h2>
+</section><section id="maximum-likelihood-estimators-mles" class="level1" data-number="2"><h1 data-number="2">
+<span class="header-section-number">2</span> Maximum likelihood Estimators (MLEs)</h1>
 <p>In general, statistical inference is based on the idea that the data we observe are outcomes of random variables characterised by a distribution <span class="math inline">\(f(\cdot)\)</span> with parameters <span class="math inline">\(\theta\)</span> that we would like to learn from data.</p>
 <p>Suppose we observe multiple random variables <span class="math inline">\(y_1, \dots, y_n\)</span>, modelled as independent draws from <span class="math inline">\(f(y \mid \theta)\)</span>. Under this independence assumption, their joint distribution is the product <span class="math inline">\(\prod_{i=1}^{n} f(y_i \mid \theta)\)</span>. Then, the <strong>likelihood</strong> is the joint distribution of the observable random variables, written as a function of the parameter <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[
@@ -411,7 +407,7 @@ I(\theta) = -\,\mathbb{E}\!\left[\frac{\partial^2 \ell}{\partial\theta^2}\right]
 <p>These estimators are <em>consistent</em>, <em>asymptotically Normal</em>, and <em>efficient</em> — in large samples no consistent estimator has a smaller variance. Efficiency is the formal counterpart of the <strong>precision</strong> idea illustrated above.</p>
 
 
-</section></section></main><!-- /main --><script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

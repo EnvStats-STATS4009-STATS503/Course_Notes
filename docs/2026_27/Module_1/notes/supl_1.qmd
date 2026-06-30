@@ -272,7 +272,7 @@ Imagine a dartboard where the bullseye represents the true population parameter 
 
 
 
-## Maximum likelihood Estimators (MLEs)
+# Maximum likelihood Estimators (MLEs)
 
 
 In general, statistical inference is based on the idea that the data we observe are outcomes of random variables characterised by a distribution $f(\cdot)$ with parameters $\theta$ that we would like to learn from data.

@@ -55,7 +55,7 @@ A big part of our role as statisticians is to ask questions of both our data and
 
 Submarines have been used to measure Arctic sea ice. Over time, the ice has shrunk both in terms of thickness and extent. We may soon see ice-free summers, which will have a devastating impact on sea life.
 
-![Arctic ice coverage in 1979 and 2003.](images/ArcticIceMap.png){width="200"}
+![Arctic ice coverage in 1979 and 2003.](images/ArcticIceMap.png){width="200" fig-align="center"}
 
 This [interactive map](https://interactive.carbonbrief.org/when-will-the-arctic-see-its-first-ice-free-summer/) provides an illustration of the changes.
 :::
