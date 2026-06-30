@@ -46,7 +46,7 @@ website:
           - text: "Properties of estimators"
             href:  notes/supl_1.qmd
           - text: "Bayesian computational methods"
-            href:  notes/Bayesian_computing.qmd"
+            href:  notes/Bayesian_computing.qmd
       - text: "Tutorials"
         menu:
           - text: "Tutorial sheet 1"
