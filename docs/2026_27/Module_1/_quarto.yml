@@ -11,7 +11,7 @@ project:
   - notes/notes_2.qmd
   - notes/notes_3.qmd
   - notes/supl_1.qmd
-  - notes/Bayesian_computing.qmd
+  - notes/Bayesian_computing.qmd 
   - slides/Intro_EnvEco.qmd
   - slides/Understanding_Data.qmd
   - slides/Sampling.qmd

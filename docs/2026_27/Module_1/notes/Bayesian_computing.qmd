@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the Integrated Laplace Approximation"
+title: "Introduction to Bayesian computational methods"
 format: html
 execute:
   echo: true
