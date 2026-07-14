@@ -3,15 +3,16 @@ project:
   output-dir: docs
   render:
   - index.qmd
-  - reading_list.qmd
-  - lab_2.qmd
+  #- reading_list.qmd
+  #- lab_2.qmd
   - notes/tutorial_sheet_2.qmd
-  - notes/tutorial_sheet_3.qmd
+  #- notes/tutorial_sheet_3.qmd
   - notes/tutorial_sheet_2_solutions.qmd
-  - notes/tutorial_sheet_3_solutions.qmd
+  #- notes/tutorial_sheet_3_solutions.qmd
   - notes/notes_1.qmd
-  - notes/notes_2.qmd
-  - notes/notes_3.qmd
+  #- notes/notes_2.qmd
+  #- notes/notes_3.qmd
+  - slides/change_points.qmd
   - slides/slides_6.qmd
 website:
   title: "Module 2"
@@ -34,7 +35,7 @@ website:
       - text: "Slides"
         menu:
           - text: "Week 4 - Assessing Change Over Time"
-            href: slides/Week_4.pdf
+            href: slides/change_points.pdf
           - text: "Week 5 - Autocorrelation & Changepoints"
             href: slides/Week_5.pdf
           - text: "Week 6 - Modelling Extremes"

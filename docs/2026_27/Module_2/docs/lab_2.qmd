@@ -1,0 +1,671 @@
+---
+title: "Lab session 2"
+format: 
+  html:
+    number-sections: true
+    toc: true
+    embed-resources: true
+  PrettyPDF-pdf:
+    number-sections: true
+embed-resources: true
+editor_options: 
+  chunk_output_type: console
+bibliography: references.bib
+execute: 
+  freeze: auto
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| purl: false
+#| results: hide
+
+library(webexercises)
+knitr::purl("lab_2.qmd")
+```
+
+<font size="5"> **Aim of this practical session:** </font>
+
+In this practical session we are going
+
+-   To continue the work from Lab 1 in interpreting statistical plots and model output.
+-   To provide seasonal and trend analysis for environmental time series (@sec-time).
+-   To examine and interpret some models for extremes (@sec-ext).
+
+{{< downloadthis lab_2.R dname="lab_2" label = "Download Lab 2 R script" icon="database-fill-down" type="success" >}}
+
+# Part 1: Seasonal and trend analysis {#sec-time}
+
+## Sulphur dioxide in the air {.unnumbered}
+
+Sulphur dioxide is an atmospheric pollutant that is monitored in most cities. The data here are weekly concentrations from 1989, in the file `SO2.csv`.
+
+{{< downloadthis datasets/SO2.csv dname="SO2" label="Download SO2 data set" icon="database-fill-down" type="info" >}}
+
+The dataset contains (amongst others) the following variables of interest:
+
+| Variable  | Meaning                               |
+|-----------|---------------------------------------|
+| `Years`   | Year of observation                   |
+| `Weeks`   | Week of observation (within the year) |
+| `ln.SO2.` | Log(SO$_\text{2}$)                    |
+
+A natural logarithm transformation has been applied to the SO$_\text{2}$ data.
+
+```{r}
+#| message: false
+#| warning: false
+
+# Load required R packages:
+
+library(ggplot2)    # For visualizing our data
+library(broom)      # For model predictions
+
+
+# Read in data (making sure to set the working directory to the 
+# appropriate location):
+SO2 <- read.csv("datasets/SO2.csv", header = TRUE)
+
+# Examine structure of the dataset:
+str(SO2)
+
+# Add year as a decimal (continuous variable):
+SO2$year_num <- SO2$Years + SO2$Weeks / 53
+```
+
+## Visualizing our data
+
+Lets create some exploratory plots to visualize the relationship between log SO$^2$ and the week while adding some loess curves with different spans (to examine possible seasonal patterns):
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+
+ggplot(data = SO2,
+       aes(y = ln.SO2., x = Weeks ))+
+  geom_point()+
+  geom_smooth(method = "loess",span=0.75,aes(color="0.75"))+
+  geom_smooth(method = "loess",span=0.5,aes(color="0.5"))+
+    geom_smooth(method = "loess",span=0.3,aes(color="0.3"))+
+  labs(y=expression(log~SO^2))
+
+```
+
+There seems to be some evidence of a seasonal pattern in log(SO$_2$), with higher values towards the starts and ends of the week within years.
+
+::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 1
+
+Another way of exploring potential seasonality is by using boxplots. Try to produce some boxplots that show the Log(SO$_\text{2}$) against the weeks. Recall that boxplots are meant to summarise the distribution of a continuous variable against categorical ones -thus, you need to declare the `Weeks` variable as a factor (this can be done directly on `ggplot`)
+
+`r hide("Take hint")`
+
+We can achieve this by adding a `geom_boxplot()` layer to a `ggplot` object.
+
+`r unhide()`
+
+```{r}
+#| webex.hide: "Click here to see the solution"
+#| code-fold: show
+#| purl: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+
+ggplot(data = SO2,
+       aes(y = ln.SO2., x = as.factor(Weeks) ))+
+  geom_boxplot()+
+   labs(y=expression(log~SO^2),x="Weeks")
+```
+:::
+
+Now to examine the trend we can plot our data over years as follows:
+
+```{r}
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+#| 
+ggplot(data = SO2,
+       aes(y = ln.SO2., x = year_num ))+
+  geom_point()+
+  geom_smooth(method = "loess",aes(color="0.75"))
+
+```
+
+There is an overall decreasing (not necessarily linear) trend in log(SO$_2$) over time. However, we need to account for the seasonal pattern when trying to assess the trend, so we fit a harmonic model to the data, with a long-term trend also in the model:
+
+```{r}
+# Create a model with seasonal pattern (harmonic model) plus trend:
+harmonic_model <- lm(ln.SO2. ~ sin(2 * pi * (Weeks - 53) / 53) + 
+              cos(2 * pi * (Weeks - 53) / 53) + year_num,
+            data = SO2)
+
+```
+
+Lets look at the summary of the model:
+
+```{r}
+summary(harmonic_model)
+```
+
+We can also compute the predicted values by first generating a grid of values where we want to predict:
+
+```{r}
+# Create a prediction grid over the weeks of the years 1989 to 2000:
+pred_data <- expand.grid(Weeks = 1:53, year = 1989:2000)
+pred_data$year_num <- pred_data$year + pred_data$Weeks / 53
+```
+
+Then we can use the `augment` function from the `broom` library to compute the model predictions for (i) the mean (i.e., $E(\mu_i|Y_i) = \beta_0 + \beta_1 \text{year} + \gamma_1 \sin\left(\frac{2\pi \text{week}}{p}\right) + \gamma_2 \cos\left(\frac{2\pi \text{week}}{p}\right)$ ) or (ii) for new observations (i.e., including the uncertainty associated with the observational error $\epsilon_i$) as follows:
+
+```{r}
+
+# Model predictions with confidence interval for the mean
+
+pred_mean = broom::augment(x=harmonic_model,
+                     newdata = pred_data,
+                     interval = "confidence",
+                     type.predict = "response")
+
+# Model predictions with prediction interval for the new observations
+
+pred_obs = broom::augment(x=harmonic_model,
+                     newdata = pred_data,
+                     interval = "prediction",
+                     type.predict = "response")
+
+  
+```
+
+We can visualize the model predictions as follows:
+
+```{r}
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+#| 
+ggplot() +
+  geom_line(data=SO2,aes(y=ln.SO2.,x=year_num),alpha=0.25)+
+  geom_ribbon(data= pred_obs,
+                aes(x=year_num,
+                    ymin = .lower,
+                    ymax = .upper,
+                    fill="Prediction Interval"),
+                alpha = 0.15)+
+    geom_ribbon(data= pred_mean,
+                aes(x=year_num,
+                    ymin = .lower,
+                    ymax = .upper,
+                    fill="Confidence Interval"),
+                alpha = 0.5)+
+  geom_line(data=pred_mean,
+            aes(y=.fitted,x=year_num),
+            color="tomato")+
+  scale_fill_discrete(name="")+
+  labs(y=expression(log~SO^2),x="Time")
+```
+
+The plot shows the data (grey lines) and the fitted model predictions (as red lines). Then, the blue and red shaded regions indicate the prediction and confidence intervals respectively (notice how the prediction intervals is wider because it takes the observational error into account).
+
+**How well does this model fit the data?** It seems to capture the trend well (following the general pattern in the data) and it seems to fit the seasonal pattern fairly well (having peaks and troughs at the same locations as in the data). However, we note that the model is not perfect: it does not, e.g., capture the higher peak in year 1996. Perhaps, a more flexible model like an additive model (a type of GAM) might be more appropriate?
+
+We should always check our diagnostic plots when assessing a model:
+
+```{r}
+layout(matrix(1:4, nrow = 2, byrow = TRUE))
+plot(harmonic_model)
+```
+
+-   The plot of residuals versus fitted values (top left) looks OK, since we don't see any clear patterns here.
+-   The Normal quantile-quantile (Q-Q) plot (top right) also looks OK, since most of the data points follow the line.
+
+What about temporal autocorrelation?
+
+```{r}
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+acf(resid(harmonic_model))
+```
+
+-   The plot of the autocorrelation function (ACF; bottom) shows that many of the lower lags have values lying outwith the intervals (i.e. lying outwith the blue dashed lines). Therefore, there is autocorrelation in the residuals, and the assumptions of the model are not satisfied. Therefore, this model is not appropriate for the data. We could consider fitted an AR(1) model here to try to address this. (Our more flexible additive model proposed above may also be worth trying.)
+
+
+## Trend detection in Haddock stocks
+
+We will study data relating to the annual estimates of biomass for North Sea Haddock from 1963--2000.
+
+The data are stored in `haddock.dat`, which contains the columns `Year` and `Biomass`. 
+
+{{< downloadthis datasets/haddock.dat dname="haddock" label="Download haddock data set" icon="database-fill-down" type="info" >}}
+
+
+```{r}
+# Read in data:
+haddock.all <- read.table("datasets/haddock.dat",header=TRUE)
+# Remove the data from year 2001 onwards:
+haddock.data <- haddock.all[haddock.all$Year <= 2000,]
+
+```
+
+
+::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 2
+
+Using `ggplot` produce a line plot that shows biomass (measured in thousands of tonnes) over the years
+
+`r hide("Take hint")`
+
+We can add a `geom_line()` layer to produce a line graph in ggplot.
+
+`r unhide()`
+
+```{r}
+#| webex.hide: "Click here to see the solution"
+#| code-fold: show
+#| purl: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+ggplot(data=haddock.data,aes(x=Year,y=Biomass))+
+  geom_line()+
+  labs(y="Thousands of tonnes")
+
+```
+
+:::
+
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+What does the plot produced in the previous task tells you?
+
+`r hide("See Solution")`
+
+This plot shows that there is some kind of nonlinear trend in the data, with some higher values earlier on (around 1970) and then generally lower values later on. There seems to be higher variability for the time when there were some higher values. 
+
+`r unhide()`
+:::
+
+
+
+
+::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 3
+
+Notice that a log-transformation may be appropriate to address the large variability observed in the data. Plot the $\log_{10}$ of the biomass agianst years using `ggplot`, what do you notice?
+
+`r hide("Take hint")`
+
+We can use apply the `log10` function directly to the variable(s) in the ggplot `aes` argument.
+
+`r unhide()`
+
+```{r}
+#| webex.hide: "Click here to see the solution"
+#| code-fold: show
+#| purl: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+ggplot(data=haddock.data,aes(x=Year,y=log10(Biomass)))+
+  geom_line()+
+  labs(y=expression(paste(log[10], "(1000 tonnes)")))
+```
+:::
+
+
+We can fit a simple model to the log-transformed biomass (see previous task) below:
+
+```{r}
+# Linear trend model:
+
+## Set up data by creating a Time index 1:38 years
+haddock.data$Time <- haddock.data$Year-1962
+## Fit model:
+trend.model0 <- lm(log10(Biomass) ~ Time, data = haddock.data)
+summary(trend.model0)
+
+```
+
+The p-value for Time is $<0.05$, so there is a statistically significant trend. Since the coefficient of this is $<0$ (and the p-value is $<0.05$), this is a statistically significant decreasing trend.
+
+Let's predict into the future:
+
+```{r}
+## Predict for years 2001 to 2010, i.e., time index 39:48
+pred.t <- data.frame(Time = 39:48)	
+```
+
+Now we use the `augment` function from `broom` to get the model predictions:
+
+```{r}
+trend_preds = broom::augment(x=trend.model0,
+                     newdata = pred.t,
+                     interval = "prediction",
+                     type.predict = "response")
+
+# This will allow a plot labelled with "Year"
+trend_preds$Year <- 1962 + trend_preds$Time 
+```
+
+Lastly, we use `ggplot` to plot our predictions:
+
+```{r}
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+ggplot()+
+  geom_line(data=haddock.data,
+            aes(x=Year,y=log10(Biomass)),
+            alpha=0.25)+
+   geom_ribbon(data= trend_preds,
+                aes(x=Year,
+                    ymin = .lower,
+                    ymax = .upper),alpha=0.25)+
+  geom_line(data=trend_preds,aes(x=Year,y=.fitted),color="tomato")
+```
+
+
+Since we're predicting for 1 to 10 years ahead, we can extract the 6th and 10th values:
+
+```{r}
+trend_preds[c(6,10),]
+```
+
+so we have:
+
+- The predicted log(biomass) in 2006 is 1.92, with a 95% prediction interval of (1.51, 2.34).
+- The predicted log(biomass) in 2010 is 1.86, with a 95% prediction interval of (1.43, 2.29).
+
+
+Since we are on the log scale, we can exponentiate to get predictions on the original scale:
+
+```{r}
+exp(trend_preds[c(6,10),2:4])
+```
+
+
+- The predicted biomass in 2006 is 6.85, with a 95% prediction interval of (4.50, 10.42).
+- The predicted biomass in 2010 is 6.42, with a 95% prediction interval of (4.19, 9.85).
+
+
+
+```{r}
+layout(matrix(1:4, nrow = 2, byrow = TRUE))
+# Check model diagnostic plots:
+plot(trend.model0, which = 1:4)
+```
+
+
+The plot of residuals versus fitted values (top left) shows a clear pattern. This means that the deterministic part of the model does not capture the patterns in the data (a problem!).
+
+
+
+```{r}
+layout(matrix(1:3, nrow = 1, byrow = TRUE))
+e0 <- resid(trend.model0)
+
+plot(haddock.data$Year, e0, type = "l", xlab = "Year", 
+     ylab = "Residual", main = "Residual time series")
+abline(h = 0, lty=2)
+acf(e0,main="Residual ACF")
+pacf(e0,main="Residual PACF")
+
+```
+
+The lag 1 coefficient is outwith the intervals, so we have statistically significant evidence of residual autocorrelation in the data. This shows that the model is not appropriate for the data. Let's try a time series regression approach.
+
+**Time series model**
+
+
+Lets begin with a simple AR(1) model:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(forecast)
+
+ar1_model <- Arima(log10(haddock.data$Biomass), order=c(1,0,0),
+                   xreg = haddock.data$Time,
+                   include.constant = TRUE) # Include intercept
+
+summary(ar1_model)
+
+```
+
+
+Now we can forecast into the future as follows:
+
+```{r}
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+forecast_result <- forecast::forecast(
+  ar1_model,
+  xreg = trend_preds$Time,
+  h = 10  # forecast horizon
+)
+autoplot(forecast_result)
+```
+
+
+Notice that our predictions are added as a blue solid line, with
+
+- Darker/lighter inner region indicating 80% prediction interval
+
+- Lighter/outer region indicating 95% prediction interval
+
+We check the time series diagnostic plots:
+
+
+```{r}
+layout(matrix(1:2, nrow = 1, byrow = TRUE))
+
+# Check model diagnostic plots:
+e1 <- resid(ar1_model)
+acf(e1, main = "Residual ACF for AR(1) model")
+pacf(e1, main = "Residual PACF for AR(1) model")
+```
+
+This looks much better, since the lag 1 coefficient is now within the confidence interval bounds, so we no longer have any statistically significant evidence of residual autocorrelation. Therefore, the AR(1) model appears to be appropriate for the data.
+
+We should also check the other diagnostic plots:
+
+```{r}
+layout(matrix(1:2, nrow = 2, byrow = TRUE))
+
+plot(resid(ar1_model), type = "o")
+qqnorm(resid(ar1_model))
+qqline(resid(ar1_model))
+```
+
+These do not look too bad --- there is little remaining pattern in the plot of residuals versus time (left) and the points seem to follow the line fairly well on the Q-Q plot (right). therefore, this model appears to be appropriate for the data.
+
+
+
+#  Part 2: Models for extremes {#sec-ext}
+
+Lets look at extreme data, and makes use of the `extRemes` R package.
+
+The data set `ewe_dailyflow_noleap.txt` provides daily river flows from the River Ewe.
+
+{{< downloadthis datasets/ewe_dailyflow_noleap.txt dname="ewe_dailyflow_noleap" label="Download Ewe data set" icon="database-fill-down" type="info" >}}
+
+Here we will use some tidy data manipulation & wrangling via the `tidyr` and `dplyr` R packages/ we will also make use of the `lubridate` library to handle date and time variables. Firs lets load the libraries and data:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(extRemes)  # library for GEV models
+library(lubridate) # library to work with dates and time
+library(tidyr)     # library for data tidying
+library(dplyr)     # library for data manipulation 
+
+#Read the data
+ewe <- read.table("datasets/ewe_dailyflow_noleap.txt",header=T)
+
+```
+
+We will work with the log-transformed flow. Here, we will use the `mutate` function fro `dplyr` to create our log-transformed variable named `log_flow`. We will also use this function to create a date variable by combining the information on the year, month and day:
+
+```{r}
+ewe <- ewe %>% mutate(
+   log_flow = log(flow),  # we'll work with logged data
+   date = make_date(year, month, day))
+```
+
+Lets visualise our daily time series data:
+
+```{r}
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+ggplot(data=ewe,aes(y=log_flow,x=date))+
+  geom_line(alpha=0.35)+
+labs(y="log flow")
+```
+
+
+Suppouse now we want to compute the annual maximum flows for the river Ewe. We can achieve this using the `sumarise` function from `dplyr`:
+
+```{r}
+ewe_max <- ewe %>% summarise(flow_max= max(log_flow),.by=year)
+```
+
+Here, the `.by` argument allows us to specify the grouping variable for which the max function `log_flow` of  will be summarised.
+
+::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 4
+
+Plot the annual maximum flows for the river Ewe and comment.
+
+```{r}
+#| webex.hide: "Click here to see the solution"
+#| code-fold: show
+#| purl: false
+#| message: false
+#| warning: false
+#| fig-align: center
+#| fig-width: 4.5
+#| fig-height: 4.5
+ggplot(data=ewe_max,aes(y=flow_max,x=year))+
+  geom_line(alpha=0.35)+
+labs(y="log flow annual maximum")
+  
+```
+
+:::
+
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+What does the plot produced in the previous task tells you?
+
+`r hide("See Solution")`
+
+From this, we can see that there is a potential increasing trend in the annual maximum flows at the start of the time period, but this does not continue after around 1974. In fact, this apparent trend is only due to the data for a few timepoints, and there is high variability, so that we cannot say that there is clear evidence for a trend here. 
+
+`r unhide()`
+
+:::
+
+Now,  we will use the `fevd` function from the `extRemes` library to estimate the GEV parameters using maximum likelihood. This function receives as input a numeric vector.
+
+
+```{r}
+# GEV model fitting
+fit_gev <- fevd(ewe_max$flow_max,method="MLE")
+results <- summary(fit_gev)
+```
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+What are the standard errors for the estimated scale parameter, $\sigma$, in your model (rounded to two decimal places)?
+
+`r fitb(round(results$se.theta[2],2),tol = .001)`
+:::
+
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+What is your estimate of the GEV parameter for location, $\mu$ (rounded to 2 decimal places)?
+
+`r fitb(round(results$se.theta[1],2),tol = .001)`
+:::
+
+Running the following code provides us with confidence intervals for the GEV model parameters:
+
+```{r}
+ci(fit_gev, alpha = 0.05, type = c("parameter"))
+```
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+Based on the output of the GEV model, which of the three families of the GEV distribution best describes extreme river flow events?
+
+`r hide("Take hint")`
+
+Looking at our course notes, we have the following statements:
+
+"The Gumbel, Frechet and Weibull distributions are all special cases (of the GEv distribution) depending on the value of $\xi$ (the shape parameter).
+
+* If $\xi < 0$, then we have the Weibull distribution.
+* If $\xi > 0$, then we have the Frechet distribution.
+* If $\xi \rightarrow 0$, then we have the Gumbel distribution."
+
+`r unhide()`
+
+`r mcq(c("Gumbel", "Frechet", answer = "Weibull"))`
+:::
+
+Running the following code provides us with estimates for the 10, 50 and 100 year return levels:
+
+```{r}
+return.level(fit_gev,return.period = c(10,50,100))
+```
+
+We can generate 95% confidence interval estimates for these return levels using the following code:
+
+```{r}
+ci(fit_gev, alpha = 0.05, type = c("return.level"),return.period = c(10,50,100))
+```
+
+
+
+::: {.callout-tip icon="false"}
+## {{< bi question-octagon color=#6dc83c >}} Question
+
+Based on the output above, state what the approximate return level would be for a 100-year return level - how would you communicate this statement to the a non-expert (e.g., the general public)?
+
+`r hide("Solution")`
+Since the 100-year return level is 5.36, we can say that a (log) flow of 5.36 is expected to be exceeded once on average, every 100 years.
+
+The interval bounds for the 10-year return level are (5.19, 5.52). A 100-year return level does **not** guarantee that a maximum flow will fall in a fixed range. Instead, it estimates a **threshold that is exceeded** on average once every 100 years.
+
+`r unhide()`
+:::
+
+
+

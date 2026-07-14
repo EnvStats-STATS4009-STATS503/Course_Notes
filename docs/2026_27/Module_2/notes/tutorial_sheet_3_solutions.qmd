@@ -30,32 +30,11 @@ Several of these examples are similar in nature to exam questions, in that you a
 
 
 
+
 ::: {.callout-warning icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 1
 
-The following excerpt is taken from the European Environment Agency web site, concerning one of their key indicators (CLIM008) for snow cover (accessed Jan 2011).
-
-*"Data from satellite monitoring (NESDIS-database at NOAA) from 1966 to 2005 show that monthly snow-cover extent in the northern hemisphere is decreasing by 1.3 % per decade (Figure 2.1), with the strongest retreat in spring and summer (UNEP, 2007)."*
-
-Discuss critically the statement concerning the decrease per decade, and the comment concerning the spring and summer effects. Figure 1 shows a 'trend' a 12 month running mean and the original values expressed as anomalies, compare and contrast the three representations.
-
-![Figure 1: Trends in Snow Cover](images/snow_cover_anomaly.png){fig-align="center" width="543"}
-
-
-`r hide("Solution")`
-
-The data plot (Fig 1) shows cycles and also a linear trend (with the slope estimated as % per decade). The green curve shows a 12 month running mean (so a smoothed curve), one could query the simplicity of the linear regression, since the running mean (moving average) does show fluctuations, although much smoothed in comparison to the original anomaly data. The comment that there is a strongest retreat in spring and summer suggest quite strongly that a simple straight line regression for the entire time period does not capture the ‘heterogeneity’ of rate of decline.
-
-`r unhide()`
-:::
-
-
-
-
-::: {.callout-warning icon="false"}
-## {{< bi pencil-square color=#c8793c >}} Task 2
-
-It is of interest to look at temperature records in Loch Lomond and to consider what the trend might be in water temperature. The data shown here are for Cailness in the north basin of the Loch. Comment on the patterns over time in this record. What other plots might you look at and how might you model this data to investigate the changes in temperature over time. There are some missing data values which you might consider how to impute. The data are available to explore on Moodle if you want to look at this in detail.
+It is of interest to look at temperature records in Loch Lomond and to consider what the trend might be in water temperature. The data shown here are for Cailness in the north basin of the Loch. Comment on the patterns over time in this record. What other plots might you look at and how might you model this data to investigate the changes in temperature over time. There are some missing data values which you might consider how to impute. 
 
 ![Figure 2: Cailness temperature over time](images/Cailness.png){fig-align="center" width="531"}
 
@@ -74,7 +53,7 @@ You could be asked to look at the original equation for the harmonic regression 
 
 
 ::: {.callout-warning icon="false"}
-## {{< bi pencil-square color=#c8793c >}} Task 3
+## {{< bi pencil-square color=#c8793c >}} Task 2
 
 The following excerpts are taken from the National Snow and Ice Data Centre (NSIDC) site, concerning arctic sea ice:
 
@@ -100,7 +79,7 @@ Statement 3a, several aspects to comment on, the most straightforward concerns t
 
 
 ::: {.callout-warning icon="false"}
-## {{< bi pencil-square color=#c8793c >}} Task 4
+## {{< bi pencil-square color=#c8793c >}} Task 3
 
 Carbon dioxide concentrations are routinely measured at many places around the globe- one such data set is shown below with also some text describing how the plot and smooth curve was produced.
 
@@ -129,6 +108,49 @@ Critically, we have time series data, there are gaps, so a smooth curve is fitte
 
 
 ::: {.callout-warning icon="false"}
+## {{< bi pencil-square color=#c8793c >}} Task 4
+
+
+A researcher monitors monthly water temperature (°C) at a river station over 8 years ($n=96$ observations, $t = 1,\ldots,96$). Water temperature in rivers is well known to follow an annual seasonal cycle driven by air temperature and solar radiation. Thus, the research fits the harmonic regression model to the  river temperature data:
+
+$$
+\mathbb{E}(Y_t) = \beta_0 + \beta_1\cos\left(\frac{2\pi t}{P}\right) + \beta_2\sin\left(\frac{2\pi t}{P}\right)
+$$
+with the following R output:
+
+```
+lm(formula = temp ~ cos(2 * pi * t/P) + sin(2 * pi * t/P))
+
+Coefficients:
+                     Estimate Std. Error t value Pr(>|t|)    
+(Intercept)           12.430      0.187   66.47   <2e-16 ***
+cos(2 * pi * t/P)    -4.216      0.264  -15.97   <2e-16 ***
+sin(2 * pi * t/P)     2.850      0.264   10.79   <2e-16 ***
+---
+Residual standard error: 1.826 on 93 degrees of freedom
+Multiple R-squared:  0.834,	Adjusted R-squared:  0.830 
+F-statistic: 233.6 on 2 and 93 DF,  p-value: < 2.2e-16
+
+```
+
+Answer the following:
+
+1. What value of `P` (i.e., the period) was used in this model? 
+2. State the fitted regression equation
+3. Calculate the amplitude of the seasonal cycle.
+
+`r hide("Solution")`
+
+1. P = 12 months —  data is monthly and one full annual cycle spans 12 observations.
+2. $\widehat{\text{temp}}_t = 12.430 - 4.216\cos(2\pi t/12) + 2.850\sin(2\pi t/12)$
+3. $\sqrt{(-4.216)^2+2.85^2} \approx 5.09.$
+
+`r unhide()`
+
+:::
+
+
+::: {.callout-warning icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 5
 
 The following excerpt is taken from the European Environment Agency web site, concerning one of their key indicators (CSI012) for European temperature (accessed Jan 2010):
@@ -153,58 +175,44 @@ This example is again all about trends, expressed one presumes as a linear trend
 ::: {.callout-warning icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 6
 
-The plot below shows the Monthly time series of phosphorous (P) concentrations in mg/l, Speed River, Guelph, Ontario between 1972.1--1977.1.
+Suppose the following change point detection model of the form 
 
-![](images/Speed.png){fig-align="center"}
+$$Y_i = \alpha_1 + \beta_1x_i - (\beta_1-\beta_2)(x_i-c)_+ + \varepsilon_i$$
+where $(x - c)_+ = \begin{cases} 0 & \text{if } \ x < c\\ x- c & \text{if } x \geq c \end{cases}$
 
-Comment subjectively on the patterns in the plots P in the River Guelph and how you might statistically model any trends/patterns over time observed.
+Show that 
 
-The output below shows the summary information for the Mann Kendall score for all time points and for the data split by month (Seasonal). Use the information to carry out a Mann Kendall test and seasonal Mann Kendall test and compute the Mann Kendall correlation coefficient for each. Interpret your results.
-
-```         
-All Time Points          Seasonal
-D = 2546.482             D = 178.4556
-S =  -1171               S = -99
-Var(S) = 42292.33        Var(S) = 337
-```
+1.  When $x_i < c$, $\mathbb{E}(Y_i) = \alpha_1 + \beta_1x_i$
+2.  When $x_i \geq c$, $\mathbb{E}(Y_i) =  \alpha_2 + \beta_2 x_i$ such that $\alpha_2 = \alpha_1 + (\beta_1 - \beta_2)c$
 
 
 `r hide("Solution")`
 
-The plots show a decreasing trend. The plot of the data on the original scale indicates non-constant variability but this seems to have been dealt with by the application of the log transformation. Subjectively there may be an indication of a change point in 1974 were there is a large jump in the level of P and so a changepoint analysis may be applied here.
+1. when $x_i < c$, $\mathbb{E}(Y_i) = \alpha_1 + \beta_1x_i - (\beta_1-\beta_2)\overbrace{(x_i-c)_+}^{0}  = \alpha_1 + \beta_1 x_i$
+2. When $x_i \geq c$, 
 
-The data are quite noisy but there is some indication of a seasonal pattern. This could be incorporated using a harmonic regression term within a linear regression. Alternatively, we could assess if there was a trend using a seasonal Mann Kendall test to check if there was any evidence of a monotonic change in P over the time period considered.
 
-```         
-All Time Points        Seasonal
-D = 2546.482           D = 178.4556
-S =  -1171             S = -99
-Var(S) = 42292.33      Var(S) = 337
-```
-
-All data:
-
--   $\text{Tau} = S/D = -1171/2546.482= -0.46$
--   $Z= (-1171+1)/\sqrt{42292.33} = -5.7$.
-
-Seasonal:
-
--   $\text{Tau} = S/D = -99/178.4556= -0.55$
--   $Z= (-99+1)/\sqrt{337} = -5.3$.
-
-Both the Z score for all data together and the Z score after the seasonal adjustment are greater than the critical value of 1.96 (in absolute value terms). So there is evidence of a statistically significant monotonic trend in the data. The tau values of -0.46 for all data together, and -0.55 for the data taking into account the seasonal component both suggest there is a moderate negative monotonic trend. This supports the initial impression gained from inspection of the data.
+$$
+\begin{align}
+\mathbb{E}(Y_i) &=\alpha_1 + \beta_1x_i - (\beta_1-\beta_2)(x_i-c)\\
+&=\alpha_1 + \beta_1x_i - \beta_1x_i+ \beta_1 c +\beta_2 x_i - \beta_2 c\\
+&=\alpha_1 + \beta_1 c  - \beta_2 c + \beta_2 x_i \\
+&=\alpha_1 + c (\beta_1   - \beta_2) + \beta_2 x_i  \quad \color{grey}{\text{setting } \alpha_2 = \alpha_1 + c (\beta_1   - \beta_2)} \\
+&= \alpha_2 + \beta_2 x_i
+\end{align}
+$$
 
 
 `r unhide()`
-
 :::
+
 
 
 
 ::: {.callout-warning icon="false"}
 ## {{< bi pencil-square color=#c8793c >}} Task 7
 
-The figure below shows a regression example from a recent paper in Science (Johnson et al, 2014) which investigated the rate of thinning of the Pine Island glacier. They fit a "2-segment, piecewise-linear age-elevation history to the Mt Moses data".
+The figure below shows a regression example from a  paper in Science (Johnson et al, 2014) which investigated the rate of thinning of the Pine Island glacier. They fit a **2-segment, piecewise-linear age-elevation history to the Mt Moses dat**.
 
 ![](images/MtMoses.png){fig-align="center" width="383"}
 

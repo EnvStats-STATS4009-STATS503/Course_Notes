@@ -38,7 +38,7 @@ A **time series** is a sequence of measurements on the same object made over tim
 We can write our set of time series data as $y_1, \ldots, y_T,$ where $y_i$ is the observation at time point $i$, and $T$ is the total number of observations. Time series data are typically **not independent**, since there will often be correlation between consecutive observations. This dependency structure must be taken into account when modelling.
 
 ::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 1
+## {{< bi question-octagon color=#6dc83c >}} Question
 
 Can you spot any dependency structure shown in the below plot of log(flow) in the River Dee?
 
@@ -51,17 +51,11 @@ There is a clear structure to the data. It looks like there is a repeated patter
 `r unhide()`
 :::
 
-::: {.callout-important icon="false"}
-## {{< bi box color=#005C8A >}} Example: Mauna Loa
+Lets look at another example. Mauna Loa in Hawaii is one of the biggest and most active volcanoes in the world. $\text{CO}_2$ levels have been monitored since 1958. Mauna Loa is one of the first sites worldwide where increasing $\text{CO}_2$ levels were identified (@fig-Mauna)..
 
-Mauna Loa in Hawaii is one of the biggest and most active volcanoes in the world. $\text{CO}_2$ levels have been monitored since 1958. Mauna Loa is one of the first sites worldwide where increasing $\text{CO}_2$ levels were identified.
+![](images/MaunaLoa.png){#fig-Mauna fig-align="center" width="500"}
 
-![](images/Volcano1.png){height="180"}![](images/Volcano2.png){height="180"}
-
-We can observe a clear trend, and also a seasonal pattern. It may be sensible to standardise the data and represent all observations in terms of '**anomalies**', i.e., their deviation from the starting point (1960 mean level).
-
-![](images/MaunaLoa.png){width="500" fig-align="center"}
-:::
+@fig-Mauna shows a clear trend, and also a seasonal pattern. It may be sensible to standardise the data and represent all observations in terms of '**anomalies**', i.e., their deviation from the starting point (1960 mean level).
 
 ::: {.callout-important icon="false"}
 ## {{< bi box color=#005C8A >}} Example: Global temperature
@@ -74,7 +68,7 @@ The plot below shows the global temperature anomaly (the current value compared 
 :::
 
 ::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 2
+## {{< bi question-octagon color=#6dc83c >}} Question
 
 How would you describe the change in global temperature shown in the above plot?
 
@@ -140,7 +134,7 @@ The monthly pattern is very similar to a sine wave, and we can use this feature 
 
 ![](images/Harmonic.png){width="400" fig-align="center"}
 
-Harmonic regression is based on an equation of the form 
+Harmonic regression is based on an equation of the form
 
 $$Y_t = \beta_0 + \gamma \sin\left(\frac{2\pi [u_t - \theta]}{p}\right) + \epsilon_t$$
 
@@ -165,239 +159,145 @@ Our new parameters $\gamma_1$ and $\gamma_2$ control the seasonal trends, with $
 
 The standard harmonic regression assumes we have the **same seasonal pattern** each year, but this may not always be appropriate. There are many more sophisticated models available if this assumption does not hold. Some are still based on sine and cosine waves, while others may use autocorrelation functions or a form of semiparametric smoothing.
 
-## Time Series Model
+# Changepoints
 
-The seasonal variation can sometimes be so strong that it obscures the overall trend (or any other patterns). In most cases, we are not actually particularly interested in actually knowing about the seasonal trend. In these cases, it is simply a nuisance factor that we need to account for in our model. Our primary interest is usually in understanding the longer term trends in our data.
+One of the main reasons we analyze environmental data is to detect changes. Sometimes these changes occur organically, either as the result of some natural environmental process, or some non-deliberate human action. In some other occasions these changes occur by design, as the result of a deliberate and controlled human action (e.g., policy changes). Regardless of the reason for the change, we want to understand more about when it happened and the extent of the change.
 
-We often try to remove or separate out this seasonal pattern when analysing time series. We can therefore think of our overall time series model in the following form: 
+In statistics, a **changepoint** is a point in time after which some or all of the model parameters might change. Most commonly this is a change in mean or variance, but it could also be a change in some other feature of the data. We may not always know exactly when the changepoint occurs or whether we have a changepoint at all. In some cases we may have more than one changepoint.
 
-$$X = \text{trend} + \text{seasonal component} + \text{error}$$
+Reasons for changepoints might include:
 
-In terms of mathematical notation, we can write this as 
+-   Environmental events, e.g. flooding, volcanic eruption.
+-   Policy, e.g. low emissions zones, water quality regulations.
+-   Changes to measuring equipment.
 
-$$X_t = m_t + s_t + \epsilon_t.$$ Our error, $\epsilon_t$ is assumed to be random, and follows the distribution $\epsilon_t \sim \text{Normal}(0, \sigma^2)$.
+![Plot showing shifts in mean values at changepoints. X-axis is time, y-axis is value, red lines represent the 4 mean levels, and black lines join the data points.](images/Changepoints.png){width="400" fig-align="center"}
 
-## Estimating Trend
+![Plot showing shifts in variance at changepoints. X-axis is time, y-axis is value, and black lines join the data points.](images/Changepoints2.jpeg){width="400" fig-align="center"}
 
-We have now identified a method for isolating the trend in our model. However, we still have to work out the best way to explore and understand this trend. We want to know the size of the trend, but also have to assess whether it is linear, and also test for statistical significance.
+Some simple examples of changepoints include:
 
-A variety of models and techniques exist for exploring our trend.
+-   A shift up (or down) of the mean.
+-   A short-term change in the mean.
+-   A change in a model parameter, eg slope.
+
+![Illustration of the simple examples of changepoints above.](images/ChangepointTypes.png){width="300" fig-align="center"}
+
+Consider a series with two different mean levels. The first 20 observations come from $\mbox{N}(10,1)$ and the next 20 observations come from $\mbox{N}(15,1)$. Our ability to detect this change depends on the size of the change and the variability in the data. The plots below illustrate these data and a possible model for these.
+
+![Plot of response value by time point, for the 20 observations from \$\\mbox{N}(10,1)\$ followed by the 20 observations from \$\\mbox{N}(15,1)\$. Data are red points.](images/MeanChangeData.png){width="300"} ![Illustration of a possible model for the data in the previous plot, with times \$t\$ and response values \$Y\$, with changepoint \$c\$.](images/MeanChangeModel.png){width="300"}
+
+It can be difficult to distinguish changepoints from trend. The plots below illustrate how the magnitude of the shift in mean value can affect our ability to identify the shift in mean. The bottom right plot illustrates the additional effect of a change in variance.
+
+![Plots of data (response value by time point) from different distributions with mean shifts at timepoint 20.](images/MeanShiftExamples.png){width="500" fig-align="center"}
+
+## Known changepoint
+
+Sometimes it is known that a change occurred at a specific timepoint, but the magnitude or shape of this change are not known.
+
+### Known changepoint --- mean shift
+
+Suppose that we have a series of data $Y_i$ collected at a set of timepoints $t_i$ with $i=1,\ldots, n$. If our known changepoint is at time $c$, then we can construct an indicator function $$\mathcal{I}_{t_i} = 
+\begin{cases}
+0\hspace{0.5cm} \text{if } \hspace{0.1cm} t_i < c\\
+1\hspace{0.5cm} \text{if } \hspace{0.1cm} t_i \geq c
+\end{cases}$$ This can then be included as a parameter in our regression model $$Y_i = \beta_0 + \varphi\mathcal{I}_{t_i} + \epsilon_i$$
+
+Here, $\varphi$, the coefficient of the indicator function ,can be described as the **intervention effect**. If this parameter is significant in our model, that implies that we have a significant change in mean at timepoint $c$.
+
+### Known changepoint --- change in slope
+
+We also need to consider examples where we observe a change in slope at a known timepoint.
+
+![Plot of value by time, with data as black dots, and changepoint at time $c$ illustrated by vertical dashed red line.](images/SegmentData.jpg){width="300" fig-align="center"}
+
+It would be possible to fit two separate regressions. However, this seems quite simplistic, and it would be better to have a single continuous model.
+
+![Plot of value by time, with data as black dots, and changepoint at time $c$ illustrated by vertical dashed red line. Blue regression lines represent the fitted separate regression models.](images/SegmentNaive.jpg){width="300" fig-align="center"}
+
+We want our regression to be continuous at $c$ such that we have $$\alpha_1 + \beta_1 c =  \alpha_2 + \beta_2 c$$ This can be rewritten in terms of a single model parameter, as $$\alpha_2 = \alpha_1 + c(\beta_1 - \beta_2)$$ We can thus update our equations to the following, which is known as **piecewise regression** (or segmented regression):
+
+$$
+\begin{aligned}
+Y_i &= \alpha_1 + \beta_1 x_i + \epsilon_i\hspace{16mm} &\mbox{ for } x<c\\
+Y_i &= \alpha_1 +  (\beta_1 - \beta_2)c + \beta_2 x_i + \epsilon_i\hspace{2mm} &\mbox{ for } x\geq c
+\end{aligned}
+$$
+
+
+
+The two linear parts of our model now meet at $c$. Note that our piecewise model is more efficient than two separate regressions, since it uses one fewer parameter.
+
+
+![Plot of value by time, with data as black dots, and changepoint at time $c$ illustrated by vertical dashed red line. Grey regression lines represent the fitted piecewise regression model.](images/SegmentModel.jpg){width="300" fig-align="center"}
+
+Note that this could be expressed as a single model using an indicator (basis) function  $(x - c)_+ = \begin{cases} 0 & \text{if } \ x < c\\ x- c & \text{if } x \geq c \end{cases}$, yielding to
+
+
+$$
+Y_i = \alpha_1 + \beta_1x_i - (\beta_1-\beta_2)(x_i-c)_+ + \varepsilon_i
+$$
+
+
+This model can be implemented in `R` using the standard `lm()` function by treating `(\beta_1-\beta_2)` as a new coefficient in our linear model (we will cover this on the lecture). However, in many cases we may have more complex changes to our trend. There are a variety of more advanced models for known changepoints, but these are all based on the same underlying principles. For example, the bent cable model allows for an extended "transition phase" between the two slopes, often represented by a smooth curve.
 
 ::: {.callout-important icon="false"}
-## {{< bi box color=#005C8A >}} Example: Bird populations
+## {{< bi box color=#005C8A >}} Example: Chlorofluorocarbons (CFCs)
 
-We have collected annual data on the population of two birds between 1975 and 2005. What are the trends? Are they significantly different from zero?
+Chlorofluorocarbons (CFCs) are pollutants which were often used in aerosols. Their use was phased out in the 1990s as a result of environmental policy. We can see this "phasing out" period represented in the model.
 
-![](images/Birds.jpg){width="500" fig-align="center"}
-
-We have fitted two models to attempt to assess the trends for each bird. The blue line is a linear regression, while the red line is a more flexible additive model.
-
-![](images/BirdModels.png){width="500" fig-align="center"}
+![Diagram illustrating the bent cable model as fitted to CFC-11 (ppt) values between 1988 and 2000.](images/CFC.png){width="500" fig-align="center"}
 :::
 
-::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 3
+## Unknown changepoint
 
-Which of the models are more appropriate? Have we adequately captured the patterns in the data?
+It can be more challenging to fit a changepoint model when you don't clearly know exactly when the change occurred. One of the most popular methods is an iterative approach which searches across the entire range of our data for possible changepoints.
 
-`r hide("Solution")`
+::: {.callout-important icon="false"}
+## {{< bi box color=#005C8A >}} Example: River Nile flow data
 
-Neither relationship appears to be linear, so that the additive models are more appropriate than the linear regression models here. However, both models fail to capture the peaks in the data well, so that we could consider whether other models are more appropriate. E.g., models for extremes may be more appropriate if we are interested in the peaks.
+We have historic data on the levels of the River Nile around the city of Aswan, Egypt. Is there any evidence of a change in water volume? If so, when did it occur?
 
-`r unhide()`
-:::
+![River Nile.](images/Nile.jpg){width="200" fig-align="center"}
 
-In our bird population example, both models indicate the overall trend, but they do not test for significance. We therefore cannot be sure whether the changes are 'genuine' or are simply down to random variation. We can use non-parametric approaches (e.g., Mann-Kendall test and the Seasonal Kendall) to assess the trend in our data.
+![Plot of River Nile volume by year, Aswan.](images/NileData.png){width="350" fig-align="center"}
 
+We can examine the data by fitting a LOWESS curve. There does appear to be a change around 1900. However, we need to explore this further via a model.
 
-### Mann-Kendall test
+![Fitted LOWESS curve for River Nile data.](images/NileLoess.png){width="350" fig-align="center"}
 
-The **Mann-Kendall test** is commonly used to detect trends in environmental, climate, and hydrological data. It looks for a consistent increase or decrease in a trend over time (not necessarily linear). It is commonly used for short time series, where we may not have sufficient data for more sophisticated approaches.
+We use the `segmented()` function in R (in the package also called `segmented`) to fit an unknown changepoint model, using the following steps:
 
-Assume we have an ordered dataset $z_1, \ldots, z_T$
+-   First, fit a standard regression using `lm()`.
+-   We then pass the linear model into our `segmented()` function along with an initial estimate of the changepoint.
+-   This initial estimate (`psi = 1900`) is used as a starting point for our iterative algorithm.
 
-1.  Compute ALL possible differences $d = z_j - z_k$ where $j>k$.
-
-2.  Create an indicator function $\text{sign}(z_j - z_k)$ such that:
-
-$$
-\begin{aligned}
-\text{sign}(z_j - z_k) = 
-\begin{cases} 
-1 & \text{if } z_j - z_k > 0 \\
-0 & \text{if } z_j - z_k = 0 \\
--1 & \text{if } z_j - z_k < 0
-\end{cases}
-\end{aligned}
-$$
-
-3.  The Mann-Kendall statistic, $S$, is given by $$S = \sum_{k=1}^{n-1}\sum_{j=k+1}^n \text{sign}(z_j - z_k)$$
-
-Our test statistic measures the size and direction of the trend:
-
--   A positive value of $S$ suggests the data are increasing over time (an upward trend).
--   A negative value of $S$ suggests a downward trend.
--   $S=0$ implies no trend.
-
-We can carry out a hypothesis test to assess whether $S$ is significantly different from zero:
-
-$$
-\begin{aligned}
-H_0&: \text{our data are independent random realisations (no trend)} \\
-H_1&: \text{there is a significant trend in our data}
-\end{aligned}
-$$
-
-We compare the test statistic to a standard normal distribution $Z_{(1-\alpha/2)}$.
-
-We can use the `mk.test` function in the `trend` R package, to carry out the Mann-Kendall test.
-
-::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 
-
-Below, we have plotted the average discharge (m$^3$) from the River Rhine over many years (black line), with the overall trend line added (red line).
-
-![](images/MKexample.png){width="400" fig-align="center"}
-
-We carry out the Mann-Kandall test in R as follows, where the vector `Q` contains the average discharge data:
+We run this in R:
 
 ```{r, eval=FALSE}
-mk.test(Q)
+out.lm <- lm(Volume ~ Year)
+mod <- segmented(out.lm, seg.Z = ~Year, psi = 1900)
 ```
 
-``` r        
-Mann-Kendall Test two-sided homogeneity test
-Statistics for total series
-
-H0: S = 0 (no trend)
-HA: S != 0 (monotonic trend)
-
-Statistics for total series
-      S  varS    Z    tau  pvalue
- 1 -144 10450 -1.4 -0.145 0.16185
+```         
+psi1.x  
+  1913  
+  
+slope(mod)
+$x
+          Est. St.Err. t value
+slope1 -8.1820   1.759  -4.650
+slope2  0.7458   1.084   0.688
 ```
 
-Given these results, what can we say in terms of the hypotheses of the test?
+The final model output suggests that the changepoint occurred in 1913. Prior to 1913, the volume was decreasing by 8.18 units per year. Afterwards, it was increasing by 0.75 units per year.
 
-`r hide("Solution")`
+The Aswan Low Dam was constructed between 1899--1902, massively impacting river levels in the area. Therefore it is more sensible to fit a model which introduces a mean shift, rather than a change of slope. Subject matter expertise is key!
 
-Here we see a p-value of 0.16, which means that there is no evidence to reject $H_0$ and therefore we believe that it is possible that there is no trend present.
+![Aswan Dam.](images/Aswan.png){height="180"} ![Aswan Dam from above.](images/Aswan2.png){height="180"}
 
-`r unhide()`
+In this case, given there is a clear reason why the time series will change either side of the dam's construction, we need to fit two separate models. The plot below shows two separate penalised spline models for the before and after periods.
+
+![Fitted LOWESS curves for River Nile data (separate for before/after 1900).](images/NileShift.png){width="350" fig-align="center"}
 :::
 
-### Kendall rank correlation coefficient
-
-We can also compute a rank correlation coefficient, $\tau$, which measures the strength of our trend, $$\tau = \frac{S}{D}.$$ Here, $D = \frac{n(n-1)}{2}$, the number of pairwise comparisons used in the calculation of $S$. $\tau$ has a range $(-1, 1)$, similar to the standard correlation used in regression modelling.
-
-::: {.callout-tip icon="false"}
-## {{< bi question-octagon color=#6dc83c >}} Exercise 
-
-Chlorophyll levels in a lake have been measured over 36 years, as shown in the plot below.
-
-![](images/KendallTau.png){width="300" fig-align="center"}
-
-Given that $S=384$, compute $\tau$ to measure the strength of the trend.
-
-*Answer (to 2 decimal places):* `r fitb(answer = "0.61")`
-
-`r hide("Solution")`
-
-$$
-\begin{aligned}
-D &= \frac{n(n-1)}{2} \\
-&= \frac{35 \times 36}{2} \\
-&= 680\\
-\\
-\tau = \frac{S}{D} &= \frac{384}{680} = 0.61
-\end{aligned}
-$$
-
-`r unhide()`
-:::
-
-## Seasonal Kendall test
-
-The *seasonal* Kendall test accounts for seasonality by computing $S$ for each of $M$ seasons separately, then combining the results. For example, if we had monthly data, we might compute $S$ separately for each month. Let $S_j$ be the Kendall statistic for season $j$, then the overall statistic is given by: $$S_k = \sum_{j=1}^M S_j$$
-
-Again, this can be compared to a standard normal distribution $Z_{(1-\alpha/2)}$.
-
-
-
-## Smoothing in Time Series
-
-Environmental time series data are often complex and traditional parametric methods are difficult to implement. The relationship between our parameter of interest and time may not follow a linear pattern. We could simply keep adding polynomial functions, but this may become inefficient and lead to a model with too many parameters. It is often more elegant to consider an approach which uses **smoothing**.
-
-We can express the relationship between any response and explanatory variable as $$y = f(x).$$
-
-Here $y$ is the response, $x$ is our explanatory variable and $f()$ is a function which describes their relationship. Smoothing techniques are used to model $f()$ without specifying any specific statistical form of the underlying function.
-
-There is a whole course on smoothing methods (Flexible Regression), and many of you will already have taken this. Therefore we will simply focus briefly on a couple of key methods which are used for environmental data. We will look at one method mainly used for descriptive purposes (LOWESS) and one which is used for estimation (penalised splines).
-
-### LOWESS
-
-LOWESS (LOcally WEighted Scatterplot Smoothing) is an approach which is often used to obtain a graphical illustration of our data. It involves carrying out a series of polynomial regressions on small regions of the data, and then combining them. The more datapoints we have in a region, the smoother our curve will be. This can be somewhat computationally intensive compared to simple moving average methods, but generally produces a smoother function.
-
-LOWESS involves carrying out the following steps:
-
--   Identify a target point, $x$.
--   Construct a \`window' containing its $k$ nearest neighbours.
--   Fit a weighted polynomial to these $k$ datapoints.
--   We then choose a new target point and repeat until we have covered all timepoints.
-
-![](images/LOWESS1.png){width="300" fig-align="center"}
-
-We have to decide on the size of the window. In R, the default is that each window contains two-thirds of the data. We can fit these models in R using the `scatter.smooth` or `loess` functions. The different colours in the plot below show different sizes of windows. The wider the window, the smoother the function (green narrowest, red widest).
-
-![](images/LOWESS2.png){width="300" fig-align="center"}
-
-::: {.callout-important icon="false"}
-## {{< bi box color=#005C8A >}} Example: SO$_2$ levels
-
-Air quality $\text{SO}_2$ levels are measured daily over 30 years. The right plot with a wider window (higher bandwidth) is smoother (maybe too smooth?). The narrower bandwidth on the left leads to a gap where there are missing values.
-
-![](images/LOWESS3.png){fig-align="center"}
-:::
-
-### Splines
-
-**Splines** are an alternative approach to constructing a smooth function. This approach uses piecewise polynomials to estimate the function $f(x)$. Spline functions are polynomial segments which are joined together smoothly at predefined subintervals. The points where the functions join together are known as **knots**.
-
-![](images/Spline1.png){width="300" fig-align="center"}
-
-Our model takes the form: $$Y_i = f(x_i) + \epsilon_i$$
-
-We estimate the function $f()$ as $$\hat{f}(x_i) = \sum_{k=0}^p\beta_k b_k(x_i)$$\
-Here, $b_k()$ is a set of polynomial functions known as *basis functions* and $\beta_k$ are their coefficients. We must decide in advance the value of $k$, which defines the number of basis functions used.
-
-Increasing the number of basis functions leads to a more "wiggly" line. Too few basis functions might make the line too smooth, too many might lead to overfitting.
-
-![](images/Spline2.png){width="500" fig-align="center"}
-
-Choosing the correct number of basis functions can be difficult. Penalised splines (p-splines) avoid this issue. Using penalised splines, we can set a large number of basis functions, but then penalise the coefficients to encourage smoothness. This is a modified form of a standard linear regression, with a parameter $\lambda$ which controls the smoothness of the estimator.
-
-### Additive Models
-
-Developing methods for estimating smooth functions is only one part of the process. We must also work out how to include these in our models. Additive models are a general form of statistical model which allows us to incorporate smooth functions alongside linear terms. $$y_i = \alpha + \sum_{j=1}^k g_j (x_{ij}) + \epsilon_{ij}$$
-
-Here $g_j()$ is a smooth function for the $j$th explanatory variable and $\alpha$ is the overall mean. Note that $g_j()$ could simply be a linear function for one or more variables.
-
-Suppose that we have a variable that exhibits a long-term trend and a seasonal pattern (like we saw in the Mauna Loa example). There are two main ways that we can incorporate this: via a separable structure, or via a non-separable structure.
-
-#### Separable trend and seasonality
-
-We could fit a model with smooth terms for both year (top plot) and month (bottom plot). We assume that the seasonal pattern does not change from year to year (i.e., no interaction). This can be written in the form $$y = f_1(x_1) + f_2(x_2) + \epsilon$$
-
-We can observe a roughly linear increasing trend, but with a seasonal pattern featuring a peak in the winter.
-
-![](images/Additive1.png){width="250"} ![](images/Additive2.png){width="250"}
-
-#### Non-separable trend and seasonality
-
-Suppose we decided there was a month by year interaction (i.e., the seasonal pattern may differ by year, or the long-tern trend over the years may differ by month). We would incorporate this via a bivariate term. This can be written in the form $$y = f(x_1, x_2) + \epsilon$$
-
-This can be harder to interpret visually, but we can still see a similar pattern.
-
-![](images/Bivariate.png){width="300" fig-align="center"}
-
-Note that this non-separable structure also introduces additional computation complexity (i.e., we have lots more parameters to estimate), so that it may be much slower to fit such a model, or it may require additional computational resources, compared to fitting a model with a separable structure.

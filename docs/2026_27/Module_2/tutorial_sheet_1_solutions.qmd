@@ -23,7 +23,6 @@ css: styles.css
 library(webexercises)
 ```
 
-
 # Part A: Censoring and uncertainty calculations.
 
 ::: {.callout-tip icon="false"}
@@ -280,7 +279,7 @@ In the case of a simple random sample $x_1,..., x_n$ of a random variable, $X$, 
 
 (c) Show that $E(s^2) = \sigma^2$.
 
-$$E(s^2) = E\left(\frac{1}{n-1}\sum(X_i - \bar{X})^2 \right)$$ $$=\frac{1}{n-1}E\left(\sum \left(X_i - \bar{X})^2 \right)\right)$$ $$=\frac{1}{n-1}E\left(\sum X_i^2 - 2\sum X_i \bar{X} + \sum\bar{X}^2\right)$$ $$=\frac{1}{n-1}E\left(\sum X_i^2 - 2 \bar{X}\sum X_i + n\bar{X}^2\right)$$ Remember that [ ]{.aside}[$2 \bar{x} \sum x_i = 2\bar{x}\cdot n\bar{x} = 2n\bar{x}^2$]{.aside}
+$$E(s^2) = E\left(\frac{1}{n-1}\sum(X_i - \bar{X})^2 \right)$$ $$=\frac{1}{n-1}E\left(\sum \left(X_i - \bar{X})^2 \right)\right)$$ $$=\frac{1}{n-1}E\left(\sum X_i^2 - 2\sum X_i \bar{X} + \sum\bar{X}^2\right)$$ $$=\frac{1}{n-1}E\left(\sum X_i^2 - 2 \bar{X}\sum X_i + n\bar{X}^2\right)$$ Remember that [$2 \bar{x} \sum x_i = 2\bar{x}\cdot n\bar{x} = 2n\bar{x}^2$]{.aside}
 
 $$=\frac{1}{n-1}\left(E\left(\sum X_i^2\right) - E\left(n\bar{X}^2\right)\right)$$ $$=\frac{1}{n-1}\left(\sum E\left(X_i^2\right) - nE\left(\bar{X}^2\right)\right)$$ $$=\frac{1}{n-1}\left(n\left(\sigma^2 + \mu^2\right) - n\left(\frac{\sigma^2}{n} + \mu^2\right)\right)$$ $$=\frac{1}{n-1}\left(n \sigma^2 - n \frac{\sigma^2}{n}\right)$$ $$=\frac{1}{n-1}\left(n-1\right)\sigma^2 = \sigma^2$$
 
@@ -297,7 +296,7 @@ $$=\frac{1}{n-1}\left(E\left(\sum X_i^2\right) - E\left(n\bar{X}^2\right)\right)
 (b) Determine the optimal number of population units of measure in each of the 4 strata. Find the total number of units to sample, assuming cost is fixed (where total=£50,000 and cost per unit is £500 for all strata).
 
 | strata | Size $\times$ area of the stratum $N_l$ | $n_l$ | Mean for stratum | Variance $s^2_l$ |
-|---------------|---------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | 1 | 351,000 | 18 | 4.1 | 30.42 |
 | 2 | 82,300 | 12 | 73 | 10,800 |
 | 3 | 26,200 | 13 | 270 | 127,413 |
@@ -340,7 +339,7 @@ $$s(\hat{I}) = \sqrt{1.354 \times 10^{13} = 3679674 \mu\text{Ci} \approx 3.7\tex
 $$n_l = n \frac{W_l\sigma_l}{\sum_{i=1}^L W_l\sigma_l}$$ Alternatively, we could use proportional allocation
 
 | Proportion of total population $\frac{N_l}{N} = W_l$ | $W_l s_l$ | Proportional allocation $nW_l$ | Neyman allocation $n_l=n \frac{W_l s_l}{\sum_{l=1}^L W_l s_l}$ |
-|------------------|------------------|------------------|------------------|
+|----|----|----|----|
 | $351/470.5=0.746$ | $0.746 \times \sqrt{30.42}$ | 74 | $\frac{100\times 0.746\times\sqrt{30.42}}{48.98} = 8$ |
 | $82.3/470.5=0.175$ | $0.175\times\sqrt{10800}$ | 18 | 37 |
 | $26.2/470.5=0.056$ | $0.056\times\sqrt{127413}$ | 6 | 41 |
@@ -408,7 +407,6 @@ Read pages 17--23 of the Analytical Laboratories for the Measurement of Environm
 
 {{< downloadthis ALMERA_Soil_Sampling.pdf dname="ALMERA_Soil_Sampling" label="Download ALMERA report" icon="database-fill-down" type="info" >}}
 
-
 `r hide("Solution")`
 
 **ALMERA Sampling strategy**
@@ -424,10 +422,7 @@ For two sub areas (cells) each of the 25 samples/cell were analysed separately i
 The sampling approach used is fundamentally systematic. The sample preparation and analytical activity were performed by a single laboratory in order to rule out the variabilities due to different analytical laboratories.
 
 `r unhide()`
-
 :::
-
-
 
 ::: {.callout-tip icon="false"}
 ## {{< bi question-octagon color=#6dc83c >}} Task 12
@@ -447,5 +442,4 @@ The advantage of this approach is that the estimates we get would be more precis
 However, there are potential disadvantages. One of which is to use a proportional sampling scheme we need to have knowledge about the relative sizes of the different strata in the population. An additional potential disadvantage is that there may be some strata where there are very small numbers of firms, and so there are possible issues surrounding information disclosure or identifiability and the entire population of the strata is sampled.
 
 `r unhide()`
-
 :::
